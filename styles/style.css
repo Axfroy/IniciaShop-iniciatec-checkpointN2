@@ -1,0 +1,18 @@
+.container-body{
+
+}
+
+.dsp-none{
+    display: none;
+}
+.container-hero{
+    background: rgb(0, 0, 0);
+}
+video{
+    width: 100%;
+    height: 98vh;
+    object-fit: cover;
+    z-index:-1;
+    /*to edit the opacity effect change the percentage below */
+    filter:opacity(50%);
+}
