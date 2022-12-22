@@ -61,7 +61,7 @@ const listCarrito = (elem) => {
             <span class="">${elem.name}</span>
             <span class="">$${elem.price}</span>
             <span id="cant" class="">${elem.cant}</span>
-            <button type="button" class="btn btn-danger"> quitar </button>
+            <button type="button" class="btn btn-danger elimProd"> quitar </button>
 
         </li>
     `
@@ -69,8 +69,9 @@ const listCarrito = (elem) => {
 
 //renderizo todos los productos
 const renderProducts = async () => {
-    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
-    let btnCarrito = document.querySelector(".iconCarrito")
+    //json // undefined 
+    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [] ;
+    let btnCarrito = document.querySelector(".btn-carrito")
     let carritoData = document.querySelector(".carritoData")
     let container = document.querySelector(".container-products")
     let data = await getAllArticles();
@@ -82,38 +83,55 @@ const renderProducts = async () => {
     
     //contenedor del carrito
     renderCarrito(carritoDataLS)
-    console.log(data);
     data.forEach(element => {
         container.innerHTML += cardProducto(element)
 
     });
     btn = document.querySelectorAll(".agregarElem")
     btn.forEach(elem => {
-
         elem.addEventListener("click", () => {
             insertarPrCarrito(carritoDataLS,data, elem.id)
         })
     })
+
     obtPriceTotal(carritoDataLS);
 
 
 }
-const renderCarrito = (car) => {
+const renderCarrito = (car = []) => {
   
     let carritoData = document.querySelector(".list-carrito")
+  //  console.log(carritoData);
+    let numElem = document.querySelector("#cantProd")
+    console.log(numElem);
+    let cantElem =0 ;
 
     carritoData.innerHTML = "";
     car.forEach(elem => {
-        console.log(elem);
+        cantElem += elem.cant;
         carritoData.innerHTML +=  listCarrito(elem)
         //quito del carrito
     })
+
+    console.log(cantElem);
+    //inserto cantidad de elementos en numElem
+    numElem.innerHTML = '';
+    numElem.innerHTML = cantElem;
+    
+    let total = document.querySelector(".total")
+    
+
+    quitarPrCarrito(car)
+    
    
 }
 
 
 const quitarPrCarrito = (car) => {
-    let btnQuitar = document.querySelectorAll(".btn-danger")
+    let btnQuitar = document.querySelectorAll(".elimProd")
+    let btnVaciar = document.querySelector(".vaciarCarrito")
+
+
     btnQuitar.forEach(elem => {
         elem.addEventListener("click", () => {
             //obtengo id del producto
@@ -127,20 +145,24 @@ const quitarPrCarrito = (car) => {
             }
             //guardo en localStorage
             localStorage.setItem("carritoData", JSON.stringify(car))
-
+            renderProducts();
         })
     })
-    renderCarrito(car);
+
+    btnVaciar.addEventListener("click", () => {
+        localStorage.removeItem("carritoData");
+        renderCarrito();
+    })
 
 }
 
 const insertarPrCarrito = (car, data, id) => {
-    renderCarrito(car);
-
+    
     //obtengo clase carritoData
     obtProducto(car , data, id)
     //inserto desde localStorage
-    quitarPrCarrito(car)
+    renderCarrito(car);
+    
 
 
 
@@ -150,11 +172,9 @@ const insertarPrCarrito = (car, data, id) => {
 }
 
 const obtPriceTotal = (car) => {
-    console.log("ENTRAAAAAA TOTAL");
-    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let priceTotal = document.querySelector(".priceTotal")
     let total = 0;
-    carritoDataLS.forEach(elem => {
+    car.forEach(elem => {
         total += elem.price * elem.cant
     })
     priceTotal.innerHTML = total;   
