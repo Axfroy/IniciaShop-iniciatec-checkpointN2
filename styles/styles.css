@@ -6,6 +6,10 @@
     display: none;
 }
 
+.logo-nav {
+    display: block;
+}
+
 .tabs {
     justify-content: space-around;
 }
@@ -17,13 +21,13 @@
 }
  */
 
-@media (min-width: 500px) {
+@media (max-width: 992px) {
     .logo-toggler {
         display: flex; 
     }
 
     .logo-nav {
-        display: none !important; 
+        display: none; 
     }
 }
 
