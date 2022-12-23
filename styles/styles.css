@@ -1,9 +1,33 @@
-.sliders{
-    height: 600px;
+/* .sliders{
+    height: 700px;
+} */
+
+.logo-toggler {
+    display: none;
 }
 
-@media only screen and(max-width: 500px) {
+.tabs {
+    justify-content: space-around;
+}
+
+/* @media only screen and(max-width: 500px) {
     .sliders {
         height: 600px;
     }
 }
+ */
+
+@media only screen and(min-width: 500px) {
+    .logo-toggler {
+        display: flex;
+    }
+
+    .logo-nav {
+        display: none;
+    }
+
+    .navbar-nav {
+        background-color: red;
+    }
+}
+
