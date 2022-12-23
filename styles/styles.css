@@ -56,7 +56,9 @@
 .sliders{
     height: 650px;
 }
-
+.dsp-none{
+    display: none;
+}
 @media only screen and(max-width: 500px) {
     .sliders {
         height: 600px;
