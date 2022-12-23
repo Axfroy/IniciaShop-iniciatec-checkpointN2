@@ -17,17 +17,13 @@
 }
  */
 
-@media only screen and(min-width: 500px) {
+@media (min-width: 500px) {
     .logo-toggler {
-        display: flex;
+        display: flex; 
     }
 
     .logo-nav {
-        display: none;
-    }
-
-    .navbar-nav {
-        background-color: red;
+        display: none !important; 
     }
 }
 
