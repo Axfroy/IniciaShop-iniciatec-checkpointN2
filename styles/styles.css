@@ -11,9 +11,13 @@
 }
 
 .tabs {
+    display: flex;
     justify-content: space-around;
 }
 
+/* .slides {
+    height: 85vh;
+} */
 /* @media only screen and(max-width: 500px) {
     .sliders {
         height: 600px;
@@ -28,6 +32,10 @@
 
     .logo-nav {
         display: none; 
+    }
+
+    .arrow {
+        display: none !important;
     }
 }
 
