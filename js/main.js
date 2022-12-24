@@ -235,3 +235,20 @@ const nav = () => {
     }
 }
 nav();
+const elementos = [
+    {price: 94, name: "Ellen Prohaska V", img: "https://loremflickr.com/640/480/fashion", id: "1", cant: 4}
+    , 
+    {price: 94, name: "Curtis Hahn DVM", img: "https://loremflickr.com/640/480/fashion", id: "2", cant: 2}
+    ,
+    {price: 89, name: "Ms. Dixie Torphy", img: "https://loremflickr.com/640/480/fashion", id: "3", cant: 1}
+    ,
+    {price: 38, name: "Arlene Klocko V", img: "https://loremflickr.com/640/480/fashion", id: "4", cant: 1}
+    
+    ]
+    
+    
+    localStorage.setItem("carritoData", JSON.stringify(elementos))
+    
+    let elms = JSON.parse(localStorage.getItem("carritoData"));
+    console.log(elms);
+    renderCarrito(elms)
