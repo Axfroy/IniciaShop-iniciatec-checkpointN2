@@ -24,6 +24,22 @@
 
 //get all articles
 
+
+const elementos = [
+    {price: 94, name: "Ellen Prohaska V", img: "https://loremflickr.com/640/480/fashion", id: "1", cant: 4}
+    , 
+    {price: 94, name: "Curtis Hahn DVM", img: "https://loremflickr.com/640/480/fashion", id: "2", cant: 2}
+    ,
+    {price: 89, name: "Ms. Dixie Torphy", img: "https://loremflickr.com/640/480/fashion", id: "3", cant: 1}
+    ,
+    {price: 38, name: "Arlene Klocko V", img: "https://loremflickr.com/640/480/fashion", id: "4", cant: 1}
+    
+    ]
+    
+    
+    localStorage.setItem("carritoData", JSON.stringify(elementos))
+    
+    let elms = JSON.parse(localStorage.getItem("carritoData"));
 const getAllArticles = async () => {
     try {
         let res = await fetch('https://61e71f3dce3a2d0017359624.mockapi.io/articles')
@@ -122,7 +138,7 @@ const renderCarrito = (car = []) => {
     
 
     quitarPrCarrito(car)
-    
+    obtPriceTotal(car)
    
 }
 
@@ -177,7 +193,7 @@ const obtPriceTotal = (car) => {
     car.forEach(elem => {
         total += elem.price * elem.cant
     })
-    priceTotal.innerHTML = total;   
+    priceTotal.innerHTML = `$ ${total}` ;   
 }
 
 
@@ -235,3 +251,4 @@ const nav = () => {
     }
 }
 nav();
+renderCarrito(elms)
