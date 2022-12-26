@@ -57,13 +57,25 @@ const cardProducto = (elem) => {
 
 const listCarrito = (elem) => {
    return `
-        <li id="${elem.id}" class="list-group-item d-flex justify-content-between align-items-center">
-            <span class="">${elem.name}</span>
-            <span class="">$${elem.price}</span>
-            <span id="cant" class="">${elem.cant}</span>
-            <button type="button" class="btn btn-danger elimProd"> quitar </button>
+   <li id="${elem.id}" class="li-elements">
+   <div class="info-principal">
 
-        </li>
+   <span class="">${elem.name}</span>
+   <span class="">$${elem.price}</span>
+   </div>
+   <div class="info-secundaria">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+       </svg>
+       <span id="cant" class="">${elem.cant}</span>
+
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+           <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+       </svg>
+
+   </div>
+
+</li>
     `
 }
 
@@ -224,7 +236,6 @@ const nav = () => {
         case 'index.html':
             renderProducts();
         break;
-
 
         default:
             //insert 404
