@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="./assets/icono.png"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles/styles.css">
@@ -19,7 +20,7 @@
     <nav class="navbar navbar-expand-lg bg-light p-0">
       <div class="container-fluid">
         <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav-1">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav gap-4">
             <li class="nav-item">
               <a class="nav-link active fs-5" aria-current="page" href="#">Home</a>
             </li>
@@ -45,7 +46,7 @@
         </button>
 
         <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav-2">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav gap-4">
             <li class="nav-item">
               <a class="nav-link fs-5" href="#">New Arrivals</a>
             </li>
@@ -93,10 +94,10 @@
             <img src="./assets/slide2.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="./assets/slide1.png" class="d-block w-100" alt="...">
+            <img src="./assets/slide4.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="./assets/15.png" class="d-block w-100" alt="...">
+            <img src="./assets/slide3.png" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -112,8 +113,8 @@
       </div>
     </section>
   </header>
-  <main class="container-elements">
-    <div class="bg-gris1"></div>
+  <main class="container-elements ">
+    <div class="bg-gris1 py-5"></div>
     <section class="container my-4 pt-4">
       <div class="row">
         <div class="col-sm-4 box d-flex flex-column">
@@ -123,11 +124,27 @@
             <img src="./assets/5.png" alt="" class="card_lg rounded-4 img-front">
           </div>
         </div>
+        
         <div class="col-sm-8 box1 d-flex flex-column justify-content-evenly">
           <div class="row g-3">
-            <div class="col-12 col-sm-4 box1">
-              <img src="./assets/img/img7.jpg" alt="" class="card_md rounded-4">
+            <!-- new -->
+            <div class="col-12 col-sm-4">
+              <div class="container-card card_md rounded-4" style="--i: url(../assets/img/img7.jpg)">
+                <div class="content d-flex flex-column justify-content-between">
+                  <div class="d-flex justify-content-end w-100 p-3">
+                    <i class="bi bi-heart text-white fs-2"></i>
+                  </div>
+                  <div class="w-100 p-3">
+                    <h5 class="text-white">Green clothing set</h5>
+                    <div class="d-flex justify-content-between">
+                      <h4 class="text-white fs-3">$1500</h4>
+                      <a href="#" class="text-white"><i class="bi bi-plus-lg"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- new -->
             <div class="col-12 col-sm-4 box1">
               <img src="./assets/img/img3.jpg" alt="" class="card_md rounded-4">
             </div>
@@ -149,7 +166,7 @@
     </section>
     <section class="dimentions"></section>
     <div class="bg-gris2 my-4"></div>
-    <section class="container my-5 py-5">
+    <section class="container py-5 dimentions-section">
       <div class="row">
         <div class="col-sm-8 box1 d-flex flex-column justify-content-evenly">
           <div class="row g-3">
@@ -182,7 +199,7 @@
         </div>
       </div>
     </section>
-    <!-- <section class="dimentions"></section> -->
+    <section class="dimentions2"></section>
   </main>
 
   <!-- Footer -->
