@@ -87,25 +87,22 @@
     margin-bottom: 5px;
 }
 .container-vaciar-detalle{
-    
-    padding: 15px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5px 5px 5px;
 
 }
 
 .container-vaciar-detalle button{
-    padding-right: 15px;
-    margin-bottom: 5px;
-    color: #6c757d;
+    padding: 10px;
+    margin: 5px 10px;
     border: none;
-    font-size: 12px;
-    /*bold*/
+    background-color: #aa7dce;
+    color: #ffffff;
+    font-size: 15px;
     font-weight: 700;
-    
-    
-    
-
-    background-color: #e3e4e7;
     cursor: pointer;
+
 }
 .carritoData{
     position: relative; 
@@ -116,9 +113,48 @@
     
 
 }
+.li-elements{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.info-principal{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+}
+.info-principal span{
+    flex-grow: 1;
+}
+.info-principal img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.info-secundaria{
+    display: flex;
+    align-items: center;
+
+    flex-grow: 0.1;
+    text-align: center ;
+}
+.info-secundaria span{
+    color: #6c757d;
+    padding: 5px 10px
+}
+.info-secundaria button{
+    padding: 5px 10px;
+    border: none;
+    background-color: #aa7dce;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
 .container-vista-carrito::after{
  
-    /*triangle sup*/
     
     content: "";
     position: absolute;
@@ -132,7 +168,87 @@
 
 
 }
+.vaciar-detalle{
+    display: flex;
+    justify-content: flex-end;
+}
 
+.vaciar-detalle button{
+    margin: 0 0 0 10px;
+    padding: 9px 14px;
+    border-radius: 5px;
+    border: none;
+    background-color: #aa7dce;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    
+}
+
+.container-resume-carrito button:hover{
+    background-color: #8b5baf;
+}
+
+.cupon-total{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+ .cupon-total input{
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+}
+/* place holder*/
+
+.cupon-total input::-webkit-input-placeholder {
+  
+    transition: opacity 0.8s ease-in-out;
+    opacity: .6;
+    font-size: 15px;
+    font-weight: 700;
+    
+
+}
+
+/*Effects on hover input placeholder*/
+.cupon-total input:hover::-webkit-input-placeholder {
+    opacity: 1.5;
+
+
+}
+
+.container-cupon button{
+    padding: 5px 10px;
+    border: none;
+    background-color: #aa7dce;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container-total {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.container-total p{
+    padding-right: 15px;
+
+}
+.go-pago{
+    background-color: #aa7dce;
+    
+    padding: 10px ;
+}
 
 @media only screen and(max-width: 500px) {
     .sliders {
