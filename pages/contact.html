@@ -10,13 +10,81 @@
   <title>Inicia Shop</title>
 </head>
 <body>
-    <header></header>
+    <header> 
+        <nav class="navbar navbar-expand-lg bg-light p-0">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav-1">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active fs-5" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fs-5" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fs-5" href="./pages/contact.html">Contact Us</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled">Disabled</a>
+                </li> -->
+              </ul>
+            </div>
+        
+            <a class="navbar-brand d-flex justify-content-center" href="../index.html">
+              <img src="../assests/logo.png" alt="Logo" width="30%">
+            </a>
+            <!-- <img src="./assests/logo.png" alt="Logo" width="8%" class="d-inline-block align-text-center" style="cursor: pointer;"> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav-2">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link fs-5" href="#">New Arrivals</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fs-5" href="#">Most Wanted</a>
+                </li>
+                <li class="nav-item">
+                  <div class="continer-carrito">
+                    <div class="iconCarrito">
+                      <button type="button" class="btn btn-carrito  position-relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" class="bi bi-bag"
+                          viewBox="0 0 16 16">
+                          <path
+                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                        </svg>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
+                          id="cantProd">
+                        </span>
+                      </button>
+                      <div class="carritoData dsp-none">
+                        <div class="container-vista-carrito">
+                          <ul class="list-carrito">
+                          </ul>
+                          <div class="container-vaciar-detalle">
+                            <button type="button" class=" vaciarCarrito"> vaciar </button>
+                            <button type="button" class=" "> ver detalle </button>
+                            <span id="cant" class="priceTotal"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
     <main>
         <div class="container m-2 mx-auto">
             <h1 class="fs-1 pb-2 text-center border-bottom">Contact</h1>
             <div class="row my-4">
-                <div class="col ">
-                    <div class=""><img src="../assets/images/iniciaShop_logo" alt="iniciaShop_logo"></div>
+                <div class="col w-50">
+                    <div class="p-3"><img class="w-100" src="../assets/11.png" alt="iniciaShop_logo"></div>
                 </div>
                 <div class="col">
                     <form class="d-flex flex-column">
@@ -67,7 +135,7 @@
             <div class="row">
             <div class="col-6 col-md-1 mb-3">
                 <h5>IniciaShop</h5>
-                <img src="#" alt="iniciaShop_logo">
+                <div class=""><img class="w-100" src="../assests/logo.png" alt="iniciaShop_logo"></div>
             </div>
         <!-- Filling the section ✌ -->
             <div class="col-6 col-md-2 mb-3">
