@@ -73,38 +73,26 @@ const cardProducto = (elem) => {
 
 const listCarrito = (elem) => {
     return `
-        <li id="${elem.id}" class="li-elements">
+        <li class="li-elements">
             <div class="info-principal">
             
             <span class="">${elem.name}</span>
             <span class="">$${elem.price}</span>
             </div>
-            <div class="info-secundaria">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                </svg>
-                <span id="cant" class="">${elem.cant}</span>
+            <div class="info-secundaria" id="${elem.id}">
+                <button class=" btn-prod-carrito elimProd bg-danger">
+                        <i class="bi bi-dash"></i>
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
-                </svg>
+                </button>
+            <span id="cant" class="">${elem.cant}</span>
+            <button class="btn-prod-carrito agregarUno bg-success">
+
+                     <i class="bi bi-plus-lg fs-6 " ></i>
+
+            </button>
+
 
             </div>
-
-   <span class="">${elem.name}</span>
-   <span class="">$${elem.price}</span>
-   </div>
-   <div class="info-secundaria">
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-       </svg>
-       <span id="cant" class="">${elem.cant}</span>
-
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-           <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
-       </svg>
-
-   </div>
 
 </li>
     `
@@ -114,15 +102,13 @@ const listCarrito = (elem) => {
 const renderProducts = async () => {
     //json // undefined 
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
-    let btnCarrito = document.querySelector(".btn-carrito")
-    let carritoData = document.querySelector(".carritoData")
+   
     let container = document.querySelector(".container-products")
     let data = await getAllArticles();
     let btn;
     //toggle carrito
-    btnCarrito.addEventListener("click", () => {
-        carritoData.classList.toggle("dsp-none")
-    })
+    renderBtnCarrito()
+    
 
     //contenedor del carrito
     renderCarrito(carritoDataLS)
@@ -141,48 +127,105 @@ const renderProducts = async () => {
 
 
 }
+const renderBtnCarrito = () => {
+    let btnCarrito = document.querySelector(".btn-carrito")
+    let carritoData = document.querySelector(".carritoData")
+    if (btnCarrito) {
+        
+    
+        
+        btnCarrito.addEventListener("click", () => {
+            carritoData.classList.toggle("dsp-none")
+        })
+    }
+}
 const renderCarrito = (car = []) => {
 
     let carritoData = document.querySelector(".list-carrito")
     //  console.log(carritoData);
     let numElem = document.querySelector("#cantProd")
+    let arrImg = [];
+
     console.log(numElem);
     let cantElem = 0;
 
     carritoData.innerHTML = "";
     car.forEach(elem => {
+        arrImg.push(elem.img);
         cantElem += elem.cant;
        // console.log(elem);
         carritoData.innerHTML += listCarrito(elem)
 
-        //quito del carrito
     })
 
-    console.log(cantElem);
-    //inserto cantidad de elementos en numElem
-    numElem.innerHTML = '';
-    numElem.innerHTML = cantElem;
+    let elemsInfPrinc = document.getElementsByClassName("info-principal");
+    // itero sobre los elementos
+    console.log(elemsInfPrinc);
+    for (let i = 0; i < elemsInfPrinc.length; i++) {
+        let img = document.createElement("img");
+        img.src = arrImg[i];
+        //agrego la imagen
+        elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
+    } 
+    
+
+
+    cantElementos(cantElem)
 
     let total = document.querySelector(".total")
 
 
     quitarPrCarrito(car)
+    agregarUnPrCarrito(car)
     obtPriceTotal(car)
 
 }
 
+const cantElementos = (cantElem) => {
+    let numElem = document.querySelector("#cantProd")
+    //verifico que exista
+    if ( numElem != null ) {
+        numElem.innerHTML = '';
+        numElem.innerHTML = cantElem;
+    }else{
+        console.log("no existe");
+    }
+}
+
+
+const agregarUnPrCarrito = (car) => {
+
+    let btnAgregar = document.querySelectorAll(".agregarUno")
+    console.log(btnAgregar);
+    btnAgregar.forEach(elem => {
+        elem.addEventListener("click", () => {
+            let id = elem.parentElement.id;
+            console.log(id);
+            let carritoData = car.find(elem => elem.id == id)
+            console.log(carritoData);
+            carritoData.cant += 1;
+            renderCarrito(car)
+        })
+    })
+
+
+}
 
 const quitarPrCarrito = (car) => {
     let btnQuitar = document.querySelectorAll(".elimProd")
     let btnVaciar = document.querySelector(".vaciarCarrito")
 
+    console.log(car);
 
     btnQuitar.forEach(elem => {
+        
         elem.addEventListener("click", () => {
             //obtengo id del producto
             let id = elem.parentElement.id;
+            console.log(id);
             //le quito 1 a la cantidad
             let carritoData = car.find(elem => elem.id == id)
+            console.log(carritoData);
             carritoData.cant -= 1;
             //si la cantidad es 0 lo elimino
             if (carritoData.cant == 0) {
@@ -259,13 +302,13 @@ const obtProducto = (car, data, id) => {
 
 //obtengo el template de carrito y le inserto imagen
 const renderResume = (car = []) => {
+    renderCarrito(elms)
     //traigo el carrito
-    let carritoData = document.querySelector(".list-carrito")
+ /*   let carritoData = document.querySelector(".list-carrito")
     //obtengo el id de cant de productos
     let numElem = document.querySelector("#cantProd")
     //console.log(numElem);
     let cantElem = 0;
-    let arrImg = [];
     carritoData.innerHTML = "";
     car.forEach(elem => {
         //creo etiqueta img
@@ -275,18 +318,12 @@ const renderResume = (car = []) => {
         
         
     })
-    let elemsInfPrinc = document.getElementsByClassName("info-principal");
-    // itero sobre los elementos
-    console.log(arrImg);
-    for (let i = 0; i < elemsInfPrinc.length; i++) {
-        let img = document.createElement("img");
-        img.src = arrImg[i];
-        //agrego la imagen
-        elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
-    } 
     
-    quitarPrCarrito(car)
-    obtPriceTotal(car)
+    */
+   
+    
+    
+
     
 }
 
