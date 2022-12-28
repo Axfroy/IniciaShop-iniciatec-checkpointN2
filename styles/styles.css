@@ -4,6 +4,7 @@
 .hover-animation img {
     position: absolute;
     width: 100%;
+    background-image: url(../assets/13.png);
     height: 710px;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
@@ -35,16 +36,6 @@
     position: absolute;
     z-index: -1;
 }
-/* .container-elements{
-    position: relative;
-} */
-.dimentions {
-   background-image: url(../assets/15.png);
-   background-size: cover;
-   height: 450px;
-   background-position-y: 80%;
-   
-}
 .bg-gris2 {
     background-color: #b5b4b4;
     width: 100%;
@@ -53,21 +44,25 @@
     position: absolute;
     z-index: -1;
 }
-.sliders{
-    height: 650px;
+.publicity-1 {
+   background-image: url(../assets/15.png);
+   background-size: cover;
+   height: 450px;
+   background-position-y: 80%;
 }
-
-
+.publicity-2 {
+    background-image: url(../assets/2.png);
+    background-size: cover;
+    height: 450px;
+    background-position-y: 90%;
+}
 
 /**/
 
 .container-card {
-    /* margin: 25px;
-    width: 200px;
-    height: 300px;
-    border-radius: 5px; */
     background: var(--i);
     background-size: cover;
+    background-position-x: center;
     box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);  
 }
 .content {
@@ -81,16 +76,8 @@
     transition: .5s;
     border-radius: 1rem;
 }
-
 .container-card:hover .content {
     opacity: 1;
-}
-/* .bi-heart:hover{
-    background-color: red;
-} */
-/**/
-.bi-plus-lg{
-    font-size: 25px;
 }
 /* Card Detail*/
 .card-details {
@@ -190,8 +177,9 @@ font-size: 0.8em;
     color: #242424;
 } */
 /* Card Detail*/
-/*  */
 
+
+/* shop */
 .display-publicity-b {
     display: none;
 }
@@ -210,3 +198,4 @@ font-size: 0.8em;
         height: 250px;
     }
 }
+/* shop */
