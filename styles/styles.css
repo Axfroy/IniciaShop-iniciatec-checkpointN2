@@ -94,46 +94,46 @@
 }
 /* Card Detail*/
 .card-details {
-    display: flex;
-    align-items: center;
-    width: 300px;
+    /* display: flex;
+    align-items: center; */
+    /* width: 300px; */
     height: 380px;
-    background-color: #fff;
+    /* background-color: #fff; */
     box-shadow: 0 15px 45px rgba(0, 0, 0, .25);
     overflow: hidden;
-    transition: 1s; ;
+    transition: 0.7s;
 }
 .card-details:hover {
     width: 600px;
 }
 .card-details .imgBox {
     position: relative;
-    min-width: 300px;
-    width: 300px;
+    min-width: 260px;
+    /* width: 300px; */
     height: 100%;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     transition: 0.5s;
 }
 .card-details:hover .imgBox{
     transform: rotate(-10deg);
 }
-.card-details .imgBox .card-img {
+/* .card-details .imgBox .card-img {
     width: 85%;
-}
+} */
 
 .card-details .details {
     position: relative;
     min-width: 300px;
     background-color: #c7f434;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     width: 100%;
     height: 100%;
     padding: 20px;
-    color: #242424;
+    /* color: #242424; */
 }
 .card-details .details::before {
     content: "";
@@ -153,12 +153,12 @@ font-size: 0.8em;
     font-size: 0.9em;
 }
 
-.card-details .details .size .container-list {
+/* .card-details .details .size .container-list {
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 0px;
-}
+} */
 
 .card-details .details .size .container-list .item-card {
     list-style: none;
@@ -170,25 +170,25 @@ font-size: 0.8em;
     background-color: #fff;
     color:#242424;
 }
-.card-details .details .buy {
+/* .card-details .details .buy {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 .card-details .details .buy .price {
     font-size: 1.6em;
 }
 
-.card-details .details .buy .btn-buy {
+/* .card-details .details .buy .btn-buy {
     background-color: #fff;
     padding: 0.5em 0.8em;
     text-transform: uppercase;
-}
-.card-details .details .buy .btn-buy a {
+} */
+/* .card-details .details .buy .btn-buy a {
     text-decoration: none;
     color: #242424;
-}
+} */
 /* Card Detail*/
 @media only screen and (max-width: 500px) {
     .sliders {
