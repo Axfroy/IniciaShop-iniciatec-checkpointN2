@@ -190,8 +190,23 @@ font-size: 0.8em;
     color: #242424;
 } */
 /* Card Detail*/
+/*  */
+
+.display-publicity-b {
+    display: none;
+}
+.card-shop {
+    height: 520px;
+}
 @media only screen and (max-width: 500px) {
-    .sliders {
-        height: 600px;
+    .display-publicity-b {
+        display: flex;
+        flex-direction: column;
+    }
+    .display-publicity-a {
+        display: none;
+    }
+    .card-shop {
+        height: 250px;
     }
 }
