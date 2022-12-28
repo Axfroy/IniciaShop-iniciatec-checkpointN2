@@ -15,52 +15,48 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light p-0">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav-1">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active fs-5" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" href="#">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" href="#">Contact Us</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li> -->
-                    </ul>
+              <img src="../assets/logo.png" alt="Logo" width="8%" class="logo-toggler align-text-center" style="cursor: pointer;">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="tabs collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav d-flex justify-content-around">
+                  <ul class="navbar-nav gap-5">
+                    <li class="nav-item">
+                      <a class="nav-link active fs-4" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link fs-4" href="./shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link fs-4" href="./contact.html">Contact Us</a>
+                    </li>
+                  </ul>
                 </div>
-
-                <a class="navbar-brand d-flex justify-content-center" href="#">
-                    <img src="../assests/logo.png" alt="Logo" width="30%">
-                </a>
-                <!-- <img src="./assests/logo.png" alt="Logo" width="8%" class="d-inline-block align-text-center" style="cursor: pointer;"> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav-2">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" href="#">New Arrivals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" href="#">Most Wanted</a>
-                        </li>
-                        
-                    </ul>
-                </div>
+              </div>
+              <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+              <img src="../assets/logo.png" alt="Logo" width="8%" class="logo-nav align-text-center" style="cursor: pointer;">
+              
+              <div class="tabs collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav d-flex justify-content-around">
+                  <ul class="navbar-nav gap-5">
+                    <li class="nav-item">
+                      <a class="nav-link fs-4" href="#">New Arrivals</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link fs-4" href="#">Most Wanted</a>
+                    </li>
+                </ul>
+              </div>
             </div>
-        </nav>
+          </nav>
     </header>
 
     <section class="section-resume-carrito">
         <div class="container-resume-carrito">
             <div class="resume-header">
                 <h2 class="cart-title">My shopping cart</h2>
-                <button type="button" class="return-shop" href="">Keep shopping</button>
+                <button type="button" class="return-shop"><a href="./shop.html">Keep shopping</a></button>
             </div>
                 <ul class="list-carrito">
                     

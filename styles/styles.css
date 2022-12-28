@@ -689,11 +689,23 @@ font-size: 0.8em;
 }
 
 
+
 /* shop */
-.display-publicity-a {
+.display-publicity-b {
     display: none;
 }
 .card-shop {
-    height: 250px;
+    height: 600px;
 }
-/* shop */
+@media only screen and (max-width: 500px) {
+    .display-publicity-b {
+        display: flex;
+        flex-direction: column;
+    }
+    .display-publicity-a {
+        display: none;
+    }
+    .card-shop {
+        height: 250px;
+    }
+}
