@@ -199,19 +199,7 @@
     min-height: 60px;
     min-width: 35px;
 }
-.container-vista-carrito{
-    position: absolute;
-    width: 300px;
-    z-index: 2;
-    right: 0px;
-    top: 8px;
-    padding: 10px;
-    text-align: center;
-    background-color: #e3e4e7;
-    border-radius: 9px;
 
-
-}
 .list-carrito li{
     list-style: none;
     padding: 5px;
@@ -225,16 +213,10 @@
 
 }
 
-.container-vaciar-detalle button{
-    padding: 10px;
-    margin: 5px 10px;
-    border: none;
-    background-color: #aa7dce;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
 
+
+.btn-prod-carrito{
+    border-radius: 25%;
 }
 .carritoData{
     position: relative; 
@@ -394,7 +376,7 @@
 /**/
 .container-vista-carrito{
     position: absolute;
-    width: 300px;
+    width: 360px;
     z-index: 2;
     right: 0px;
     top: 8px;
