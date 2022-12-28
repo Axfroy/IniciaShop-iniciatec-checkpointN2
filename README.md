@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-<hr>
+***
 
 ![Icon status project](http://img.shields.io/static/v1?label=STATUS&message=In%20development&color=RED&style=for-the-badge)
 
@@ -14,6 +14,8 @@
 - [Description](#description)
 
 - [Tecnologies](#tecnologies)
+
+- [MockUp](#mockup)
 
 - [Our team](#our-team)
 
@@ -53,12 +55,27 @@ Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
 
 ![FIGMA](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)  ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)  ![Canvas](https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white)
 
-## Figma Mockup
+## Mockup
+***
+### Figma
+<picture>
+    <img src="./assets/sneakPeaks/Home-landingPage.jpg" alt="home" height="250px">
+</picture>
+<picture>
+    <img src="./assets/sneakPeaks/product-landingPage.jpg" alt="trello" height="250px">
+</picture>
+<picture>
+    <img src="./assets/sneakPeaks/forms-contactUs.jpg" alt="trello" height="250px">
+</picture>
+<picture>
+    <img src="./assets/sneakPeaks/products-shopPage.jpg" alt="trello" height="500px">
+</picture>
 
-## Trello
-  <picture>
-    <img src="./assets/sneakPeaks/Trello.png" alt="iniciaShop_logo" height="150px">
-  </picture>
+### Trello
+<picture>
+    <img src="./assets/sneakPeaks/Trello.jpg" alt="trello" height="250px">
+</picture>
+
 # Our Team
 | [<img src="https://avatars.githubusercontent.com/u/90355395?v=4" width=115><br><sub>Dai</sub>](https://github.com/DaiM24)|[<img src="https://avatars.githubusercontent.com/u/47448020?v=4" width=115><br><sub>Lean</sub>](https://github.com/Leandro97ramos) |  [<img src="https://avatars.githubusercontent.com/u/113393980?v=4" width=115><br><sub>Cata</sub>](https://github.com/catasimonovich4) |  [<img src="https://avatars.githubusercontent.com/u/102679463?v=4" width=115><br><sub>Ivan Ezequiel Rodriguez</sub>](https://github.com/Axfroy)
 | :---: | :---: | :---: | :---: |
