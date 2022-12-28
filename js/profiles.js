@@ -2,17 +2,17 @@ const footerProfiles = [
         {
         "linkedinProfile":"Daiana Mercado",
         "githubProfile":"https://github.com/DaiM24",
-        "linkedinURL":"url",
+        "linkedinURL":"https://www.linkedin.com/in/daianamercado/",
     },
     {
         "linkedinProfile":"Leandro Ramos",
         "githubProfile":"https://github.com/Leandro97ramos",
-        "linkedinURL":"url",
+        "linkedinURL":"https://www.linkedin.com/in/leandro-ramos-lkd/",
     },
     {
         "linkedinProfile":"Catalina Simonovich",
         "githubProfile":"https://github.com/catasimonovich4",
-        "linkedinURL":"url",
+        "linkedinURL":"https://www.linkedin.com/in/catalina-simonovich/",
     },
     {
         "linkedinProfile":"Ivan Rodriguez",
