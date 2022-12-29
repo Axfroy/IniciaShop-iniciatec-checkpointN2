@@ -138,3 +138,14 @@
     color: #c7f434;
     border: solid 1px #c7f434;
 }
+.box-color {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #b5b4b4;
+    font-weight: bolder;
+    /* cursor: pointer; */
+}
