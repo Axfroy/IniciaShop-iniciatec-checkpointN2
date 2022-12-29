@@ -15,8 +15,7 @@
   <main class="container-elements">
     <div class="bg-gris1"></div>
     <section class="container my-4 pt-4">
-      <div class="row">
-        
+      <div class="row"> 
         <div class="col-lg-4 col-sm-6 d-flex flex-column">
             <h2 class="text-center text-white mb-3">#TREND</h2>
             <div class="container-card hover-animation">
@@ -38,6 +37,9 @@
                     <div class="d-flex justify-content-between">
                       <h4 class="text-white">$1500</h4>
                       <a href="#" class="text-white"><i class="bi bi-plus-lg fs-4"></i></a>
+
+                      
+                      
                     </div>
                   </div>
                 </div>
@@ -132,11 +134,125 @@
     <div class="bg-gris2 my-4"></div>
     <section class="container my-5">
       <div class="row">
-        <div class="col-sm-8 box1 d-flex flex-column justify-content-evenly">
+        <div class="col-sm-8 d-flex flex-column justify-content-evenly">
           <div class="row g-3">
-            <div class="col-12 col-sm-4 box1">
-              <img src="./assets/img/img7.jpg" alt="" class="card_md rounded-4">
+            <div class="card col-12 col-sm-4 p-0">
+              <img src="./assets/img/img7.jpg" class="card-img-top card_md" alt="...">
+              <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
+                <div class="d-flex justify-content-end m-2">
+                  <div class="container-detail d-flex justify-content-center icon-dimentions">
+                    <i class="bi bi-heart text-white fs-4"></i>
+                  </div>
+                </div>
+                <div class="container-detail px-2 py-3 rounded-1">
+                  <h5 class="card-title text-white fs-3">Black T-shirt</h5>
+                  <div class="d-flex justify-content-between">
+                    <div class="price text-white fs-3">
+                      <sup>$</sup>
+                      <span>159.</span><small>55</small>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade px-4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-lg ">
+                    <div class="modal-content ">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Inicia_Shop</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body d-flex justify-content-center p-4">
+                        <div class="card mb-3" >
+                          <div class="row g-0">
+                            <div class="col-md-5">
+                              <img src="./assets/img/img3.jpg" class="img-fluid rounded-start h-100" alt="...">
+                            </div>
+                            <div class="col-md-7 bg-green">
+                              <div class="card-body ">
+                                <h5 class="fs-2">Card title</h5>
+                                
+                                <div class="descrition">
+                                  <h4 class="">Description</h4>
+                                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequatur ullam culpa
+                                    quod eaque sunt
+                                    libero,
+                                    perspiciatis iste minus eum.
+                                  </p>
+                                </div>
+                                <div class="size">
+                                  <h4 class="tittle-h4">Sizes</h4>
+                                  <ul class="container-list d-flex justify-content-between p-0 w-100">
+                                    <li class="item-card">S</li>
+                                    <li class="item-card">M</li>
+                                    <li class="item-card">L</li>
+                                    <li class="item-card">XL</li>
+                                    <li class="item-card">XXL</li>
+                                  </ul>
+                                </div>
+                                <div class="buy d-flex justify-content-between align-items-center">
+                                  <div class="price">
+                                    <sup>$</sup>
+                                    <span>159.</span><small>55</small>
+                                  </div>
+                                  <div class="btn-buy">
+                                    <a href="#" class="btn btn-primary">Add</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <section class="card-details d-flex align-items-center bg-light col-6 col-lg-4">
+                          <div class="imgBox d-flex justify-content-center align-items-center col-lg-6 ">
+                            <img src="./assets/img/img3.jpg" alt="" class="card-img">
+                          </div>
+                          <div class="details d-flex flex-column justify-content-between">
+                            <div class="tittle">
+                              <h3>T-shirt<br>
+                              </h3>
+                              <div class="descrition">
+                                <h4 class="tittle-h4">Description</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequatur ullam culpa
+                                  quod eaque sunt
+                                  libero,
+                                  perspiciatis iste minus eum.
+                                </p>
+                              </div>
+                              <div class="size">
+                                <h4 class="tittle-h4">Sizes</h4>
+                                <ul class="container-list d-flex justify-content-between p-0 w-100">
+                                  <li class="item-card">S</li>
+                                  <li class="item-card">M</li>
+                                  <li class="item-card">L</li>
+                                  <li class="item-card">XL</li>
+                                  <li class="item-card">XXL</li>
+                                </ul>
+                              </div>
+                              <div class="buy d-flex justify-content-between align-items-center">
+                                <div class="price">
+                                  <sup>$</sup>
+                                  <span>159.</span><small>55</small>
+                                </div>
+                                <div class="btn-buy">
+                                  <a href="#" class="btn btn-primary">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div class="col-12 col-sm-4 box1">
               <img src="./assets/img/img3.jpg" alt="" class="card_md rounded-4">
             </div>
@@ -164,65 +280,8 @@
       </div>
     </section>
     <section class="publicity-2"></section>
-    <!-- <div class="d-flex justify-content-center">
-      <div class="container-card" style="--i: url(../assets/6.png)">
-        <div class="content d-flex flex-column justify-content-between">
-          <div class="d-flex justify-content-end w-100 p-3">
-            <i class="bi bi-heart text-white"></i>
-          </div>
-          <div class="w-100 p-3">
-            <h5 class="text-white">Black T-shirt</h5>
-            <div class="d-flex justify-content-between">
-              <h4 class="text-white">$1500</h4>
-              <a href="#" class="text-white"><i class="bi bi-plus-lg"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div> -->
+
   </main>
-
-  <!-- <div class="d-flex justify-content-center my-5">
-    <section class="card-details d-flex align-items-center bg-light col-2">
-      <div class="imgBox d-flex justify-content-center align-items-center col-6">
-        <img src="./assets/img/img3.jpg" alt="" class="card-img">
-      </div>
-      <div class="details d-flex flex-column justify-content-between">
-        <div class="tittle">
-          <h3>T-shirt<br>
-          </h3>
-          <div class="descrition">
-            <h4 class="tittle-h4">Description</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequatur ullam culpa quod eaque sunt
-              libero,
-              perspiciatis iste minus eum.
-            </p>
-          </div>
-          <div class="size">
-            <h4 class="tittle-h4">Sizes</h4>
-            <ul class="container-list d-flex justify-content-between p-0 w-100">
-              <li class="item-card">S</li>
-              <li class="item-card">M</li>
-              <li class="item-card">L</li>
-              <li class="item-card">XL</li>
-              <li class="item-card">XXL</li>
-            </ul>
-          </div>
-          <div class="buy d-flex justify-content-between align-items-center">
-            <div class="price">
-              <sup>$</sup>
-              <span>159.</span><small>55</small>
-            </div>
-            <div class="btn-buy">
-              <a href="#" class="btn btn-primary">Link</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div> -->
-
-
   <section>
     <div class="d-flex justify-content-center my-5">
       <!-- Button trigger modal -->
@@ -275,41 +334,7 @@
                   </div>
                 </div>
               </section>
-              <!-- <div class="card-details">
-                <div class="imgBox">
-                  <img src="./assets/img/img3.jpg" alt="" class="card-img">
-                </div>
-                <div class="details ">
-                  <div class="tittle">
-                    <h3>T-shirt<br>
-                    </h3>
-                    <div class="descrition">
-                      <h4 class="tittle-h4">Description</h4>
-                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequatur ullam culpa quod eaque sunt libero,
-                        perspiciatis iste minus eum.</p>
-                    </div>
-                    <div class="size">
-                      <h4 class="tittle-h4">Sizes</h4>
-                      <ul class="container-list">
-                        <li class="item-card">S</li>
-                        <li class="item-card">M</li>
-                        <li class="item-card">L</li>
-                        <li class="item-card">XL</li>
-                        <li class="item-card">XXL</li>
-                      </ul>
-                    </div>
-                    <div class="buy">
-                      <div class="price">
-                        <sup>$</sup>
-                        <span>159.</span><small>55</small>
-                      </div>
-                      <div class="btn-buy">
-                        <a href="#">Buy</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+              
             </div>
             <!-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -321,7 +346,6 @@
     </div>
   </section>
 </body>
-  <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="./js/main.js"></script>
