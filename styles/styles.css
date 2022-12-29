@@ -709,3 +709,7 @@ font-size: 0.8em;
         height: 250px;
     }
 }
+
+.hidden{
+    display: none;
+}

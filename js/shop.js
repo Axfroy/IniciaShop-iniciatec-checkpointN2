@@ -21,7 +21,7 @@ renderUsers()
 
 const renderCard = (clothes) => {
     return `
-    <div class="col-6" id="${clothes.id}">
+    <div class="col-6 card-ctn" id="${clothes.id}">
         <div class="card h-100">
             <img src="../assets/2.png" class="card-img-top rounded-1 h-100" alt="${clothes.name}">
         </div>
