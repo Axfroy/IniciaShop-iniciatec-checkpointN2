@@ -75,13 +75,15 @@
     padding: 5px 10px;
 }
 
-/*NEW CARD*/
+/* CARD */
+.effect {
+    box-shadow: 3px 5px 5px rgba(44, 49, 53, 0.6);
+}
 .container-detail {
     background-color: rgba(70, 69, 69, 0.5);
     height: 40%;
     border-radius: 18px;
 }
-
 .bi-heart-fill {
     color: #ffffff;
 }

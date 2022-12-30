@@ -20,8 +20,8 @@ renderUsers()
 const renderCard = (clothes) => {
     return `
     <div class="col-6 col-sm-4">
-    <div class="card p-0 text-bg-dark">
-    <img src="${clothes.image}" class="card-img-top card_sm rounded-4 " alt="${clothes.title}">
+    <div class="card p-0 text-bg-dark effect">
+    <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
             <div class="d-flex justify-content-center icon-dimentions">
