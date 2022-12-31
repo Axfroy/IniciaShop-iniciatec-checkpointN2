@@ -1,27 +1,3 @@
-/*
-                                  _
-                               _ooOoo_
-                              o8888888o
-                              88" . "88
-                              (|-- --|)
-                              O\  =  /O
-                           ____/`---'\____
-                         .'  \\|     |//  `.
-                        /  \\|||  :  |||//  \
-                       /  _||||| -:- |||||_  \
-                       |   | \\\  -  /'| |   |
-                       | \_|  `\`---'//  |_/ |
-                       \  .-\__ `-. -'__/-.  /
-                     ___`. .'  /--.--\  `. .'___
-                  ."" '<  `.___\_<|>_/___.' _> \"".
-                 | | :  `- \`. ;`. _/; .'/ /  .' ; |
-                 \  \ `-.   \_\_`. _.'_/_/  -' _.' /
-       ===========`-.`___`-.__\ \___  /__.-'_.'_.-'================
-                               `=--=-'                    
-                        
-                            Team: Inicia_Shop
-*/
-
 //get all articles
 
 
@@ -65,8 +41,6 @@ const cardProducto = (elem) => {
       <a  class="btn btn-primary agregarElem" id="${elem.id}" >agregar al carrito</a>
     </div>
     </div>
-
-
     `
 }
 
@@ -84,20 +58,14 @@ const listCarrito = (elem) => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
               </svg>
-
                 </button>
             <span id="cant" class="">${elem.cant}</span>
             <button class="btn-prod-carrito agregarUno bg-success">
-
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
           </svg>
-
             </button>
-
-
             </div>
-
 </li>
     `
 }
@@ -442,4 +410,3 @@ const nav = () => {
     }
 }
 nav();
-
