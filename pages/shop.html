@@ -15,71 +15,36 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light p-0">
-      <div class="container-fluid">
-        <img src="../assets/logo.png" alt="Logo" width="8%" class="logo-toggler align-text-center"
-          style="cursor: pointer;">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
+      <div class="container-fluid mx-lg-4">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/logo.png" alt="Logo" width="100" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler bg-green" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon text-white" ></span>
         </button>
-        <div class="tabs collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav d-flex justify-content-around">
-            <ul class="navbar-nav gap-5">
+        <div class="collapse navbar-collapse ms-2" id="navbarNavDropdown">
+          <ul class="navbar-nav col-lg-6 gap-lg-5">
+            <li class="nav-item">
+              <a class="nav-link fs-4" aria-current="page" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-4" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4" href="./contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <div class="col-lg-6 d-lg-flex justify-content-end">
+            <ul class="navbar-nav gap-lg-5">
               <li class="nav-item">
-                <a class="nav-link active fs-4" aria-current="page" href="../index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-4" href="./shop.html">Shop</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-4" href="./contact.html">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <img src="../assets/logo.png" alt="Logo" width="8%" class="logo-nav align-text-center" style="cursor: pointer;">
-        <div class="tabs collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav d-flex justify-content-around">
-            <ul class="navbar-nav gap-5">
-              <li class="nav-item">
-                <a class="nav-link fs-4" href="#">New Arrivals</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-4" href="#">Most Wanted</a>
-              </li>
-              <li class="nav-item">
-                <div class="continer-carrito">
-                  <div class="iconCarrito">
-                    <button type="button" class="btn btn-carrito  position-relative">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" class="bi bi-bag"
-                        viewBox="0 0 16 16">
-                        <path
-                          d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                      </svg>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
-                        id="cantProd">
-                      </span>
-                    </button>
-                    <div class="carritoData dsp-none">
-                      <div class="container-vista-carrito">
-                        <ul class="list-carrito">
-                        </ul>
-                        <div class="container-vaciar-detalle">
-                          <button type="button" class=" vaciarCarrito"> Clear </button>
-                          <button type="button" class=" "><a href="./resume.html"
-                              style="text-decoration: none; color: black;"> View details </a></button>
-                          <span id="cant" class="priceTotal"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <a class="text-black fs-3" href="#"><i class="bi bi-bag"></i></a>
               </li>
             </ul>
           </div>
+          
         </div>
+      </div>
     </nav>
     <div class="card text-bg-dark">
       <img src="../assets/shop.png" class="card-img card-shop" alt="Shop">
@@ -121,7 +86,7 @@
       </div>
     </section>
   </main>
-  
+
   <!-- Start Footer -->
   <footer class="mt-4 text-white" >
     <!-- Users -->
