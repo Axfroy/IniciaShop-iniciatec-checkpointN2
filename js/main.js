@@ -335,7 +335,6 @@ const renderCards = async() => {
         containerCards1.insertAdjacentHTML('beforeend', renderCard(clothes))
     })
 }
-renderCards()
 
 const renderCard = (clothes) => {
     return `
