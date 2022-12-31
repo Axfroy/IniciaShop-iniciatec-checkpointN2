@@ -410,3 +410,69 @@ const nav = () => {
     }
 }
 nav();
+
+// Coupons --------------------------------
+
+// Random code
+function randomCode(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+
+
+// SWAL function
+function swalFunction() {
+    let code = randomCode(8);
+    localStorage.setItem("code10", code);
+    Swal.fire({
+        title: "Here's your 10% discount coupon!",
+        text: code,
+        width: 600,
+        padding: '3em',
+        color: '#242424',
+        background: 'url(../assets/gif_bg.gif)',
+        /* backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        left top
+        no-repeat
+        ` */
+    })
+}
+
+
+// Discount function
+const cuponInput = document.getElementById("cupon-input");
+function inputCoupon() {
+    cuponInput.addEventListener("keyup", (event) => {
+        let coupon = event.target.value;
+        //console.log("coupon", coupon)
+        return coupon;
+    })
+}
+
+function applyDiscount() {
+    let coupon = inputCoupon();
+    console.log("coupon in", coupon);
+    console.log(localStorage.getItem('cupon10'));
+    if (coupon === localStorage.getItem('cupon10')) {
+        let priceTotal = document.querySelector(".priceTotal")
+        total = total*0.1;
+        console.log(total);
+        priceTotal.innerHTML =  `$ ${total}`;
+    }  
+    else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "This's not a valid code, try again.",
+          })
+    }
+}
+
