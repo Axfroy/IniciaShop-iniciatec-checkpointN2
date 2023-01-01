@@ -13,12 +13,13 @@
 
 - [Description](#description)
 
+- [How to Use](#how-to-use)
+
 - [Tecnologies](#tecnologies)
 
 - [MockUp](#mockup)
 
 - [Our team](#our-team)
-
 
 # Description
 ## Iniciatec CheckPoint N2 - IniciaShop
@@ -46,6 +47,27 @@ Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
 
 <p>The main color is a bright and light green tone that can convey freshness, joy and energy.</p>
 <p>The complementary light pink and purple tone can convey sweetness and sophistication. These colors add a touch of delicacy and romance to the brand.</p>
+
+# How to use
+
+You will need the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension for VSC:
+```
+Live Server
+Description: Launch a development local Server with live reload feature for static & dynamic pages
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+```
+
+Then clone our repository. Type in the Git terminal:
+```
+git clone https://github.com/Axfroy/IniciaShop-iniciatec-checkpointN2.git
+```
+Next click to Go Live from the status bar to turn the server on/off.
+
+<picture>
+    <img src="./assets/sneakPeaks/hwt-liveServer.jpg" alt="hwt-liveServer" height="150px">
+</picture>
+
+After that the web should start running in yur Local Host
 
 # Technologies used
 
