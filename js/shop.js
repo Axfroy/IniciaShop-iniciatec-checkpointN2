@@ -21,7 +21,7 @@ renderUsers()
 
 const renderCard = (clothes) => {
     return `
-    <div class="col-6">
+    <div class="col-6 card-ctn">
     <div class="card p-0 text-bg-dark effect">
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
@@ -127,20 +127,16 @@ const inputSearchEvents = document.getElementById("input-search-events");
 
 inputSearchEvents.addEventListener("keyup", (event) =>{
     const allCards = document.querySelectorAll(".card-ctn");
-    //console.log("allCards", allCards)
     const emptyCardContainer = document.getElementById("emptyContainer");
     let noResultsCard = ``;
-    //let allCardsArray = Array.prototype.slice.call(allCards);
-    //console.log"allCardsArray", allCardsArray)
+
     console.log("event.target.value", event.target.value)
-    // console.log("event.key", event.key)
     allCards.forEach(card => {
-        console.log(card.id);
-        card.id
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase())
-        ? card.classList.remove("hidden")
-        : card.classList.add("hidden");
+        let title = card.querySelector(".card-title").textContent;
+
+        title.toLowerCase().includes(event.target.value.toLowerCase())
+            ? card.classList.remove("hidden")
+            : card.classList.add("hidden");
     }); 
     let eventResult = document.querySelectorAll(".hidden");
 
@@ -154,7 +150,7 @@ inputSearchEvents.addEventListener("keyup", (event) =>{
             </div>
             `
         }
-    emptyCardContainer.innerHTML = noResultsCard;
+   emptyCardContainer.innerHTML = noResultsCard;
 });
 
 const addCategory = (prod) => {
