@@ -131,7 +131,7 @@ const renderCard = (clothes) => {
     `
 }
 
-const cardProducto = (elem) => {
+/* const cardProducto = (elem) => {
     return `
     <div class="card" style="width: 18rem;">
     <img class="card-img" src="${elem.image}" alt="Card image cap">
@@ -144,7 +144,7 @@ const cardProducto = (elem) => {
 
 
     `
-}
+} */
 
 
 const listCarrito = (elem) => {
@@ -181,6 +181,25 @@ const renderCards = async() => {
     })
     addAgrCarrito(carritoDataLS,shop1)
     addAgrCarrito(carritoDataLS,shop2)
+    getCoupon();
+}
+
+const getCoupon = () => {
+    const subsBtn = document.getElementById("subs-btn");
+    subsBtn.addEventListener("click", () => {
+        let inputMail = document.querySelector("#newsletter1");
+        console.log("inputMail", inputMail.value)
+        if (inputMail != `` && inputMail.value.includes('@')) {
+            swalFunction();
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "You need to enter your email to get a coupon!",
+              })
+        }
+    })
 }
 
 //renderizo todos los productos
@@ -357,6 +376,7 @@ const renderResume = () => {
     quitarPrCarrito(carritoDataLS)
     agregarUnPrCarrito(carritoDataLS)
     obtPriceTotal(carritoDataLS)
+    btnCoupon();
 }
 
 
@@ -385,4 +405,76 @@ const nav = () => {
     }
 }
 nav();
+
+// Coupons --------------------------------
+
+// Random code
+function randomCode(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+
+// HOME ---------
+// SWAL function 
+function swalFunction() {
+    let code = randomCode(8);
+    localStorage.setItem("code10", code);
+    Swal.fire({
+        title: "Here's your 10% discount coupon!",
+        text: code,
+        width: 600,
+        padding: '3em',
+        color: 'black',
+        background: `
+        url(../assets/bg-cupon.gif)
+        no-repeat
+        cover
+        `,
+        backdrop: `
+        rgba(0,0,123,0.4)
+        url("../assets/nyan-cat-nyan.gif")
+        left top
+        no-repeat
+        `
+    })
+}
+
+
+// Discount function
+function btnCoupon() {
+    const cuponBtn = document.getElementById("cupon-btn");
+    cuponBtn.addEventListener("click", (event) => {
+        let coupon = document.querySelector(".input-coupon");
+        console.log("coupon", coupon.value)
+        applyDiscount(coupon.value);
+    })
+}
+//btnCoupon();
+
+function applyDiscount(coupon) {
+    console.log("coupon in", coupon);
+    console.log(coupon, " = ",localStorage.getItem('code10'));
+    if (coupon.trim() == localStorage.getItem('code10').trim()) {
+        let priceTotal = document.querySelector(".priceTotal")
+        console.log("priceTotal.value", priceTotal.innerHTML.slice(1))
+        let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
+        console.log("Total", total);
+        priceTotal.innerHTML = ``;
+        priceTotal.innerHTML =  `$ ${total}`;
+        localStorage.clear('code10'); 
+    }  
+    else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "This's not a valid code, try again.",
+          })
+    }
+}
 

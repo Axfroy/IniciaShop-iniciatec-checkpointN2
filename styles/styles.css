@@ -498,3 +498,15 @@
         height: 300px;
     }
 } 
+
+
+/* SWAL style */
+.swal2-styled.swal2-confirm {
+    background-color: #D9D9D9;
+    color: #202124;
+}
+
+.swal2-html-container  {
+    font-size: 2.125em;
+    color: #aa7dce;
+}
