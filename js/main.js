@@ -373,6 +373,34 @@ const renderResume = () => {
     btnCoupon();
 }
 
+//Finish Shopping alert
+function finishShoppingAlert() {
+    Swal.fire({
+        title: 'Submit your email',
+        input: 'text',
+        inputAttributes: {
+          autocapitalize: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Enter',
+        showLoaderOnConfirm: true,
+        preConfirm: (email) => {
+            if (email.includes('@')) {
+            Swal.fire({
+                title: 'Thank you for shopping with us!',
+                text: "We'll send you an email with a payment form right away!",
+                imageUrl: '../assets/bg-sm.png',
+            })
+            }
+            else {
+                Swal.showValidationMessage(
+                    'Please enter a valid email.'
+                )
+            }
+        }
+    })
+}
+
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
     switch (URLactual) {

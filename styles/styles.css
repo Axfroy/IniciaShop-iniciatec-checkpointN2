@@ -368,8 +368,6 @@
     text-align: center;
     background-color: #e3e4e7;
     border-radius: 9px;
-
-
 }
 .list-carrito li{
     list-style: none;
@@ -397,6 +395,10 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: pre;
+}
+
+.bg-toggler {
+    background-color: #c5f81e;
 }
 
 /* .container-vaciar-detalle button:hover {
