@@ -282,21 +282,30 @@
   touch-action: manipulation;
   white-space: pre;
 }
-.return-shop:hover {
-  border-color: #dadce0;
+/* .return-shop:hover {
+  border-color: #c7f434;
   box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
   color: #202124;
-}
+} */
 .cart-title {
     font-size: 40px;
     margin-bottom: 3%;
     border-bottom: 5px solid #c5f81e;
     display: inline;
 }
-.container-resume-carrito button:hover{
+/* .container-resume-carrito button:hover{
     background-color: #c5f81e;
+    color: #202124;
+    border: none;
+} */
+.btn-grey {
+    background-color: #D9D9D9;
 }
-.cupon-total{
+.btn-grey:hover {
+    background-color: #B3679B;
+    color: #e3e4e7;
+}
+/* .cupon-total{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -304,25 +313,25 @@
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
 }
- .cupon-total input{
+.cupon-total .input-home{
     padding: 5px;
     border: none;
     font-size: 15px;
     font-weight: 700;
     outline: none;
-}
+} */
 /* place holder*/
-.cupon-total input::-webkit-input-placeholder {
+/* .cupon-total input::-webkit-input-placeholder {
     transition: opacity 0.8s ease-in-out;
     opacity: .6;
     font-size: 15px;
     font-weight: 700;
-}
+} */
 /*Effects on hover input placeholder*/
-.cupon-total input:hover::-webkit-input-placeholder {
+/* .cupon-total input:hover::-webkit-input-placeholder {
     opacity: 1.5;
-}
-.container-cupon button{
+} */
+/* .container-cupon button{
     padding: 5px 10px;
     border: none;
     background-color: #aa7dce;
@@ -331,7 +340,7 @@
     font-weight: 700;
     cursor: pointer;
     border-radius: 5px;
-}
+} */
 .container-total {
     display: flex;
     flex-direction: row;
@@ -339,14 +348,15 @@
 }
 .container-total p{
     padding-right: 15px;
-
 }
 .go-pago{
-    background-color: #aa7dce;
-    
-    padding: 10px ;
+    background-color: #aa7dce; 
+    color: #ffffff;
 }
-
+.go-pago:hover {
+    background-color: #c7f434;
+    color: #202124;
+}
 /**/
 .container-vista-carrito{
     position: absolute;
@@ -367,9 +377,9 @@
     border-bottom: 1px solid #ccc;
     margin-bottom: 5px;
 }
-.container-vaciar-detalle{
+/* .container-vaciar-detalle{
     padding: 15px 5px 5px 5px;
-}
+} */
 
 .container-vaciar-detalle button{
     background-color: #d9d9d9d7;
@@ -389,11 +399,11 @@
     white-space: pre;
 }
 
-.container-vaciar-detalle button:hover {
+/* .container-vaciar-detalle button:hover {
     border-color: #dadce0;
     box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
     color: #202124;
-  }
+  } */
 
 .carritoData{
     position: relative; 
