@@ -201,7 +201,6 @@ const renderProducts = async () => {
     //json // undefined 
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let container = document.querySelector("#container-cards")
-    console.log(container)
     let data = await getAllArticles();
     let btn;
     //contenedor del carrito
@@ -457,35 +456,29 @@ const elemCheck = (event) => {
              `
 };
 
-//Finish Shopping alert
-function finishShoppingAlert() {
-    Swal.fire({
-        title: 'Submit your email',
-        input: 'text',
-        inputAttributes: {
-          autocapitalize: 'off'
-        },
-        showCancelButton: true,
-        confirmButtonText: 'Enter',
-        showLoaderOnConfirm: true,
-        preConfirm: (email) => {
-            if (email.includes('@')) {
-            Swal.fire({
-                title: 'Thank you for shopping with us!',
-                text: "We'll send you an email with a payment form right away!",
-                imageUrl: '../assets/',
-            })
+const nav = () => {
+    let URLactual = window.location.pathname.split('/').pop();
+    switch (URLactual) {
+        case 'index.html':
+            renderProducts()
+            renderCards()
+            break;
+        case 'resume.html':
+            renderResume()
+        break;
+        case 'shop.html':
+            //alert("shop")
+            renderProducts()
             renderFilter()
-            }
-            else {
-                Swal.showValidationMessage(
-                    'Please enter a valid email.'
-                )
-            }
-        }
-    })
-}
 
+        break;
+        default:
+            //insert 404
+            renderCards()
+        break;
+    }
+}
+nav();
 
 // Coupons
 
@@ -499,8 +492,9 @@ function randomCode(length) {
     }
     return result;
 }
+
 // HOME 
-// SWAL function qu 
+// SWAL function 
 function swalFunction() {
     let code = randomCode(8);
     localStorage.setItem("code10", code);
@@ -560,10 +554,10 @@ function applyDiscount(coupon) {
 // Input Search Filter Button 
 const searchFilterButton = document.getElementById("input-search-button");
 
-/* searchFilterButton.addEventListener("click", (e) =>{
-    //inputSearch();
+searchFilterButton.addEventListener("click", (e) =>{
+    inputSearch();
     e.preventDefault();
-}) */
+})
 
 const inputSearch = () =>{
     const allCards = document.querySelectorAll(".card-ctn");
@@ -584,7 +578,6 @@ const inputSearch = () =>{
             }); 
             let eventResult = document.querySelectorAll(".hidden");
         
-
             if (eventResult.length === allCards.length){
                 noResultsCard += `
                     <div class="container text-center">
@@ -598,25 +591,3 @@ const inputSearch = () =>{
            emptyCardContainer.innerHTML = noResultsCard;
     });  
 };
-const nav = () => {
-    let URLactual = window.location.pathname.split('/').pop();
-    switch (URLactual) {
-        case 'index.html':
-            renderProducts()
-            renderCards()
-            break;
-        case 'resume.html':
-            renderResume()
-        break;
-        case 'shop.html':
-            //alert("shop")
-            renderProducts()
-            renderChecks()
-        break;
-        default:
-            //insert 404
-            renderCards()
-        break;
-    }
-}
-nav();
