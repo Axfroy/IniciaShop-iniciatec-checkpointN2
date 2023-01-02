@@ -22,22 +22,11 @@
 
  */
 
-//get all articles
-
-//data.json
-const getAllEvents = async () => {
-    const res = await fetch('../js/data.json');
-    const data = await res.json();
-    console.log(data);
-    return data;
-}
-getAllEvents()
-//localStorage.setItem("carritoData", JSON.stringify(elementos))
 
 let elms = JSON.parse(localStorage.getItem("carritoData"));
 const getAllArticles = async () => {
     try {
-        let res = await fetch('https://fakestoreapi.com/products')
+        const res = await fetch('../js/data.json');
         let json = await res.json();
 
         return json
@@ -129,62 +118,22 @@ const renderBtnCarrito = () => {
 const renderCarrito = (car = []) => {
 
     let carritoData = document.querySelector(".list-carrito")
-    //  console.log(carritoData);
     let numElem = document.querySelector("#cantProd")
-   // let arrImg = [];
-
     let cantElem = 0;
-
     if (car.length != 0) {
-        
         carritoData.innerHTML = "";
         car.forEach(elem => {
             //arrImg.push(elem.img);
             cantElem += elem.cant;
             // console.log(elem);
             carritoData.innerHTML += listCarrito(elem)
-            
         })
-        
-            let elemsInfPrinc = document.getElementsByClassName("info-principal");
-            // itero sobre los elementos
-       /* for (let i = 0; i < elemsInfPrinc.length; i++) {
-            let img = document.createElement("img");
-            img.src = arrImg[i];
-            //agrego la imagen
-            elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
-        } */
+        let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
         carritoData.innerHTML = "";
         carritoData.innerHTML = `<h2 class="no-product">no hay productos</h2>`
     }
-    //en caso de que el arr ester vacio
-    /*
-    
-    
-    
-    
-    car.forEach(elem => {
-            arrImg.push(elem.img);
-            cantElem += elem.cant;
-            // console.log(elem);
-            carritoData.innerHTML += listCarrito(elem)
-            
-        })
-    
 
-
-            let elemsInfPrinc = document.getElementsByClassName("info-principal");
-            // itero sobre los elementos
-        console.log(elemsInfPrinc);
-        for (let i = 0; i < elemsInfPrinc.length; i++) {
-            let img = document.createElement("img");
-            img.src = arrImg[i];
-            //agrego la imagen
-            elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
-        } 
-    
-    */
 
     cantElementos(cantElem)
     quitarPrCarrito(car)
