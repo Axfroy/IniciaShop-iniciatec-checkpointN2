@@ -47,30 +47,19 @@ const elemCheck = (event) => {
 }
 
 
-const eventFiltroCheck = () => {
-
-    }
 
 const addCategory = (prod) => {
     //inserto los checks
-    
     //obtengo elemento random de categoryClothes
     let random = Math.floor(Math.random() * categoryClothes.length);
-
     //inserto elemento random en prod
     prod.category = categoryClothes[random];
-  
-
 }
-
-
 const insertChecks = () => {
     //obtengo elemento
     const containerChecks = document.querySelector('.check-opt');
     //inserto elemento
     categoryClothes.forEach((event) => {
         containerChecks.insertAdjacentHTML('beforeend', elemCheck(event))
-        
     })
-
 }

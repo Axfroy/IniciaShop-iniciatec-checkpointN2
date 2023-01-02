@@ -19,30 +19,25 @@
        ===========`-.`___`-.__\ \___  /__.-'_.'_.-'================
                                `=--=-'                    
                         
-                            Author: Lean33
-*/
+
+ */
 
 //get all articles
 
-
-const elementos = [
-    { price: 94, name: "Ellen Prohaska V", img: "https://loremflickr.com/600/480/fashion", id: "1", cant: 4 }
-    ,
-    { price: 94, name: "Curtis Hahn D", img: "https://loremflickr.com/633/480/fashion", id: "2", cant: 2 }
-    ,
-    { price: 89, name: "Ms. Dixie Torphy", img: "https://loremflickr.com/639/480/fashion", id: "3", cant: 1 }
-    ,
-    { price: 38, name: "Arlene Klocko V", img: "https://loremflickr.com/642/480/fashion", id: "4", cant: 1 }
-
-]
-
-
-localStorage.setItem("carritoData", JSON.stringify(elementos))
+//data.json
+const getAllEvents = async () => {
+    const res = await fetch('../js/data.json');
+    const data = await res.json();
+    console.log(data);
+    return data;
+}
+getAllEvents()
+//localStorage.setItem("carritoData", JSON.stringify(elementos))
 
 let elms = JSON.parse(localStorage.getItem("carritoData"));
 const getAllArticles = async () => {
     try {
-        let res = await fetch('https://61e71f3dce3a2d0017359624.mockapi.io/articles')
+        let res = await fetch('https://fakestoreapi.com/products')
         let json = await res.json();
 
         return json
@@ -58,9 +53,9 @@ const getAllArticles = async () => {
 const cardProducto = (elem) => {
     return `
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="${elem.img}" alt="Card image cap">
+    <img class="card-img" src="${elem.image}" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">${elem.name}</h5>
+      <h5 class="card-title">${elem.title}</h5>
       <h4>$${elem.price}</h4>
       <a  class="btn btn-primary agregarElem" id="${elem.id}" >agregar al carrito</a>
     </div>
@@ -75,22 +70,14 @@ const listCarrito = (elem) => {
     return `
         <li class="li-elements">
             <div class="info-principal">
-            
-            <span class="">${elem.name}</span>
-            <span class="">$${elem.price}</span>
+                <img  class="card-img" src="${elem.image}" alt="" class="d-none">
+                <span class="">${elem.title}</span>
+                <span class="">$${elem.price}</span>
             </div>
             <div class="info-secundaria" id="${elem.id}">
-                <button class=" btn-prod-carrito elimProd bg-danger">
-                        <i class="bi bi-dash"></i>
-
-                </button>
-            <span id="cant" class="">${elem.cant}</span>
-            <button class="btn-prod-carrito agregarUno bg-success">
-
-                     <i class="bi bi-plus-lg fs-6 " ></i>
-
-            </button>
-
+                
+                <span id="cant" class="">${elem.cant}</span>
+             
 
             </div>
 
@@ -100,14 +87,14 @@ const listCarrito = (elem) => {
 
 //renderizo todos los productos
 const renderProducts = async () => {
+    renderBtnCarrito()
     //json // undefined 
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
    
-    let container = document.querySelector(".container-products")
+    let container = document.querySelector("#container-cards")
     let data = await getAllArticles();
     let btn;
     //toggle carrito
-    renderBtnCarrito()
     
 
     //contenedor del carrito
@@ -144,37 +131,62 @@ const renderCarrito = (car = []) => {
     let carritoData = document.querySelector(".list-carrito")
     //  console.log(carritoData);
     let numElem = document.querySelector("#cantProd")
-    let arrImg = [];
+   // let arrImg = [];
 
-    console.log(numElem);
     let cantElem = 0;
 
-    carritoData.innerHTML = "";
+    if (car.length != 0) {
+        
+        carritoData.innerHTML = "";
+        car.forEach(elem => {
+            //arrImg.push(elem.img);
+            cantElem += elem.cant;
+            // console.log(elem);
+            carritoData.innerHTML += listCarrito(elem)
+            
+        })
+        
+            let elemsInfPrinc = document.getElementsByClassName("info-principal");
+            // itero sobre los elementos
+       /* for (let i = 0; i < elemsInfPrinc.length; i++) {
+            let img = document.createElement("img");
+            img.src = arrImg[i];
+            //agrego la imagen
+            elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
+        } */
+    }else{
+        carritoData.innerHTML = "";
+        carritoData.innerHTML = `<h2 class="no-product">no hay productos</h2>`
+    }
+    //en caso de que el arr ester vacio
+    /*
+    
+    
+    
+    
     car.forEach(elem => {
-        arrImg.push(elem.img);
-        cantElem += elem.cant;
-       // console.log(elem);
-        carritoData.innerHTML += listCarrito(elem)
-
-    })
-
-    let elemsInfPrinc = document.getElementsByClassName("info-principal");
-    // itero sobre los elementos
-    console.log(elemsInfPrinc);
-    for (let i = 0; i < elemsInfPrinc.length; i++) {
-        let img = document.createElement("img");
-        img.src = arrImg[i];
-        //agrego la imagen
-        elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
-    } 
+            arrImg.push(elem.img);
+            cantElem += elem.cant;
+            // console.log(elem);
+            carritoData.innerHTML += listCarrito(elem)
+            
+        })
     
 
 
+            let elemsInfPrinc = document.getElementsByClassName("info-principal");
+            // itero sobre los elementos
+        console.log(elemsInfPrinc);
+        for (let i = 0; i < elemsInfPrinc.length; i++) {
+            let img = document.createElement("img");
+            img.src = arrImg[i];
+            //agrego la imagen
+            elemsInfPrinc[i].insertAdjacentElement("afterbegin", img);
+        } 
+    
+    */
+
     cantElementos(cantElem)
-
-    let total = document.querySelector(".total")
-
-
     quitarPrCarrito(car)
     agregarUnPrCarrito(car)
     obtPriceTotal(car)
@@ -188,7 +200,7 @@ const cantElementos = (cantElem) => {
         numElem.innerHTML = '';
         numElem.innerHTML = cantElem;
     }else{
-        console.log("no existe");
+        //console.log("no existe");
     }
 }
 
@@ -196,36 +208,37 @@ const cantElementos = (cantElem) => {
 const agregarUnPrCarrito = (car) => {
 
     let btnAgregar = document.querySelectorAll(".agregarUno")
-    console.log(btnAgregar);
     btnAgregar.forEach(elem => {
         elem.addEventListener("click", () => {
+            let spanCant = elem.parentElement.querySelector("#cant")
             let id = elem.parentElement.id;
-            console.log(id);
             let carritoData = car.find(elem => elem.id == id)
-            console.log(carritoData);
             carritoData.cant += 1;
-            renderCarrito(car)
+
+            spanCant.innerHTML = carritoData.cant;
+            
+            obtPriceTotal(car)
         })
+        
     })
+
+
 
 
 }
 
-const quitarPrCarrito = (car) => {
+const quitarPrCarrito = (car,func) => {
     let btnQuitar = document.querySelectorAll(".elimProd")
     let btnVaciar = document.querySelector(".vaciarCarrito")
 
-    console.log(car);
 
     btnQuitar.forEach(elem => {
         
         elem.addEventListener("click", () => {
             //obtengo id del producto
             let id = elem.parentElement.id;
-            console.log(id);
             //le quito 1 a la cantidad
             let carritoData = car.find(elem => elem.id == id)
-            console.log(carritoData);
             carritoData.cant -= 1;
             //si la cantidad es 0 lo elimino
             if (carritoData.cant == 0) {
@@ -233,13 +246,13 @@ const quitarPrCarrito = (car) => {
             }
             //guardo en localStorage
             localStorage.setItem("carritoData", JSON.stringify(car))
-            renderProducts();
+            nav();
         })
     })
 
     btnVaciar.addEventListener("click", () => {
         localStorage.removeItem("carritoData");
-        renderCarrito();
+        nav();
     })
 
 }
@@ -265,6 +278,8 @@ const obtPriceTotal = (car) => {
     car.forEach(elem => {
         total += elem.price * elem.cant
     })
+    //recorto a 2 decimales
+    total = total.toFixed(2);
     priceTotal.innerHTML = `$ ${total}`;
 }
 
@@ -301,26 +316,49 @@ const obtProducto = (car, data, id) => {
 }
 
 //obtengo el template de carrito y le inserto imagen
-const renderResume = (car = []) => {
-    renderCarrito(elms)
-    //traigo el carrito
- /*   let carritoData = document.querySelector(".list-carrito")
-    //obtengo el id de cant de productos
-    let numElem = document.querySelector("#cantProd")
-    //console.log(numElem);
-    let cantElem = 0;
-    carritoData.innerHTML = "";
-    car.forEach(elem => {
-        //creo etiqueta img
-        arrImg.push(elem.img);
-        cantElem += elem.cant;
-        carritoData.innerHTML += listCarrito(elem)
+const renderResume = () => {
+    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
+    let arrImg = [];
+
+   //inserto datos
+   renderCarrito(carritoDataLS)
+
+   //obtengo todos los elementos del carrito
+    let elemsCarritoSec = document.querySelectorAll(".li-elements");
+    console.log();
+
+
+    elemsCarritoSec.forEach(elem => {
+        //quito la clase d-none
+        let infoPrinc = elem.querySelector(".info-principal");
+        let infoSec = elem.querySelector(".info-secundaria");
+        infoPrinc.classList.remove("d-none");
         
-        
+        //inserto arriba del span
+        infoSec.insertAdjacentHTML("afterbegin", 
+                    `
+                        <button class=" btn-prod-carrito elimProd bg-danger">
+                            <i class="bi bi-dash"></i>
+                        </button>
+                    `
+        );
+        //inserto abajo del span
+        infoSec.insertAdjacentHTML("beforeend", 
+                    `
+                        <button class=" btn-prod-carrito agregarUno bg-success">
+                            <i class="bi bi-plus "></i>
+                        </button>
+                    `
+        );
     })
     
-    */
-   
+
+    //agrego funcion sumar cantidad
+
+    quitarPrCarrito(carritoDataLS)
+    agregarUnPrCarrito(carritoDataLS)
+    obtPriceTotal(carritoDataLS)
+
     
     
 
@@ -334,13 +372,19 @@ const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
 
     switch (URLactual) {
-        //envio el getAllEvents
+
         case 'index.html':
             renderProducts();
             break;
 
         case 'resume.html':
-            renderResume(elms)
+            renderResume()
+
+        break;
+
+        case 'shop.html':
+            //alert("shop")
+            renderProducts()
 
         break;
 

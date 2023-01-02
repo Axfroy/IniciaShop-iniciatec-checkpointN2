@@ -4,6 +4,7 @@
 .hover-animation img {
     position: absolute;
     width: 100%;
+    background-image: url(../assets/13.png);
     height: 710px;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
@@ -35,21 +36,21 @@
     position: absolute;
     z-index: -1;
 }
-/* .container-elements{
-    position: relative;
-} */
-/* New */
-.dimentions {
+.bg-gris2 {
+    background-color: #b5b4b4;
+    width: 100%;
+    height: 900px;
+    clip-path: polygon(21% 4%, 87% 0, 100% 100%, 0 73%);
+    position: absolute;
+    z-index: -1;
+}
+.publicity-1 {
    background-image: url(../assets/15.png);
    background-size: cover;
    height: 450px;
    background-position-y: 80%;
-   margin: 125px 0px 90px 0px;
 }
-.dimentions-section {
-    margin-bottom: 150px;
-}
-.dimentions2 {
+.publicity-2 {
     background-image: url(../assets/2.png);
     background-size: cover;
     height: 450px;
@@ -58,12 +59,9 @@
 }
 
 .container-card {
-    /* margin: 25px;
-    width: 200px;
-    height: 300px;
-    border-radius: 5px; */
     background: var(--i);
     background-size: cover;
+    background-position-x: center;
     box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);  
 }
 .content {
@@ -72,19 +70,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, .6);
     opacity: 0;
     transition: .5s;
     border-radius: 1rem;
 }
-
 .container-card:hover .content {
     opacity: 1;
 }
-/* .bi-heart:hover{
-    background-color: red;
-} */
-/**/
+
+
 .bi-plus-lg{
     font-size: 25px;
 }
@@ -413,6 +408,27 @@
     padding-right: 15px;
 
 }
+
+/* Card Details */
+.bg-green {
+    background-color: #c7f434;
+}
+.container-list {
+    list-style: none;
+}
+
+.container-list .item-card {
+    background-color: #c7f434;
+    border: solid 1px black;
+    padding: 5px 10px;
+}
+
+/* Card Details */
+
+/* shop */
+.display-publicity-b {
+    display: none;
+}
 .go-pago{
     background-color: #aa7dce;
     
@@ -558,4 +574,43 @@
     .arrow {
         display: none !important;
     }
+}
+/* shop */
+
+/*NEW CARD*/
+.container-detail {
+    background-color: rgba(0, 0, 0, .4);
+}
+.icon-dimentions {
+    padding: 0.25rem 0.6rem 0.25rem 0.6rem;
+    border-radius: 30% 0;
+}
+.icon-dimentions:hover {
+    background-color:#B3679B;
+    cursor: pointer;
+}
+.btn-outline-dark {
+    background-color: #c7f434;
+    color: black;
+    border: solid 1px #c7f434;
+}
+.btn-outline-darkg:hover {
+    background-color:  black;
+    color: #c7f434;
+    border: solid 1px #c7f434;
+}
+.box-color {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #b5b4b4;
+    font-weight: bolder;
+    /* cursor: pointer; */
+}
+
+.no-product{
+    text-align: center;
 }
