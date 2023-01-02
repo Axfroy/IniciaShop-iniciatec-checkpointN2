@@ -67,7 +67,7 @@ Next click to Go Live from the status bar to turn the server on/off.
     <img src="./assets/sneakPeaks/hwt-liveServer.jpg" alt="hwt-liveServer" height="150px">
 </picture>
 
-After that the web should start running in yur Local Host
+After that the web should start running in your Local Host
 
 # Technologies used
 
