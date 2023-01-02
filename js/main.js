@@ -32,14 +32,11 @@ const getAllArticles = async () => {
     }
 }
 const getPr = async(ini,fn) => {
-    
     const respose = await fetch("../js/data.json") 
     //acorto la respuesta a json y la guardo en data
     const dt = await respose.json()
     //acorto el array a 6 elementos
     return dt.slice(ini,fn);
-
-        
 }
 /* *** Template *** */
 
@@ -170,6 +167,7 @@ const listCarrito = (elem) => {
 }
 
 const renderCards = async() => {
+    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     const shop1 = await getPr(4,10)
     const shop2 = await getPr(11,17)
     const containerCards = document.getElementById('container-cards-trend')
@@ -181,6 +179,8 @@ const renderCards = async() => {
         
         containerCards1.insertAdjacentHTML('beforeend', renderCard(clothes))
     })
+    addAgrCarrito(carritoDataLS,shop1)
+    addAgrCarrito(carritoDataLS,shop2)
 }
 
 //renderizo todos los productos
@@ -196,38 +196,34 @@ const renderProducts = async () => {
     data.forEach(element => {
         container.innerHTML += renderCard(element)
     });
-    btn = document.querySelectorAll(".agregarElem")
+    addAgrCarrito(carritoDataLS, data)
+    obtPriceTotal(carritoDataLS);
+}
+const addAgrCarrito = (carritoDataLS,data) => {
+    let btn = document.querySelectorAll(".agregarElem")
     btn.forEach(elem => {
         elem.addEventListener("click", () => {
-            console.log(elem);
             insertarPrCarrito(carritoDataLS, data, elem.id)
         })
     })
-    obtPriceTotal(carritoDataLS);
 }
 const renderBtnCarrito = () => {
     let btnCarrito = document.querySelector(".btn-carrito")
     let carritoData = document.querySelector(".carritoData")
     if (btnCarrito) {
-        
-    
-        
         btnCarrito.addEventListener("click", () => {
             carritoData.classList.toggle("dsp-none")
         })
     }
 }
 const renderCarrito = (car = []) => {
-
     let carritoData = document.querySelector(".list-carrito")
     let numElem = document.querySelector("#cantProd")
     let cantElem = 0;
     if (car.length != 0) {
         carritoData.innerHTML = "";
         car.forEach(elem => {
-            //arrImg.push(elem.img);
             cantElem += elem.cant;
-            // console.log(elem);
             carritoData.innerHTML += listCarrito(elem)
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
@@ -235,13 +231,10 @@ const renderCarrito = (car = []) => {
         carritoData.innerHTML = "";
         carritoData.innerHTML = `<h2 class="no-product">no hay productos</h2>`
     }
-
-
     cantElementos(cantElem)
     quitarPrCarrito(car)
     agregarUnPrCarrito(car)
     obtPriceTotal(car)
-
 }
 
 const cantElementos = (cantElem) => {
@@ -254,10 +247,7 @@ const cantElementos = (cantElem) => {
         //console.log("no existe");
     }
 }
-
-
 const agregarUnPrCarrito = (car) => {
-
     let btnAgregar = document.querySelectorAll(".agregarUno")
     btnAgregar.forEach(elem => {
         elem.addEventListener("click", () => {
@@ -265,26 +255,16 @@ const agregarUnPrCarrito = (car) => {
             let id = elem.parentElement.id;
             let carritoData = car.find(elem => elem.id == id)
             carritoData.cant += 1;
-
             spanCant.innerHTML = carritoData.cant;
-            
             obtPriceTotal(car)
         })
-        
     })
-
-
-
-
 }
 
 const quitarPrCarrito = (car,func) => {
     let btnQuitar = document.querySelectorAll(".elimProd")
     let btnVaciar = document.querySelector(".vaciarCarrito")
-
-
     btnQuitar.forEach(elem => {
-        
         elem.addEventListener("click", () => {
             //obtengo id del producto
             let id = elem.parentElement.id;
@@ -300,22 +280,17 @@ const quitarPrCarrito = (car,func) => {
             nav();
         })
     })
-
     btnVaciar.addEventListener("click", () => {
         localStorage.removeItem("carritoData");
         nav();
     })
-
 }
-
 const insertarPrCarrito = (car, data, id) => {
-
     //obtengo clase carritoData
     obtProducto(car, data, id)
     //inserto desde localStorage
     renderCarrito(car);
 }
-
 const obtPriceTotal = (car) => {
     let priceTotal = document.querySelector(".priceTotal")
     let total = 0;
@@ -327,9 +302,8 @@ const obtPriceTotal = (car) => {
     priceTotal.innerHTML = `$ ${total}`;
 }
 const obtProducto = (car, data, id) => {
-
     let carritoData = car;
-
+    console.log(data, id);
     let prod = data.find(elem => elem.id == id)
     //si el producto no existe en el carritoData lo agrego
     if (!carritoData.find(elem => elem.id == prod.id)) {
@@ -345,32 +319,23 @@ const obtProducto = (car, data, id) => {
             }
         })
     }
-
-
     localStorage.setItem("carritoData", JSON.stringify(carritoData))
-
     renderCarrito(car);
-
 }
 
 //obtengo el template de carrito y le inserto imagen
 const renderResume = () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let arrImg = [];
-
    //inserto datos
    renderCarrito(carritoDataLS)
-
    //obtengo todos los elementos del carrito
     let elemsCarritoSec = document.querySelectorAll(".li-elements");
-
-
     elemsCarritoSec.forEach(elem => {
         //quito la clase d-none
         let infoPrinc = elem.querySelector(".info-principal");
         let infoSec = elem.querySelector(".info-secundaria");
         infoPrinc.classList.remove("d-none");
-        
         //inserto arriba del span
         infoSec.insertAdjacentHTML("afterbegin", 
                     `
@@ -388,23 +353,11 @@ const renderResume = () => {
                     `
         );
     })
-    
-
     //agrego funcion sumar cantidad
-
     quitarPrCarrito(carritoDataLS)
     agregarUnPrCarrito(carritoDataLS)
     obtPriceTotal(carritoDataLS)
-
-    
-    
-
-    
 }
-
-
-
-
 
 
 
@@ -413,16 +366,13 @@ const renderResume = () => {
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
     switch (URLactual) {
-
         case 'index.html':
             renderProducts()
             renderCards()
             break;
         case 'resume.html':
             renderResume()
-
         break;
-
         case 'shop.html':
             //alert("shop")
             renderProducts()
