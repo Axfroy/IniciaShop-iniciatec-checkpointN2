@@ -81,7 +81,7 @@
 .container-detail {
     background-color: rgba(70, 69, 69, 0.5);
     height: 40%;
-    border-radius: 18px;
+    border-radius: 5px;
 }
 .bi-heart-fill {
     color: #ffffff;
@@ -168,7 +168,9 @@
     flex-direction: column;
     padding: 0px 5px 5px 5px; 
 }
-
+.link-cart {
+    text-decoration: none; 
+}
 .btn-prod-carrito{
     border-radius: 25%;
 }
@@ -246,7 +248,7 @@
     cursor: pointer;
 }
 .section-resume-carrito {
-    background-image: url(../assests/backgrounds.png); 
+    background-image: url(../assets/backgrounds.png); 
     display: flex;
     justify-content: center;
 }
@@ -446,6 +448,12 @@
     display: none;
 }
 
+
+.class-prueba{
+   background-image: url(../assets/Bg-blanco.png);
+   /* background-size: cover; */
+}
+
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
@@ -463,6 +471,7 @@
     .card_sm {
         height: 300px;
     }
+<<<<<<< HEAD
 }
 
 .hidden{
@@ -489,3 +498,39 @@
 .card-shop {
     height: 300px;
 }
+=======
+    .publicity-1 {
+        height: 200px;
+    }
+    .publicity-2{
+        height: 200px;
+    }
+    .text-sm {
+        color: black;
+    }
+    .logo-toggler {
+        display: flex; 
+    }
+    .logo-nav {
+        display: none; 
+    }
+    .arrow {
+        display: none !important;
+    }
+    .card-shop {
+        height: 300px;
+    }
+} 
+
+
+/* SWAL style */
+.swal2-styled.swal2-confirm {
+    background-color: #D9D9D9;
+    color: #202124;
+}
+
+.swal2-html-container  {
+    font-size: 2.125em;
+    color: #aa7dce;
+}
+>>>>>>> 7c128096cd31f75e649a3bab786fd03c08bec07e

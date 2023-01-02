@@ -188,6 +188,7 @@ const insertChecks = () => {
     })
 };
 
+<<<<<<< HEAD
 // Checkbox Filter Function
 const containerChecks = document.querySelector('.check-opt');
 
@@ -229,3 +230,6 @@ noSelect = (filteredArray) => {
         })
         : null
 };
+=======
+}
+>>>>>>> 7c128096cd31f75e649a3bab786fd03c08bec07e
