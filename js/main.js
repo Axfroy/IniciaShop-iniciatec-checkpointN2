@@ -42,7 +42,7 @@ const getPr = async(ini,fn) => {
 
 const renderCard = (clothes) => {
     return `
-    <div class="col-6 col-sm-4">
+    <div class="col-6 col-sm-4 card-ctn" id="${clothes.id}" data-category="${clothes.category}">
     <div class="card p-0 class-prueba effect">
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
@@ -201,6 +201,7 @@ const renderProducts = async () => {
     //json // undefined 
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let container = document.querySelector("#container-cards")
+    console.log(container)
     let data = await getAllArticles();
     let btn;
     //contenedor del carrito
@@ -373,6 +374,89 @@ const renderResume = () => {
     btnCoupon();
 }
 
+const renderFilter = async() =>{
+    let productos = await getAllArticles();
+    //console.log("allartciles", productos)
+    let productCategories = new Set();
+    productos.forEach(element =>{
+        //console.log(element.category)
+/*         if(!productCategories.find(elem => elem.category == element.category)){
+            productCategories.push(element.category);
+        }; */
+        if (!productCategories.has(element.category)) {
+            productCategories.add(element.category);
+          };
+    })
+    console.log("productCategories",productCategories);
+    insertCheckbox(productCategories);
+    checkFilter();
+};
+
+const insertCheckbox = (categories) =>{
+    let checksCtn = document.querySelector('.check-opt'); 
+    categories.forEach((category) =>{
+        checksCtn.insertAdjacentHTML("beforeend", elemCheck(category))
+    }) 
+}
+
+const checkFilter = () =>{
+    const containerChecks = document.querySelector('.check-opt');
+
+    containerChecks.addEventListener("change", () => {
+        const inputsCheckbox = document.querySelectorAll(".form-check-input");
+        
+        var categoriesChecked = [];
+        
+        inputsCheckbox.forEach((inputBox) =>{
+            inputBox.checked
+                ? categoriesChecked.push(inputBox.value)
+                : null
+            console.log(inputBox.checked)
+        });
+        
+        console.log(inputsCheckbox)
+        console.log(categoriesChecked)
+
+        cardsFilter(categoriesChecked);
+        noSelect(categoriesChecked);
+    });
+};
+
+const cardsFilter = (filteredArray) => {
+    const allCards = document.querySelectorAll(".card-ctn");
+
+    allCards.forEach((card) => {
+        filteredArray.includes(card.getAttribute("data-category"))
+            ? card.classList.remove("hidden")
+            : card.classList.add("hidden");
+        
+    });
+};
+
+const noSelect = (filteredArray) => {
+    const allCards = document.querySelectorAll(".card-ctn");
+
+    filteredArray.length === 0 
+        ? allCards.forEach((card) => {
+            card.classList.remove("hidden")
+        })
+        : null
+};
+
+// CheckBox elements
+const elemCheck = (event) => {
+    return `
+            <div class="col-6 col-lg-12" >
+                 <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" value="${event}" id="flexCheck" >
+                    <label class="form-check-label" for="flexCheckDefault">
+                         ${event}
+                    </label>
+                 </div>
+             </div>
+             `
+};
+
 //Finish Shopping alert
 function finishShoppingAlert() {
     Swal.fire({
@@ -391,6 +475,7 @@ function finishShoppingAlert() {
                 text: "We'll send you an email with a payment form right away!",
                 imageUrl: '../assets/',
             })
+            renderFilter()
             }
             else {
                 Swal.showValidationMessage(
@@ -414,9 +499,8 @@ function randomCode(length) {
     }
     return result;
 }
-
 // HOME 
-// SWAL function 
+// SWAL function qu 
 function swalFunction() {
     let code = randomCode(8);
     localStorage.setItem("code10", code);
@@ -472,7 +556,48 @@ function applyDiscount(coupon) {
     }
 }
 
+// SHOP SECTION 
+// Input Search Filter Button 
+const searchFilterButton = document.getElementById("input-search-button");
 
+/* searchFilterButton.addEventListener("click", (e) =>{
+    //inputSearch();
+    e.preventDefault();
+}) */
+
+const inputSearch = () =>{
+    const allCards = document.querySelectorAll(".card-ctn");
+
+    const inputSearchEvents = document.getElementById("input-search-events");
+
+    inputSearchEvents.addEventListener("blur", (event) =>{
+            const emptyCardContainer = document.getElementById("emptyContainer");
+            let noResultsCard = ``;
+        
+            console.log("event.target.value", event.target.value)
+            allCards.forEach(card => {
+                let title = card.querySelector(".card-title").textContent;
+        
+                title.toLowerCase().includes(event.target.value.toLowerCase())
+                    ? card.classList.remove("hidden")
+                    : card.classList.add("hidden");
+            }); 
+            let eventResult = document.querySelectorAll(".hidden");
+        
+
+            if (eventResult.length === allCards.length){
+                noResultsCard += `
+                    <div class="container text-center">
+                        <div style="width: 250px; margin: 0 auto">
+                            <img style="width: 100%;" src="#" alt="">
+                        </div>
+                        <p>Please try another search</p>
+                    </div>
+                    `
+                }
+           emptyCardContainer.innerHTML = noResultsCard;
+    });  
+};
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
     switch (URLactual) {
@@ -486,7 +611,7 @@ const nav = () => {
         case 'shop.html':
             //alert("shop")
             renderProducts()
-
+            renderChecks()
         break;
         default:
             //insert 404
