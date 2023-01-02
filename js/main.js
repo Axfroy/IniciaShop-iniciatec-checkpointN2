@@ -279,8 +279,9 @@ const renderResume = (car = []) => {
         carritoData.innerHTML += listCarrito(elem)
     })
     */ 
+    // Aplicar descuento con cupon 
+    btnCoupon();
 }
-
 
 
 
@@ -301,6 +302,25 @@ const renderCards = async() => {
     shop.map(clothes => {
         containerCards.insertAdjacentHTML('beforeend', renderCard(clothes))
         containerCards1.insertAdjacentHTML('beforeend', renderCard(clothes))
+    })
+    getCoupon() 
+}
+
+const getCoupon = () => {
+    const subsBtn = document.getElementById("subs-btn");
+    subsBtn.addEventListener("click", () => {
+        let inputMail = document.querySelector("#newsletter1");
+        console.log("inputMail", inputMail.value)
+        if (inputMail != `` && inputMail.value.includes('@')) {
+            swalFunction();
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "You need to enter your email to get a coupon!",
+              })
+        }
     })
 }
 
@@ -425,8 +445,8 @@ function randomCode(length) {
 }
 
 
-
-// SWAL function
+// HOME ---------
+// SWAL function 
 function swalFunction() {
     let code = randomCode(8);
     localStorage.setItem("code10", code);
@@ -435,37 +455,44 @@ function swalFunction() {
         text: code,
         width: 600,
         padding: '3em',
-        color: '#242424',
-        background: 'url(../assets/gif_bg.gif)',
-        /* backdrop: `
+        color: 'black',
+        background: `
+        url(../assets/bg-cupon.gif)
+        no-repeat
+        cover
+        `,
+        backdrop: `
         rgba(0,0,123,0.4)
-        url("/images/nyan-cat.gif")
+        url("../assets/nyan-cat-nyan.gif")
         left top
         no-repeat
-        ` */
+        `
     })
 }
 
 
 // Discount function
-const cuponInput = document.getElementById("cupon-input");
-function inputCoupon() {
-    cuponInput.addEventListener("keyup", (event) => {
-        let coupon = event.target.value;
-        //console.log("coupon", coupon)
-        return coupon;
+function btnCoupon() {
+    const cuponBtn = document.getElementById("cupon-btn");
+    cuponBtn.addEventListener("click", (event) => {
+        let coupon = document.querySelector(".input-coupon");
+        console.log("coupon", coupon.value)
+        applyDiscount(coupon.value);
     })
 }
+//btnCoupon();
 
-function applyDiscount() {
-    let coupon = inputCoupon();
+function applyDiscount(coupon) {
     console.log("coupon in", coupon);
-    console.log(localStorage.getItem('cupon10'));
-    if (coupon === localStorage.getItem('cupon10')) {
+    console.log(coupon, " = ",localStorage.getItem('code10'));
+    if (coupon.trim() == localStorage.getItem('code10').trim()) {
         let priceTotal = document.querySelector(".priceTotal")
-        total = total*0.1;
-        console.log(total);
+        console.log("priceTotal.value", priceTotal.innerHTML.slice(1))
+        let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
+        console.log("Total", total);
+        priceTotal.innerHTML = ``;
         priceTotal.innerHTML =  `$ ${total}`;
+        localStorage.clear('code10'); 
     }  
     else {
         Swal.fire({
