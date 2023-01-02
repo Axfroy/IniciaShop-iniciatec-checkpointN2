@@ -21,7 +21,6 @@ const footerProfiles = [
     },
 ];
 
-console.log(footerProfiles[1])
 
 function footer(footerProfiles) {
     return `
@@ -44,7 +43,6 @@ function footer(footerProfiles) {
 };
 
 function createFooter(){
-    console.log("nashe")
     let footerEl = ``;
     const footerCtn = document.getElementById("footerProfileCtn");
 
