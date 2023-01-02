@@ -56,12 +56,17 @@ Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
 ![FIGMA](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)  ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)  ![Canvas](https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white)
 
 ## Mockup
+<<<<<<< HEAD
 
+=======
+***
+>>>>>>> dev
 ### Figma
 <picture>
     <img src="./assets/sneakPeaks/Home-landingPage.jpg" alt="home" height="250px">
 </picture>
 <picture>
+<<<<<<< HEAD
     <img src="./assets/sneakPeaks/product-landingPage.jpg" alt="products" height="250px">
 </picture>
 <picture>
@@ -69,6 +74,15 @@ Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
 </picture>
 <picture>
     <img src="./assets/sneakPeaks/products-shopPage.jpg" alt="products" height="500px">
+=======
+    <img src="./assets/sneakPeaks/product-landingPage.jpg" alt="trello" height="250px">
+</picture>
+<picture>
+    <img src="./assets/sneakPeaks/forms-contactUs.jpg" alt="trello" height="250px">
+</picture>
+<picture>
+    <img src="./assets/sneakPeaks/products-shopPage.jpg" alt="trello" height="500px">
+>>>>>>> dev
 </picture>
 
 ### Trello
@@ -76,9 +90,13 @@ Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
     <img src="./assets/sneakPeaks/Trello.jpg" alt="trello" height="250px">
 </picture>
 
+<<<<<<< HEAD
 
 # Our Team
 
+=======
+# Our Team
+>>>>>>> dev
 | [<img src="https://avatars.githubusercontent.com/u/90355395?v=4" width=115><br><sub>Dai</sub>](https://github.com/DaiM24)|[<img src="https://avatars.githubusercontent.com/u/47448020?v=4" width=115><br><sub>Lean</sub>](https://github.com/Leandro97ramos) |  [<img src="https://avatars.githubusercontent.com/u/113393980?v=4" width=115><br><sub>Cata</sub>](https://github.com/catasimonovich4) |  [<img src="https://avatars.githubusercontent.com/u/102679463?v=4" width=115><br><sub>Ivan Ezequiel Rodriguez</sub>](https://github.com/Axfroy)
 | :---: | :---: | :---: | :---: |
 |<a href="https://www.linkedin.com/in/daianamercado/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>|<a href="https://www.linkedin.com/in/leandro-ramos-lkd/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>|<a href="https://www.linkedin.com/in/catalina-simonovich/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>|<a href="https://www.linkedin.com/in/ivane-rodriguez/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>
