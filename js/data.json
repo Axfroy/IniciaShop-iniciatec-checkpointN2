@@ -75,7 +75,7 @@
         "id": 7,
         "title": "Jacket Paradise",
         "price": 9.99,
-        "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+        "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
         "category": "jacket",
         "image": "../assets/img-Json/jacket/jacket3.png",
         "rating": {
@@ -85,9 +85,9 @@
     },
     {
         "id": 8,
-        "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+        "title": "Comfortable Stretch Jeans",
         "price": 10.99,
-        "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+        "description": "These jeans are made with a stretchy, comfortable material that moves with you all day long",
         "category": "pants",
         "image": "../assets/img-Json/pants/pants4.png",
         "rating": {
@@ -97,9 +97,9 @@
     },
     {
         "id": 9,
-        "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+        "title": "Classic Chino Pants",
         "price": 64,
-        "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+        "description": "These pants feature a timeless, versatile design that can be dressed up or down. Made with a soft, lightweight fabric",
         "category": "pants",
         "image": "../assets/img-Json/pants/pants5.png",
         "rating": {
@@ -133,9 +133,9 @@
     },
     {
         "id": 12,
-        "title": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+        "title": "Sporty Joggers",
         "price": 114,
-        "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+        "description": "These joggers are perfect for the gym or a casual day out. Made with breathable, moisture-wicking fabric to keep you cool and dry",
         "category": "pants",
         "image": "../assets/img-Json/pants/pants6.png",
         "rating": {
@@ -229,7 +229,7 @@
     },
     {
         "id": 20,
-        "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+        "title": "DANVOUY Womens T  Casual Cotton Short",
         "price": 12.99,
         "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
         "category": "sneakers",
