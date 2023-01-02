@@ -446,6 +446,19 @@
     display: none;
 }
 
+
+.class-prueba{
+   /* 
+   background-image: url(../assets/Bg-verde.png);
+   background-image: url(../assets/Bg-morado.png);*/
+   background-image: url(../assets/Bg-blanco.png);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+    
+
+}
+
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;

@@ -39,13 +39,38 @@
           <div class="col-lg-6 d-lg-flex justify-content-end">
             <ul class="navbar-nav gap-lg-5">
               <li class="nav-item">
-                <a class="nav-link fs-4" href="#">New Arrivals</a>
+                <a class="nav-link fs-4" href="#most-wanted">Most Wanted</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-4" href="#">Most Wanted</a>
+                <a class="nav-link fs-4" href="#new-arrivals">New Arrivals</a>
               </li>
               <li class="nav-item">
-                <a class="text-black fs-3" href="#"><i class="bi bi-bag"></i></a>
+                <!--Carrito de compra-->
+                <div class="continer-carrito">
+                  <div class="iconCarrito">
+                    <button type="button" class="btn btn-carrito  position-relative">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" class="bi bi-bag"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                      </svg>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
+                        id="cantProd">
+                      </span>
+                    </button>
+                    <div class="carritoData dsp-none">
+                      <div class="container-vista-carrito">
+                        <ul class="list-carrito">
+                        </ul>
+                        <div class="container-vaciar-detalle">
+                          <button type="button" class=" vaciarCarrito"> Clear </button>
+                          <button type="button" class=" "><a href="./pages/resume.html" style="text-decoration: none; color: black;"> View details</a> </button>
+                          <span id="cant" class="priceTotal"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
               </li>
             </ul>
           </div>
@@ -95,7 +120,7 @@
     <section class="container mt-5">
       <div class="row">
         <div class="col-lg-4 col-12 d-flex flex-column  mb-3 mb-lg-0 publicity-home">
-          <h2 class="text-center mb-3">#TREND</h2>
+          <h2 class="text-center mb-3" id="most-wanted">#TREND</h2>
           <div class="container-card-publicity rounded-4 h-100 border border-dark" style="--i: url(../assets/5.png)">
             <div class="content bg-img1 d-flex justify-content-center align-items-end">
               <p class=" px-2 text-bg-dark rounded-5 p-sm">@INICIA_SHOP</p>
@@ -119,7 +144,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-12 d-flex flex-column  mb-3 mb-lg-0 publicity-home">
-          <h2 class="text-center mb-3">#UNISEX</h2>
+          <h2 class="text-center mb-3" id="new-arrivals">#UNISEX</h2>
           <div class="container-card-publicity rounded-4 h-100 border border-dark" style="--i: url(../assets/7.png)">
             <div class="content bg-img2 d-flex justify-content-center align-items-end">
               <p class=" px-2 text-bg-dark rounded-5 p-sm">@INICIA_SHOP</p>
@@ -163,8 +188,8 @@
         <div class="col-3 col-lg-2 mb-3">
           <h5>Section</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">New Arrivals</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Most Wanted</a></li>
+            <li class="nav-item mb-2"><a href="#new-arrivals" class="nav-link p-0 text-muted">New Arrivals</a></li>
+            <li class="nav-item mb-2"><a href="#most-wanted" class="nav-link p-0 text-muted">Most Wanted</a></li>
           </ul>
         </div>
         <!-- NewsLetter -->
