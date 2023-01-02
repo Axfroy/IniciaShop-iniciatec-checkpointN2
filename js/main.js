@@ -389,7 +389,7 @@ function finishShoppingAlert() {
             Swal.fire({
                 title: 'Thank you for shopping with us!',
                 text: "We'll send you an email with a payment form right away!",
-                imageUrl: '../assets/bg-sm.png',
+                imageUrl: '../assets/',
             })
             }
             else {
@@ -401,28 +401,6 @@ function finishShoppingAlert() {
     })
 }
 
-const nav = () => {
-    let URLactual = window.location.pathname.split('/').pop();
-    switch (URLactual) {
-        case 'index.html':
-            renderProducts()
-            renderCards()
-            break;
-        case 'resume.html':
-            renderResume()
-        break;
-        case 'shop.html':
-            //alert("shop")
-            renderProducts()
-
-        break;
-        default:
-            //insert 404
-            renderCards()
-        break;
-    }
-}
-nav();
 
 // Coupons
 
@@ -494,3 +472,26 @@ function applyDiscount(coupon) {
     }
 }
 
+
+const nav = () => {
+    let URLactual = window.location.pathname.split('/').pop();
+    switch (URLactual) {
+        case 'index.html':
+            renderProducts()
+            renderCards()
+            break;
+        case 'resume.html':
+            renderResume()
+        break;
+        case 'shop.html':
+            //alert("shop")
+            renderProducts()
+
+        break;
+        default:
+            //insert 404
+            renderCards()
+        break;
+    }
+}
+nav();
