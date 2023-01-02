@@ -471,7 +471,6 @@
     .card_sm {
         height: 300px;
     }
-<<<<<<< HEAD
 }
 
 .hidden{
@@ -498,30 +497,27 @@
 .card-shop {
     height: 300px;
 }
-=======
-    .publicity-1 {
-        height: 200px;
-    }
-    .publicity-2{
-        height: 200px;
-    }
-    .text-sm {
-        color: black;
-    }
-    .logo-toggler {
-        display: flex; 
-    }
-    .logo-nav {
-        display: none; 
-    }
-    .arrow {
-        display: none !important;
-    }
-    .card-shop {
-        height: 300px;
-    }
-} 
-
+.publicity-1 {
+    height: 200px;
+}
+.publicity-2{
+    height: 200px;
+}
+.text-sm {
+    color: black;
+}
+.logo-toggler {
+    display: flex; 
+}
+.logo-nav {
+    display: none; 
+}
+.arrow {
+    display: none !important;
+}
+.card-shop {
+    height: 300px;
+}
 
 /* SWAL style */
 .swal2-styled.swal2-confirm {
@@ -533,4 +529,3 @@
     font-size: 2.125em;
     color: #aa7dce;
 }
->>>>>>> 7c128096cd31f75e649a3bab786fd03c08bec07e

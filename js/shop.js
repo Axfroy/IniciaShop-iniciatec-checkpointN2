@@ -5,7 +5,11 @@ const getUsersAsync = async() => {
     const myJson = await respose.json()
     return myJson
 }
-const categoryClothes = ['Pantalones', 'Remeras', 'Camperas', 'Buzos', 'Zapatillas', 'Accesorios']
+
+const categoryClothes = ['Pantalones', 'Remeras', 'Camperas', 'Buzos', 'Zapatillas', 'Accesorios'];
+
+
+
 const renderUsers = async() => {
     // 
     const shop = await getUsersAsync()
@@ -19,6 +23,8 @@ const renderUsers = async() => {
 }
 renderUsers()
 
+const categories = getPr();
+console.log("getPr", categories)
 
 const renderCard = (clothes) => {
     return `
@@ -110,17 +116,6 @@ const renderCard = (clothes) => {
     `
 }
 
-// 
-const addCategory = (prod) => {
-    //inserto los checks
-
-    //obtengo elemento random de categoryClothes
-    let random = Math.floor(Math.random() * categoryClothes.length);
-
-    //inserto elemento random en prod
-    prod.category = categoryClothes[random];
-}
-
 // Input Search Filter
 const inputSearch = () =>{
     const allCards = document.querySelectorAll(".card-ctn");
@@ -163,6 +158,17 @@ searchFilterButton.addEventListener("click", (e) =>{
     e.preventDefault();
 })
 
+// 
+const addCategory = (prod) => {
+    //inserto los checks
+
+    //obtengo elemento random de categoryClothes
+    let random = Math.floor(Math.random() * categoryClothes.length);
+
+    //inserto elemento random en prod
+    prod.category = categoryClothes[random];
+}
+
 // CheckBox elements
 const elemCheck = (event) => {
     return `
@@ -188,7 +194,6 @@ const insertChecks = () => {
     })
 };
 
-<<<<<<< HEAD
 // Checkbox Filter Function
 const containerChecks = document.querySelector('.check-opt');
 
@@ -230,6 +235,3 @@ noSelect = (filteredArray) => {
         })
         : null
 };
-=======
-}
->>>>>>> 7c128096cd31f75e649a3bab786fd03c08bec07e
