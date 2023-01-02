@@ -34,13 +34,24 @@ Thank you for choosing Inicia Shop Clothes. We hope you find everything you're l
 Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
 
 ## Color Palette
-<div style="display: flex; gap: 10px; justify-content: center;">
+<!-- <div style="display: flex; gap: 10px; justify-content: center;">
     <div style="background-color: #C5F81E; width: 50px; height: 50px;"></div>
     <div style="background-color: #B3679B; width: 50px; height: 50px;"></div>
     <div style="background-color: #AA7DCE; width: 50px; height: 50px;"></div>
     <div style="background-color: #242424; width: 50px; height: 50px;"></div>
     <div style="background-color: #D9D9D9; width: 50px; height: 50px;"></div>
+</div> -->
+
+<div style="text-align: center;">
+
+![#C5F81E](https://placehold.co/20x20/C5F81E/C5F81E.png)
+![#B3679B](https://placehold.co/20x20/B3679B/B3679B.png)
+![#AA7DCE](https://placehold.co/20x20/AA7DCE/AA7DCE.png)
+![#242424](https://placehold.co/20x20/242424/242424.png)
+![#D9D9D9](https://placehold.co/20x20/D9D9D9/D9D9D9.png)
+
 </div>
+
 <br>
 
 ### The choice of these colors can help convey a coherent and attractive image for an urban style clothing store, and attract a young and modern audience.
