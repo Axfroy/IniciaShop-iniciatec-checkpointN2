@@ -246,7 +246,7 @@
     cursor: pointer;
 }
 .section-resume-carrito {
-    background-image: url(../assests/backgrounds.png); 
+    background-image: url(../assets/backgrounds.png); 
     display: flex;
     justify-content: center;
 }
