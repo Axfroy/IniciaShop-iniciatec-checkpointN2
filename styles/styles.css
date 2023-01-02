@@ -81,7 +81,7 @@
 .container-detail {
     background-color: rgba(70, 69, 69, 0.5);
     height: 40%;
-    border-radius: 18px;
+    border-radius: 5px;
 }
 .bi-heart-fill {
     color: #ffffff;
@@ -168,7 +168,9 @@
     flex-direction: column;
     padding: 0px 5px 5px 5px; 
 }
-
+.link-cart {
+    text-decoration: none; 
+}
 .btn-prod-carrito{
     border-radius: 25%;
 }
@@ -448,15 +450,8 @@
 
 
 .class-prueba{
-   /* 
-   background-image: url(../assets/Bg-verde.png);
-   background-image: url(../assets/Bg-morado.png);*/
    background-image: url(../assets/Bg-blanco.png);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-    
-
+   /* background-size: cover; */
 }
 
 @media only screen and (max-width: 991px) {

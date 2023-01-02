@@ -40,7 +40,6 @@ const getPr = async(ini,fn) => {
 }
 /* *** Template *** */
 
-
 const renderCard = (clothes) => {
     return `
     <div class="col-6 col-sm-4">
@@ -48,9 +47,9 @@ const renderCard = (clothes) => {
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
-            <div class="d-flex justify-content-center icon-dimentions">
+            <!--<div class="d-flex justify-content-center icon-dimentions">
                 <i class="bi bi-heart-fill fs-4"></i>
-            </div>
+            </div>-->
         </div>
         <div class="container-detail px-2 py-3 d-flex flex-column justify-content-between">
             <h5 class="card-title text-white fs-6">${clothes.title}</h5>
@@ -141,28 +140,22 @@ const renderCard = (clothes) => {
       <a  class="btn btn-primary agregarElem" id="${elem.id}" >agregar al carrito</a>
     </div>
     </div>
-
-
     `
 } */
 
-
 const listCarrito = (elem) => {
     return `
-        <li class="li-elements">
-            <div class="info-principal">
-                <img  class="card-img" src="${elem.image}" alt="" class="d-none">
-                <span class="">${elem.title}</span>
-                <span class="">$${elem.price}</span>
-            </div>
-            <div class="info-secundaria" id="${elem.id}">
-                
-                <span id="cant" class="">${elem.cant}</span>
-             
+    <li class="li-elements">
+        <div class="info-principal">
+            <img  class="card-img" src="${elem.image}" alt="" class="d-none">
+            <span class="">${elem.title}</span>
+            <span class="">$${elem.price}</span>
+        </div>
+        <div class="info-secundaria" id="${elem.id}">  
+            <span id="cant" class="">${elem.cant}</span>
+        </div>
 
-            </div>
-
-</li>
+    </li>
     `
 }
 
@@ -304,6 +297,7 @@ const quitarPrCarrito = (car,func) => {
         nav();
     })
 }
+
 const insertarPrCarrito = (car, data, id) => {
     //obtengo clase carritoData
     obtProducto(car, data, id)
@@ -357,19 +351,19 @@ const renderResume = () => {
         infoPrinc.classList.remove("d-none");
         //inserto arriba del span
         infoSec.insertAdjacentHTML("afterbegin", 
-                    `
-                        <button class=" btn-prod-carrito elimProd bg-danger">
-                            <i class="bi bi-dash"></i>
-                        </button>
-                    `
+            `
+            <button class=" btn-prod-carrito elimProd bg-danger">
+                <i class="bi bi-dash"></i>
+            </button>
+            `
         );
         //inserto abajo del span
         infoSec.insertAdjacentHTML("beforeend", 
-                    `
-                        <button class=" btn-prod-carrito agregarUno bg-success">
-                            <i class="bi bi-plus "></i>
-                        </button>
-                    `
+            `
+            <button class=" btn-prod-carrito agregarUno bg-success">
+                <i class="bi bi-plus "></i>
+            </button>
+            `
         );
     })
     //agrego funcion sumar cantidad
@@ -378,10 +372,6 @@ const renderResume = () => {
     obtPriceTotal(carritoDataLS)
     btnCoupon();
 }
-
-
-
-
 
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
@@ -406,7 +396,7 @@ const nav = () => {
 }
 nav();
 
-// Coupons --------------------------------
+// Coupons
 
 // Random code
 function randomCode(length) {
@@ -419,8 +409,7 @@ function randomCode(length) {
     return result;
 }
 
-
-// HOME ---------
+// HOME 
 // SWAL function 
 function swalFunction() {
     let code = randomCode(8);
@@ -444,7 +433,6 @@ function swalFunction() {
         `
     })
 }
-
 
 // Discount function
 function btnCoupon() {
