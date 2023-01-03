@@ -42,7 +42,7 @@ const getPr = async(ini,fn) => {
 
 const renderCard = (clothes) => {
     return `
-    <div class="col-6 col-sm-4">
+    <div class="col-6 col-sm-4" id="${clothes.id}">
     <div class="card p-0 class-prueba effect">
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
@@ -318,6 +318,7 @@ const obtProducto = (car, data, id) => {
     let carritoData = car;
     console.log(data, id);
     let prod = data.find(elem => elem.id == id)
+    console.log(prod);
     //si el producto no existe en el carritoData lo agrego
     if (!carritoData.find(elem => elem.id == prod.id)) {
         prod.cant = 1;
@@ -490,6 +491,7 @@ const nav = () => {
         break;
         default:
             //insert 404
+            renderProducts()
             renderCards()
         break;
     }
