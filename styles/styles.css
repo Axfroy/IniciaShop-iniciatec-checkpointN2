@@ -460,12 +460,21 @@
     display: none;
 }
 
-
 .class-prueba{
    background-image: url(../assets/Bg-blanco.png);
    /* background-size: cover; */
 }
 
+.btn-clear, .btn-details {
+    background-color: #D9D9D9;
+    border: solid 1px #f8f9fa;
+}
+.btn-clear:hover {
+    background-color: #e74b68;
+}
+.btn-details:hover {
+    background-color: #f0d540;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
