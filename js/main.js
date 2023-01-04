@@ -480,6 +480,7 @@ const nav = () => {
         case 'index.html':
             renderProducts()
             renderCards()
+            renderCarrito()
             break;
         case 'resume.html':
             renderResume()
