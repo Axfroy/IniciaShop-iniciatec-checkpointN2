@@ -164,9 +164,9 @@
     margin-top: 3%;
 }
 
-.link-cart {
+/* .link-cart {
     text-decoration: none; 
-}
+} */
 .btn-prod-carrito{
     border-radius: 25%;
 }
@@ -227,11 +227,11 @@
     border-right: 20px solid transparent;
     border-bottom: 20px solid #e3e4e7;
 }
-.vaciar-detalle{
+/* .vaciar-detalle{
     display: flex;
     justify-content: flex-end;
-}
-.vaciar-detalle button{
+} */
+/* .vaciar-detalle button{
     margin: 0 0 0 20px;
     margin-right: 5%;
     padding: 9px 14px;
@@ -242,11 +242,11 @@
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-}
+} */
 .section-resume-carrito {
     background-image: url(../assets/backgrounds.png); 
-    display: flex;
-    justify-content: center;
+    background-size: cover;
+   
 }
 .container-resume-carrito {
     background-color: white;
@@ -256,11 +256,11 @@
     margin-bottom: 2%;
     border-radius: 50px;
 }
-.resume-header {
+/* .resume-header {
     display: flex;
     justify-content: space-between;
-}
-.return-shop {
+} */
+/* .return-shop {
   background-color: #d9d9d9d7;
   border: 1px solid #f8f9fa;
   border-radius: 10px;
@@ -277,17 +277,20 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: pre;
-}
+} */
 /* .return-shop:hover {
   border-color: #c7f434;
   box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
   color: #202124;
 } */
-.cart-title {
+/* .cart-title {
     font-size: 40px;
     margin-bottom: 3%;
     border-bottom: 5px solid #c5f81e;
     display: inline;
+} */
+.border-green {
+    text-decoration: underline #c5f81e 5px;
 }
 /* .container-resume-carrito button:hover{
     background-color: #c5f81e;
@@ -345,11 +348,11 @@
 .container-total p{
     padding-right: 15px;
 }
-.go-pago{
+/* .go-pago{
     background-color: #aa7dce; 
     color: #ffffff;
-}
-.go-pago:hover {
+} */
+.btn-dark:hover {
     background-color: #c7f434;
     color: #202124;
 }
@@ -439,7 +442,7 @@
    /* background-size: cover; */
 }
 
-.btn-clear, .btn-details {
+.btn-clear, .btn-details, .btn-shopping {
     background-color: #D9D9D9;
     border: solid 1px #f8f9fa;
 }
@@ -448,6 +451,9 @@
 }
 .btn-details:hover {
     background-color: #f0d540;
+}
+.btn-shopping:hover {
+    background-color: #c5f81e;
 }
 @media only screen and (max-width: 991px) {
     .publicity-home {

@@ -145,16 +145,19 @@ const renderCard = (clothes) => {
 
 const listCarrito = (elem) => {
     return `
-    <li class="li-elements">
-        <div class="info-principal">
-            <img  class="card-img" src="${elem.image}" alt="" class="d-none">
-            <span class="">${elem.title}</span>
-            <span class="">$${elem.price}</span>
+    <li class="li-elements align-items-end">
+        <div class="info-principal col-2">
+            <img class="card-img" src="${elem.image}" alt="${elem.title}" class="d-none" > 
         </div>
-        <div class="info-secundaria" id="${elem.id}">  
+        <div class="col-5">
+            <span class="fs-4">${elem.title}</span>
+        </div>
+        <div class="col-2 justify-content-end">
+            <span class="fs-5">$${elem.price}</span>
+        </div>
+        <div class="info-secundaria col-3 justify-content-end" id="${elem.id}">  
             <span id="cant" class="">${elem.cant}</span>
         </div>
-
     </li>
     `
 }
@@ -240,8 +243,8 @@ const renderCarrito = (car = []) => {
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
-        carritoData.innerHTML = "";
-        carritoData.innerHTML = `<img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img>`
+        carritoData.innerHTML = `<img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img>`;
+        carritoData.innerHTML = `<img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img>`
     }
     cantElementos(cantElem)
     quitarPrCarrito(car)
@@ -312,7 +315,7 @@ const obtPriceTotal = (car) => {
     })
     //recorto a 2 decimales
     total = total.toFixed(2);
-    priceTotal.innerHTML = `$ ${total}`;
+    priceTotal.innerHTML = `$${total}`;
 }
 const obtProducto = (car, data, id) => {
     let carritoData = car;
@@ -461,7 +464,7 @@ function applyDiscount(coupon) {
         let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
         console.log("Total", total);
         priceTotal.innerHTML = ``;
-        priceTotal.innerHTML =  `$ ${total}`;
+        priceTotal.innerHTML =  `$${total}`;
         localStorage.clear('code10'); 
     }  
     else {

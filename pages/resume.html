@@ -24,7 +24,7 @@
           <span class="navbar-toggler-icon text-white"></span>
         </button>
         <div class="collapse navbar-collapse ms-2" id="navbarNavDropdown">
-          <ul class="navbar-nav col-lg-6 gap-lg-5">
+          <ul class="navbar-nav col-lg-6 gap-lg-5 text-center">
             <li class="nav-item">
               <a class="nav-link fs-4" aria-current="page" href="../index.html">Home</a>
             </li>
@@ -36,7 +36,7 @@
             </li>
           </ul>
           <div class="col-lg-6 d-lg-flex justify-content-end">
-            <ul class="navbar-nav gap-lg-5">
+            <ul class="navbar-nav gap-lg-5 text-center">
               <li class="nav-item">
                 <a class="text-black fs-3" href="#"><i class="bi bi-bag"></i></a>
               </li>
@@ -46,37 +46,33 @@
       </div>
     </nav>
   </header>
-  <main>
-    <section class="section-resume-carrito">
-      <div class="container-resume-carrito">
-        <div class="resume-header">
-          <h2 class="cart-title">My shopping cart</h2>
-          <button type="button" class="return-shop"><a href="./shop.html" class="link-cart text-black px-3">Keep shopping</a></button>
+  <main class="section-resume-carrito p-5">
+    <section class="bg-light p-5 rounded-5 mx-lg-5">
+      <div class="row d-flex justify-content-between align-items-end">
+        <h2 class="cart-title fs-1 col-lg-4 border-green text-lg-start text-center mb-lg-3 mb-4">My shopping cart</h2>
+        <a class="btn btn-shopping fw-bold col-lg-2 fs-5 mb-lg-3 mb-4" href="./shop.html" role="button">Keep shopping</a>
+      </div>
+      <div class="">
+        <ul class="list-carrito list-group list-group-flush"></ul>
+      </div>
+      <div class="row d-flex mt-5">
+        <div class="col-lg-4 col-12 container-cupon d-flex gap-2">
+          <input type="text" class="form-control input-coupon" placeholder="Cupon">
+          <button type="button" id="cupon-btn" class="btn btn-grey fw-bold col-lg-4 col-5">Submit cupon</button>
         </div>
-        <ul class="list-carrito"></ul>
-        <!-- container-vaciar-detalle -->
-        <div class="row gap-3">
-          <div class="cupon-total d-flex ">
-            <div class="col-lg-4 container-cupon d-flex gap-2">
-              <input type="text" class="form-control input-coupon" placeholder="Cupon">
-              <!-- <input type="text" id="cupon-btn" class="input-coupon" placeholder="Cupon"> -->
-              <button type="button" id="cupon-btn" class="btn btn-grey col-lg-5 fw-bold">Submit cupon</button>
-            </div>
-            <div class="col-lg-3 container-total justify-content-end align-items-end">
-              <span class="fs-4 fw-bold pe-2">Total:</span>
-              <span id="cant" class="priceTotal fs-4 fw-bold"></span>
-            </div>
-            <div class="vaciar-detalle justify-content-center col-lg-8">
-              <button type="button" class="btn go-pago vaciarCarrito col-lg-1">Clear</button>
-            </div>
-          </div>
-          <button type="button" class="btn go-pago fw-bold fs-5" onclick="finishShoppingAlert()">Finish shopping</button>
+        <div class="col-lg-4 col-6 container-total justify-content-end align-items-end">
+          <span class="fs-4 fw-bold pe-1">Total:</span>
+          <span id="cant" class="priceTotal fs-4 fw-bold"></span>
+        </div>
+        <div class="col-lg-4 col-6 vaciar-detalle d-flex justify-content-end mt-lg-0 mt-4">
+          <button type="button" class="btn btn-clear vaciarCarrito m-0 fw-bold">Clear</button>
         </div>
       </div>
-    </section>  
+      <button type="button" class="btn btn-dark fw-bold fs-5 col-12 mt-4" onclick="finishShoppingAlert()">Finish shopping</button>
+    </section>
   </main>
   <!-- Start Footer -->
-  <footer class="mt-4 text-white" >
+  <footer class="text-white">
     <!-- Users -->
     <div class="mb-3">
       <section class="py-4 border-bottom" style="background-color: #B3679B">
