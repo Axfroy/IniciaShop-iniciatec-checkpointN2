@@ -241,7 +241,7 @@ const renderCarrito = (car = []) => {
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
         carritoData.innerHTML = "";
-        carritoData.innerHTML = `<h2 class="no-product">no hay productos</h2>`
+        carritoData.innerHTML = `<img src="./assets/cart_empty_inicia_shop.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img>`
     }
     cantElementos(cantElem)
     quitarPrCarrito(car)
