@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../assets/icon_emogi.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary p-0"
+        style="background-color: #eeeeee"
+      >
+        <div class="container-fluid mx-lg-4">
+          <a class="navbar-brand" href="../index.html">
+            <img
+              src="../assets/logo.png"
+              alt="Logo"
+              width="100"
+              class="d-inline-block align-text-top"
+            />
+          </a>
+          <button
+            class="navbar-toggler bg-green"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon text-white"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-2" id="navbarNavDropdown">
+            <ul class="navbar-nav col-lg-6 gap-lg-5">
+              <li class="nav-item">
+                <a
+                  class="nav-link fs-4"
+                  aria-current="page"
+                  href="../index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active fs-4" href="#">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-4" href="./contact.html">Contact Us</a>
+              </li>
+            </ul>
+            <div class="col-lg-6 d-lg-flex justify-content-end">
+              <ul class="navbar-nav gap-lg-5">
+                <li class="nav-item">
+                  <a class="text-black fs-3" href="#"
+                    ><i class="bi bi-bag"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="text-bg-dark">
+      <section class="pb-5">
+        <div class="mx-5 p-5">
+          <h1 class="fs-1 pb-2 border-bottom">Finish Shopping</h1>
+        </div>
+        <div class="mx-5 px-5">
+          <div class="row">
+            <div class="col-lg-8 text-bg-light p-5 border border-dark border-end-0 rounded-end rounded-5">
+              <h4>Personal Information</h4>
+              <div class="row g-3">
+                <div class="col-lg-6">
+                  <label for="inputState" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Type..."
+                    aria-label="First name"
+                  />
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputState" class="form-label">Surname</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Type..."
+                    aria-label="Last name"
+                  />
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputState" class="form-label">ID Type</label>
+                  <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>DNI</option>
+                    <option>Passport</option>
+                    <option>Residence Card</option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputState" class="form-label">ID Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Type..."
+                    aria-label="Last name"
+                  />
+                </div>
+                <div class="col-lg-12">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" />
+                </div>
+              </div>
+              <h4 class="mt-4">Shipping Information</h4>
+              <form class="row g-3">
+                <div class="col-lg-8">
+                  <label for="inputState" class="form-label">City/Town</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Type..."
+                    aria-label="First name"
+                  />
+                </div>
+                <div class="col-lg-4">
+                  <label for="inputState" class="form-label">ZIP Code</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Type..."
+                    aria-label="First name"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <label for="inputCity" class="form-label">State/Province</label>
+                  <input type="text" class="form-control" id="inputCity" />
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">Region</label>
+                  <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>Argentina</option>
+                    <option>Bolivia</option>
+                    <option>Brazil</option>
+                    <option>Canada</option>
+                    <option>Chile</option>
+                    <option>Colombia</option>
+                    <option>Ecuador</option>
+                    <option>Mexico</option>
+                    <option>Peru</option>
+                    <option>United States</option>
+                    <option>Uruguay</option>
+                    <option>Venezuela</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                    <label for="inputAddress2" class="form-label"
+                      >Address</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputAddress2"
+                      placeholder="Apartment, studio, or floor"
+                    />
+                </div>
+                <div class="col-6">
+                    <label for="inputAddress2" class="form-label"
+                      >Backup Address</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputAddress2"
+                      placeholder="Apartment, studio, or floor"
+                    />
+                </div>
+                <div class="col-3">
+                    <label for="inputAddress2" class="form-label"
+                      >Prefix</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputAddress2"
+                      placeholder="+00"
+                    />
+                </div>
+                <div class="col-9">
+                    <label for="inputAddress2" class="form-label"
+                      >Phone</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputAddress2"
+                      placeholder="000 00000000"
+                    />
+                </div>
+                
+              </form>
+            </div>
+            <div class="container-pay col-lg-4 p-5 border border-dark border-start-0 rounded-start rounded-5">
+                <h4 class="text-center">Payment Information</h4>
+                <div class="col-lg-12">
+                    <label for="inputState" class="form-label">Select the payment method of your choice:</label>
+                    <select id="inputState" class="form-select">
+                      <option selected>Choose...</option>
+                      <option>Credit/Debit Card</option>
+                      <option>Virtual Wallets</option>
+                      <option>Cash</option>
+                      <option>Gift Card</option>
+                    </select>
+                  </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class=" mx-5 px-5">
+            <button type="submit" class="cancel-btn btn">Cancel</button>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- Start Footer -->
+    <footer class="mt-4 text-white">
+      <!-- Users -->
+      <div class="mb-3">
+        <section class="py-4 border-bottom" style="background-color: #b3679b">
+          <!-- The users paints here -->
+          <div id="footerProfileCtn" class="d-flex"></div>
+        </section>
+      </div>
+      <!-- Links -->
+      <div class="container text-black">
+        <div class="row">
+          <div class="col-6 col-lg-3 mb-3">
+            <h5>IniciaShop</h5>
+            <div class="">
+              <img src="../assets/logo.png" alt="iniciaShop_logo" width="100" />
+            </div>
+          </div>
+          <!-- Filling the section ✌ -->
+          <!-- <div class="col-6 col-md-2 mb-3">
+            </div> -->
+          <!-- Footer Navbar -->
+          <div class="col-6 col-lg-4 mb-3">
+            <h5>Pages</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-muted">Home</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-muted">Shop</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-muted">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <!-- NewsLetter -->
+          <div class="col-lg-5 col-12 mb-3">
+            <form>
+              <h5>Sign up and get an exclusive discount</h5>
+              <p>Get 10% off in your first order</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden"
+                  >Email address</label
+                >
+                <input
+                  id="newsletter1"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email address"
+                />
+                <button
+                  class="btn text-white fw-bold"
+                  style="background-color: #b3679b"
+                  type="button"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Possible Social Media Icons -->
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between my-2 border-top"
+        >
+          <p>© 2022 IniciaShop, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <!-- If is necesary, we can put de social media icons here -->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+  ></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/profiles.js"></script>
+</html>

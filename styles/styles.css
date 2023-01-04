@@ -497,3 +497,22 @@
     font-size: 2.125em;
     color: #aa7dce;
 }
+
+
+/* --------- FINISH SHOPPING PAGE */
+
+.cancel-btn {
+    padding: 5px 100px;
+    margin-top: 10px;
+    background-color: #b3679b;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #cacaca;
+    color: #202124;
+}
+
+.container-pay {
+    background-color: #b3679b;
+}
