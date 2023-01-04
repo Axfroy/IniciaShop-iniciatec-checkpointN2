@@ -289,6 +289,9 @@
     border-bottom: 5px solid #c5f81e;
     display: inline;
 } */
+.container-shop {
+    margin: 0px 90px;
+}
 .border-green {
     text-decoration: underline #c5f81e 5px;
 }
@@ -454,6 +457,12 @@
 }
 .btn-shopping:hover {
     background-color: #c5f81e;
+}
+.fs-fix {
+    font-size: 55px;
+}
+.fs-fix:hover {
+    color: #B3679B;
 }
 @media only screen and (max-width: 991px) {
     .publicity-home {
