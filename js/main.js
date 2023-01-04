@@ -186,13 +186,22 @@ const getCoupon = () => {
         let inputMail = document.querySelector("#newsletter1");
         console.log("inputMail", inputMail.value)
         if (inputMail != `` && inputMail.value.includes('@')) {
+            if (localStorage.getItem('emailCoupon') != inputMail.value) {
             swalFunction();
+            localStorage.setItem('emailCoupon', inputMail.value)
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "You've already got a coupon!",
+                  })
+            }
         }
         else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: "You need to enter your email to get a coupon!",
+                text: "You need to enter a valid email to get a coupon!",
               })
         }
     })
@@ -377,6 +386,7 @@ const renderResume = () => {
     btnCoupon();
 }
 
+//RESUME
 //Finish Shopping alert
 function finishShoppingAlert() {
     Swal.fire({
@@ -430,20 +440,17 @@ function swalFunction() {
         width: 600,
         padding: '3em',
         color: 'black',
-        background: `
-        url(../assets/bg-cupon.gif)
-        no-repeat
-        cover
-        `,
-        backdrop: `
+        background: `url(../assets/bg-cupon.gif)`,
+        /* backdrop: `
         rgba(0,0,123,0.4)
         url("../assets/nyan-cat-nyan.gif")
         left top
         no-repeat
-        `
+        ` */
     })
 }
 
+//RESUME
 // Discount function
 function btnCoupon() {
     const cuponBtn = document.getElementById("cupon-btn");
@@ -458,7 +465,8 @@ function btnCoupon() {
 function applyDiscount(coupon) {
     console.log("coupon in", coupon);
     console.log(coupon, " = ",localStorage.getItem('code10'));
-    if (coupon.trim() == localStorage.getItem('code10').trim()) {
+    let discountApplied = false;
+    if ( !discountApplied && coupon.trim() == localStorage.getItem('code10').trim()) {
         let priceTotal = document.querySelector(".priceTotal")
         console.log("priceTotal.value", priceTotal.innerHTML.slice(1))
         let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
@@ -466,13 +474,29 @@ function applyDiscount(coupon) {
         priceTotal.innerHTML = ``;
         priceTotal.innerHTML =  `$${total}`;
         localStorage.clear('code10'); 
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your discount has been applied!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        discountApplied = true;
     }  
-    else {
+    else { 
+        if (discountApplied) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "You've already used a coupon!",
+              })
+        } else {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: "This's not a valid code, try again.",
           })
+        }
     }
 }
 
