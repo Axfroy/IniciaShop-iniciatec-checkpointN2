@@ -146,16 +146,16 @@ const renderCard = (clothes) => {
 const listCarrito = (elem) => {
     return `
     <li class="li-elements align-items-end">
-        <div class="info-principal col-2">
+        <div class="info-principal col-lg-2 col-12">
             <img class="card-img" src="${elem.image}" alt="${elem.title}" class="d-none" > 
         </div>
-        <div class="col-5">
+        <div class="col-lg-3 col-12">
             <span class="fs-4">${elem.title}</span>
         </div>
-        <div class="col-2 justify-content-end">
+        <div class="col-lg-4 col-12 justify-content-end">
             <span class="fs-5">$${elem.price}</span>
         </div>
-        <div class="info-secundaria col-3 justify-content-end" id="${elem.id}">  
+        <div class="info-secundaria col-lg-3 col-12 justify-content-end" id="${elem.id}">  
             <span id="cant" class="">${elem.cant}</span>
         </div>
     </li>
@@ -243,8 +243,8 @@ const renderCarrito = (car = []) => {
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
-        carritoData.innerHTML = `<img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img>`;
-        carritoData.innerHTML = `<img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img>`
+        carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`;
+        carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`
     }
     cantElementos(cantElem)
     quitarPrCarrito(car)
