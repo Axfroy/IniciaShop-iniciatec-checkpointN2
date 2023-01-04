@@ -373,51 +373,72 @@ const renderResume = () => {
     btnCoupon();
 }
 
+// Get categories and functions
 const renderFilter = async() =>{
     let productos = await getAllArticles();
-    //console.log("allartciles", productos)
     let productCategories = new Set();
     productos.forEach(element =>{
-        //console.log(element.category)
-/*         if(!productCategories.find(elem => elem.category == element.category)){
-            productCategories.push(element.category);
-        }; */
         if (!productCategories.has(element.category)) {
             productCategories.add(element.category);
           };
     })
-    console.log("productCategories",productCategories);
     insertCheckbox(productCategories);
     checkFilter();
+    optionFilter();
 };
 
-const insertCheckbox = (categories) =>{
+// SHOP SECTION 
+// Filters
+// CheckBox Filters
+const insertCheckbox = (categories) =>{ 
     let checksCtn = document.querySelector('.check-opt'); 
+    let selectForm = document.querySelector('.form-select')
     categories.forEach((category) =>{
-        checksCtn.insertAdjacentHTML("beforeend", elemCheck(category))
+        checksCtn.insertAdjacentHTML("beforeend", elemCheck(category));
+        selectForm.insertAdjacentHTML("beforeend", elemOption(category));
     }) 
 }
 
+const optionFilter = () =>{
+    let formSelect = document.querySelector('.form-select');
+    
+    formSelect.addEventListener("change", () => {
+        let allCards = [...document.querySelectorAll(".card-ctn")];
+        var categoriesChecked = [];
+
+        const inputOption = document.querySelectorAll(".option-input");
+        inputOption.forEach((option) =>{
+            option.selected
+            ? categoriesChecked.push(option.value)
+            : null
+        });
+        cardsFilter(categoriesChecked);
+        noSelect(categoriesChecked);
+
+        const unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
+        searchFilter(unHiddenCards);
+    });
+};
+
 const checkFilter = () =>{
     const containerChecks = document.querySelector('.check-opt');
-
+    
     containerChecks.addEventListener("change", () => {
-        const inputsCheckbox = document.querySelectorAll(".form-check-input");
-        
+        let allCards = [...document.querySelectorAll(".card-ctn")];
         var categoriesChecked = [];
-        
+
+        const inputsCheckbox = document.querySelectorAll(".form-check-input");
         inputsCheckbox.forEach((inputBox) =>{
             inputBox.checked
                 ? categoriesChecked.push(inputBox.value)
                 : null
             console.log(inputBox.checked)
         });
-        
-        console.log(inputsCheckbox)
-        console.log(categoriesChecked)
-
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
+        
+        const unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
+        searchFilter(unHiddenCards);
     });
 };
 
@@ -448,12 +469,58 @@ const elemCheck = (event) => {
             <div class="col-6 col-lg-12" >
                  <div class="form-check mt-2">
                     <input class="form-check-input" type="checkbox" value="${event}" id="flexCheck" >
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <label class="form-check-label " for="flexCheckDefault">
                          ${event}
                     </label>
                  </div>
              </div>
              `
+};
+
+const elemOption = (event) =>{
+    return `
+    <option class="option-input text-capitalize" value="${event}">${event}</option>
+     `
+};
+
+// Input Search Filter Button 
+const searchFilterButton = document.getElementById("input-search-button");
+searchFilterButton.addEventListener("click", (e) =>{
+    searchFilter();
+    e.preventDefault();
+});
+// Input Search Filter
+const searchFilter = (filteredArray) =>{
+    const inputSearchEvents = document.getElementById("input-search-events");
+
+    inputSearchEvents.addEventListener("blur", (event) =>{
+            filteredArray.forEach(card => {
+                let title = card.querySelector(".card-title").textContent;
+                title.toLowerCase().includes(event.target.value.toLowerCase())
+                    ? card.classList.remove("hidden")
+                    : card.classList.add("hidden");
+            }); 
+        noResultFilter()
+    });  
+};
+
+const noResultFilter = () =>{
+    let allCards = document.querySelectorAll(".card-ctn");
+    const emptyCardContainer = document.getElementById("emptyContainer");
+    let noResultsCard = ``;
+
+    let eventResult = document.querySelectorAll(".hidden");
+    if (eventResult.length === allCards.length){
+        noResultsCard += `
+            <div class="container text-center">
+                <div style="width: 250px; margin: 0 auto">
+                    <img style="width: 100%;" src="#" alt="">
+                </div>
+                <p>Please try another search</p>
+            </div>
+            `
+        }
+    return emptyCardContainer.innerHTML = noResultsCard;
 };
 
 const nav = () => {
@@ -549,45 +616,3 @@ function applyDiscount(coupon) {
           })
     }
 }
-
-// SHOP SECTION 
-// Input Search Filter Button 
-const searchFilterButton = document.getElementById("input-search-button");
-
-searchFilterButton.addEventListener("click", (e) =>{
-    inputSearch();
-    e.preventDefault();
-})
-
-const inputSearch = () =>{
-    const allCards = document.querySelectorAll(".card-ctn");
-
-    const inputSearchEvents = document.getElementById("input-search-events");
-
-    inputSearchEvents.addEventListener("blur", (event) =>{
-            const emptyCardContainer = document.getElementById("emptyContainer");
-            let noResultsCard = ``;
-        
-            console.log("event.target.value", event.target.value)
-            allCards.forEach(card => {
-                let title = card.querySelector(".card-title").textContent;
-        
-                title.toLowerCase().includes(event.target.value.toLowerCase())
-                    ? card.classList.remove("hidden")
-                    : card.classList.add("hidden");
-            }); 
-            let eventResult = document.querySelectorAll(".hidden");
-        
-            if (eventResult.length === allCards.length){
-                noResultsCard += `
-                    <div class="container text-center">
-                        <div style="width: 250px; margin: 0 auto">
-                            <img style="width: 100%;" src="#" alt="">
-                        </div>
-                        <p>Please try another search</p>
-                    </div>
-                    `
-                }
-           emptyCardContainer.innerHTML = noResultsCard;
-    });  
-};

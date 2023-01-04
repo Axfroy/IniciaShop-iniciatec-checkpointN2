@@ -449,6 +449,13 @@
 }
 
 
+.form-check{
+    display: block;
+}
+.form-select{
+    display: none;
+}
+
 .class-prueba{
    background-image: url(../assets/Bg-blanco.png);
    /* background-size: cover; */
@@ -470,6 +477,12 @@
     }
     .card_sm {
         height: 300px;
+    }
+    .form-select{
+        display: inline-block;
+    }
+    .form-check{
+        display: none;
     }
 }
 
