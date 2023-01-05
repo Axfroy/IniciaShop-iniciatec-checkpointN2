@@ -146,16 +146,16 @@ const renderCard = (clothes) => {
 const listCarrito = (elem) => {
     return `
     <li class="li-elements align-items-end">
-        <div class="info-principal col-lg-2 col-12">
+        <div class="info-principal col-lg-2 col-2">
             <img class="card-img" src="${elem.image}" alt="${elem.title}" class="d-none" > 
         </div>
-        <div class="col-lg-3 col-12">
+        <div class="col-lg-3 col-7">
             <span class="fs-4">${elem.title}</span>
         </div>
-        <div class="col-lg-4 col-12 justify-content-end">
+        <div class="col-lg-4 col-3 justify-content-end">
             <span class="fs-5">$${elem.price}</span>
         </div>
-        <div class="info-secundaria col-lg-3 col-12 justify-content-end" id="${elem.id}">  
+        <div class="info-secundaria col-lg-3 col-12 d-flex-btn" id="${elem.id}">  
             <span id="cant" class="">${elem.cant}</span>
         </div>
     </li>
