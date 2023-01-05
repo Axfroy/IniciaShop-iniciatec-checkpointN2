@@ -47,9 +47,9 @@ const renderCard = (clothes) => {
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
-            <!--<div class="d-flex justify-content-center icon-dimentions">
+            <div class="d-flex justify-content-center icon-dimentions">
                 <i class="bi bi-heart-fill fs-4"></i>
-            </div>-->
+            </div>
         </div>
         <div class="container-detail px-2 py-3 d-flex flex-column justify-content-between">
             <h5 class="card-title text-white fs-6">${clothes.title}</h5>
