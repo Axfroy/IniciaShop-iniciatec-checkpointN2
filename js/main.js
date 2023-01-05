@@ -130,6 +130,7 @@ const renderCard = (clothes) => {
     `
 }
 
+
 /* const cardProducto = (elem) => {
     return `
     <div class="card" style="width: 18rem;">
@@ -154,7 +155,6 @@ const listCarrito = (elem) => {
         <div class="info-secundaria" id="${elem.id}">  
             <span id="cant" class="">${elem.cant}</span>
         </div>
-
     </li>
     `
 }
@@ -211,6 +211,7 @@ const renderProducts = async () => {
     addAgrCarrito(carritoDataLS, data)
     obtPriceTotal(carritoDataLS);
 }
+
 const addAgrCarrito = (carritoDataLS,data) => {
     let btn = document.querySelectorAll(".agregarElem")
     btn.forEach(elem => {
@@ -373,8 +374,13 @@ const renderResume = () => {
     btnCoupon();
 }
 
-// Get categories and functions
+// Categories and functions
 const renderFilter = async() =>{
+/*     let container = document.querySelector("#container-cards")
+    let data = await getAllArticles();
+    filterRenderCards(data, container);
+    checkFilterv2(); */
+    
     let productos = await getAllArticles();
     let productCategories = new Set();
     productos.forEach(element =>{
@@ -423,9 +429,9 @@ const optionFilter = () =>{
 const checkFilter = () =>{
     const containerChecks = document.querySelector('.check-opt');
     
+    let allCards = [...document.querySelectorAll(".card-ctn")];
     containerChecks.addEventListener("change", () => {
-        let allCards = [...document.querySelectorAll(".card-ctn")];
-        var categoriesChecked = [];
+        let categoriesChecked = [];
 
         const inputsCheckbox = document.querySelectorAll(".form-check-input");
         inputsCheckbox.forEach((inputBox) =>{
@@ -437,9 +443,11 @@ const checkFilter = () =>{
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
         
-        const unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
+        unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
         searchFilter(unHiddenCards);
+        console.log("unHiddenCards", unHiddenCards);
     });
+
 };
 
 const cardsFilter = (filteredArray) => {
@@ -469,7 +477,7 @@ const elemCheck = (event) => {
             <div class="col-6 col-lg-12" >
                  <div class="form-check mt-2">
                     <input class="form-check-input" type="checkbox" value="${event}" id="flexCheck" >
-                    <label class="form-check-label " for="flexCheckDefault">
+                    <label class="form-check-label text-capitalize" for="flexCheckDefault">
                          ${event}
                     </label>
                  </div>
@@ -486,21 +494,30 @@ const elemOption = (event) =>{
 // Input Search Filter Button 
 const searchFilterButton = document.getElementById("input-search-button");
 searchFilterButton.addEventListener("click", (e) =>{
-    searchFilter();
     e.preventDefault();
 });
+
 // Input Search Filter
 const searchFilter = (filteredArray) =>{
     const inputSearchEvents = document.getElementById("input-search-events");
 
     inputSearchEvents.addEventListener("blur", (event) =>{
-            filteredArray.forEach(card => {
-                let title = card.querySelector(".card-title").textContent;
-                title.toLowerCase().includes(event.target.value.toLowerCase())
+        
+        let searchedEvent = event.target.value.toLowerCase();
+
+        filteredCards = filteredArray.filter(card => card.querySelector(".card-title").textContent.includes(searchedEvent));
+
+        console.log("filteredCards", filteredCards)
+
+
+         filteredCards.forEach(card => {
+            card.querySelector(".card-title").textContent.includes(searchedEvent)
                     ? card.classList.remove("hidden")
                     : card.classList.add("hidden");
+
             }); 
-        noResultFilter()
+        noResultFilter();
+        console.log("SearchfilterArr", filteredArray)
     });  
 };
 
@@ -522,6 +539,134 @@ const noResultFilter = () =>{
         }
     return emptyCardContainer.innerHTML = noResultsCard;
 };
+// ------------------------------------------------------------------------------------------
+
+/* const filterRenderCards = (datos, contenedor) =>{
+    contenedor.innerHTML = '';
+    let cardString = '';
+    datos.forEach( card => {
+        cardString += `
+            <div class="col-6 col-sm-4 card-ctn" id="${card.id}" data-category="${card.category}">
+            <div class="card p-0 class-prueba effect">
+            <img src="${card.image}" class="card-img-top card_sm rounded-4" alt="${card.title}">
+            <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
+                <div class="d-flex justify-content-end m-2">
+                    <!--<div class="d-flex justify-content-center icon-dimentions">
+                        <i class="bi bi-heart-fill fs-4"></i>
+                    </div>-->
+                </div>
+                <div class="container-detail px-2 py-3 d-flex flex-column justify-content-between">
+                    <h5 class="card-title text-white fs-6">${card.title}</h5>
+                    <div class="d-flex justify-content-between">
+                        <div class="price text-white fs-3">
+                            <sup>$</sup>
+                            <span>${card.price}</span>
+                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal${card.id}">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade px-4" id="exampleModal${card.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-body d-flex justify-content-center">
+                                <div class="card">
+                                    <div class="row g-0">
+                                        <div class="col-md-5 d-flex justify-content-center align-items-center">
+                                            <img src="${card.image}" class="img-fluid rounded-start" style="height:500px" alt="${card.title}">
+                                        </div>
+                                        <div class="col-md-7 bg-green">
+                                            <div class="card-body ">
+                                                <h5 class="fs-2 text-dark">${card.title}</h5>
+                                                <div class="descrition text-dark">
+                                                    <h4>Description</h4>
+                                                    <p>${card.description}</p>
+                                                </div>
+                                                <div class="colors">
+                                                    <h4 class="tittle-h4 text-dark">Colors</h4>
+                                                    <div class="d-flex justify-content-between col-12">
+                                                        <div class="box-color bg-primary"></div>
+                                                        <div class="box-color bg-info"></div>
+                                                        <div class="box-color bg-secondary"></div>
+                                                        <div class="box-color bg-success"></div>
+                                                        <div class="box-color bg-danger"></div>
+                                                        <div class="box-color bg-warning"></div>
+                                                        <div class="box-color bg-black"></div>
+                                                        <div class="box-color bg-light"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="sizes mt-3">
+                                                    <h4 class="tittle-h4 text-dark">Sizes</h4>
+                                                    <ul class="list-group list-group-horizontal">
+                                                        <li class="list-group-item border-dark">S</li>
+                                                        <li class="list-group-item border-dark">M</li>
+                                                        <li class="list-group-item border-dark">L</li>
+                                                        <li class="list-group-item border-dark">XL</li>
+                                                        <li class="list-group-item border-dark">2XL</li>
+                                                        <li class="list-group-item border-dark">3XL</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="buy d-flex justify-content-between align-items-center mt-4">
+                                                    <div class="price text-dark">
+                                                        <sup class="fs-5">$</sup>
+                                                        <span class="fs-2 fw-bold">${card.price}</span>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <a href="#" class="btn btn-dark fs-5 agregarElem" id="${card.id}"><i class="bi bi-cart-plus"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    })
+    contenedor.innerHTML = cardString
+} */
+
+/* const checkFilterv2 = () =>{
+    const containerChecks = document.querySelector('.check-opt');
+    console.log("containerChecks",containerChecks)
+    let data = getAllArticles();
+    containerChecks.addEventListener("change", () => {
+        const inputsCheckbox = document.querySelectorAll(".form-check-input");
+        console.log("input", inputsCheckbox)
+        inputsCheckbox.forEach((inputBox) =>{
+            let filtradosPorGenero = filtrarPorGenero(data, inputBox.value )
+            console.log(filtradosPorGenero) 
+        });
+
+
+
+    });
+}; */
+
+/* const filtrarPorGenero = (products, generoSeleccionado) =>{
+    if(generoSeleccionado === 0 ){
+        return products
+    }
+    return products.filter( product => product.title.toLowerCase() === generoSeleccionado.toLowerCase());
+} */
+
+/* filtrarPorBusqueda = (products, valueSearch) =>{
+    let filetr = products.filter( product => product.title.toLowerCase().includes( valueSearch.toLowerCase() ) )
+    return filetr;
+} */
+
+
+
 
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
