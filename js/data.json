@@ -339,33 +339,6 @@
         }
     },
     {
-<<<<<<< HEAD
-        "id": 13,
-        "title": "Breezy Linen Shirt",
-        "price": 599,
-        "description": "This shirt is made with lightweight, breathable linen fabric that is perfect for warm weather",
-        "category": "shirt",
-        "image": "../assets/img-Json/shirt/shirt1.png",
-        "rating": {
-            "rate": 2.9,
-            "count": 250
-        }
-    },
-    {
-        "id": 14,
-        "title": "Soft and Cozy Flannel",
-        "price": 999.99,
-        "description": "This flannel shirt is made with a soft, brushed fabric that will keep you warm and comfortable all winter long",
-        "category": "shirt",
-        "image": "../assets/img-Json/shirt/shirt2.png",
-        "rating": {
-            "rate": 2.2,
-            "count": 140
-        }
-    },
-    {
-=======
->>>>>>> ccab3db13a42f9925f32b7b808a4cf578b6abd61
         "id": 15,
         "title": "Snowboard Jacket Winter",
         "price": 56.99,
@@ -396,13 +369,9 @@
     },
     {
         "id": 16,
-<<<<<<< HEAD
-        "title": "Stylish Dress Shirt",
-=======
         "title": "Lock and Love Women's Jacket",
->>>>>>> ccab3db13a42f9925f32b7b808a4cf578b6abd61
         "price": 29.95,
-        "description": "This dress shirt is perfect for the office or a formal occasion. Made with a crisp, wrinkle-resistant fabric and featuring a classic, tailored fit",
+        "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
         "category": "shirt",
         "image": "../assets/img-Json/shirt/shirt3.png",
         "color" : [
@@ -429,14 +398,8 @@
     },
     {
         "id": 17,
-<<<<<<< HEAD
-        "title": "Lightweight Running Shoes",
-        "price": 39.99,
-        "description": "These running shoes are designed with a breathable, lightweight upper and a cushioned sole for a comfortable, responsive ride",
-=======
         "title": "Rain Jacket ",
         "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
->>>>>>> ccab3db13a42f9925f32b7b808a4cf578b6abd61
         "category": "sneakers",
         "image": "../assets/img-Json/sneakers/sneakers1.png",
         "color" : [
@@ -463,13 +426,9 @@
     },
     {
         "id": 18,
-<<<<<<< HEAD
-        "title": "Stylish Sneaker Boots",
-=======
         "title": "MBJ Women's Solid Short",
->>>>>>> ccab3db13a42f9925f32b7b808a4cf578b6abd61
         "price": 9.85,
-        "description": "These sneaker boots are a stylish and practical choice for cooler weather. They feature a durable, waterproof upper and a padded insole for added comfort.",
+        "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
         "category": "sneakers",
         "image": "../assets/img-Json/sneakers/sneakers2.png",
         "color" : [
@@ -525,9 +484,9 @@
     },
     {
         "id": 20,
-        "title": "Classic Canvas Sneakers",
+        "title": "DANVOUY Womens T  Casual Cotton Short",
         "price": 12.99,
-        "description": "These classic canvas sneakers are versatile and timeless. They have a durable, rubber sole and a comfortable, padded insole. Perfect for everyday wear.",
+        "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
         "category": "sneakers",
         "image": "../assets/img-Json/sneakers/sneakers4.png",
         "color" : [

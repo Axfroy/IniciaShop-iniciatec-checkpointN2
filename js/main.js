@@ -42,24 +42,24 @@ const getPr = async(ini,fn) => {
 
 const renderCard = (clothes) => {
     return `
-    <div class="col-6 col-sm-4">
+    <div class="col-6 col-sm-4" id="${clothes.id}">
     <div class="card p-0 class-prueba effect">
-    <img src="${clothes.image}" class="card-img-top card_sm rounded-4" alt="${clothes.title}">
+    <img src="${clothes.image}" class="card-img-top card_sm rounded-4 img-prod" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
-            <!--<div class="d-flex justify-content-center icon-dimentions">
+            <div class="d-flex justify-content-center icon-dimentions">
                 <i class="bi bi-heart-fill fs-4"></i>
-            </div>-->
+            </div>
         </div>
         <div class="container-detail px-2 py-3 d-flex flex-column justify-content-between">
-            <h5 class="card-title text-white fs-6">${clothes.title}</h5>
+            <h5 class="card-title text-white fs-3">${clothes.title}</h5>
             <div class="d-flex justify-content-between">
                 <div class="price text-white fs-3">
                     <sup>$</sup>
                     <span>${clothes.price}</span>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                <button type="button" class="btn btn-outline-dark btn-showData" data-bs-toggle="modal"
                     data-bs-target="#exampleModal${clothes.id}">
                     <i class="bi bi-plus-lg"></i>
                 </button>
@@ -74,7 +74,7 @@ const renderCard = (clothes) => {
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                                    <img src="${clothes.image}" class="img-fluid rounded-start" style="height:500px" alt="${clothes.title}">
+                                    <img src="${clothes.image}" class="img-fluid img-pr-desc rounded-start" style="height:500px" alt="${clothes.title}">
                                 </div>
                                 <div class="col-md-7 bg-green">
                                     <div class="card-body ">
@@ -84,27 +84,28 @@ const renderCard = (clothes) => {
                                             <p>${clothes.description}</p>
                                         </div>
                                         <div class="colors">
-                                            <h4 class="tittle-h4 text-dark">Colors</h4>
-                                            <div class="d-flex justify-content-between col-12">
-                                                <div class="box-color bg-primary"></div>
-                                                <div class="box-color bg-info"></div>
-                                                <div class="box-color bg-secondary"></div>
-                                                <div class="box-color bg-success"></div>
-                                                <div class="box-color bg-danger"></div>
-                                                <div class="box-color bg-warning"></div>
-                                                <div class="box-color bg-black"></div>
-                                                <div class="box-color bg-light"></div>
-                                            </div>
+                                                <h4 class="tittle-h4 text-dark">Colors</h4>
+                                                <div class="d-flex justify-content-between opt-colors col-12">
+                                                    <div class="box-color bg-primary" value="bg-primary" ></div>
+                                                    <div class="box-color bg-info" value="bg-info""></div>
+                                                    <div class="box-color bg-secondary" value="bg-secondary"></div>
+                                                    <div class="box-color bg-success" value="bg-success"></div>
+                                                    <div class="box-color bg-danger" value="bg-danger"></div>
+                                                    <div class="box-color bg-warning" value="bg-warning"></div>
+                                                    <div class="box-color bg-black" value="bg-black"></div>
+                                                    <div class="box-color bg-light" value="bg-light"></div>
+                                                </div>
+                                        </div>
+                                              
                                         </div>
                                         <div class="sizes mt-3">
                                             <h4 class="tittle-h4 text-dark">Sizes</h4>
-                                            <ul class="list-group list-group-horizontal">
-                                                <li class="list-group-item border-dark">S</li>
-                                                <li class="list-group-item border-dark">M</li>
-                                                <li class="list-group-item border-dark">L</li>
-                                                <li class="list-group-item border-dark">XL</li>
-                                                <li class="list-group-item border-dark">2XL</li>
-                                                <li class="list-group-item border-dark">3XL</li>
+                                            <ul class="list-group list-group-horizontal opt-talles  º">
+                                                <li class="list-group-item box-talle border-dark">S</li>
+                                                <li class="list-group-item box-talle border-dark">M</li>
+                                                <li class="list-group-item box-talle border-dark">L</li>
+                                                <li class="list-group-item box-talle border-dark">XL</li>
+                                                <li class="list-group-item box-talle border-dark">XXL</li>
                                             </ul>
                                         </div>
                                         <div class="buy d-flex justify-content-between align-items-center mt-4">
@@ -113,7 +114,7 @@ const renderCard = (clothes) => {
                                                 <span class="fs-2 fw-bold">${clothes.price}</span>
                                             </div>
                                             <div class="btn-buy">
-                                                <a href="#" class="btn btn-dark fs-5 agregarElem" id="${clothes.id}"><i class="bi bi-cart-plus"></i> Add to cart</a>
+                                                <a href="#" class="btn btn-dark fs-5 agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,16 +146,27 @@ const renderCard = (clothes) => {
 
 const listCarrito = (elem) => {
     return `
-    <li class="li-elements">
-        <div class="info-principal">
-            <img  class="card-img" src="${elem.image}" alt="" class="d-none">
-            <span class="">${elem.title}</span>
-            <span class="">$${elem.price}</span>
+    <li class="row li-elements d-flex align-items-center">
+        <div class="col-lg-1 col-2 info-principal ">
+            <img class="card-img col-lg-2 col-2" src="${elem.image}" alt="${elem.title}" > 
         </div>
-        <div class="info-secundaria" id="${elem.id}">  
-            <span id="cant" class="">${elem.cant}</span>
+        <div class="col-lg-3 col-10 container-title  ">
+            <span class="fs-4">${elem.title}</span>
+        </div> 
+
+        <div class="col-lg-2 col-4 d-none d-flex justify-content-center">
+            <div class="fs-5 box-color ${elem.color} "></div>
+        </div>
+        <div class="col-lg-2 col-4 d-none">
+            <span class="fs-5 ">${elem.size}</span>
         </div>
 
+        <div class="col-lg-3 col-4 text-start ps-5">
+            <span class="fs-5 ms-4">$${elem.price}</span>
+        </div>
+        <div class="col-lg-3 info-secundaria col-12 d-flex-btn" id="${elem.id}">  
+            <span id="cant" class="">${elem.cant}</span>
+        </div>
     </li>
     `
 }
@@ -172,8 +184,9 @@ const renderCards = async() => {
         
         containerCards1.insertAdjacentHTML('beforeend', renderCard(clothes))
     })
-    addAgrCarrito(carritoDataLS,shop1)
-    addAgrCarrito(carritoDataLS,shop2)
+    let allElems = shop1.concat(shop2);
+    addAgrCarrito(carritoDataLS,allElems)
+    addOpcColorTalle()
     getCoupon();
 }
 
@@ -183,13 +196,22 @@ const getCoupon = () => {
         let inputMail = document.querySelector("#newsletter1");
         console.log("inputMail", inputMail.value)
         if (inputMail != `` && inputMail.value.includes('@')) {
+            if (localStorage.getItem('emailCoupon') != inputMail.value) {
             swalFunction();
+            localStorage.setItem('emailCoupon', inputMail.value)
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "You've already got a coupon!",
+                  })
+            }
         }
         else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: "You need to enter your email to get a coupon!",
+                text: "You need to enter a valid email to get a coupon!",
               })
         }
     })
@@ -205,12 +227,65 @@ const renderProducts = async () => {
     let btn;
     //contenedor del carrito
     renderCarrito(carritoDataLS)
+
+
     data.forEach(element => {
-        container.innerHTML += renderCard(element)
+            //si no es null
+            
+            if (element != null) {
+                    container.innerHTML += renderCard(element)
+                    
+                
+            }
     });
+    addOpcColorTalle()
     addAgrCarrito(carritoDataLS, data)
     obtPriceTotal(carritoDataLS);
 }
+
+const addOpcColorTalle = () => {
+    //obtengo el boton de abrir el modal
+    let btnModal = document.querySelectorAll(".btn-showData");
+    btnModal.forEach(elem => {
+        elem.addEventListener("click", () => {
+            eventOpc()
+        })
+    })
+
+   
+    // agrego el evento del click de los colores y talles
+    //const ards = cards.filter(card => !card.classList.contains('selected'));*/
+
+}
+
+const   eventOpc = () => {
+    //obtengo todos los colores
+    let opcColor = document.querySelectorAll(".box-color");
+    let opcSize = document.querySelectorAll(".box-talle");
+    opcColor.forEach(elem => {
+        elem.addEventListener("click", () => {
+            //quito la clase checked de todos los colores
+            opcColor.forEach(elem => {
+                elem.classList.remove("checked")
+            })
+            //agrego la clase checked al color seleccionado
+            elem.classList.add("checked")
+        })
+    })
+
+    opcSize.forEach(elem => {
+        elem.addEventListener("click", () => {
+            //quito la clase checked de todos los talles
+            opcSize.forEach(elem => {
+                elem.classList.remove("checked")
+            })
+            //agrego la clase checked al talle seleccionado
+            elem.classList.add("checked")
+        })
+    })
+
+
+}	
 const addAgrCarrito = (carritoDataLS,data) => {
     let btn = document.querySelectorAll(".agregarElem")
     btn.forEach(elem => {
@@ -240,8 +315,8 @@ const renderCarrito = (car = []) => {
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
-        carritoData.innerHTML = "";
-        carritoData.innerHTML = `<h2 class="no-product">no hay productos</h2>`
+        carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`;
+        carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`
     }
     cantElementos(cantElem)
     quitarPrCarrito(car)
@@ -299,6 +374,7 @@ const quitarPrCarrito = (car,func) => {
 }
 
 const insertarPrCarrito = (car, data, id) => {
+    
     //obtengo clase carritoData
     obtProducto(car, data, id)
     //inserto desde localStorage
@@ -312,26 +388,38 @@ const obtPriceTotal = (car) => {
     })
     //recorto a 2 decimales
     total = total.toFixed(2);
-    priceTotal.innerHTML = `$ ${total}`;
+    priceTotal.innerHTML = `$${total}`;
 }
 const obtProducto = (car, data, id) => {
     let carritoData = car;
-    console.log(data, id);
+    //console.log(data, id);
     let prod = data.find(elem => elem.id == id)
-    //si el producto no existe en el carritoData lo agrego
-    if (!carritoData.find(elem => elem.id == prod.id)) {
-        prod.cant = 1;
-        carritoData.push(prod)
-    }
-    else {
-        //si el producto existe en el carritoData lo agrego
-        //le sumo 1 al objeto en localStorage
-        carritoData.forEach(elem => {
-            if (elem.id == prod.id) {
-                elem.cant += 1;
+    console.log("encontrado");
+    let opcColor = document.querySelector('.opt-colors .checked').getAttribute("value");
+    let opcSize = document.querySelector('.opt-talles .checked').innerHTML;
+
+    //verifico si el producto ya esta en el carrito
+            //verifico si el producto ya esta en el carrito
+        let prodCarrito = carritoData.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
+
+        //si existe le sumo 1 a la cantidad
+        if (prodCarrito) {
+            prodCarrito.cant += 1;
+        }else{
+            //si no existe lo agrego al carrito
+            prodCarrito = {
+                id: prod.id,
+                title: prod.title,
+                price: prod.price,
+                image: prod.image,
+                cant: 1,
+                color: opcColor,
+                size: opcSize
             }
-        })
-    }
+            console.log("prodCarrito" ,prodCarrito);
+            carritoData.push(prodCarrito)
+        }
+            
     localStorage.setItem("carritoData", JSON.stringify(carritoData))
     renderCarrito(car);
 }
@@ -344,12 +432,39 @@ const renderResume = () => {
    renderCarrito(carritoDataLS)
    //obtengo todos los elementos del carrito
     let elemsCarritoSec = document.querySelectorAll(".li-elements");
+
     elemsCarritoSec.forEach(elem => {
+
         //quito la clase d-none
         let infoPrinc = elem.querySelector(".info-principal");
+        //obtengo el color y el size de carritoDatals
+        
+        
         let infoSec = elem.querySelector(".info-secundaria");
-        infoPrinc.classList.remove("d-none");
-        //inserto arriba del span
+        //obtengo la clase de bootstrap
+        let allStyleClasOfElem = elem.querySelectorAll(' [class^="col-lg-"]')
+        //quito todas las clases de bootstrap
+        allStyleClasOfElem.forEach(elem => {
+            
+            elem.classList.remove(elem.classList[0])
+            //elimino la class d-none
+            elem.classList.remove("d-none")
+            //verifico si contiene la clase container-title
+            if (elem.classList.contains("info-principal")) {
+                elem.classList.add("col-lg-1")
+            }else if(elem.classList.contains("container-title")){
+                elem.classList.add("col-lg-3")
+            }else{
+                elem.classList.add("col-lg-2")
+            }
+            
+        })
+        //agrego la clase de bootstrap
+        console.log(allStyleClasOfElem);        
+        let infoTitle = elem.querySelector(".container-title");
+        //inserto el color y el size por debajo del titulo
+       
+
         infoSec.insertAdjacentHTML("afterbegin", 
             `
             <button class=" btn-prod-carrito elimProd bg-danger">
@@ -366,6 +481,7 @@ const renderResume = () => {
             `
         );
     })
+    
     //agrego funcion sumar cantidad
     quitarPrCarrito(carritoDataLS)
     agregarUnPrCarrito(carritoDataLS)
@@ -373,6 +489,7 @@ const renderResume = () => {
     btnCoupon();
 }
 
+//RESUME
 //Finish Shopping alert
 function finishShoppingAlert() {
     Swal.fire({
@@ -426,20 +543,17 @@ function swalFunction() {
         width: 600,
         padding: '3em',
         color: 'black',
-        background: `
-        url(../assets/bg-cupon.gif)
-        no-repeat
-        cover
-        `,
-        backdrop: `
+        background: `url(../assets/bg-cupon.gif)`,
+        /* backdrop: `
         rgba(0,0,123,0.4)
         url("../assets/nyan-cat-nyan.gif")
         left top
         no-repeat
-        `
+        ` */
     })
 }
 
+//RESUME
 // Discount function
 function btnCoupon() {
     const cuponBtn = document.getElementById("cupon-btn");
@@ -454,21 +568,38 @@ function btnCoupon() {
 function applyDiscount(coupon) {
     console.log("coupon in", coupon);
     console.log(coupon, " = ",localStorage.getItem('code10'));
-    if (coupon.trim() == localStorage.getItem('code10').trim()) {
+    let discountApplied = false;
+    if ( !discountApplied && coupon.trim() == localStorage.getItem('code10').trim()) {
         let priceTotal = document.querySelector(".priceTotal")
         console.log("priceTotal.value", priceTotal.innerHTML.slice(1))
         let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
         console.log("Total", total);
         priceTotal.innerHTML = ``;
-        priceTotal.innerHTML =  `$ ${total}`;
+        priceTotal.innerHTML =  `$${total}`;
         localStorage.clear('code10'); 
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your discount has been applied!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        discountApplied = true;
     }  
-    else {
+    else { 
+        if (discountApplied) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "You've already used a coupon!",
+              })
+        } else {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: "This's not a valid code, try again.",
           })
+        }
     }
 }
 
@@ -479,6 +610,7 @@ const nav = () => {
         case 'index.html':
             renderProducts()
             renderCards()
+            renderCarrito()
             break;
         case 'resume.html':
             renderResume()
@@ -490,6 +622,7 @@ const nav = () => {
         break;
         default:
             //insert 404
+            renderProducts()
             renderCards()
         break;
     }
