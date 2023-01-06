@@ -96,8 +96,6 @@ const renderCard = (clothes) => {
                                                     <div class="box-color bg-light" value="bg-light"></div>
                                                 </div>
                                         </div>
-                                              
-                                        </div>
                                         <div class="sizes mt-3">
                                             <h4 class="tittle-h4 text-dark">Sizes</h4>
                                             <ul class="list-group list-group-horizontal opt-talles  º">
@@ -233,9 +231,7 @@ const renderProducts = async () => {
             //si no es null
             
             if (element != null) {
-                    container.innerHTML += renderCard(element)
-                    
-                
+                container.innerHTML += renderCard(element) 
             }
     });
     addOpcColorTalle()
@@ -251,8 +247,6 @@ const addOpcColorTalle = () => {
             eventOpc()
         })
     })
-
-   
     // agrego el evento del click de los colores y talles
     //const ards = cards.filter(card => !card.classList.contains('selected'));*/
 
@@ -283,8 +277,6 @@ const   eventOpc = () => {
             elem.classList.add("checked")
         })
     })
-
-
 }	
 const addAgrCarrito = (carritoDataLS,data) => {
     let btn = document.querySelectorAll(".agregarElem")
@@ -518,9 +510,7 @@ function finishShoppingAlert() {
     })
 }
 
-
 // Coupons
-
 // Random code
 function randomCode(length) {
     var result = '';
@@ -544,12 +534,6 @@ function swalFunction() {
         padding: '3em',
         color: 'black',
         background: `url(../assets/bg-cupon.gif)`,
-        /* backdrop: `
-        rgba(0,0,123,0.4)
-        url("../assets/nyan-cat-nyan.gif")
-        left top
-        no-repeat
-        ` */
     })
 }
 
@@ -602,7 +586,6 @@ function applyDiscount(coupon) {
         }
     }
 }
-
 
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
