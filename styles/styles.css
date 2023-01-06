@@ -9,6 +9,9 @@
     clip-path: polygon(0 0, 100% 11%, 89% 59%, 0% 100%);
     z-index: -1;
 }
+.d-none{
+    display: none;
+}
 .bg-grey2 {
     background-color: #D9D9D9;
     width: 100%;
@@ -109,6 +112,17 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
+/*inicio del tipo input radio*/
+.checked{
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+}
+/*fin de input */
+
+
 .list-group-item:hover {
     background-color: #D9D9D9;
     cursor: pointer;
@@ -119,6 +133,13 @@
 }
 .card-shop {
     height: 600px;
+    object-position: bottom;
+    object-fit: cover;
+
+}
+
+.img-prod , .img-pr-desc{
+   object-fit: contain;
 }
 .publicity-home {
     height: 800px;
