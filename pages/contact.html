@@ -41,10 +41,35 @@
                 <a class="nav-link fs-3" href="../pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
               </li>
               <li class="nav-item">
-                <a class="text-black fs-3" href="#"><i class="bi bi-bag"></i></a>
-              </li>
+                <!--Carrito de compra-->
+                <div class="continer-carrito">
+                    <div class="iconCarrito">
+                        <button type="button" class="btn btn-carrito  position-relative">
+                            <i class="bi bi-bag fs-3"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
+                                id="cantProd">
+                            </span>
+                        </button>
+                        <div class="carritoData dsp-none">
+                            <div class="container-vista-carrito">
+                                <ul class="list-carrito"></ul>
+                                <div class="d-flex flex-column gap-1">
+                                    <button type="button"
+                                        class="btn btn-clear vaciarCarrito">Clear</button>
+                                    <a href="./resume.html" class="btn btn-details">View details</a>
+                                    <div class="d-flex justify-content-center mt-2">
+                                        <h6 class="fs-5 me-2">Total:</h6>
+                                        <h6 id="cant" class="priceTotal fs-5"></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
             </ul>
-          </div> -->
+          </div>
         </div>
       </div>
     </nav>
@@ -154,5 +179,3 @@
   <script src="../js/main.js"></script>
   <script src="../js/profiles.js"></script>
 </html>
-Footer
-© 2022 GitHub, Inc.
