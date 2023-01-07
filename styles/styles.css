@@ -453,3 +453,122 @@
     font-size: 2.125em;
     color: #aa7dce;
 }
+
+
+/* --------- FINISH SHOPPING PAGE */
+
+.header-container-fshop {
+    width: 100%;
+}
+
+.keepshop-btn {
+    padding: 5px 100px;
+    margin-top: 10px;
+    background-color: #b3679b;
+    color: white;
+}
+
+.keepshop-btn:hover {
+    background-color: #cacaca;
+    color: #202124;
+}
+
+.cancel-btn {
+    padding: 5px 100px;
+    margin-top: 10px;
+    background-color: #b3679b;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #cacaca;
+    color: #202124;
+}
+
+.container-pay {
+    background-color: #b3679b;
+    /* position: relative; */
+}
+
+.debit-card {
+    height: 15vh;
+    margin-left: 35px;
+}
+
+.debit-card .trans-card {
+    backface-visibility: hidden;
+    transition: 1s;
+    width: 90%; 
+    height: 25vh;
+    position: absolute;
+}
+
+.debit-card .front {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.debit-card .back {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.debit-card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.debit-card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+.credit-card {
+    background: rgb(36,36,36);
+    background: linear-gradient(90deg, rgba(36,36,36,1) 0%, rgba(105,105,105,1) 50%, rgba(180,177,177,1) 100%);
+    border-radius: 20px;
+    height: 25vh;
+    width: 400px;
+    /* margin: auto;
+    position: absolute; */
+}
+
+.back {
+    padding: 0;
+}
+
+.chip {
+    background-color: rgb(207, 200, 104);
+    border-radius: 5px;
+    width: 18%;
+    height: 4.5vh;
+}
+
+.strip {
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(107,107,107,1) 100%);
+    width: 100%;
+    height: 5vh;
+    padding: 0;
+}
+
+.white-strip {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 3vh;
+}
+
+.card-info {
+    background-color: #d9d9d9;
+    color: #202124;
+    border-radius: 15px;
+    height: 56vh;
+}
+
+.pay-btn {
+    padding: 5px 100px;
+    background-color: #242424;
+    color: white;
+}
+
+.pay-btn:hover {
+    background-color: #b3679b;
+    color: white;
+}
