@@ -203,6 +203,7 @@ const renderProducts = async () => {
     let container = document.querySelector("#container-cards")
     let data = await getAllArticles();
     let btn;
+    //console.log("data",data)
     //contenedor del carrito
     renderCarrito(carritoDataLS)
     data.forEach(element => {
@@ -374,16 +375,12 @@ const renderResume = () => {
     btnCoupon();
 }
 
-// Categories and functions
+// Get categories and functions
 const renderFilter = async() =>{
-/*     let container = document.querySelector("#container-cards")
-    let data = await getAllArticles();
-    filterRenderCards(data, container);
-    checkFilterv2(); */
-    
-    let productos = await getAllArticles();
+    let products = await getAllArticles();
+    console.log("products", products)
     let productCategories = new Set();
-    productos.forEach(element =>{
+    products.forEach(element =>{
         if (!productCategories.has(element.category)) {
             productCategories.add(element.category);
           };
@@ -391,6 +388,7 @@ const renderFilter = async() =>{
     insertCheckbox(productCategories);
     checkFilter();
     optionFilter();
+    //searchFilter();
 };
 
 // SHOP SECTION 
@@ -405,12 +403,12 @@ const insertCheckbox = (categories) =>{
     }) 
 }
 
+var categoriesChecked = [];
 const optionFilter = () =>{
     let formSelect = document.querySelector('.form-select');
     
     formSelect.addEventListener("change", () => {
         let allCards = [...document.querySelectorAll(".card-ctn")];
-        var categoriesChecked = [];
 
         const inputOption = document.querySelectorAll(".option-input");
         inputOption.forEach((option) =>{
@@ -426,12 +424,12 @@ const optionFilter = () =>{
     });
 };
 
+var visibleCards = new Set();
 const checkFilter = () =>{
     const containerChecks = document.querySelector('.check-opt');
-    
-    let allCards = [...document.querySelectorAll(".card-ctn")];
     containerChecks.addEventListener("change", () => {
-        let categoriesChecked = [];
+        let allCards = [...document.querySelectorAll(".card-ctn")];
+        var categoriesChecked = [];
 
         const inputsCheckbox = document.querySelectorAll(".form-check-input");
         inputsCheckbox.forEach((inputBox) =>{
@@ -442,29 +440,32 @@ const checkFilter = () =>{
         });
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
-        
-        unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
-        searchFilter(unHiddenCards);
-        console.log("unHiddenCards", unHiddenCards);
-    });
 
+        allCards.forEach((card) =>{
+            if ( !card.classList.contains('hidden')){
+                visibleCards.add(card);
+            } else {visibleCards.delete(card)}
+        });
+        console.log("visibleCards",visibleCards)
+    });
+    searchFilter()
+    //let unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
 };
 
-const cardsFilter = (filteredArray) => {
-    const allCards = document.querySelectorAll(".card-ctn");
-
+const cardsFilter = (arrChecked) => {
+    const allCards = [...document.querySelectorAll(".card-ctn")];
     allCards.forEach((card) => {
-        filteredArray.includes(card.getAttribute("data-category"))
-            ? card.classList.remove("hidden")
-            : card.classList.add("hidden");
-        
+        if ( arrChecked.includes( card.getAttribute("data-category" )) ){
+            card.classList.remove("hidden");
+        } else{
+            card.classList.add("hidden");
+        }
     });
 };
 
-const noSelect = (filteredArray) => {
+const noSelect = (arrChecked) => {
     const allCards = document.querySelectorAll(".card-ctn");
-
-    filteredArray.length === 0 
+    arrChecked.length === 0 
         ? allCards.forEach((card) => {
             card.classList.remove("hidden")
         })
@@ -477,7 +478,7 @@ const elemCheck = (event) => {
             <div class="col-6 col-lg-12" >
                  <div class="form-check mt-2">
                     <input class="form-check-input" type="checkbox" value="${event}" id="flexCheck" >
-                    <label class="form-check-label text-capitalize" for="flexCheckDefault">
+                    <label class="form-check-label " for="flexCheckDefault">
                          ${event}
                     </label>
                  </div>
@@ -491,33 +492,27 @@ const elemOption = (event) =>{
      `
 };
 
-// Input Search Filter Button 
-const searchFilterButton = document.getElementById("input-search-button");
-searchFilterButton.addEventListener("click", (e) =>{
-    e.preventDefault();
-});
 
 // Input Search Filter
-const searchFilter = (filteredArray) =>{
+const searchFilter = () =>{
     const inputSearchEvents = document.getElementById("input-search-events");
-
+    console.log("vacio")
     inputSearchEvents.addEventListener("blur", (event) =>{
-        
-        let searchedEvent = event.target.value.toLowerCase();
+        inputEvent = event.target.value.toLowerCase()
+        //console.log("event.target.value.toLowerCase()", {inputEvent})
+        visibleCards.forEach(card => {
+            let title = card.querySelector(".card-title").textContent;
+            if ( title.toLowerCase().includes(event.target.value.toLowerCase()) ){
+                card.classList.remove("hidden");
+            } else {
+                card.classList.add("hidden");
+            }
+        }); 
 
-        filteredCards = filteredArray.filter(card => card.querySelector(".card-title").textContent.includes(searchedEvent));
-
-        console.log("filteredCards", filteredCards)
-
-
-         filteredCards.forEach(card => {
-            card.querySelector(".card-title").textContent.includes(searchedEvent)
-                    ? card.classList.remove("hidden")
-                    : card.classList.add("hidden");
-
-            }); 
-        noResultFilter();
-        console.log("SearchfilterArr", filteredArray)
+        noResultFilter()
+/*         if (inputEvent === ''){
+            console.log("vacio")
+        } */
     });  
 };
 
@@ -526,8 +521,9 @@ const noResultFilter = () =>{
     const emptyCardContainer = document.getElementById("emptyContainer");
     let noResultsCard = ``;
 
-    let eventResult = document.querySelectorAll(".hidden");
-    if (eventResult.length === allCards.length){
+    let hiddenCards = document.querySelectorAll(".hidden");
+    console.log("hiddenCards.length",hiddenCards.length)
+    if (hiddenCards.length === allCards.length){
         noResultsCard += `
             <div class="container text-center">
                 <div style="width: 250px; margin: 0 auto">
@@ -537,11 +533,20 @@ const noResultFilter = () =>{
             </div>
             `
         }
-    return emptyCardContainer.innerHTML = noResultsCard;
+
+    emptyCardContainer.innerHTML = noResultsCard;
 };
+
+// Input Search Filter Button 
+const searchFilterButton = document.getElementById("input-search-button");
+searchFilterButton.addEventListener("click", (e) =>{
+    searchFilter();
+    e.preventDefault();
+});
+
 // ------------------------------------------------------------------------------------------
 
-/* const filterRenderCards = (datos, contenedor) =>{
+ const filterRenderCards = (datos, contenedor) =>{
     contenedor.innerHTML = '';
     let cardString = '';
     datos.forEach( card => {
@@ -634,39 +639,61 @@ const noResultFilter = () =>{
         `
     })
     contenedor.innerHTML = cardString
-} */
+}
 
-/* const checkFilterv2 = () =>{
+/* const checkFilterv2 = async() =>{
     const containerChecks = document.querySelector('.check-opt');
+    let data = await getAllArticles();
+
     console.log("containerChecks",containerChecks)
-    let data = getAllArticles();
+
     containerChecks.addEventListener("change", () => {
+        let productsFiltered = [];
+        data.forEach(product => {
+            //console.log("product", product  )
+            productsFiltered.push(product.title);
+        });
+        console.log("data", data)
+        console.log("productsFiltered",productsFiltered)
         const inputsCheckbox = document.querySelectorAll(".form-check-input");
         console.log("input", inputsCheckbox)
+
         inputsCheckbox.forEach((inputBox) =>{
-            let filtradosPorGenero = filtrarPorGenero(data, inputBox.value )
+            console.log("inputvalue", inputsCheckbox.value)
+            const filtradosPorGenero = filtrarPorGenero(productsFiltered, inputBox.value )
             console.log(filtradosPorGenero) 
         });
-
-
-
+        
     });
 }; */
 
-/* const filtrarPorGenero = (products, generoSeleccionado) =>{
+
+const ContenedorSelect = document.querySelector('.form-select');
+const optionFilterv2 = async() =>{
+    let container = document.querySelector("#container-cards")
+    let data = await getAllArticles();
+    ContenedorSelect.addEventListener("change", () =>{
+        console.log("data",data)
+        let selectOption = document.querySelector('.option-input')
+        console.log("selectOption",selectOption)
+        let filtradosPorGenero = filtrarPorGenero(data, selectOption.value)
+        filterRenderCards( filtradosPorGenero, container)
+});
+
+}
+
+const filtrarPorGenero = (products, generoSeleccionado) =>{
     if(generoSeleccionado === 0 ){
         return products
     }
-    return products.filter( product => product.title.toLowerCase() === generoSeleccionado.toLowerCase());
-} */
+    return products.filter( product => product === generoSeleccionado.toLowerCase());
+    console.log("products", products)
+}
 
-/* filtrarPorBusqueda = (products, valueSearch) =>{
+filtrarPorBusqueda = (products, valueSearch) =>{
     let filetr = products.filter( product => product.title.toLowerCase().includes( valueSearch.toLowerCase() ) )
     return filetr;
-} */
-
-
-
+}
 
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
