@@ -97,6 +97,7 @@
                     class="form-control"
                     placeholder="Type..."
                     aria-label="First name"
+                    autocomplete="off"
                     required
                   />
                 </div>
@@ -107,6 +108,7 @@
                     class="form-control"
                     placeholder="Type..."
                     aria-label="Last name"
+                    autocomplete="off"
                     required
                   />
                 </div>
@@ -126,12 +128,13 @@
                     class="form-control"
                     placeholder="Type..."
                     aria-label="Last name"
+                    autocomplete="off"
                     required
                   />
                 </div>
                 <div class="col-lg-12">
                   <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Type..." required />
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Type..." autocomplete="off" required />
                 </div>
               </div>
               <div class="shipping-info-container mt-5">
@@ -144,6 +147,7 @@
                     class="form-control"
                     placeholder="Type..."
                     aria-label="First name"
+                    autocomplete="off"
                     required
                   />
                 </div>
@@ -154,12 +158,13 @@
                     class="form-control"
                     placeholder="Type..."
                     aria-label="First name"
+                    autocomplete="off"
                     required
                   />
                 </div>
                 <div class="col-md-8">
                   <label for="inputCity" class="form-label">State/Province</label>
-                  <input type="text" class="form-control" id="inputCity" required/>
+                  <input type="text" class="form-control" id="inputCity" autocomplete="off" placeholder="Type..." required/>
                 </div>
                 <div class="col-md-4">
                   <label for="inputState" class="form-label">Region</label>
@@ -187,6 +192,7 @@
                       type="text"
                       class="form-control"
                       id="inputAddress2"
+                      autocomplete="off"
                       placeholder="Apartment, studio, or floor"
                       required
                     />
@@ -199,6 +205,7 @@
                       type="text"
                       class="form-control"
                       id="inputAddress2"
+                      autocomplete="off"
                       placeholder="Apartment, studio, or floor"
                     />
                 </div>
@@ -211,6 +218,8 @@
                       class="form-control"
                       id="inputAddress2"
                       placeholder="+00"
+                      autocomplete="off"
+                      maxlength="3"
                       required
                     />
                 </div>
@@ -223,6 +232,8 @@
                       class="form-control"
                       id="inputAddress2"
                       placeholder="000 00000000"
+                      autocomplete="off"
+                      maxlength="8"
                       required
                     />
                 </div>
@@ -246,13 +257,25 @@
                 </div>
                 <div class="debit-card position-relative mt-4">
                 <!-- FRONT CARD -->
-                  <div class="front trans-card credit-card d-flex flex-column justify-content-between container p-4 mb-3">
+                  <div class="front trans-card credit-card d-flex flex-column justify-content-between container p-4">
                     <div class="chip"></div>
-                    <div class="d-flex justify-content-between fs-6 mb-5">
-                      <span>CARD HOLDER</span>
-                      <div></div>
-                      <span>EXPIRES</span>
-                      <div></div>
+                    <div class="d-flex justify-content-evenly gap-4 fs-5">
+                      <div id="numbers-1"></div>
+                      <div id="numbers-2"></div>
+                      <div id="numbers-3"></div>
+                      <div id="numbers-4"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span class="fw-bold">CARD HOLDER</span>
+                      <span class="fw-bold">EXPIRES</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <div id="card-holder"></div>
+                      <div class="d-flex">
+                        <div id="exp-month"></div>
+                        <span>/</span>
+                        <div id="exp-year"></div>
+                      </div>
                     </div>
                   </div>
                   <!-- BACK CARD -->
@@ -260,8 +283,10 @@
                     <div class="d-flex flex-column">
                       <div class="strip mt-4"></div>
                       <div class="d-flex flex-column mx-3 mt-2">
-                        <span class="text-end">CVV</span>
-                        <div class="white-strip mt-2"></div>
+                        <span class="text-end mx-1">CVV</span>
+                        <div class="white-strip mt-2 text-end">
+                          <span id="number-cvv" class="mx-1" style="color: black;"></span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -277,6 +302,9 @@
                             class="form-control"
                             placeholder="0000"
                             aria-label="First name"
+                            id="card-numb-1"
+                            autocomplete="off"
+                            maxlength="4"
                             required
                           />
                         </div>
@@ -286,6 +314,21 @@
                             class="form-control col-3"
                             placeholder="0000"
                             aria-label="First name"
+                            id="card-numb-2"
+                            autocomplete="off"
+                            maxlength="4"
+                            required
+                          />
+                        </div>
+                        <div class="col-3">
+                          <input
+                            type="text"
+                            class="form-control col-3"
+                            placeholder="0000"
+                            id="card-numb-3"
+                            aria-label="First name"
+                            autocomplete="off"
+                            maxlength="4"
                             required
                           />
                         </div>
@@ -295,15 +338,9 @@
                             class="form-control col-3"
                             placeholder="0000"
                             aria-label="First name"
-                            required
-                          />
-                        </div>
-                        <div class="col-3">
-                          <input
-                            type="text"
-                            class="form-control col-3"
-                            placeholder="0000"
-                            aria-label="First name"
+                            id="card-numb-4"
+                            autocomplete="off"
+                            maxlength="4"
                             required
                           />
                         </div>
@@ -317,28 +354,36 @@
                       class="form-control"
                       placeholder="Type..."
                       aria-label="First name"
+                      id="card-holder-input"
+                      autocomplete="off"
                       required
                     />
                   </div>
                   <div class="d-flex justify-content-between row mt-3 mb-3">
                     <div class="col-lg-4">
                       <label for="inputState" class="form-label">Expires</label>
-                      <div class="d-flex">
+                      <div class="d-flex gap-2">
                         <div class="col-6">
                           <input
                           type="text"
                           class="form-control"
                           placeholder="00"
                           aria-label="First name"
+                          id="exp-date-m"
+                          autocomplete="off"
+                          maxlength="2"
                           required
                           />
                         </div>
-                        <div class="col-">
+                        <div class="col-6">
                           <input
                           type="text"
                           class="form-control"
                           placeholder="00"
                           aria-label="First name"
+                          id="exp-date-y"
+                          autocomplete="off"
+                          maxlength="2"
                           required
                           />
                         </div>
@@ -351,15 +396,18 @@
                         class="form-control"
                         placeholder="000"
                         aria-label="First name"
+                        id="input-CVV"
+                        autocomplete="off"
+                        maxlength="3"
                         required
                       />
                     </div>
                   </div>
                   <div class="d-flex justify-content-center mb-2">
-                    <span class="fs-5 fw-bold">TOTAL$$$</span>
+                    <span id="total-pay" class="fs-5 fw-bold"></span>
                   </div>
                   <div class="d-flex justify-content-center px-5">
-                    <button type="submit" class="pay-btn btn">Pay</button>
+                    <button onclick="payBtn()" id="pay-btn" type="submit" class="pay-btn btn">Pay</button>
                   </div>
                 </div>
             </div>
