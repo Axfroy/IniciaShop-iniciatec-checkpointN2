@@ -27,10 +27,10 @@
     margin: 80px 0px;
  }
  .publicity-2 {
-    background-image: url(../assets/2.png);
+    background-image: url(../assets/flash_sale.png);
     background-size: cover;
     height: 450px;
-    background-position-y: 90%;
+    background-position-y: 80%;
     margin: 80px 0px;
  }
  /* Card publicity*/
@@ -135,7 +135,6 @@
     height: 600px;
     object-position: bottom;
     object-fit: cover;
-
 }
 
 .img-prod , .img-pr-desc{
@@ -414,10 +413,6 @@
 
 /* --------- FINISH SHOPPING PAGE */
 
-.header-container-fshop {
-    width: 100%;
-}
-
 .keepshop-btn {
     padding: 5px 100px;
     margin-top: 10px;
@@ -579,9 +574,6 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     }
     .ronunded-end-pay {
         margin-top: 10px;
-    }
-    .debit-card  {
-        height: 100vh;
     }
 } 
 
