@@ -43,7 +43,7 @@ const getPr = async(ini,fn) => {
 const renderCard = (clothes) => {
     return `
     <div class="col-6 col-sm-4" id="${clothes.id}">
-    <div class="card p-0 class-prueba effect">
+    <div class="card p-0 bg-inicia effect border border-dark rounded-4">
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4 img-prod" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
@@ -51,12 +51,12 @@ const renderCard = (clothes) => {
                 <i class="bi bi-heart-fill fs-4"></i>
             </div>
         </div>
-        <div class="container-detail px-2 py-3 d-flex flex-column justify-content-between">
+        <div class="container-detail rounded-4 px-2 py-3 d-flex flex-column justify-content-between">
             <h5 class="card-title text-white fs-3">${clothes.title}</h5>
             <div class="d-flex justify-content-between">
                 <div class="price text-white fs-3">
-                    <sup>$</sup>
-                    <span>${clothes.price}</span>
+                    <sup "fw-semibold>$</sup>
+                    <span "fw-semibold>${clothes.price}</span>
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-outline-dark btn-showData" data-bs-toggle="modal"
@@ -74,7 +74,7 @@ const renderCard = (clothes) => {
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                                    <img src="${clothes.image}" class="img-fluid img-pr-desc rounded-start" style="height:500px" alt="${clothes.title}">
+                                    <img src="${clothes.image}" class="img-fluid img-pr-desc " style="height:500px" alt="${clothes.title}">
                                 </div>
                                 <div class="col-md-7 bg-green">
                                     <div class="card-body ">
@@ -108,7 +108,7 @@ const renderCard = (clothes) => {
                                         </div>
                                         <div class="buy d-flex justify-content-between align-items-center mt-4">
                                             <div class="price text-dark">
-                                                <sup class="fs-5">$</sup>
+                                                <sup class="fs-5 fw-bold">$</sup>
                                                 <span class="fs-2 fw-bold">${clothes.price}</span>
                                             </div>
                                             <div class="btn-buy">
