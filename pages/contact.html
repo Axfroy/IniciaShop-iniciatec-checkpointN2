@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="../assets/emogi.png" />
+  <link rel="icon" type="image/x-icon" href="./assets/emogi.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/styles.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/styles.css">
   <title>Inicia Shop</title>
 </head>
 
@@ -18,83 +19,156 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
       <div class="container-fluid mx-lg-4">
         <a class="navbar-brand" href="#">
-          <img src="../assets/logo.png" alt="Logo" width="100" class="d-inline-block align-text-top">
+          <img src="./assets/logo.png" alt="Logo" width="100" class="d-inline-block align-text-top">
         </a>
-        <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon text-white" ></span>
+        <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon text-white"></span>
         </button>
         <div class="collapse navbar-collapse ms-2" id="navbarNavDropdown">
-          <ul class="navbar-nav col-lg-6 gap-lg-5">
+          <ul class="navbar-nav col-lg-6 gap-lg-5 text-center">
             <li class="nav-item">
-              <a class="nav-link fs-4" aria-current="page" href="../index.html">Home</a>
+              <a class="nav-link active fs-4" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-4" href="./shop.html">Shop</a>
+              <a class="nav-link fs-4" href="./pages/shop.html">Shop</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active fs-4" href="#">Contact Us</a>
+              <a class="nav-link fs-4" href="./pages/contact.html">Contact Us</a>
             </li>
           </ul>
-          <!-- <div class="col-lg-6 d-lg-flex justify-content-end">
-            <ul class="navbar-nav gap-lg-5">
+          <div class="col-lg-6 d-lg-flex justify-content-end">
+            <ul class="navbar-nav gap-lg-5 text-center">
               <li class="nav-item">
-                <a class="text-black fs-3" href="#"><i class="bi bi-bag"></i></a>
+                <a class="nav-link fs-4" href="#most-wanted">Most Wanted</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-4" href="#new-arrivals">New Arrivals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-3" href="./pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+              </li>
+              <li class="nav-item">
+                <!--Carrito de compra-->
+                <div class="continer-carrito">
+                  <div class="iconCarrito">
+                    <button type="button" class="btn btn-carrito  position-relative">
+                      <i class="bi bi-bag fs-3"></i>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
+                        id="cantProd">
+                      </span>
+                    </button>
+                    <div class="carritoData dsp-none">
+                      <div class="container-vista-carrito">
+                        <ul class="list-carrito"></ul>
+                        <div class="d-flex flex-column gap-1">
+                          <button type="button" class="btn btn-clear vaciarCarrito">Clear</button>
+                          <a href="./pages/resume.html" class="btn btn-details">View details</a>
+                          <div class="d-flex justify-content-center mt-2">
+                            <h6 class="fs-5 me-2">Total:</h6>
+                            <h6 id="cant" class="priceTotal fs-5"></h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </li>
             </ul>
-          </div> -->
+          </div>
         </div>
       </div>
     </nav>
+    <section>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner card-shop">
+          <div class="carousel-item active">
+            <img src="./assets/we_are_inicia_shop.png" class="d-block w-100" alt="slide1">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/slide2.png" class="d-block w-100" alt="slide2">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/slide4.png" class="d-block w-100" alt="slide3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
   </header>
 
-  <main>
-    <div class="container m-2 mx-auto">
-      <h1 class="fs-1 pb-2 border-bottom">Contact</h1>
-      <div class="row my-4 d-flex align-items-center justify-content-center">
-        <div class="col-lg-6 col-12 px-lg-5 pb-4 ">
-          <img src="../assets/11.png" alt="iniciaShop_logo" class="img-fluid">
+  <main class="container-elements">
+    <section data-aos="fade-down" class="fixed-bottom text-end">
+      <div class="btn-fixed" >
+        <a href="#" class="link-dark me-lg-3 mb-lg-2"><i class="bi bi-arrow-up-circle-fill fs-fix"></i></a>
+      </div>
+    </section>
+    <section class="position-relative">
+      <div class="bg-grey1 position-absolute"></div>
+    </section>
+    <section class="container-shop mt-5">
+      <div class="row">
+        <div class="col-lg-4 col-12 d-flex flex-column  mb-3 mb-lg-0 publicity-home">
+          <h2 class="text-center mb-3" id="most-wanted">#TREND</h2>
+          <div class="container-card-publicity rounded-4 h-100 border border-dark" style="--i: url(../assets/5.png)">
+            <div class="content bg-img1 d-flex justify-content-center align-items-end">
+              <p class=" px-2 text-bg-dark rounded-5 p-sm">@INICIA_SHOP</p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-6 col-12">
-          <form class="d-flex flex-column">
-            <div class="mb-3">
-              <label for="exampleInputFullName" class="form-label">Full Name</label>
-              <input type="text" placeholder="Fulanito Menganito" class="form-control" id="exampleInputFullName"
-                required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <div class="input-group">
-                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                <input type="email" placeholder="test@example.com" class="form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp" required>
-              </div>
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-              <div class="d-flex gap-1">
-                <label for="exampleInputPassword1" class="form-label">Phone</label>
-                <span class="form-helper text-muted">(optional)</span>
-              </div>
-              <input type="tel" placeholder="+54 9 11 7777-7777" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-              <label for="validationTextarea" class="form-label">Menssage</label>
-              <textarea class="form-control" rows="4" id="validationTextarea"
-                placeholder="Please enter your menssage here!" required></textarea>
-              <div class="invalid-feedback">
-                Please enter your menssage here!
-              </div>
-            </div>
-            <button type="submit" class="btn text-white fw-bold col-lg-3 col-12 align-self-end"
-              style="background-color: #B3679B">Submit</button>
-          </form>
+        <div class="col-lg-8 col-12 box1 d-flex flex-column justify-content-evenly">
+          <div class="row g-3" id="container-cards-trend">
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    <section data-aos="zoom-in-up" data-aos-duration="1500">
+      <div class="publicity-1"></div>
+    </section>
+    <section class="position-relative">
+      <div class="bg-grey2 my-4 position-absolute"></div>
+    </section>
+    <section class="container-shop">
+      <div class="row">
+        <div class="col-lg-8 d-flex flex-column justify-content-evenly">
+          <div class="row g-3" id="container-cards-unisex">
+          </div>
+        </div>
+        <div class="col-lg-4 col-12 d-flex flex-column  mb-3 mb-lg-0 publicity-home">
+          <h2 class="text-center mb-3" id="new-arrivals">#UNISEX</h2>
+          <div class="container-card-publicity rounded-4 h-100 border border-dark" style="--i: url(../assets/7.png)">
+            <div class="content bg-img2 d-flex justify-content-center align-items-end">
+              <p class=" px-2 text-bg-dark rounded-5 p-sm">@INICIA_SHOP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section data-aos="zoom-in-up" data-aos-duration="1500">
+      <div class="publicity-2"></div>
+    </section>
   </main>
 
   <!-- Start Footer -->
-  <footer class="mt-4 text-white" >
+  <footer class="mt-auto text-white">
     <!-- Users -->
     <div class="mb-3">
       <section class="py-4 border-bottom" style="background-color: #B3679B">
@@ -102,27 +176,46 @@
         <div id="footerProfileCtn" class="d-flex"></div>
       </section>
     </div>
-  <!-- Links -->
+    <!-- Links -->
     <div class="container text-black">
       <div class="row">
-        <div class="col-6 col-lg-3 mb-3">
+        <div class="col-6 col-lg-2 mb-3 d-flex flex-column align-items-start">
           <h5>IniciaShop</h5>
-          <div class=""><img src="../assets/logo.png" alt="iniciaShop_logo" width="100"></div>
+          <div class=""><img src="./assets/logo.png" alt="iniciaShop_logo" width="100"></div>
         </div>
         <!-- Filling the section ✌ -->
         <!-- <div class="col-6 col-md-2 mb-3">
-        </div> -->
+      </div> -->
         <!-- Footer Navbar -->
-        <div class="col-6 col-lg-4 mb-3">
+        <div class="col-lg-2 mb-2 d-flex flex-column">
+          <a href="https://www.facebook.com/profile.php?id=100089541871469" style="text-decoration: none; color:black ;">
+            <i class="bi bi-facebook fs-3 mx-3"></i>
+          </a>
+          <a href="https://www.instagram.com/inicia.shop/" style="text-decoration: none; color:black ;">
+            <i class="bi bi-instagram fs-3 mx-3"></i>
+          </a>
+          <a href="https://www.youtube.com/watch?v=TfGMovjU04o" style="text-decoration: none; color:black ;">
+            <i class="bi bi-youtube fs-3 mx-3"></i>
+          </a>
+        </div>
+        <div class="col-3 col-lg-2 mb-3">
           <h5>Pages</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="../index.html" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="./shop.html" class="nav-link p-0 text-muted">Shop</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
+            <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="./pages/shop.html" class="nav-link p-0 text-muted">Shop</a></li>
+            <li class="nav-item mb-2"><a href="./pages/contact.html" class="nav-link p-0 text-muted">Contact Us</a></li>
           </ul>
         </div>
-  <!-- NewsLetter -->
-        <div class="col-lg-5 col-12 mb-3">
+        <!-- Footer Navbar -->
+        <div class="col-3 col-lg-2 mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#new-arrivals" class="nav-link p-0 text-muted">New Arrivals</a></li>
+            <li class="nav-item mb-2"><a href="#most-wanted" class="nav-link p-0 text-muted">Most Wanted</a></li>
+          </ul>
+        </div>
+        <!-- NewsLetter -->
+        <div class="col-md-4 mb-3">
           <form>
             <h5>Sign up and get an exclusive discount</h5>
             <p>Get 10% off in your first order</p>
@@ -134,7 +227,7 @@
           </form>
         </div>
       </div>
-  <!-- Possible Social Media Icons -->
+      <!-- Possible Social Media Icons -->
       <div class="d-flex flex-column flex-sm-row justify-content-between my-2 border-top">
         <p>© 2022 IniciaShop, Inc. All rights reserved.</p>
         <ul class="list-unstyled d-flex">
@@ -144,12 +237,15 @@
     </div>
   </footer>
 </body>
-<!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/profiles.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/profiles.js"></script>
+
 </html>
-Footer
-© 2022 GitHub, Inc.
