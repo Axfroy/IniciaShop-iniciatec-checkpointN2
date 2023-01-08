@@ -48,7 +48,7 @@ const renderCard = (clothes) => {
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
             <div class="d-flex justify-content-center icon-dimentions">
-                <i class="bi bi-heart-fill fs-4"></i>
+                <i class="bi bi-heart-fill fs-4 agregarFav" id="${clothes.id}"></i>
             </div>
         </div>
         <div class="container-detail rounded-4 px-2 py-3 d-flex flex-column justify-content-between">
@@ -171,30 +171,13 @@ const listCarrito = (elem) => {
     `
 }
 
-const renderCards = async() => {
-    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
-    const shop1 = await getPr(4,10)
-    const shop2 = await getPr(11,17)
-    const containerCards = document.getElementById('container-cards-trend')
-    const containerCards1 = document.getElementById('container-cards-unisex')
-    shop1.map(clothes => {
-        containerCards.insertAdjacentHTML('beforeend', renderCard(clothes))
-    })
-    shop2.map(clothes => {
-        
-        containerCards1.insertAdjacentHTML('beforeend', renderCard(clothes))
-    })
-    let allElems = shop1.concat(shop2);
-    addAgrCarrito(carritoDataLS,allElems)
-    addOpcColorTalle()
-    getCoupon();
-}
+
+
 
 const getCoupon = () => {
     const subsBtn = document.getElementById("subs-btn");
     subsBtn.addEventListener("click", () => {
         let inputMail = document.querySelector("#newsletter1");
-        console.log("inputMail", inputMail.value)
         if (inputMail != `` && inputMail.value.includes('@')) {
             if (localStorage.getItem('emailCoupon') != inputMail.value) {
             swalFunction();
@@ -217,28 +200,118 @@ const getCoupon = () => {
     })
 }
 
+const renderCards = async() => {
+    renderBtnCarrito()
+    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
+    let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
+    let data = await getAllArticles();
+    let shop1 = await getPr(4,10)
+    let shop2 = await getPr(11,17)
+    let containerCards = document.querySelector('#container-cards-trend')
+    let containerCards1 = document.querySelector('#container-cards-unisex')
+    let allElems = shop1.concat(shop2);
+    renderCarrito(carritoDataLS)
+
+    shop1.forEach(clothes => {
+        containerCards.innerHTML += renderCard(clothes)
+    })
+    shop2.map(clothes => {
+        
+        containerCards1.innerHTML += renderCard(clothes)
+    })
+    addOpcColorTalle()
+    addCarrito(carritoDataLS,allElems)
+    addFav(favDataLS , containerCards)
+    console.log("favDataLS", favDataLS);
+    renderBtnFav(favDataLS, containerCards)
+    //renderBtnFav(favDataLS, containerCards1)
+    getCoupon();
+}
+
 //renderizo todos los productos
 const renderProducts = async () => {
     renderBtnCarrito()
     //json // undefined 
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
+    let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
     let container = document.querySelector("#container-cards")
+    console.log("container", container);
     let data = await getAllArticles();
-    let btn;
     //contenedor del carrito
     renderCarrito(carritoDataLS)
-
-
     data.forEach(element => {
             //si no es null
             
-            if (element != null) {
-                container.innerHTML += renderCard(element) 
+            if (container != null) {
+                    container.innerHTML += renderCard(element)
+                    
+                
             }
     });
     addOpcColorTalle()
-    addAgrCarrito(carritoDataLS, data)
+    addCarrito(carritoDataLS, data)
+    //verifico si el producto esta en favoritos
     obtPriceTotal(carritoDataLS);
+    addFav(data, container)
+    renderBtnFav(favDataLS, container);
+}
+const renderFavorites =  async() => {
+    //obtengo los datos del local storage
+    let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
+    //all data del
+    let data = await getAllArticles();
+    let container = document.querySelector("#container-cards");
+    //vacio previamente el contenedor
+    container.innerHTML = "";
+    //itero sobre los datos del local storage
+    favDataLS.forEach(element => {
+        //verifico si el elemento se encuentra en el contenedor
+        //si no es null
+        if (element != null) {
+            //si el elemento no se encuentra en el contenedor
+                container.innerHTML += renderCard(element)
+            
+        }
+    });  
+    addFav(data, container )
+    renderBtnFav(favDataLS, container); 
+}
+
+
+const renderRecomendItems = async () => {
+    //obtengo los elementos del local storage
+    let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
+    
+    //obtengo todos los productos
+    let data = await getAllArticles();
+    //obtengo todas las categorias de los productos
+    let categories = data.map(elem => elem.category);
+    //obtengo las categorias unicas
+    categories = [...new Set(categories)];
+    console.log("categories",categories);
+    //creo array de 7 elementos recomendados
+    let recomendItem = []
+    //inserto en el array 7 elementos aleatorios
+    for (let i = 0; i < 7; i++) {
+        //obtengo una categoria aleatoria de categories
+        let randomCategory = categories[Math.floor(Math.random() * categories.length)];
+        //obtengo un producto aleatorio de la categoria randomCategory
+        let randomItem = data.filter(elem => elem.category == randomCategory)[Math.floor(Math.random() * data.filter(elem => elem.category == randomCategory).length)];    
+        //verifico que el id del producto no se encuentre en el array del carrito
+        if (!favDataLS.some(item => item.id === randomItem.id)) {
+            //verifico que el producto no se encuentre en el array de recomendados
+            if (!recomendItem.includes(randomItem)) {
+              recomendItem.push(randomItem)
+            }
+          }
+    }
+    //los inserto en el contenedor recomend-items
+    let container = document.querySelector("#recomend-items");
+    container.innerHTML = "";
+    recomendItem.forEach(elem => {
+        container.innerHTML += renderCard(elem)
+    })
+    //addFav(favDataLS , data)
 }
 
 const addOpcColorTalle = () => {
@@ -254,7 +327,7 @@ const addOpcColorTalle = () => {
 
 }
 
-const   eventOpc = () => {
+const  eventOpc = () => {
     //obtengo todos los colores
     let opcColor = document.querySelectorAll(".box-color");
     let opcSize = document.querySelectorAll(".box-talle");
@@ -280,7 +353,7 @@ const   eventOpc = () => {
         })
     })
 }	
-const addAgrCarrito = (carritoDataLS,data) => {
+const addCarrito = (carritoDataLS,data) => {
     let btn = document.querySelectorAll(".agregarElem")
     btn.forEach(elem => {
         elem.addEventListener("click", () => {
@@ -288,6 +361,66 @@ const addAgrCarrito = (carritoDataLS,data) => {
         })
     })
 }
+
+const addFav = (data,cont) => {
+    let btn = document.querySelectorAll(".agregarFav")
+    console.log("data",data);
+
+    btn.forEach(elem => {
+        elem.addEventListener("click", () => {
+            insertarPrFav(data, elem.id, cont)
+        })
+    })
+}
+//es el container
+const insertarPrFav = (data, id,cont) => {
+    
+    let favData = JSON.parse(localStorage.getItem("fav"));
+    if (!favData) {
+      favData = [];
+    }
+    
+    //obtengo el producto
+    let prod = data.find(elem => elem.id == id)
+    //let containerCards  = document.querySelector("#container-cards")
+
+    let prodFav = favData.find(elem => elem.id == id);
+    
+    if (!prodFav) {
+        favData.push(prod);
+        renderBtnFav(favData, cont);
+
+    } else {
+        // eliminar producto de favoritos
+        favData = favData.filter(elem => elem.id != id);
+        renderBtnFav(favData, cont);
+    }
+
+    localStorage.setItem("fav", JSON.stringify(favData));
+    renderBtnFav(favData, cont);
+    
+    nav();
+
+};
+
+
+
+
+
+
+const renderBtnFav = (fav, container) => {
+    let btnFav = container.querySelectorAll(".agregarFav")
+
+    btnFav.forEach(element => {
+        if (fav.find(elem => elem.id == element.id)) {
+                element.classList.add("text-danger")              
+            }else{
+                element.classList.remove("text-danger")
+                element.classList.add("bi-heart-fill")
+            }
+    })
+}
+
 const renderBtnCarrito = () => {
     let btnCarrito = document.querySelector(".btn-carrito")
     let carritoData = document.querySelector(".carritoData")
@@ -297,6 +430,7 @@ const renderBtnCarrito = () => {
         })
     }
 }
+
 const renderCarrito = (car = []) => {
     let carritoData = document.querySelector(".list-carrito")
     let numElem = document.querySelector("#cantProd")
@@ -317,6 +451,7 @@ const renderCarrito = (car = []) => {
     agregarUnPrCarrito(car)
     obtPriceTotal(car)
 }
+
 
 const cantElementos = (cantElem) => {
     let numElem = document.querySelector("#cantProd")
@@ -374,6 +509,9 @@ const insertarPrCarrito = (car, data, id) => {
     //inserto desde localStorage
     renderCarrito(car);
 }
+
+
+
 const obtPriceTotal = (car) => {
     let priceTotal = document.querySelector(".priceTotal")
     let total = 0;
@@ -384,11 +522,11 @@ const obtPriceTotal = (car) => {
     total = total.toFixed(2);
     priceTotal.innerHTML = `$${total}`;
 }
+
 const obtProducto = (car, data, id) => {
     let carritoData = car;
     //console.log(data, id);
     let prod = data.find(elem => elem.id == id)
-    console.log("encontrado");
     let opcColor = document.querySelector('.opt-colors .checked').getAttribute("value");
     let opcSize = document.querySelector('.opt-talles .checked').innerHTML;
 
@@ -410,7 +548,6 @@ const obtProducto = (car, data, id) => {
                 color: opcColor,
                 size: opcSize
             }
-            console.log("prodCarrito" ,prodCarrito);
             carritoData.push(prodCarrito)
         }
             
@@ -454,7 +591,6 @@ const renderResume = () => {
             
         })
         //agrego la clase de bootstrap
-        console.log(allStyleClasOfElem);        
         let infoTitle = elem.querySelector(".container-title");
         //inserto el color y el size por debajo del titulo
        
@@ -716,21 +852,17 @@ function btnCoupon() {
     const cuponBtn = document.getElementById("cupon-btn");
     cuponBtn.addEventListener("click", (event) => {
         let coupon = document.querySelector(".input-coupon");
-        console.log("coupon", coupon.value)
         applyDiscount(coupon.value);
     })
 }
 //btnCoupon();
 
 function applyDiscount(coupon) {
-    console.log("coupon in", coupon);
-    console.log(coupon, " = ",localStorage.getItem('code10'));
     let discountApplied = false;
     if ( !discountApplied && coupon.trim() == localStorage.getItem('code10').trim()) {
         let priceTotal = document.querySelector(".priceTotal")
         console.log("priceTotal.value", priceTotal.innerHTML.slice(1))
         let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
-        console.log("Total", total);
         priceTotal.innerHTML = ``;
         priceTotal.innerHTML =  `$${total}`;
         localStorage.clear('code10'); 
@@ -764,7 +896,7 @@ const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
     switch (URLactual) {
         case 'index.html':
-            renderProducts()
+            //renderProducts()
             renderCards()
             renderCarrito()
             break;
@@ -778,6 +910,11 @@ const nav = () => {
             renderCarrito()
             renderProducts()
             renderFilter()
+        break;
+        case 'favorites.html':
+            renderRecomendItems()
+            renderFavorites()
+            
         break;
         default:
             //insert 404
