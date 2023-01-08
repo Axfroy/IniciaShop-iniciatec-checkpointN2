@@ -68,7 +68,7 @@ const renderCard = (clothes) => {
         <!-- Modal -->
         <div class="modal fade px-4" id="exampleModal${clothes.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content bg-dark">
                     <div class="modal-body d-flex justify-content-center">
                         <div class="card">
@@ -77,15 +77,18 @@ const renderCard = (clothes) => {
                                     <img src="${clothes.image}" class="img-fluid img-pr-desc " style="height:500px" alt="${clothes.title}">
                                 </div>
                                 <div class="col-md-7 bg-green">
-                                    <div class="card-body ">
-                                        <h5 class="fs-2 text-dark">${clothes.title}</h5>
-                                        <div class="descrition text-dark">
-                                            <h4>Description</h4>
-                                            <p>${clothes.description}</p>
+                                    <div class="card-body d-flex flex-column justify-content-between h-100">
+                                        <div>
+                                            <h5 class="fs-2 text-dark">${clothes.title}</h5>
+                                            <div class="descrition text-dark">
+                                                <h4>Description</h4>
+                                                <p>${clothes.description}</p>
+                                            </div>
                                         </div>
-                                        <div class="colors">
+                                        <div class="">
+                                            <div class="colors">
                                                 <h4 class="tittle-h4 text-dark">Colors</h4>
-                                                <div class="d-flex justify-content-between opt-colors col-12">
+                                                <div class="d-flex justify-content-between opt-colors col-lg-9 col-12">
                                                     <div class="box-color bg-primary" value="bg-primary" ></div>
                                                     <div class="box-color bg-info" value="bg-info""></div>
                                                     <div class="box-color bg-secondary" value="bg-secondary"></div>
@@ -95,24 +98,25 @@ const renderCard = (clothes) => {
                                                     <div class="box-color bg-black" value="bg-black"></div>
                                                     <div class="box-color bg-light" value="bg-light"></div>
                                                 </div>
-                                        </div>
-                                        <div class="sizes mt-3">
-                                            <h4 class="tittle-h4 text-dark">Sizes</h4>
-                                            <ul class="list-group list-group-horizontal opt-talles  º">
-                                                <li class="list-group-item box-talle border-dark">S</li>
-                                                <li class="list-group-item box-talle border-dark">M</li>
-                                                <li class="list-group-item box-talle border-dark">L</li>
-                                                <li class="list-group-item box-talle border-dark">XL</li>
-                                                <li class="list-group-item box-talle border-dark">XXL</li>
-                                            </ul>
-                                        </div>
-                                        <div class="buy d-flex justify-content-between align-items-center mt-4">
-                                            <div class="price text-dark">
-                                                <sup class="fs-5 fw-bold">$</sup>
-                                                <span class="fs-2 fw-bold">${clothes.price}</span>
                                             </div>
-                                            <div class="btn-buy">
-                                                <a href="#" class="btn btn-dark fs-5 agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
+                                            <div class="sizes mt-3">
+                                                <h4 class="tittle-h4 text-dark">Sizes</h4>
+                                                <ul class="list-group list-group-horizontal opt-talles  º">
+                                                    <li class="list-group-item box-talle border-dark">S</li>
+                                                    <li class="list-group-item box-talle border-dark">M</li>
+                                                    <li class="list-group-item box-talle border-dark">L</li>
+                                                    <li class="list-group-item box-talle border-dark">XL</li>
+                                                    <li class="list-group-item box-talle border-dark">XXL</li>
+                                                </ul>
+                                            </div>
+                                            <div class="buy d-flex justify-content-between align-items-center mt-4">
+                                                <div class="price text-dark">
+                                                    <sup class="fs-5 fw-bold">$</sup>
+                                                    <span class="fs-2 fw-bold">${clothes.price}</span>
+                                                </div>
+                                                <div class="btn-buy">
+                                                    <a href="#" class="btn btn-dark fs-5 agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

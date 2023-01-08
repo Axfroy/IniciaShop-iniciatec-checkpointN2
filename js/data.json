@@ -3,7 +3,7 @@
         "id": 1,
         "title": "Hoodie Haven ",
         "price": 109.95,
-        "description": "A hoodie is a type of sweatshirt with a hood. Hoodies are typically made of soft, comfortable fabric like cotton or a cotton blend, and they often have a zipper front and a kangaroo pocket. They are popular as casual wear, especially among younger people, and are often worn as a layer for warmth in cooler weather. Some hoodies have designs or graphics printed on them, while others are plain. Hoodies can be worn for a variety of activities, such as exercise, lounging, or running errands.",
+        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection. Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
         "category": "hoodie",
         "image": "../assets/img-Json/hoodie/hoodie1.png",
         "color" : [
@@ -20,10 +20,10 @@
     {
         "id": 2,
         "title": "The Jacket Hub",
-        "price": 22.3,
-        "description": "A jacket is a type of outerwear that is worn over clothing to keep the body warm and protect it from the elements. Jackets can be made of a variety of materials, including cotton, polyester, nylon, and leather, and they come in a range of styles, such as bomber jackets, denim jackets, parkas, and windbreakers. Some jackets are designed for specific activities, such as skiing or hiking, while others are more general purpose.",
+        "price": 322.33,
+        "description": "A jacket is a type of outerwear that is worn over clothing to keep the body warm and protect it from the elements. Jackets can be made of a variety of materials, including cotton, polyester, nylon, and leather, and they come in a range of styles.",
         "category": "jacket",
-        "image": "../assets/img-Json/jacket/jacket1.png",
+        "image": "../assets/img-Json/jacket/jacket6.png",
         "color" : [
             "#3B71CA",
             "#54B4D3",
@@ -49,8 +49,8 @@
     {
         "id": 3,
         "title": "Hoodie Bliss",
-        "price": 55.99,
-        "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+        "price": 350.99,
+        "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member.",
         "category": "hoodie",
         "image": "../assets/img-Json/hoodie/hoodie2.png",
         "color" : [
@@ -78,7 +78,7 @@
     {
         "id": 4,
         "title": "Jacket Junction",
-        "price": 15.99,
+        "price": 515.99,
         "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
         "category": "jacket",
         "image": "../assets/img-Json/jacket/jacket2.png",
@@ -107,8 +107,8 @@
     {
         "id": 5,
         "title": "Hoodie Couture",
-        "price": 695,
-        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+        "price": 495.48,
+        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection. Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
         "category": "hoodie",
         "image": "../assets/img-Json/hoodie/hoodie3.png",
         "color" : [
@@ -137,7 +137,7 @@
     {
         "id": 6,
         "title": "Hoodie Luxe",
-        "price": 168,
+        "price": 468.66,
         "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
         "category": "hoodie",
         "image": "../assets/img-Json/hoodie/hoodie4.png",
@@ -166,8 +166,8 @@
     {
         "id": 7,
         "title": "Jacket Paradise",
-        "price": 9.99,
-        "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+        "price": 494.99,
+        "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, excepturi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, at?",
         "category": "jacket",
         "image": "../assets/img-Json/jacket/jacket3.png",
         "color" : [
@@ -194,9 +194,9 @@
     },
     {
         "id": 8,
-        "title": "Comfortable Stretch Jeans",
-        "price": 10.99,
-        "description": "These jeans are made with a stretchy, comfortable material that moves with you all day long",
+        "title": "Sport short",
+        "price": 110.99,
+        "description": "These jeans are made with a stretchy, comfortable material that moves with you all day long Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti est, fugiat dicta accusamus iusto repellat magni ea minus earum facere. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, excepturi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, at?",
         "category": "pants",
         "image": "../assets/img-Json/pants/pants4.png",
         "color" : [
@@ -224,8 +224,8 @@
     {
         "id": 9,
         "title": "Classic Chino Pants",
-        "price": 64,
-        "description": "These pants feature a timeless, versatile design that can be dressed up or down. Made with a soft, lightweight fabric",
+        "price": 242.21,
+        "description": "These pants feature a timeless, versatile design that can be dressed up or down. Made with a soft, lightweight fabric, versatile design that can be dressed up or down. Made with a soft, lightweight fabric. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, excepturi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, at?",
         "category": "pants",
         "image": "../assets/img-Json/pants/pants5.png",
         "color" : [
@@ -254,8 +254,8 @@
     {
         "id": 10,
         "title": "Jackets Unleashed",
-        "price": 109,
-        "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+        "price": 581.44,
+        "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC.",
         "category": "jacket",
         "image": "../assets/img-Json/jacket/jacket4.png",
         "color" : [
@@ -283,8 +283,8 @@
     {
         "id": 11,
         "title": "Classic Canvas Sneakers",
-        "price": 109,
-        "description": "Classic canvas sneakers with a durable rubber sole and lace-up design. Perfect for casual wear or a day at the park",
+        "price": 209.99,
+        "description": "Classic canvas sneakers with a durable rubber sole and lace-up design. Perfect for casual wear or a day at the park Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, excepturi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, at?",
         "category": "sneakers",
         "image": "../assets/img-Json/sneakers/sneakers3.png",
         "color" : [
@@ -312,8 +312,8 @@
     {
         "id": 12,
         "title": "Sporty Joggers",
-        "price": 114,
-        "description": "These joggers are perfect for the gym or a casual day out. Made with breathable, moisture-wicking fabric to keep you cool and dry",
+        "price": 314.88,
+        "description": "These joggers are perfect for the gym or a casual day out. Made with breathable, moisture-wicking fabric to keep you cool and dry Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, excepturi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, at?",
         "category": "pants",
         "image": "../assets/img-Json/pants/pants6.png",
         "color" : [
@@ -340,9 +340,9 @@
     },
     {
         "id": 15,
-        "title": "Snowboard Jacket Winter",
-        "price": 56.99,
-        "description": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
+        "title": "Pois Sneakers",
+        "price": 310.99,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia accusamus ratione cum id fuga unde beatae sequi doloribus. Fugiat, reprehenderit. Ducimus error laboriosam aliquam quia quidem, nulla, recusandae minus sapiente dolor eos neque ipsa dolorum?",
         "category": "sneakers",
         "image": "../assets/img-Json/sneakers/sneakers1.png",
         "color" : [
@@ -369,9 +369,9 @@
     },
     {
         "id": 16,
-        "title": "Lock and Love Women's Jacket",
-        "price": 29.95,
-        "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+        "title": "Locky T-shirt",
+        "price": 329.95,
+        "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on wais",
         "category": "shirt",
         "image": "../assets/img-Json/shirt/shirt3.png",
         "color" : [
@@ -398,10 +398,11 @@
     },
     {
         "id": 17,
-        "title": "Rain Jacket ",
-        "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+        "title": "Tois Sneakers",
+        "price": 299.95,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia accusamus ratione cum id fuga unde beatae sequi doloribus. Fugiat, reprehenderit. Ducimus error laboriosam aliquam quia quidem, nulla, recusandae minus sapiente dolor eos neque ipsa dolorum?",
         "category": "sneakers",
-        "image": "../assets/img-Json/sneakers/sneakers1.png",
+        "image": "../assets/img-Json/sneakers/sneakers5.png",
         "color" : [
             "#3B71CA",
             "#54B4D3",
@@ -426,11 +427,11 @@
     },
     {
         "id": 18,
-        "title": "MBJ Women's Solid Short",
-        "price": 9.85,
-        "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
-        "category": "sneakers",
-        "image": "../assets/img-Json/sneakers/sneakers2.png",
+        "title": "Nike Jacket",
+        "price": 729.85,
+        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+        "category": "jacket",
+        "image": "../assets/img-Json/hoodie/hoodie6.png",
         "color" : [
             "#3B71CA",
             "#54B4D3",
@@ -455,9 +456,9 @@
     },
     {
         "id": 19,
-        "title": "Jacket Central",
-        "price": 7.95,
-        "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+        "title": "Central Jacket",
+        "price": 626.95,
+        "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away.",
         "category": "jacket",
         "image": "../assets/img-Json/jacket/jacket8.png",
         "color" : [
@@ -485,7 +486,7 @@
     {
         "id": 20,
         "title": "DANVOUY Womens T  Casual Cotton Short",
-        "price": 12.99,
+        "price": 162.99,
         "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
         "category": "sneakers",
         "image": "../assets/img-Json/sneakers/sneakers4.png",
@@ -509,6 +510,227 @@
         "rating": {
             "rate": 3.6,
             "count": 145
+        }
+    },
+    {
+        "id": 21,
+        "title": "DANNE Sneakers",
+        "price": 362.99,
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente beatae eaque corporis mollitia magni earum nesciunt quia accusamus consequuntur? Officiis odio laudantium sint, iste doloribus similique molestias adipisci quidem corporis.",
+        "category": "sneakers",
+        "image": "../assets/img-Json/sneakers/sneakers2.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "38",
+            "39",
+            "41",
+            "42",
+            "44"
+        ],
+        "rating": {
+            "rate": 3.6,
+            "count": 145
+        }
+    },
+    {
+        "id": 22,
+        "title": "Confotable Pants",
+        "price": 210.99,
+        "description": "These jeans are made with a stretchy, comfortable material that moves with you all day long Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti est, fugiat dicta accusamus iusto repellat magni ea minus earum facere.",
+        "category": "pants",
+        "image": "../assets/img-Json/pants/pants1.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "rating": {
+            "rate": 1.9,
+            "count": 100
+        }
+    },
+    {
+        "id": 23,
+        "title": "The Jacket Hub",
+        "price": 322.33,
+        "description": "A jacket is a type of outerwear that is worn over clothing to keep the body warm and protect it from the elements. Jackets can be made of a variety of materials, including cotton, polyester, nylon, and leather, and they come in a range of styles.",
+        "category": "jacket",
+        "image": "../assets/img-Json/jacket/jacket1.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "rating": {
+            "rate": 4.1,
+            "count": 259
+        }
+    },
+    {
+        "id": 24,
+        "title": "Hoodie Haven ",
+        "price": 209.95,
+        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection. Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+        "category": "hoodie",
+        "image": "../assets/img-Json/hoodie/hoodie7.png",
+        "color" : [
+       
+        ],
+        "size": [
+ 
+        ],
+        "rating": {
+            "rate": 3.9,
+            "count": 120
+        }
+    },
+    {
+        "id": 25,
+        "title": "Unma T-shirt",
+        "price": 329.95,
+        "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on wais",
+        "category": "shirt",
+        "image": "../assets/img-Json/shirt/shirt1.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "rating": {
+            "rate": 2.9,
+            "count": 340
+        }
+    },
+    {
+        "id": 26,
+        "title": "Prex T-shirt",
+        "price": 329.95,
+        "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on wais",
+        "category": "shirt",
+        "image": "../assets/img-Json/shirt/shirt2.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "rating": {
+            "rate": 2.9,
+            "count": 340
+        }
+    },
+    {
+        "id": 27,
+        "title": "Confotable Pants",
+        "price": 210.99,
+        "description": "These jeans are made with a stretchy, comfortable material that moves with you all day long Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti est, fugiat dicta accusamus iusto repellat magni ea minus earum facere.",
+        "category": "pants",
+        "image": "../assets/img-Json/pants/pants2.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "rating": {
+            "rate": 1.9,
+            "count": 100
+        }
+    },
+    {
+        "id": 28,
+        "title": "Confotable Pants",
+        "price": 210.99,
+        "description": "These jeans are made with a stretchy, comfortable material that moves with you all day long Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti est, fugiat dicta accusamus iusto repellat magni ea minus earum facere.",
+        "category": "pants",
+        "image": "../assets/img-Json/pants/pants7.png",
+        "color" : [
+            "#3B71CA",
+            "#54B4D3",
+            "#9FA6B2",
+            "#14A44D",
+            "#DC4C64",
+            "#E4A11B",
+            "#332D2D",
+            "#FBFBFB"
+        ],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "rating": {
+            "rate": 1.9,
+            "count": 100
         }
     }
 ]

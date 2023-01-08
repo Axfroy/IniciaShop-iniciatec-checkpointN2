@@ -138,7 +138,7 @@
 }
 
 .img-prod , .img-pr-desc{
-   object-fit: contain;
+   object-fit: fill;
 }
 .publicity-home {
     height: 800px;
