@@ -596,17 +596,22 @@ const nav = () => {
             renderCarrito()
             break;
         case 'resume.html':
+            renderCarrito()
             renderResume()
+            
         break;
         case 'shop.html':
             //alert("shop")
+            renderCarrito()
             renderProducts()
-
+            
         break;
         default:
             //insert 404
             renderProducts()
+            renderCarrito()
             renderCards()
+            
         break;
     }
 }

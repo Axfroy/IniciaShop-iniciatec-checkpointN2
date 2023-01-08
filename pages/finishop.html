@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="../assets/icon_emogi.png" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="../assets/emogi.png"/>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,15 +15,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/styles.css"/>
     <title>Finish Shopping</title>
   </head>
   <body>
     <header>
       <nav
         class="navbar navbar-expand-lg bg-body-tertiary p-0"
-        style="background-color: #eeeeee"
-      >
+        style="background-color: #eeeeee">
         <div class="container-fluid mx-lg-4">
           <a class="navbar-brand" href="../index.html">
             <img
@@ -34,7 +33,7 @@
             />
           </a>
           <button
-            class="navbar-toggler bg-green"
+            class="navbar-toggler bg-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavDropdown"
@@ -76,18 +75,17 @@
     </header>
 
     <main class="text-bg-dark">
+      <section class="container-shop">
+        <div class="row d-flex justify-content-between align-items-end pt-4">
+          <h2 class="cart-title fs-1 col-lg-4 border-green text-lg-start text-center ps-0 mb-lg-3 mb-4">Finish Shopping</h2>
+          <a class="btn btn-shopping fw-bold col-lg-2 mx-lg-0 text-black fs-5 mb-lg-3 mb-4" href="./shop.html" role="button">Keep shopping</a>
+      </div>
+      </section>
+      
       <section class="pb-5">
-        <div class="header-container-fshop d-flex justify-content-between p-5">
-          <h1 class="mx-5 fs-1 border-bottom">Finish Shopping</h1>
-          <div class="px-5">
-            <a href="./shop.html" style="text-decoration: none; color: white;">
-              <button type="submit" class="keepshop-btn btn fs-4">Keep Shopping</button>
-            </a>
-        </div>
-        </div>
-        <div class="mx-5 px-5">
+        <div class="container-shop">
           <div class="row">
-            <div class="col-lg-8 text-bg-light p-5 border border-dark border-end-0 rounded-end rounded-5">
+            <div class="col-lg-8 col-12 text-bg-light p-5 ronunded-start-pay">
               <h4>Personal Information</h4>
               <div class="row g-3">
                 <div class="col-lg-6">
@@ -243,7 +241,7 @@
               </div>
             </form>
             </div>
-            <div class="container-pay col-lg-4 p-5 border border-dark border-start-0 rounded-start rounded-5">
+            <div class="container-pay col-lg-4 p-5 ronunded-end-pay">
                 <h4 class="text-center">Payment Information</h4>
                 <div class="col-lg-12">
                   <label for="inputState" class="form-label">Select the payment method of your choice:</label>
@@ -414,18 +412,15 @@
           </div>
         </div>
         
-        
-        <div class=" mx-5 px-5">
-          <a href="./resume.html" style="text-decoration: none; color: white;">
-            <button type="submit" class="cancel-btn btn">Cancel</button>
-          </a>
+        <div class="container-shop row">
+          <a class="btn cancel-btn col-lg-2 col-12" href="./resume.html" role="button" type="submit">Cancel</a>
         </div>
 
       </section>
     </main>
 
     <!-- Start Footer -->
-    <footer class="mt-4 text-white">
+    <footer class="text-white">
       <!-- Users -->
       <div class="mb-3">
         <section class="py-4 border-bottom" style="background-color: #b3679b">

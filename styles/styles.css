@@ -394,6 +394,12 @@
 .text-pink {
     color: #B3679B;
 }
+.ronunded-start-pay {
+    border-radius: 30px 0px 0px 30px;
+}
+.ronunded-end-pay {
+    border-radius: 0px 30px 30px 0px;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
@@ -440,6 +446,12 @@
     }
     .text-center-footer {
         text-align: center;
+    }
+    .ronunded-end-pay {
+        margin-top: 10px;
+    }
+    .debit-card  {
+        height: 100vh;
     }
 } 
 
