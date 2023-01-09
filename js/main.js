@@ -143,10 +143,10 @@ const listCarrito = (elem) => {
             <span class="fs-4">${elem.title}</span>
         </div> 
         <div class="col-lg-2 col-4 d-none d-flex justify-content-center">
-            <div class="fs-5 box-color ${elem.color} "></div>
+            <div class="fs-5 box-color ${elem.color}" id="color"></div>
         </div>
         <div class="col-lg-2 col-4 d-none">
-            <span class="fs-5 ">${elem.size}</span>
+            <span class="fs-5 ${elem.size}" id="talle">${elem.size}</span>
         </div>
         <div class="col-lg-3 col-4 text-start ps-5">
             <span class="fs-5 ms-4">$${elem.price}</span>
@@ -190,7 +190,7 @@ const getCoupon = () => {
 }
 
 const renderCards = async() => {
-    renderBtnCarrito()
+    //renderBtnCarrito()
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
     let shop1 = await getPr(4,10)
@@ -224,7 +224,7 @@ const renderCards = async() => {
 
 //renderizo todos los productos
 const renderProducts = async () => {
-    renderBtnCarrito()
+    //renderBtnCarrito()
     //json // undefined 
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
@@ -232,14 +232,17 @@ const renderProducts = async () => {
     let data = await getAllArticles();
     //contenedor del carrito
     renderCarrito(carritoDataLS)
+    //obtengo la cantidad de elementos dentro del container
+    let cantElem = container.childElementCount;
+    console.log(cantElem);
+    if(cantElem != 0 && container != null){
+        //vacio el contenedor
+        container.innerHTML = "";
+    }
     data.forEach(element => {
-            //si no es null
+            //si no es null y el container esta vacio
+                container.innerHTML += renderCard(element)
             
-            if (container != null) {
-                    container.innerHTML += renderCard(element)
-                    
-                
-            }
     });
     addOpcColorTalle()
     addCarrito(carritoDataLS, data)
@@ -269,8 +272,9 @@ const renderFavorites =  async() => {
     });  
     addOpcColorTalle()
     addCarrito(carritoDataLS, data)
+    //renderBtnCarrito()
     renderBtnFav(favDataLS, container); 
-    addFav(container)
+    addFav(container)   
 }
 
 
@@ -363,6 +367,7 @@ const addFav = (cont, cont2 = '') => {
     btn.forEach(elem => {
         elem.addEventListener("click", () => {
             insertarPrFav(elem.id, cont)
+            
         })
     })
 }
@@ -399,6 +404,7 @@ const insertarPrFav = async(id,cont, cont2 = '') => {
     }else{
         renderBtnFav(favData, cont);
     }
+    //renderBtnCarrito();
     nav();
 };
 
@@ -421,8 +427,10 @@ const renderBtnCarrito = () => {
     if (btnCarrito) {
         btnCarrito.addEventListener("click", () => {
             carritoData.classList.toggle("dsp-none")
+
         })
     }
+    
 }
 
 const renderCarrito = (car = []) => {
@@ -441,7 +449,7 @@ const renderCarrito = (car = []) => {
         carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`
     }
     cantElementos(cantElem)
-    quitarPrCarrito(car)
+    //quitarPrCarrito(car)
     agregarUnPrCarrito(car)
     obtPriceTotal(car)
 }
@@ -459,31 +467,59 @@ const cantElementos = (cantElem) => {
 }
 const agregarUnPrCarrito = (car) => {
     let btnAgregar = document.querySelectorAll(".agregarUno")
+      /*
+    let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
+        //si existe le sumo 1 a la cantidad
+        if (prodCarrito) {
+            prodCarrito.cant += 1;
+        }
+    */
     btnAgregar.forEach(elem => {
         elem.addEventListener("click", () => {
             let spanCant = elem.parentElement.querySelector("#cant")
             let id = elem.parentElement.id;
-            let carritoData = car.find(elem => elem.id == id)
-            carritoData.cant += 1;
+            //obtengo la tercera clase del id
+            let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
+
+            let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
+            console.log(opcSize);
+            let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
+            if (carritoData) {
+                carritoData.cant += 1;
+            }
             spanCant.innerHTML = carritoData.cant;
             obtPriceTotal(car)
         })
     })
 }
 
-const quitarPrCarrito = (car,func) => {
+const quitarPrCarrito = (car) => {
     let btnQuitar = document.querySelectorAll(".elimProd")
     let btnVaciar = document.querySelector(".vaciarCarrito")
+
     btnQuitar.forEach(elem => {
         elem.addEventListener("click", () => {
             //obtengo id del producto
             let id = elem.parentElement.id;
             //le quito 1 a la cantidad
-            let carritoData = car.find(elem => elem.id == id)
-            carritoData.cant -= 1;
-            //si la cantidad es 0 lo elimino
-            if (carritoData.cant == 0) {
-                car = car.filter(elem => elem.id != id)
+            let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
+            let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
+            console.log(opcSize);
+            
+            let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
+            if (carritoData && carritoData.cant > 0) {
+                carritoData.cant -= 1;
+                if (carritoData.cant == 0) {
+                    car.forEach((elem ) => {
+                       //filtro
+                           if (elem.id == id && elem.color == opcColor && elem.size == opcSize) {
+                                //quito el elemento de car
+                                car.splice(car.indexOf(elem), 1)
+
+                            }        
+                    })  
+
+                }
             }
             //guardo en localStorage
             localStorage.setItem("carritoData", JSON.stringify(car))
@@ -542,7 +578,7 @@ const obtProducto = (car, data, id) => {
 }
 
 //obtengo el template de carrito y le inserto imagen
-const renderResume = () => {
+const   renderResume = () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let arrImg = [];
    //inserto datos
@@ -1044,6 +1080,7 @@ const renderFinishop = () => {
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || []
+    renderBtnCarrito();
     switch (URLactual) {
         case 'index.html':
             //renderProducts()
@@ -1058,7 +1095,7 @@ const nav = () => {
             //alert("shop")
             renderProducts()
             renderFilter()
-            renderCarrito()
+            renderCarrito(carritoDataLS)
         break;
         case 'contact.html':
             renderProducts()
@@ -1066,12 +1103,11 @@ const nav = () => {
         case 'favorites.html':
             renderRecomendItems()
             renderFavorites()
-            renderBtnCarrito()
             renderCarrito(carritoDataLS)
-            // renderProducts()
         break;
        case 'finishop.html':
             renderFinishop()
+            renderCarrito(carritoDataLS)
         break;
         default:
             //insert 404
