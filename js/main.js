@@ -42,7 +42,7 @@ const getPr = async(ini,fn) => {
 
 const renderCard = (clothes) => {
     return `
-    <div class="col-6 col-sm-4 card-ctn" id="${clothes.id}" data-category="${clothes.category}">
+<div class="col-6 col-sm-4 card-ctn" id="${clothes.id}" data-category="${clothes.category}">
     <div class="card p-0 bg-inicia effect border border-dark rounded-4">
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4 img-prod" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
@@ -55,8 +55,8 @@ const renderCard = (clothes) => {
             <h5 class="card-title text-white fs-3">${clothes.title}</h5>
             <div class="d-flex justify-content-between">
                 <div class="price text-white fs-3">
-                    <sup "fw-semibold>$</sup>
-                    <span "fw-semibold>${clothes.price}</span>
+                    <sup class="fw-semibold">$</sup>
+                    <span class="fw-semibold">${clothes.price}</span>
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-outline-dark btn-showData" data-bs-toggle="modal"
