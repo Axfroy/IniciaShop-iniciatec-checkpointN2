@@ -617,3 +617,8 @@
     color: white;
 }
 
+/* Youtube iframe */
+
+.modal-yt {
+    width: 80%;
+}

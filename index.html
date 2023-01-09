@@ -165,6 +165,27 @@
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#new-arrivals" class="nav-link p-0 text-muted">New Arrivals</a></li>
             <li class="nav-item mb-2"><a href="#most-wanted" class="nav-link p-0 text-muted">Most Wanted</a></li>
+            <li>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                  <i class="bi bi-youtube fs-2"></i>
+                </button>
+              
+              <div class="modal-yt modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe width="480" height="315" src="https://www.youtube.com/embed/TfGMovjU04o?start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            </li>
           </ul>
         </div>
         <!-- NewsLetter -->
@@ -185,6 +206,7 @@
         <p>© 2022 IniciaShop, Inc. All rights reserved.</p>
         <ul class="list-unstyled d-flex">
           <!-- If is necesary, we can put de social media icons here -->
+          
         </ul>
       </div>
     </div>
