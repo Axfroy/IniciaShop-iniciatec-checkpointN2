@@ -257,6 +257,7 @@ const renderProducts = async () => {
 }
 const renderFavorites =  async() => {
     //obtengo los datos del local storage
+    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
     //all data del
     let data = await getAllArticles();
@@ -273,7 +274,9 @@ const renderFavorites =  async() => {
             
         }
     });  
+    addOpcColorTalle()
     addFav(data, container )
+    addCarrito(carritoDataLS, data)
     renderBtnFav(favDataLS, container); 
 }
 
@@ -402,10 +405,6 @@ const insertarPrFav = (data, id,cont) => {
     nav();
 
 };
-
-
-
-
 
 
 const renderBtnFav = (fav, container) => {
@@ -789,7 +788,6 @@ const filterButton = () =>{
     }); 
 }
     
-
 //RESUME
 //Finish Shopping alert
 function finishShoppingAlert() {
@@ -894,6 +892,7 @@ function applyDiscount(coupon) {
 
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
+    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || []
     switch (URLactual) {
         case 'index.html':
             //renderProducts()
@@ -907,20 +906,25 @@ const nav = () => {
         break;
         case 'shop.html':
             //alert("shop")
-            renderCarrito()
             renderProducts()
             renderFilter()
+            renderCarrito()
+        break;
+        case 'contact.html':
+            renderProducts()
         break;
         case 'favorites.html':
             renderRecomendItems()
             renderFavorites()
-            
+            renderBtnCarrito()
+            renderCarrito(carritoDataLS)
+            // renderProducts()
         break;
         default:
             //insert 404
             renderProducts()
-            renderCarrito()
             renderCards()
+            
         break;
     }
 }
