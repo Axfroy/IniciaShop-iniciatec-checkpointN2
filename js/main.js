@@ -234,7 +234,7 @@ const renderProducts = async () => {
     renderCarrito(carritoDataLS)
     //obtengo la cantidad de elementos dentro del container
     let cantElem = container.childElementCount;
-    console.log(cantElem);
+    
     if(cantElem != 0 && container != null){
         //vacio el contenedor
         container.innerHTML = "";
@@ -292,14 +292,12 @@ const renderRecomendItems = async () => {
     let recomendItem = []
     let containerFavorites = document.querySelector("#container-cards");
     let cantElem = favDataLS.length;
-    console.log(cantElem , data.length);
     //inserto en el array 7 elementos aleatorios
     for (let i = 0; i < 4; i++) {
         //obtengo una categoria aleatoria de categories
         let randomCategory = categories[Math.floor(Math.random() * categories.length)];
         //obtengo un producto aleatorio de la categoria randomCategory
         let randomItem = data.filter(elem => elem.category == randomCategory)[Math.floor(Math.random() * data.filter(elem => elem.category == randomCategory).length)];    
-        //console.log(randomItem);
         //verifico que el id del producto no se encuentre en el array del carrito
         if (!favDataLS.some(item => item.id === randomItem.id)) {
             //verifico que el producto no se encuentre en el array de recomendados
@@ -310,7 +308,6 @@ const renderRecomendItems = async () => {
             }
           }
           if(recomendItem.length < 4 && cantElem < (data.length-4) )  {
-                //console.log(recomendItem.length);
               i--;
           }
           
@@ -515,7 +512,6 @@ const quitarPrCarrito = (car) => {
             //le quito 1 a la cantidad
             let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
             let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
-            console.log(opcSize);
             
             let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
             if (carritoData && carritoData.cant > 0) {
@@ -709,7 +705,6 @@ const checkFilter = () =>{
             inputBox.checked
                 ? categoriesChecked.push(inputBox.value)
                 : null
-            console.log(inputBox.checked)
         });
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
@@ -718,7 +713,6 @@ const checkFilter = () =>{
                 visibleCards.add(card);
             } else {visibleCards.delete(card)}
         });
-        console.log("visibleCards",visibleCards)
     });
     //let unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
 };
@@ -769,7 +763,6 @@ const searchFilter = () =>{
     const inputSearchEvents = document.getElementById("input-search-events");
     inputSearchEvents.addEventListener("input", (event) =>{
         inputEvent = event.target.value.toLowerCase()
-        //console.log("event.target.value.toLowerCase()", {inputEvent})
         visibleCards.forEach(card => {
             let title = card.querySelector(".card-title").textContent;
             if ( title.toLowerCase().includes(event.target.value.toLowerCase()) ){
@@ -882,7 +875,6 @@ function applyDiscount(coupon) {
     let discountApplied = false;
     if ( !discountApplied && coupon.trim() == localStorage.getItem('code10').trim()) {
         let priceTotal = document.querySelector(".priceTotal")
-        console.log("priceTotal.value", priceTotal.innerHTML.slice(1))
         let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
         priceTotal.innerHTML = ``;
         priceTotal.innerHTML =  `$${total}`;
@@ -921,7 +913,6 @@ const getNumbI1= () => {
     let inputCard1 = document.getElementById("card-numb-1")
     inputCard1.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-1")
-        //console.log("cardNumber", cardNumber.value)
         renderCardNumb1(cardNumber.value)
     })
 }
@@ -931,7 +922,6 @@ const getNumbI2= () => {
     let inputCard2 = document.getElementById("card-numb-2")
     inputCard2.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-2")
-        //console.log("cardNumber", cardNumber.value)
         renderCardNumb2(cardNumber.value)
     })
 }
@@ -941,7 +931,6 @@ const getNumbI3= () => {
     let inputCard3 = document.getElementById("card-numb-3")
     inputCard3.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-3")
-        //console.log("cardNumber", cardNumber.value)
         renderCardNumb3(cardNumber.value)
     })
 }
@@ -951,7 +940,6 @@ const getNumbI4= () => {
     let inputCard4 = document.getElementById("card-numb-4")
     inputCard4.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-4")
-        //console.log("cardNumber", cardNumber.value)
         renderCardNumb4(cardNumber.value)
     })
 }
@@ -971,7 +959,6 @@ const getExpirationMonth= () => {
     let expDateMonth = document.getElementById("exp-date-m")
     expDateMonth.addEventListener("keyup", () => {
         let month = document.querySelector("#exp-date-m")
-        //console.log("Month", month.value)
         renderExpMonth(month.value)
     })
 }
