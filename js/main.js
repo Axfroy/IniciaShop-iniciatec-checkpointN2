@@ -187,6 +187,13 @@ const getCoupon = () => {
     })
 }
 
+const contactBtnAlert = () =>{
+    const contactBtn = document.querySelector(".contactBtn")
+    contactBtn.addEventListener("click", ()=>{
+
+    })
+}
+
 const renderCards = async() => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
@@ -570,10 +577,11 @@ const renderFilter = async() =>{
           };
     });
     insertCheckbox(productCategories);
+    renderVisibleCards();
     searchFilter();
     checkFilter();
     optionFilter();
-    filterButton();
+    //filterButton();
     //searchFilter();
 };
 
@@ -614,30 +622,31 @@ const optionFilter = () =>{
 };
 
 var visibleCards = new Set();
+var categoriesChecked = [];
+
 const checkFilter = () =>{
     const containerChecks = document.querySelector('.check-opt');
-    containerChecks.addEventListener("change", () => {
-        let allCards = [...document.querySelectorAll(".card-ctn")];
-        var categoriesChecked = [];
 
+    containerChecks.addEventListener("change", () => {
+        
         const inputsCheckbox = document.querySelectorAll(".form-check-input");
+        categoriesChecked = [];
+
         inputsCheckbox.forEach((inputBox) =>{
             inputBox.checked
                 ? categoriesChecked.push(inputBox.value)
                 : null
-        });
+            });
+            //categoriesChecked = categoriesChecked.filter(check => check !== inputBox.value)
+        console.log("categoriesChecked", categoriesChecked)
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
-        allCards.forEach((card) =>{
-            if ( !card.classList.contains('hidden')){
-                visibleCards.add(card);
-            } else {visibleCards.delete(card)}
-        });
+
     });
 };
-
 const cardsFilter = (arrChecked) => {
     const allCards = [...document.querySelectorAll(".card-ctn")];
+
     allCards.forEach((card) => {
         if ( arrChecked.includes( card.getAttribute("data-category" )) ){
             card.classList.remove("hidden");
@@ -645,6 +654,7 @@ const cardsFilter = (arrChecked) => {
             card.classList.add("hidden");
         }
     });
+
 };
 
 const noSelect = (arrChecked) => {
@@ -676,21 +686,49 @@ const elemOption = (event) =>{
      `
 };
 
+const renderVisibleCards = () =>{
+    let allCards = [...document.querySelectorAll(".card-ctn")];
+    if (categoriesChecked.length === 0){
+
+        allCards.forEach((card) =>{
+            if ( !card.classList.contains('hidden')){
+                visibleCards.add(card);
+            } else {visibleCards.delete(card)}
+        });
+
+    }
+};
 
 // Input Search Filter
+/* const mixedFilter = () =>{
+    const allCards = document.querySelectorAll(".card-ctn");
+
+    allCards.forEach(card =>{
+        if(searched.length !== 0){
+            if (title.includes(searched) && categoriesChecked.includes( card.getAttribute("data-category" ))) {
+                
+            }
+        } else {
+            checkFilter();
+        }
+    })
+} */
+
 const searchFilter = () =>{
     const inputSearchEvents = document.getElementById("input-search-events");
+
     inputSearchEvents.addEventListener("input", (event) =>{
         inputEvent = event.target.value.toLowerCase()
+        console.log("inputEvent", inputEvent.length === 0 )
+        
         visibleCards.forEach(card => {
-            let title = card.querySelector(".card-title").textContent;
-            if ( title.toLowerCase().includes(event.target.value.toLowerCase()) ){
+            let title = card.querySelector(".card-title").textContent.toLowerCase();
+            if ( title.includes(event.target.value.toLowerCase()) ){
                 card.classList.remove("hidden");
             } else {
                 card.classList.add("hidden");
             }
         }); 
-
         noResultFilter()
     });  
 };
@@ -716,13 +754,24 @@ const noResultFilter = () =>{
 };
 
 // Input Search Filter Button 
-const filterButton = () =>{
+/* const filterButton = () =>{
     const searchFilterButton = document.getElementById("input-search-button");
     searchFilterButton.addEventListener("click", (e) =>{
         e.preventDefault();
     }); 
-}
+} */
     
+//CONTACT
+function contactAlert() {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your message has been sent',
+        showConfirmButton: false,
+        timer: 2000
+      })
+}
+
 //RESUME
 //Finish Shopping alert
 function finishShoppingAlert() {
