@@ -1,4 +1,7 @@
-/* HOME */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+*{
+    font-family: 'Comfortaa', cursive;
+}
 .card_sm {
     height: 390px;
 }
@@ -81,7 +84,7 @@
     box-shadow: 3px 5px 5px rgba(44, 49, 53, 0.6);
 }
 .container-detail {
-    background-color: rgba(70, 69, 69, 0.5);
+    background-color: rgba(70, 69, 69, 0.4);
     height: 40%;
 }
 .bi-heart-fill {
@@ -91,7 +94,7 @@
     color: rgb(209, 35, 35);
 }
 .icon-dimentions {
-    padding: 0.25rem 0.6rem 0.25rem 0.6rem;
+    padding: 0.40rem 0.6rem 0.10rem 0.6rem;
     border-radius: 50%;
     background-color: rgba(70, 69, 69, 0.2);
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
@@ -301,11 +304,6 @@
 
 .bg-toggler {
     background-color: #c5f81e;
-}
-.active {
-    background-color: #c5f81e;
-    border-radius: 5px;
-    border: solid 1px #202124;
 }
 
 .carritoData{
@@ -517,6 +515,73 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .form-resp{
     display: none;
 }
+/*NAV*/
+.navbar > div > div > ul > li > a{
+    position: relative;
+}
+.navbar > div > div > ul > li > a::before, 
+.navbar > div > div > ul > li > a::after{
+    content: '';
+    border-bottom: 4px solid #8db212;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navbar > div > div > ul > li > a::before {
+    bottom: 0;
+    width: 90%;
+    right: 0;
+}
+
+.navbar > div > div > ul > li > a::after{
+    bottom: -10px;
+    width: 10%;
+    left: 5px;
+}
+.navbar > div > div > ul > li > a.active::before,
+.navbar > div > div > ul > li > a:hover::before{
+    opacity: 1;
+    width: 70%;
+}
+.navbar > div > div > ul > li > a.active::after,
+.navbar > div > div > ul > li > a:hover::after{
+    opacity: 1;
+    width: 40%;
+}
+/*SECTION*/
+.navbar > div > div > div > ul > li > a{
+    position: relative;
+}
+.navbar > div > div > div > ul > li > a::after,
+.navbar > div > div > div > ul > li > a::before
+{
+    content: '';
+    border-bottom: 4px solid #b3679b;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navbar > div > div > div > ul > li > a::before {
+    bottom: 0;
+    width: 90%;
+    right: 0;
+}
+
+.navbar > div > div > div > ul > li > a::after{
+    bottom: -10px;
+    width: 10%;
+    left: 5px;
+}
+
+.navbar > div > div > div > ul > li > a:hover::before{
+    opacity: 1;
+    width: 70%;
+}
+
+.navbar > div > div > div > ul > li > a:hover::after{
+    opacity: 1;
+    width: 40%;
+}
 
 @media only screen and (max-width: 991px) {
     .publicity-home {
@@ -564,7 +629,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         display: none !important;
     }
     .card-shop {
-        height: 300px;
+        height: 270px;
     }
     .container-shop {
         padding: 0px 20px;
@@ -577,6 +642,14 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     }
     .ronunded-end-pay {
         margin-top: 10px;
+    }
+    .container-detail {
+        height: 50%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .card-shop{
+        height: 190px;
     }
 }
 .hidden{
