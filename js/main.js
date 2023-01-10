@@ -460,7 +460,7 @@ const renderCarrito = (car = []) => {
         carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`
     }
     cantElementos(cantElem)
-    //quitarPrCarrito(car)
+    quitarPrCarrito(car)
     agregarUnPrCarrito(car)
     obtPriceTotal(car)
 }
