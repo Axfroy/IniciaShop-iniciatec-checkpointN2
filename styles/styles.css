@@ -584,6 +584,23 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     display: none;
 }
 
+.bi-facebook:hover {
+    color: #b3679b;
+}
+.bi-instagram:hover {
+    color: #b3679b;
+}
+.bi-youtube:hover {
+    color: #b3679b;
+}
+.hidden{
+    display: none;
+}
+
+/* SWAL Style */
+.swal-text {
+    font-size: 40px;
+  }
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
@@ -653,11 +670,3 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         height: 190px;
     }
 }
-.hidden{
-    display: none;
-}
-
-/* SWAL Style */
-.swal-text {
-    font-size: 40px;
-  }
