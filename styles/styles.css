@@ -514,7 +514,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     color: white;
 }
 
-.form-select{
+.form-resp{
     display: none;
 }
 
@@ -535,7 +535,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .card_sm {
         height: 300px;
     }
-    .form-select{
+    .form-resp{
         display: inline-block;
     }
     .filter-subtitle{
