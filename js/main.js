@@ -290,19 +290,30 @@ const renderRecomendItems = async () => {
     categories = [...new Set(categories)];
     //creo array de 7 elementos recomendados
     let recomendItem = []
+    let containerFavorites = document.querySelector("#container-cards");
+    let cantElem = favDataLS.length;
+    console.log(cantElem , data.length);
     //inserto en el array 7 elementos aleatorios
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 4; i++) {
         //obtengo una categoria aleatoria de categories
         let randomCategory = categories[Math.floor(Math.random() * categories.length)];
         //obtengo un producto aleatorio de la categoria randomCategory
         let randomItem = data.filter(elem => elem.category == randomCategory)[Math.floor(Math.random() * data.filter(elem => elem.category == randomCategory).length)];    
+        //console.log(randomItem);
         //verifico que el id del producto no se encuentre en el array del carrito
         if (!favDataLS.some(item => item.id === randomItem.id)) {
             //verifico que el producto no se encuentre en el array de recomendados
-            if (!recomendItem.includes(randomItem)) {
+            if (!recomendItem.includes(randomItem) && recomendItem.length < 4 ) {
               recomendItem.push(randomItem)
+              //cantElem--;
+
             }
           }
+          if(recomendItem.length < 4 && cantElem < (data.length-4) )  {
+                //console.log(recomendItem.length);
+              i--;
+          }
+          
     }
     //los inserto en el contenedor recomend-items
     let container = document.querySelector("#recomend-items");
