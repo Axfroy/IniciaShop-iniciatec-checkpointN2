@@ -2,6 +2,74 @@
 *{
     font-family: 'Comfortaa', cursive;
 }
+/*NAV*/
+.navbar > div > div > ul > li > a{
+    position: relative;
+}
+.navbar > div > div > ul > li > a::before, 
+.navbar > div > div > ul > li > a::after{
+    content: '';
+    border-bottom: 4px solid #8db212;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navbar > div > div > ul > li > a::before {
+    bottom: 0;
+    width: 90%;
+    right: 0;
+}
+
+.navbar > div > div > ul > li > a::after{
+    bottom: -10px;
+    width: 10%;
+    left: 5px;
+}
+.navbar > div > div > ul > li > a.active::before,
+.navbar > div > div > ul > li > a:hover::before{
+    opacity: 1;
+    width: 70%;
+}
+.navbar > div > div > ul > li > a.active::after,
+.navbar > div > div > ul > li > a:hover::after{
+    opacity: 1;
+    width: 40%;
+}
+/*SECTION*/
+.navbar > div > div > div > ul > li > a{
+    position: relative;
+}
+.navbar > div > div > div > ul > li > a::after,
+.navbar > div > div > div > ul > li > a::before
+{
+    content: '';
+    border-bottom: 4px solid #b3679b;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navbar > div > div > div > ul > li > a::before {
+    bottom: 0;
+    width: 90%;
+    right: 0;
+}
+
+.navbar > div > div > div > ul > li > a::after{
+    bottom: -10px;
+    width: 10%;
+    left: 5px;
+}
+
+.navbar > div > div > div > ul > li > a:hover::before{
+    opacity: 1;
+    width: 70%;
+}
+
+.navbar > div > div > div > ul > li > a:hover::after{
+    opacity: 1;
+    width: 40%;
+}
+
 .card_sm {
     height: 390px;
 }
@@ -286,7 +354,7 @@
 /**/
 .container-vista-carrito{
     position: absolute;
-    width: 360px;
+    width: 390px;
     z-index: 2;
     right: 0px;
     top: 8px;
@@ -514,73 +582,6 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 
 .form-resp{
     display: none;
-}
-/*NAV*/
-.navbar > div > div > ul > li > a{
-    position: relative;
-}
-.navbar > div > div > ul > li > a::before, 
-.navbar > div > div > ul > li > a::after{
-    content: '';
-    border-bottom: 4px solid #8db212;
-    position:absolute;
-    opacity: 0;
-    transition: 0.3s;
-}
-.navbar > div > div > ul > li > a::before {
-    bottom: 0;
-    width: 90%;
-    right: 0;
-}
-
-.navbar > div > div > ul > li > a::after{
-    bottom: -10px;
-    width: 10%;
-    left: 5px;
-}
-.navbar > div > div > ul > li > a.active::before,
-.navbar > div > div > ul > li > a:hover::before{
-    opacity: 1;
-    width: 70%;
-}
-.navbar > div > div > ul > li > a.active::after,
-.navbar > div > div > ul > li > a:hover::after{
-    opacity: 1;
-    width: 40%;
-}
-/*SECTION*/
-.navbar > div > div > div > ul > li > a{
-    position: relative;
-}
-.navbar > div > div > div > ul > li > a::after,
-.navbar > div > div > div > ul > li > a::before
-{
-    content: '';
-    border-bottom: 4px solid #b3679b;
-    position:absolute;
-    opacity: 0;
-    transition: 0.3s;
-}
-.navbar > div > div > div > ul > li > a::before {
-    bottom: 0;
-    width: 90%;
-    right: 0;
-}
-
-.navbar > div > div > div > ul > li > a::after{
-    bottom: -10px;
-    width: 10%;
-    left: 5px;
-}
-
-.navbar > div > div > div > ul > li > a:hover::before{
-    opacity: 1;
-    width: 70%;
-}
-
-.navbar > div > div > div > ul > li > a:hover::after{
-    opacity: 1;
-    width: 40%;
 }
 
 @media only screen and (max-width: 991px) {

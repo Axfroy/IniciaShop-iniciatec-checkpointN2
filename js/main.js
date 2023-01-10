@@ -139,16 +139,16 @@ const listCarrito = (elem) => {
         <div class="col-lg-1 col-2 info-principal ">
             <img class="card-img col-lg-2 col-2" src="${elem.image}" alt="${elem.title}" > 
         </div>
-        <div class="col-lg-3 col-10 container-title  ">
-            <span class="fs-4">${elem.title}</span>
+        <div class="col-lg-2 col-10 container-title">
+            <span class="fs-4 text-center">${elem.title}</span>
         </div> 
-        <div class="col-lg-2 col-4 d-none d-flex justify-content-center">
+        <div class="col-lg-2 col-4 mt-lg-0 mt-3 d-none d-flex justify-content-center">
             <div class="fs-5 box-color ${elem.color}" id="color"></div>
         </div>
         <div class="col-lg-2 col-4 d-none">
             <span class="fs-5 ${elem.size}" id="talle">${elem.size}</span>
         </div>
-        <div class="col-lg-3 col-4 text-start ps-5">
+        <div class="col-lg-4 col-4 text-start ps-5">
             <span class="fs-5 ms-4">$${elem.price}</span>
         </div>
         <div class="col-lg-3 info-secundaria col-12 d-flex-btn" id="${elem.id}">  
