@@ -33,9 +33,7 @@ const getAllArticles = async () => {
 }
 const getPr = async(ini,fn) => {
     const respose = await fetch("../js/data.json") 
-    //acorto la respuesta a json y la guardo en data
     const dt = await respose.json()
-    //acorto el array a 6 elementos
     return dt.slice(ini,fn);
 }
 
@@ -190,7 +188,6 @@ const getCoupon = () => {
 }
 
 const renderCards = async() => {
-    //renderBtnCarrito()
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
     let shop1 = await getPr(4,10)
@@ -205,7 +202,6 @@ const renderCards = async() => {
     
     
     shop1.forEach(clothes => {
-        //si no esta en el el containerCards lo agrego
         containerCards.innerHTML += renderCard(clothes)
     })
     shop2.map(clothes => {
@@ -225,49 +221,36 @@ const renderCards = async() => {
 //renderizo todos los productos
 const renderProducts = async () => {
     //renderBtnCarrito()
-    //json // undefined 
+
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
     let container = document.querySelector("#container-cards")
     let data = await getAllArticles();
-    //contenedor del carrito
     renderCarrito(carritoDataLS)
-    //obtengo la cantidad de elementos dentro del container
     let cantElem = container.childElementCount;
     
     if(cantElem != 0 && container != null){
-        //vacio el contenedor
         container.innerHTML = "";
     }
     data.forEach(element => {
-            //si no es null y el container esta vacio
                 container.innerHTML += renderCard(element)
             
     });
     addOpcColorTalle()
     addCarrito(carritoDataLS, data)
-    //verifico si el producto esta en favoritos
     obtPriceTotal(carritoDataLS);
     addFav(container)
     renderBtnFav(favDataLS, container);
 }
 const renderFavorites =  async() => {
-    //obtengo los datos del local storage
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
-    //all data del
     let data = await getAllArticles();
     let container = document.querySelector("#container-cards");
-    //vacio previamente el contenedor
     container.innerHTML = "";
-    //itero sobre los datos del local storage
     favDataLS.forEach(element => {
-        //verifico si el elemento se encuentra en el contenedor
-        //si no es null
         if (element != null) {
-            //si el elemento no se encuentra en el contenedor
                 container.innerHTML += renderCard(element)
-            
         }
     });  
     addOpcColorTalle()
@@ -276,31 +259,18 @@ const renderFavorites =  async() => {
     renderBtnFav(favDataLS, container); 
     addFav(container)   
 }
-
-
 const renderRecomendItems = async () => {
-    //obtengo los elementos del local storage
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
-    
-    //obtengo todos los productos
     let data = await getAllArticles();
-    //obtengo todas las categorias de los productos
     let categories = data.map(elem => elem.category);
-    //obtengo las categorias unicas
     categories = [...new Set(categories)];
-    //creo array de 7 elementos recomendados
     let recomendItem = []
     let containerFavorites = document.querySelector("#container-cards");
     let cantElem = favDataLS.length;
-    //inserto en el array 7 elementos aleatorios
     for (let i = 0; i < 4; i++) {
-        //obtengo una categoria aleatoria de categories
         let randomCategory = categories[Math.floor(Math.random() * categories.length)];
-        //obtengo un producto aleatorio de la categoria randomCategory
         let randomItem = data.filter(elem => elem.category == randomCategory)[Math.floor(Math.random() * data.filter(elem => elem.category == randomCategory).length)];    
-        //verifico que el id del producto no se encuentre en el array del carrito
         if (!favDataLS.some(item => item.id === randomItem.id)) {
-            //verifico que el producto no se encuentre en el array de recomendados
             if (!recomendItem.includes(randomItem) && recomendItem.length < 4 ) {
               recomendItem.push(randomItem)
               //cantElem--;
@@ -312,50 +282,40 @@ const renderRecomendItems = async () => {
           }
           
     }
-    //los inserto en el contenedor recomend-items
     let container = document.querySelector("#recomend-items");
     container.innerHTML = "";
     recomendItem.forEach(elem => {
         container.innerHTML += renderCard(elem)
     })
-    //addFav(favDataLS , data)
 }
 
 const addOpcColorTalle = () => {
-    //obtengo el boton de abrir el modal
     let btnModal = document.querySelectorAll(".btn-showData");
     btnModal.forEach(elem => {
         elem.addEventListener("click", () => {
             eventOpc()
         })
     })
-    // agrego el evento del click de los colores y talles
-    //const ards = cards.filter(card => !card.classList.contains('selected'));*/
 
 }
 
 const  eventOpc = () => {
-    //obtengo todos los colores
     let opcColor = document.querySelectorAll(".box-color");
     let opcSize = document.querySelectorAll(".box-talle");
     opcColor.forEach(elem => {
         elem.addEventListener("click", () => {
-            //quito la clase checked de todos los colores
             opcColor.forEach(elem => {
                 elem.classList.remove("checked")
             })
-            //agrego la clase checked al color seleccionado
             elem.classList.add("checked")
         })
     })
 
     opcSize.forEach(elem => {
         elem.addEventListener("click", () => {
-            //quito la clase checked de todos los talles
             opcSize.forEach(elem => {
                 elem.classList.remove("checked")
             })
-            //agrego la clase checked al talle seleccionado
             elem.classList.add("checked")
         })
     })
@@ -379,16 +339,13 @@ const addFav = (cont, cont2 = '') => {
         })
     })
 }
-//es el container
 const insertarPrFav = async(id,cont, cont2 = '') => {
     let data = await getAllArticles();
     let favData = JSON.parse(localStorage.getItem("fav")) || [];
-    //en caso de que no este vacio
     if(cont2 != ''){
         let cn2 = cont2; 
     }
     let prod = data.find(elem => elem.id == id)
-    //let containerCards  = document.querySelector("#container-cards")
     let prodFav = favData.find(elem => elem.id == id);
     if (!prodFav) {
         favData.push(prod);
@@ -398,7 +355,6 @@ const insertarPrFav = async(id,cont, cont2 = '') => {
           renderBtnFav(favData, cont);
         }
     }else {
-        // eliminar producto de favoritos
         favData = favData.filter(elem => elem.id != id);
         if (cont2 !== '') {
             renderBtnFav(favData, cont2);            
@@ -470,23 +426,15 @@ const cantElementos = (cantElem) => {
         numElem.innerHTML = '';
         numElem.innerHTML = cantElem;
     }else{
-        //console.log("no existe");
     }
 }
 const agregarUnPrCarrito = (car) => {
     let btnAgregar = document.querySelectorAll(".agregarUno")
-      /*
-    let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
-        //si existe le sumo 1 a la cantidad
-        if (prodCarrito) {
-            prodCarrito.cant += 1;
-        }
-    */
+ 
     btnAgregar.forEach(elem => {
         elem.addEventListener("click", () => {
             let spanCant = elem.parentElement.querySelector("#cant")
             let id = elem.parentElement.id;
-            //obtengo la tercera clase del id
             let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
 
             let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
@@ -507,9 +455,7 @@ const quitarPrCarrito = (car) => {
 
     btnQuitar.forEach(elem => {
         elem.addEventListener("click", () => {
-            //obtengo id del producto
             let id = elem.parentElement.id;
-            //le quito 1 a la cantidad
             let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
             let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
             
@@ -518,17 +464,12 @@ const quitarPrCarrito = (car) => {
                 carritoData.cant -= 1;
                 if (carritoData.cant == 0) {
                     car.forEach((elem ) => {
-                       //filtro
                            if (elem.id == id && elem.color == opcColor && elem.size == opcSize) {
-                                //quito el elemento de car
                                 car.splice(car.indexOf(elem), 1)
-
                             }        
                     })  
-
                 }
             }
-            //guardo en localStorage
             localStorage.setItem("carritoData", JSON.stringify(car))
             nav();
         })
@@ -540,9 +481,7 @@ const quitarPrCarrito = (car) => {
 }
 
 const insertarPrCarrito = (car, data, id) => {
-    //obtengo clase carritoData
     obtProducto(car, data, id)
-    //inserto desde localStorage
     renderCarrito(car);
 }
 
@@ -552,7 +491,6 @@ const obtPriceTotal = (car) => {
     car.forEach(elem => {
         total += elem.price * elem.cant
     })
-    //recorto a 2 decimales
     total = total.toFixed(2);
     priceTotal.innerHTML = `$${total}`;
 }
@@ -561,14 +499,10 @@ const obtProducto = (car, data, id) => {
     let prod = data.find(elem => elem.id == id)
     let opcColor = document.querySelector('.opt-colors .checked').getAttribute("value");
     let opcSize = document.querySelector('.opt-talles .checked').innerHTML;
-    //verifico si el producto ya esta en el carrito
-            //verifico si el producto ya esta en el carrito
         let prodCarrito = carritoData.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
-        //si existe le sumo 1 a la cantidad
         if (prodCarrito) {
             prodCarrito.cant += 1;
         }else{
-            //si no existe lo agrego al carrito
             prodCarrito = {
                 id: prod.id,
                 title: prod.title,
@@ -584,27 +518,18 @@ const obtProducto = (car, data, id) => {
     renderCarrito(car);
 }
 
-//obtengo el template de carrito y le inserto imagen
 const   renderResume = () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let arrImg = [];
-   //inserto datos
    renderCarrito(carritoDataLS)
-   //obtengo todos los elementos del carrito
     let elemsCarritoSec = document.querySelectorAll(".li-elements");
     elemsCarritoSec.forEach(elem => {
-        //quito la clase d-none
         let infoPrinc = elem.querySelector(".info-principal");
-        //obtengo el color y el size de carritoDatals
         let infoSec = elem.querySelector(".info-secundaria");
-        //obtengo la clase de bootstrap
         let allStyleClasOfElem = elem.querySelectorAll(' [class^="col-lg-"]')
-        //quito todas las clases de bootstrap
         allStyleClasOfElem.forEach(elem => { 
             elem.classList.remove(elem.classList[0])
-            //elimino la class d-none
             elem.classList.remove("d-none")
-            //verifico si contiene la clase container-title
             if (elem.classList.contains("info-principal")) {
                 elem.classList.add("col-lg-1")
             }else if(elem.classList.contains("container-title")){
@@ -613,9 +538,7 @@ const   renderResume = () => {
                 elem.classList.add("col-lg-2")
             }    
         })
-        //agrego la clase de bootstrap
         let infoTitle = elem.querySelector(".container-title");
-        //inserto el color y el size por debajo del titulo
         infoSec.insertAdjacentHTML("afterbegin", 
             `
             <button class=" btn-prod-carrito elimProd bg-danger">
@@ -623,7 +546,6 @@ const   renderResume = () => {
             </button>
             `
         );
-        //inserto abajo del span
         infoSec.insertAdjacentHTML("beforeend", 
             `
             <button class=" btn-prod-carrito agregarUno bg-success">
@@ -632,7 +554,6 @@ const   renderResume = () => {
             `
         );
     })
-    //agrego funcion sumar cantidad
     quitarPrCarrito(carritoDataLS)
     agregarUnPrCarrito(carritoDataLS)
     obtPriceTotal(carritoDataLS)
@@ -640,7 +561,6 @@ const   renderResume = () => {
 }
 
 
-// Get categories and functions
 const renderFilter = async() =>{
     let products = await getAllArticles();
     let productCategories = new Set();
@@ -714,7 +634,6 @@ const checkFilter = () =>{
             } else {visibleCards.delete(card)}
         });
     });
-    //let unHiddenCards = allCards.filter(card => !card.classList.contains('hidden'));
 };
 
 const cardsFilter = (arrChecked) => {
@@ -1061,7 +980,6 @@ const nav = () => {
     renderBtnCarrito();
     switch (URLactual) {
         case 'index.html':
-            //renderProducts()
             renderCards()
             renderCarrito()
             break;
@@ -1070,7 +988,6 @@ const nav = () => {
             renderResume()
         break;
         case 'shop.html':
-            //alert("shop")
             renderProducts()
             renderFilter()
             renderCarrito(carritoDataLS)
@@ -1088,7 +1005,6 @@ const nav = () => {
             renderCarrito(carritoDataLS)
         break;
         default:
-            //insert 404
             renderProducts()
             renderCards()
         break;
