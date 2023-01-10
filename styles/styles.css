@@ -399,17 +399,6 @@
 .ronunded-end-pay {
     border-radius: 0px 30px 30px 0px;
 }
-/* SWAL style */
-.swal2-styled.swal2-confirm {
-    background-color: #D9D9D9;
-    color: #202124;
-}
-
-.swal2-html-container  {
-    font-size: 2.125em;
-    color: #aa7dce;
-}
-
 
 /* --------- FINISH SHOPPING PAGE */
 
@@ -593,3 +582,8 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .hidden{
     display: none;
 }
+
+/* SWAL Style */
+.swal-text {
+    font-size: 40px;
+  }

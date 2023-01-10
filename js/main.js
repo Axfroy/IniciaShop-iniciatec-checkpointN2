@@ -855,7 +855,7 @@ function swalFunction() {
         width: 600,
         padding: '3em',
         color: 'black',
-        background: `url(../assets/bg-cupon.gif)`,
+        background: 'url(../assets/bg-cupon.gif)',  
     })
 }
 
@@ -906,23 +906,6 @@ function applyDiscount(coupon) {
 }
 
 // FINISH SHOPPING PAGE --------------------
-
-//Render precio total-------
-/* function renderTotalPay() {
-    let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
-    obtPriceTotal(carritoDataLS)  
-    console.log("discount", discount())
-    if (localStorage.getItem('coupon')) {
-        discount()
-    }
-    else {
-        
-    }
-    let totalPay = document.getElementById("total-pay")
-    //console.log("priceTotal", priceTotal)
-    //totalPay.innerHTML = `${priceTotal.innerHTML}`
-} */
-//renderTotalPay()
 
 //Get input info-----------
 //Card Number, input 1
