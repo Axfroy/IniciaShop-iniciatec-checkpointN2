@@ -767,7 +767,7 @@ const elemOption = (event) =>{
 // Input Search Filter
 const searchFilter = () =>{
     const inputSearchEvents = document.getElementById("input-search-events");
-    inputSearchEvents.addEventListener("blur", (event) =>{
+    inputSearchEvents.addEventListener("input", (event) =>{
         inputEvent = event.target.value.toLowerCase()
         //console.log("event.target.value.toLowerCase()", {inputEvent})
         visibleCards.forEach(card => {
@@ -780,9 +780,6 @@ const searchFilter = () =>{
         }); 
 
         noResultFilter()
-         if (inputEvent === ''){
-            console.log("vacio")
-        } 
     });  
 };
 
