@@ -1,7 +1,7 @@
 
 <p align="center">
   <picture>
-    <img src="./assets/logo3.png" alt="iniciaShop_logo" height="150px">
+    <img src="./assets/logo.png" alt="iniciaShop_logo" height="150px">
   </picture>
 </p>
 
@@ -34,21 +34,13 @@ Thank you for choosing Inicia Shop Clothes. We hope you find everything you're l
 Inicia Shop Clothes is a Ecommerce Proyect developed for Iniciatec Bootcamp
 
 ## Color Palette
-<!-- <div style="display: flex; gap: 10px; justify-content: center;">
-    <div style="background-color: #C5F81E; width: 50px; height: 50px;"></div>
-    <div style="background-color: #B3679B; width: 50px; height: 50px;"></div>
-    <div style="background-color: #AA7DCE; width: 50px; height: 50px;"></div>
-    <div style="background-color: #242424; width: 50px; height: 50px;"></div>
-    <div style="background-color: #D9D9D9; width: 50px; height: 50px;"></div>
-</div> -->
-
 <div style="text-align: center;">
 
-![#C5F81E](https://placehold.co/20x20/C5F81E/C5F81E.png)
-![#B3679B](https://placehold.co/20x20/B3679B/B3679B.png)
-![#AA7DCE](https://placehold.co/20x20/AA7DCE/AA7DCE.png)
-![#242424](https://placehold.co/20x20/242424/242424.png)
-![#D9D9D9](https://placehold.co/20x20/D9D9D9/D9D9D9.png)
+![#C5F81E](https://placehold.co/60x60/C5F81E/C5F81E.png)
+![#B3679B](https://placehold.co/60x60/B3679B/B3679B.png)
+![#AA7DCE](https://placehold.co/60x60/AA7DCE/AA7DCE.png)
+![#242424](https://placehold.co/60x60/242424/242424.png)
+![#D9D9D9](https://placehold.co/60x60/D9D9D9/D9D9D9.png)
 
 </div>
 
@@ -78,7 +70,7 @@ Next click to Go Live from the status bar to turn the server on/off.
     <img src="./assets/sneakPeaks/hwt-liveServer.jpg" alt="hwt-liveServer" height="150px">
 </picture>
 
-After that the web should start running in your Local Host
+After that the web should start running in a Local Server in your default browser 
 
 # Technologies used
 
@@ -91,18 +83,51 @@ After that the web should start running in your Local Host
 ## Mockup
 ***
 ### Figma
-<picture>
-    <img src="./assets/sneakPeaks/Home-landingPage.jpg" alt="home" height="250px">
-</picture>
-<picture>
-    <img src="./assets/sneakPeaks/product-landingPage.jpg" alt="trello" height="250px">
-</picture>
-<picture>
-    <img src="./assets/sneakPeaks/forms-contactUs.jpg" alt="trello" height="250px">
-</picture>
-<picture>
-    <img src="./assets/sneakPeaks/products-shopPage.jpg" alt="trello" height="500px">
-</picture>
+
+<div>
+<p>Landing Page</p>
+    <picture>
+        <img src="./assets/sneakPeaks/landingPage.png" alt="landingPage" width="500px">
+    </picture>
+</div>
+<div>
+<p>Shop Page</p>
+    <picture>
+        <img src="./assets/sneakPeaks/shopPage.png" alt="shopPage" width="500px">
+    </picture>
+</div>
+<div>
+<p>Contact Page</p>
+    <picture>
+        <img src="./assets/sneakPeaks/contactUs.png" alt="ContactPage" width="500px">
+    </picture>
+</div>
+<div>
+<p>Wishlist Page</p>
+    <picture>
+        <img src="./assets/sneakPeaks/wishlist.png" alt="wishlistPage" width="500px">
+    </picture>
+</div>
+<div>
+<p>Product Detail</p>
+    <picture>
+        <img src="./assets/sneakPeaks/productDetail.png" alt="productDetail" width="500px">
+    </picture>
+</div>
+<div>
+<p>Cart resume</p>
+    <picture>
+        <img src="./assets/sneakPeaks/cartResume.png" alt="cartResume" width="500px">
+    </picture>
+</div>
+<div>
+<p>Finish Sopping</p>
+    <picture>
+        <img src="./assets/sneakPeaks/finishShopping.png" alt="finishShopping" width="500px">
+    </picture>
+</div>
+
+***
 
 ### Trello
 <picture>
@@ -113,4 +138,3 @@ After that the web should start running in your Local Host
 | [<img src="https://avatars.githubusercontent.com/u/90355395?v=4" width=115><br><sub>Dai</sub>](https://github.com/DaiM24)|[<img src="https://avatars.githubusercontent.com/u/47448020?v=4" width=115><br><sub>Lean</sub>](https://github.com/Leandro97ramos) |  [<img src="https://avatars.githubusercontent.com/u/113393980?v=4" width=115><br><sub>Cata</sub>](https://github.com/catasimonovich4) |  [<img src="https://avatars.githubusercontent.com/u/102679463?v=4" width=115><br><sub>Ivan Ezequiel Rodriguez</sub>](https://github.com/Axfroy)
 | :---: | :---: | :---: | :---: |
 |<a href="https://www.linkedin.com/in/daianamercado/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>|<a href="https://www.linkedin.com/in/leandro-ramos-lkd/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>|<a href="https://www.linkedin.com/in/catalina-simonovich/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>|<a href="https://www.linkedin.com/in/ivane-rodriguez/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>
-
