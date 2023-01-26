@@ -84,7 +84,7 @@
         </div>
         <div class="col-lg-6 col-12">
           <form
-          name="contactUs" onSubmit="submit" class="d-flex flex-column" data-netlify-honeypot="bot-field" action="none" netlify
+          name="contactUs" method="POST" onSubmit="submit" class="d-flex flex-column" data-netlify-honeypot="bot-field" netlify
           >
             <input class="d-none" name="bot-field">
             <div class="mb-3">
@@ -116,7 +116,7 @@
                 Please enter your menssage here!
               </div>
             </div>
-            <button type="submit" onclick="contactAlert()" class="btn contactBtn text-white fw-bold col-lg-3 col-12 align-self-end"
+            <button type="submit" class="btn text-white fw-bold col-lg-3 col-12 align-self-end"
               style="background-color: #B3679B">Submit</button>
           </form>
         </div>
