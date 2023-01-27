@@ -610,15 +610,20 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     height: 100vh;
 }
 .box-account {
-    width: 350px;
+    width: 300px;
     background-color: #ffff;
-    padding: 30px 30px;
+    padding: 30px 50px;
 }
 .btn-log-in {
     background-color: #c5f81e;
 }
 .btn-sing-up {
     background-color: #b3679b;
+}
+
+.btn-log-in:hover, .btn-sing-up:hover {
+    background-color: #202124;
+    color: #ffffff;
 }
 @media only screen and (max-width: 991px) {
     .publicity-home {
@@ -687,10 +692,10 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         width: 250px;
     }
     .box-account {
-        width: 290px;
+        width: 270px;
         background-color: #ffff;
-        padding: 30px 40px;
-        margin-top: 20px;
+        padding: 30px 45px;
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width: 500px) {
