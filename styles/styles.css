@@ -625,6 +625,22 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     background-color: #202124;
     color: #ffffff;
 }
+
+/* Sign Up */
+.bg-pink {
+    background-color: #b3679b;
+    height: 100vh;
+}
+.w-sing-up {
+    width: 600px;
+}
+.form-floating > .form-control, .form-floating >.form-control-plaintext {
+    height: 55px;
+}
+.btn-black {
+    background-color: #000;
+    color: #fff;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
@@ -651,7 +667,6 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .form-check{
         display: none;
     }
-
     .publicity-1 {
         height: 200px;
     }
@@ -696,6 +711,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         background-color: #ffff;
         padding: 30px 45px;
         margin-top: 10px;
+    }
+    .w-sing-up {
+        width: 290px;
     }
 }
 @media only screen and (max-width: 500px) {

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../assets/emogi.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <title>Inicia Shop</title>
+</head>
+
+<body>
+  <main class="bg-pink d-flex flex-column align-items-center justify-content-between">
+    <section class="fixed-top mt-md-1 mt-2">
+        <a class="link-light" href="./account.html"><i class="bi bi-arrow-left fs-1 ms-3"></i></a>
+    </section>
+    <section class="border-bottom border-white w-100">
+        <h4 class="text-white my-3 text-center">Create Account</h4>
+    </section>
+    <form class="w-sing-up mt-4 mb-3">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control h-input" id="floatingInput1" placeholder="name@example.com">
+            <label for="floatingInput1">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control h-input" id="floatingInput2" placeholder="name@example.com">
+            <label for="floatingInput2">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control h-input" id="floatingPassword3" placeholder="Password">
+            <label for="floatingPassword3">Password</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control h-input" id="floatingPassword4" placeholder="Password">
+            <label for="floatingPassword4">Confirm Password</label>
+        </div>
+        
+        <div class="d-flex justify-content-center">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                <a class="link-light ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    I accept terms and conditions
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Terms and conditions</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias optio ea aliquam vel, repellat enim illum libero
+                                    dignissimos accusantium? Reprehenderit sequi voluptas nesciunt nulla tempora mollitia laboriosam molestiae
+                                    molestias maxime, sed odio harum nam, non dolorem, qui hic sunt. Iure ipsum excepturi quis quaerat obcaecati?
+                                </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias optio ea aliquam vel, repellat enim illum libero
+                                    dignissimos accusantium? Reprehenderit sequi voluptas nesciunt nulla tempora mollitia laboriosam molestiae
+                                    molestias maxime, sed odio harum nam, non dolorem, qui hic sunt. Iure ipsum excepturi quis quaerat obcaecati?
+                                </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias optio ea aliquam vel, repellat enim illum libero
+                                    dignissimos accusantium? Reprehenderit sequi voluptas nesciunt nulla tempora mollitia laboriosam molestiae
+                                    molestias maxime, sed odio harum nam, non dolorem, qui hic sunt. Iure ipsum excepturi quis quaerat obcaecati?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-black col-9" type="submit">Sign Up</button>
+        </div>
+    </form>
+    <section class="w-100 d-flex flex-column align-items-center mb-5">
+        <div class="w-100">
+            <div class="d-flex w-100 align-items-center">
+                <div class="col-4 border-bottom"></div>
+                <h6 class="col-4 text-center text-white mt-2">Or sign up with</h6>
+                <div class="col-4 border-bottom"></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around w-75 mt-4">
+            <div class="border px-3 py-2 rounded">
+                <i class="bi bi-facebook fs-1"></i>
+            </div>
+            <div class="border px-3 py-2 rounded">
+                <i class="bi bi-google fs-1"></i>
+            </div>
+            <div class="border px-3 py-2 rounded">
+                <i class="bi bi-apple fs-1"></i>
+            </div>
+        </div>
+    </section>
+    
+    
+  </main>
+</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+</html>
