@@ -3,6 +3,9 @@
     font-family: 'Comfortaa', cursive;
 }
 /*NAV*/
+.w-logo {
+    width: 120px;
+}
 .navbar > div > div > ul > li > a{
     position: relative;
 }
@@ -182,6 +185,7 @@
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
+    border: solid 0.1px #afacac;
 }
 
 /*inicio del tipo input radio*/
@@ -213,6 +217,9 @@
 }
 .publicity-home {
     height: 800px;
+}
+.fs-home {
+    font-size: 25px;
 }
 .bi-plus-lg{
     font-size: 25px;
@@ -532,8 +539,6 @@
     border-radius: 20px;
     height: 25vh;
     width: 400px;
-    /* margin: auto;
-    position: absolute; */
 }
 
 .back {
@@ -654,7 +659,10 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 }
 @media only screen and (max-width: 991px) {
     .publicity-home {
-        height: 450px;
+        height: 400px;
+    }
+    .fs-home {
+        font-size: 19px;
     }
     .content {
         background-position-y: center;
@@ -667,7 +675,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         display: none;
     }
     .card_sm {
-        height: 300px;
+        height: 250px;
     }
     .form-resp{
         display: inline-block;
@@ -680,9 +688,11 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     }
     .publicity-1 {
         height: 200px;
+        margin: 50px 0px;
     }
     .publicity-2{
         height: 200px;
+        margin: 50px 0px;
     }
     .text-sm {
         color: black;
@@ -696,9 +706,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .arrow {
         display: none !important;
     }
-    .card-shop {
+    /* .card-shop {
         height: 270px;
-    }
+    } */
     .container-shop {
         padding: 0px 20px;
     }
@@ -729,9 +739,27 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .w-login {
         width: 250px;
     }
+    .w-logo {
+        width: 100px;
+    }
+    .box-color {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .debit-card .trans-card {
+        height: 20vh;
+    }
+    .card-info {
+        height: 51vh;
+    }
+    .container-vista-carrito{
+        width: 300px;
+    }
 }
 @media only screen and (max-width: 500px) {
-    .card-shop{
-        height: 190px;
-    }
+    /* .card-shop{
+        
+    } */
 }

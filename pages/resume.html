@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
       <div class="container-fluid mx-lg-4">
         <a class="navbar-brand py-0" href="../index.html">
-          <img src="../assets/logo.png" alt="Logo" width="120" class="d-inline-block align-text-top">
+          <img src="../assets/logo.png" alt="Logo" class="w-logo d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -38,6 +38,9 @@
           <div class="col-lg-6 d-lg-flex justify-content-end">
             <ul class="navbar-nav gap-lg-5 text-center">
               <li class="nav-item">
+                <a class="nav-link fs-3 pb-0 mb-1" href="../pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+              </li>
+              <li class="nav-item">
                 <a class="text-black fs-3" href="#"><i class="bi bi-bag"></i></a>
               </li>
             </ul>
@@ -46,10 +49,10 @@
       </div>
     </nav>
   </header>
-  <main class="section-resume-carrito p-5">
-    <section class="bg-light p-5 rounded-5 mx-lg-5">
-      <div class="row d-flex justify-content-between align-items-end">
-        <h2 class="cart-title fs-1 col-lg-4 border-green text-lg-start text-center mb-lg-3 mb-4">My shopping cart</h2>
+  <main class="section-resume-carrito p-lg-5 p-4">
+    <section class="bg-light p-lg-5 p-4 rounded-5 mx-lg-5 mx-0">
+      <div class="row d-flex justify-content-between align-items-end mx-lg-0 mx-1">
+        <h2 class="cart-title fs-1 col-lg-5 border-green text-lg-start text-center mb-lg-3 mb-4">My shopping cart</h2>
         <a class="btn btn-shopping fw-bold col-lg-2 fs-5 mb-lg-3 mb-4" href="./shop.html" role="button">Keep shopping</a>
       </div>
       <div class="text-center">
@@ -67,10 +70,10 @@
         <div class="col-lg-2 col-6 vaciar-detalle d-flex justify-content-end mt-lg-0 mt-4">
           <button type="button" class="btn btn-clear vaciarCarrito m-0 fw-bold">Clear</button>
         </div>
+        <div>
+          <a class="btn btn-dark fw-bold fs-5 col-12 mt-4" href="./finishop.html" role="button">Keep shopping</a>
+        </div>
       </div>
-      <a href="./finishop.html">
-        <button type="button" class="finish-btn btn btn-dark fw-bold fs-5 col-12 mt-4">Finish shopping</button>
-      </a>
     </section>
   </main>
   <!-- Start Footer -->
