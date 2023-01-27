@@ -664,6 +664,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .w-empty {
     width: 300px;
 }
+.text-mute {
+    color: #cacaca;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 400px;
