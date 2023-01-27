@@ -646,6 +646,10 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     background-color: #000;
     color: #fff;
 }
+.btn-black:hover {
+    background-color: #cacaca;
+    color: #000;
+}
 /* Login */
 .bg-login {
     background-color: #c5f81e;
