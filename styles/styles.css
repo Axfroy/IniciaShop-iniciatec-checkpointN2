@@ -641,6 +641,17 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     background-color: #000;
     color: #fff;
 }
+/* Login */
+.bg-login {
+    background-color: #c5f81e;
+    height: 100vh;
+}
+.fs-7 {
+    font-size: 12px;
+}
+.w-login {
+    width: 350px;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
@@ -714,6 +725,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     }
     .w-sing-up {
         width: 290px;
+    }
+    .w-login {
+        width: 250px;
     }
 }
 @media only screen and (max-width: 500px) {
