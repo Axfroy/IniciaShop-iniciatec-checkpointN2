@@ -601,6 +601,25 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .swal-text {
     font-size: 40px;
   }
+/* Account */
+.w-account {
+    width: 300px;
+}
+.bg-account {
+    background-image: url(../assets/Bg-blanco.png);
+    height: 100vh;
+}
+.box-account {
+    width: 350px;
+    background-color: #ffff;
+    padding: 30px 30px;
+}
+.btn-log-in {
+    background-color: #c5f81e;
+}
+.btn-sing-up {
+    background-color: #b3679b;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 450px;
@@ -663,6 +682,15 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     }
     .container-detail {
         height: 50%;
+    }
+    .w-account {
+        width: 250px;
+    }
+    .box-account {
+        width: 290px;
+        background-color: #ffff;
+        padding: 30px 40px;
+        margin-top: 20px;
     }
 }
 @media only screen and (max-width: 500px) {
