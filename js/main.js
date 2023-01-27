@@ -416,8 +416,8 @@ const renderCarrito = (car = []) => {
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
-        carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`;
-        carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`
+        carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3 w-empty"</img></p>`;
+        carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3 w-empty"></img></p>`
     }
     cantElementos(cantElem)
     quitarPrCarrito(car)

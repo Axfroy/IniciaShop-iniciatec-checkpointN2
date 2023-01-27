@@ -657,6 +657,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .w-login {
     width: 350px;
 }
+.w-empty {
+    width: 300px;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
         height: 400px;
@@ -756,6 +759,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     }
     .container-vista-carrito{
         width: 300px;
+    }
+    .w-empty {
+        width: 250px;
     }
 }
 @media only screen and (max-width: 500px) {
