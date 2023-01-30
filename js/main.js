@@ -49,29 +49,29 @@ const renderCard = (clothes) => {
             </div>
         </div>
         <div class="container-detail rounded-4 px-2 py-3 d-flex flex-column justify-content-between">
-            <h5 class="card-title text-white fs-3">${clothes.title}</h5>
-            <div class="d-flex justify-content-between">
-                <div class="price text-white fs-3">
+            <h5 class="card-title text-white fs-home">${clothes.title}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="price text-white fs-home">
                     <sup class="fw-semibold">$</sup>
                     <span class="fw-semibold">${clothes.price}</span>
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-outline-dark btn-showData" data-bs-toggle="modal"
                     data-bs-target="#exampleModal${clothes.id}">
-                    <i class="bi bi-plus-lg"></i>
+                    <i class="bi bi-plus-lg fs-home"></i>
                 </button>
             </div>
         </div>
         <!-- Modal -->
         <div class="modal fade px-4" id="exampleModal${clothes.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content bg-dark">
                     <div class="modal-body d-flex justify-content-center">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                                    <img src="${clothes.image}" class="img-fluid img-pr-desc " style="height:500px" alt="${clothes.title}">
+                                    <img src="${clothes.image}" class="img-fluid img-pr-desc" style="height:500px" alt="${clothes.title}">
                                 </div>
                                 <div class="col-md-7 bg-green">
                                     <div class="card-body d-flex flex-column justify-content-between h-100">
@@ -85,7 +85,7 @@ const renderCard = (clothes) => {
                                         <div class="">
                                             <div class="colors">
                                                 <h4 class="tittle-h4 text-dark">Colors</h4>
-                                                <div class="d-flex justify-content-between opt-colors col-lg-9 col-12">
+                                                <div class="d-flex justify-content-between opt-colors col-lg-12 col-12">
                                                     <div class="box-color bg-primary" value="bg-primary" ></div>
                                                     <div class="box-color bg-info" value="bg-info""></div>
                                                     <div class="box-color bg-secondary" value="bg-secondary"></div>
@@ -98,7 +98,7 @@ const renderCard = (clothes) => {
                                             </div>
                                             <div class="sizes mt-3">
                                                 <h4 class="tittle-h4 text-dark">Sizes</h4>
-                                                <ul class="list-group list-group-horizontal opt-talles  º">
+                                                <ul class="list-group list-group-horizontal opt-talles">
                                                     <li class="list-group-item box-talle border-dark">S</li>
                                                     <li class="list-group-item box-talle border-dark">M</li>
                                                     <li class="list-group-item box-talle border-dark">L</li>
@@ -107,12 +107,12 @@ const renderCard = (clothes) => {
                                                 </ul>
                                             </div>
                                             <div class="buy d-flex justify-content-between align-items-center mt-4">
-                                                <div class="price text-dark">
-                                                    <sup class="fs-5 fw-bold">$</sup>
-                                                    <span class="fs-2 fw-bold">${clothes.price}</span>
+                                                <div class="price text-dark fs-home">
+                                                    <sup class="fw-bold">$</sup>
+                                                    <span class="fw-bold">${clothes.price}</span>
                                                 </div>
                                                 <div class="btn-buy">
-                                                    <a href="#" class="btn btn-dark fs-5 agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
+                                                    <a href="#" class="btn btn-dark fs-card agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,16 +140,16 @@ const listCarrito = (elem) => {
         <div class="col-lg-2 col-10 container-title">
             <span class="fs-4 text-center">${elem.title}</span>
         </div> 
-        <div class="col-lg-2 col-4 mt-lg-0 mt-3 d-none d-flex justify-content-center">
+        <div class="col-lg-2 col-6 mt-lg-0 mt-3  d-none d-flex justify-content-center">
             <div class="fs-5 box-color ${elem.color}" id="color"></div>
         </div>
-        <div class="col-lg-2 col-4 d-none">
+        <div class="col-lg-2 col-6 d-none mt-3">
             <span class="fs-5 ${elem.size}" id="talle">${elem.size}</span>
         </div>
-        <div class="col-lg-4 col-4 text-start ps-5">
+        <div class="col-lg-4 col-6 text-start ps-lg-5 mt-3">
             <span class="fs-5 ms-4">$${elem.price}</span>
         </div>
-        <div class="col-lg-3 info-secundaria col-12 d-flex-btn" id="${elem.id}">  
+        <div class="col-lg-3 info-secundaria col-6 d-flex-btn mt-2" id="${elem.id}">  
             <span id="cant" class="">${elem.cant}</span>
         </div>
     </li>
@@ -416,8 +416,8 @@ const renderCarrito = (car = []) => {
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
     }else{
-        carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`;
-        carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3" width="300"></img></p>`
+        carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3 w-empty"</img></p>`;
+        carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3 w-empty"></img></p>`
     }
     cantElementos(cantElem)
     quitarPrCarrito(car)

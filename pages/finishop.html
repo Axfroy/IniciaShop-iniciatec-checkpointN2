@@ -28,8 +28,7 @@
             <img
               src="../assets/logo.png"
               alt="Logo"
-              width="120"
-              class="d-inline-block align-text-top"
+              class="w-logo d-inline-block align-text-top"
             />
           </a>
           <button
@@ -44,7 +43,7 @@
             <span class="navbar-toggler-icon text-white"></span>
           </button>
           <div class="collapse navbar-collapse ms-2" id="navbarNavDropdown">
-            <ul class="navbar-nav col-lg-6 gap-lg-5">
+            <ul class="navbar-nav col-lg-6 gap-lg-5 text-center">
               <li class="nav-item">
                 <a
                   class="nav-link fs-4 pb-0 mb-1"
@@ -61,9 +60,12 @@
               </li>
             </ul>
             <div class="col-lg-6 d-lg-flex justify-content-end">
-              <ul class="navbar-nav gap-lg-5 pb-0 mb-1">
+              <ul class="navbar-nav gap-lg-4 pb-0 mb-1 text-center">
                 <li class="nav-item">
                   <a class="nav-link fs-3 pb-0 mb-1" href="../pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fs-3 pb-0" href="../pages/account.html"><i class="bi bi-person-circle text-black"></i></a>
                 </li>
                 <li class="nav-item">
                   <!--Carrito de compra-->
@@ -98,7 +100,7 @@
       </nav>
     </header>
 
-    <main class="text-bg-dark">
+    <main class="text-bg-dark px-3">
       <section class="container-shop">
         <div class="row d-flex justify-content-between align-items-end pt-4">
           <h2 class="cart-title fs-1 col-lg-4 border-green text-lg-start text-center ps-0 mb-lg-3 mb-4">Finish Shopping</h2>
@@ -106,10 +108,10 @@
       </div>
       </section>
       
-      <section class="pb-5">
+      <section class="pb-4">
         <div class="container-shop">
           <div class="row">
-            <div class="col-lg-8 col-12 text-bg-light p-5 ronunded-start-pay">
+            <div class="col-lg-8 col-12 text-bg-light p-lg-5 p-4 ronunded-start-pay">
               <h4>Personal Information</h4>
               <div class="row g-3">
                 <div class="col-lg-6">
@@ -207,7 +209,7 @@
                     <option>Venezuela</option>
                   </select>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <label for="inputAddress2" class="form-label"
                       >Address</label
                     >
@@ -220,7 +222,7 @@
                       required
                     />
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <label for="inputAddress2" class="form-label"
                       >Backup Address</label
                     >
@@ -262,11 +264,11 @@
                 </div>
               </div>
               <div class="fs-5 mt-4">
-                <span class="text-secondary">We'll never share your information with anyone else.</span>
+                <span class="text-secondary fs-card">We'll never share your information with anyone else.</span>
               </div>
             </form>
             </div>
-            <div class="container-pay col-lg-4 p-5 ronunded-end-pay">
+            <div class="container-pay col-lg-4 p-lg-5 p-3 ronunded-end-pay">
                 <h4 class="text-center">Payment Information</h4>
                 <div class="col-lg-12">
                   <label for="inputState" class="form-label">Select the payment method of your choice:</label>
@@ -283,21 +285,21 @@
                   <div class="front trans-card credit-card d-flex flex-column justify-content-between container p-4">
                     <div class="chip"></div>
                     <div class="d-flex justify-content-evenly gap-4 fs-5">
-                      <div id="numbers-1"></div>
-                      <div id="numbers-2"></div>
-                      <div id="numbers-3"></div>
-                      <div id="numbers-4"></div>
+                      <div id="numbers-1" class="fs-card"></div>
+                      <div id="numbers-2" class="fs-card"></div>
+                      <div id="numbers-3" class="fs-card"></div>
+                      <div id="numbers-4" class="fs-card"></div>
                     </div>
                     <div class="d-flex justify-content-between">
-                      <span class="fw-bold">CARD HOLDER</span>
-                      <span class="fw-bold">EXPIRES</span>
+                      <span class="fw-bold fs-card">CARD HOLDER</span>
+                      <span class="fw-bold fs-card">EXPIRES</span>
                     </div>
                     <div class="d-flex justify-content-between">
-                      <div id="card-holder"></div>
+                      <div id="card-holder" class="fs-card"></div>
                       <div class="d-flex">
-                        <div id="exp-month"></div>
+                        <div id="exp-month" class="fs-card"></div>
                         <span>/</span>
-                        <div id="exp-year"></div>
+                        <div id="exp-year" class="fs-card"></div>
                       </div>
                     </div>
                   </div>
@@ -314,7 +316,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-info d-flex flex-column justify-content-end p-4">
+                <div class="card-info d-flex flex-column justify-content-end p-lg-4 p-3">
                   <div class="row mt-3">
                     <div class="col-lg-12">
                       <label for="inputState" class="form-label col-12">Card Number</label>
@@ -385,8 +387,8 @@
                   <div class="d-flex justify-content-between row mt-3 mb-3">
                     <div class="col-lg-4">
                       <label for="inputState" class="form-label">Expires</label>
-                      <div class="d-flex gap-2">
-                        <div class="col-6">
+                      <div class="d-flex gap-1">
+                        <div class="col-lg-8 col-6">
                           <input
                           type="text"
                           class="form-control"
@@ -398,7 +400,7 @@
                           required
                           />
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-8 col-6">
                           <input
                           type="text"
                           class="form-control"
@@ -412,7 +414,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mt-3">
                       <label for="inputState" class="form-label">CVV</label>
                       <input
                         type="text"
@@ -448,9 +450,9 @@
     <footer class="text-white">
       <!-- Users -->
       <div class="mb-3">
-        <section class="py-4 border-bottom" style="background-color: #b3679b">
+        <section class="py-2 border-bottom" style="background-color: #b3679b">
           <!-- The users paints here -->
-          <div id="footerProfileCtn" class="d-flex"></div>
+          <div id="footerProfileCtn" class="d-flex flex-wrap align-items-end"></div>
         </section>
       </div>
       <!-- Links -->

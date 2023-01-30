@@ -3,6 +3,9 @@
     font-family: 'Comfortaa', cursive;
 }
 /*NAV*/
+.w-logo {
+    width: 120px;
+}
 .navbar > div > div > ul > li > a{
     position: relative;
 }
@@ -182,6 +185,7 @@
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
+    border: solid 0.1px #afacac;
 }
 
 /*inicio del tipo input radio*/
@@ -213,6 +217,9 @@
 }
 .publicity-home {
     height: 800px;
+}
+.fs-home {
+    font-size: 25px;
 }
 .bi-plus-lg{
     font-size: 25px;
@@ -502,6 +509,9 @@
     margin-left: 35px;
 }
 
+.fs-card {
+    font-size: 15px;
+}
 .debit-card .trans-card {
     backface-visibility: hidden;
     transition: 1s;
@@ -532,8 +542,6 @@
     border-radius: 20px;
     height: 25vh;
     width: 400px;
-    /* margin: auto;
-    position: absolute; */
 }
 
 .back {
@@ -601,9 +609,73 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .swal-text {
     font-size: 40px;
   }
+/* Account */
+.w-account {
+    width: 300px;
+}
+.bg-account {
+    background-image: url(../assets/Bg-blanco.png);
+    height: 100vh;
+}
+.box-account {
+    width: 300px;
+    background-color: #ffff;
+    padding: 30px 50px;
+}
+.btn-log-in {
+    background-color: #c5f81e;
+}
+.btn-sing-up {
+    background-color: #b3679b;
+}
+
+.btn-log-in:hover, .btn-sing-up:hover {
+    background-color: #202124;
+    color: #ffffff;
+}
+
+/* Sign Up */
+.bg-pink {
+    background-color: #b3679b;
+    height: 100vh;
+}
+.w-sing-up {
+    width: 600px;
+}
+.form-floating > .form-control, .form-floating >.form-control-plaintext {
+    height: 55px;
+}
+.btn-black {
+    background-color: #000;
+    color: #fff;
+}
+.btn-black:hover {
+    background-color: #cacaca;
+    color: #000;
+}
+/* Login */
+.bg-login {
+    background-color: #c5f81e;
+    height: 100vh;
+}
+.fs-7 {
+    font-size: 12px;
+}
+.w-login {
+    width: 350px;
+}
+.w-empty {
+    width: 300px;
+}
+.text-mute {
+    color: #cacaca;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
-        height: 450px;
+        height: 400px;
+    }
+    .fs-home {
+        font-size: 19px;
     }
     .content {
         background-position-y: center;
@@ -616,7 +688,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         display: none;
     }
     .card_sm {
-        height: 300px;
+        height: 250px;
     }
     .form-resp{
         display: inline-block;
@@ -627,12 +699,13 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .form-check{
         display: none;
     }
-
     .publicity-1 {
         height: 200px;
+        margin: 50px 0px;
     }
     .publicity-2{
         height: 200px;
+        margin: 50px 0px;
     }
     .text-sm {
         color: black;
@@ -646,9 +719,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .arrow {
         display: none !important;
     }
-    .card-shop {
+    /* .card-shop {
         height: 270px;
-    }
+    } */
     .container-shop {
         padding: 0px 20px;
     }
@@ -664,9 +737,78 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .container-detail {
         height: 50%;
     }
+    .w-account {
+        width: 250px;
+    }
+    .box-account {
+        width: 270px;
+        background-color: #ffff;
+        padding: 30px 45px;
+        margin-top: 10px;
+    }
+    .w-sing-up {
+        width: 290px;
+    }
+    .w-login {
+        width: 250px;
+    }
+    .w-logo {
+        width: 100px;
+    }
+    .box-color {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .debit-card .trans-card {
+        height: 25vh;
+        margin-left: -13px;
+    }
+    .debit-card .trans-card {
+        width: 70vw;
+    }
+    .card-info {
+        height: 59vh;
+    }
+    .fs-card {
+        font-size: 17px;
+    }
+    .container-vista-carrito{
+        width: 300px;
+    }
+    .w-empty {
+        width: 250px;
+    }
 }
-@media only screen and (max-width: 500px) {
-    .card-shop{
-        height: 190px;
+/* @media only screen and (max-width: 896px) {
+    .debit-card {
+        height: 100vh;
+        margin-left: 180px;
+    }
+    .debit-card .trans-card {
+        height: 50vh;
+    }
+    .debit-card .trans-card {
+        width: 50vw;
+    }
+    .card-info {
+        height: 225px;
+    }
+} */
+@media only screen and (max-width: 376px){
+    
+    .debit-card .trans-card {
+        height: 25vh;
+        margin-left: -18px;
+    }
+    .debit-card .trans-card {
+        width: 70vw;
+    }
+    .card-info {
+        height: 73vh;
+    }
+    .fs-card {
+        font-size: 15px;
     }
 }

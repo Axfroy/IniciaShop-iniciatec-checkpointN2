@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
       <div class="container-fluid mx-lg-4">
         <a class="navbar-brand py-0" href="#">
-          <img src="./assets/logo.png" alt="Logo" width="120" class="d-inline-block align-text-top">
+          <img src="./assets/logo.png" alt="Logo" class="w-logo d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -39,7 +39,7 @@
             </li>
           </ul>
           <div class="col-lg-6 d-lg-flex justify-content-end p-0">
-            <ul class="navbar-nav gap-lg-5 text-center">
+            <ul class="navbar-nav gap-lg-4 text-center">
               <li class="nav-item">
                 <a class="nav-link fs-4 pb-0 mt-1" href="#most-wanted">Most Wanted</a>
               </li>
@@ -47,7 +47,10 @@
                 <a class="nav-link fs-4 pb-0 mt-1" href="#new-arrivals">New Arrivals</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-3 pb-0 mt-1" href="./pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+                <a class="nav-link fs-3 pb-0" href="./pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-3 pb-0" href="./pages/account.html"><i class="bi bi-person-circle text-black"></i></a>
               </li>
               <li class="nav-item">
                 <!--Carrito de compra-->
@@ -81,7 +84,7 @@
       </div>
     </nav>
     <section>
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div id="carouselExampleIndicators" class="carousel h-100" data-bs-ride="true">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -90,7 +93,7 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
             aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner card-shop">
+        <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="./assets/we_are_inicia_shop.png" class="d-block w-100" alt="slide1">
           </div>
@@ -118,13 +121,13 @@
   <main class="container-elements">
     <section data-aos="fade-down" class="fixed-bottom text-end">
       <div class="btn-fixed">
-        <a href="#" class="link-dark me-lg-3 mb-lg-2"><i class="bi bi-arrow-up-circle-fill fs-fix"></i></a>
+        <a href="#" class="link-dark me-lg-3 mb-lg-2 me-2"><i class="bi bi-arrow-up-circle-fill fs-fix"></i></a>
       </div>
     </section>
     <section class="position-relative">
       <div class="bg-grey1 position-absolute"></div>
     </section>
-    <section class="container-shop mt-5">
+    <section class="container-shop mt-lg-5 mt-4">
       <div class="row">
         <div class="col-lg-4 col-12 d-flex flex-column  mb-3 mb-lg-0 publicity-home">
           <h2 class="text-center mb-3" id="most-wanted">#TREND</h2>
@@ -171,15 +174,15 @@
   <footer class="mt-auto text-white">
     <!-- Users -->
     <div class="mb-3">
-      <section class="py-4 border-bottom" style="background-color: #B3679B">
+      <section class="py-2 border-bottom" style="background-color: #B3679B">
         <!-- The users paints here -->
-        <div id="footerProfileCtn" class="d-flex"></div>
+        <div id="footerProfileCtn" class="d-flex flex-wrap align-items-end"></div>
       </section>
     </div>
     <!-- Links -->
     <div class="container text-black">
       <div class="row">
-        <div class="col-5 col-lg-2 mb-3 d-flex flex-column align-items-start">
+        <div class="col-6 col-lg-2 mb-3 pe-0 d-flex flex-column align-items-start">
           <h5>IniciaShop</h5>
           <div class=""><img src="./assets/logo.png" alt="iniciaShop_logo" width="100"></div>
         </div>
@@ -187,18 +190,18 @@
         <!-- <div class="col-6 col-md-2 mb-3">
       </div> -->
         <!-- Footer Navbar -->
-        <div class="col-lg-2 col-4 mb-2 d-flex flex-column">
+        <div class="col-lg-2 col-4 ps-0 d-flex align-items-center justify-content-around">
           <a href="https://www.facebook.com/profile.php?id=100089541871469" style="text-decoration: none; color:black ;" target="_blank">
-            <i class="bi bi-facebook fs-3 mx-3"></i>
+            <i class="bi bi-facebook fs-3"></i>
           </a>
           <a href="https://www.instagram.com/inicia.shop/" style="text-decoration: none; color:black ;" target="_blank">
-            <i class="bi bi-instagram fs-3 mx-3"></i>
+            <i class="bi bi-instagram fs-3"></i>
           </a>
           <a href="https://www.youtube.com/watch?v=TfGMovjU04o" style="text-decoration: none; color:black ;" target="_blank">
-            <i class="bi bi-youtube fs-3 mx-3"></i>
+            <i class="bi bi-youtube fs-3"></i>
           </a>
         </div>
-        <div class="col-3 col-lg-2 mb-3">
+        <div class="col-6 col-lg-2 mb-3">
           <h5>Pages</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-muted">Home</a></li>
@@ -207,7 +210,7 @@
           </ul>
         </div>
         <!-- Footer Navbar -->
-        <div class="col-3 col-lg-2 mb-3">
+        <div class="col-6 col-lg-2 mb-3">
           <h5>Section</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#new-arrivals" class="nav-link p-0 text-muted">New Arrivals</a></li>

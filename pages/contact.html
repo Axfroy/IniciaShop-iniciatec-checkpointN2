@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
       <div class="container-fluid mx-lg-4">
         <a class="navbar-brand py-0" href="../index.html">
-          <img src="../assets/logo.png" alt="Logo" width="120" class="d-inline-block align-text-top">
+          <img src="../assets/logo.png" alt="Logo" class="w-logo d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -38,9 +38,12 @@
             </li>
           </ul>
           <div class="col-lg-6 d-lg-flex justify-content-end">
-            <ul class="navbar-nav gap-lg-3 text-center">
+            <ul class="navbar-nav gap-lg-4 text-center">
               <li class="nav-item">
                 <a class="nav-link fs-3 pb-0 mb-1" href="../pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-3 pb-0" href="../pages/account.html"><i class="bi bi-person-circle text-black"></i></a>
               </li>
               <li class="nav-item">
                 <!--Carrito de compra-->
@@ -116,8 +119,8 @@
                 Please enter your menssage here!
               </div>
             </div>
-            <button type="submit" onclick="contactAlert()" class="btn contactBtn text-white fw-bold col-lg-3 col-12 align-self-end"
-              style="background-color: #B3679B">Submit</button>
+            <button type="submit" class="btn text-white fw-bold col-lg-3 col-12 align-self-end"
+              style="background-color: #B3679B" onclick="contactAlert()">Submit</button>
           </form>
         </div>
       </div>
@@ -128,9 +131,9 @@
   <footer class="mt-4 text-white">
     <!-- Users -->
     <div class="mb-3">
-      <section class="py-4 border-bottom" style="background-color: #B3679B">
+      <section class="py-2 border-bottom" style="background-color: #B3679B">
         <!-- The users paints here -->
-        <div id="footerProfileCtn" class="d-flex"></div>
+        <div id="footerProfileCtn" class="d-flex flex-wrap align-items-end"></div>
       </section>
     </div>
     <!-- Links -->
