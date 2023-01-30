@@ -592,7 +592,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     display: none;
 }
 
-.bi-facebook:hover {
+.facebook:hover {
     color: #b3679b;
 }
 .bi-instagram:hover {
