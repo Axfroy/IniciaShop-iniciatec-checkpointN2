@@ -46,6 +46,7 @@ onAuthStateChanged(auth, async (user) => {
     if (user) {
         logInItems.forEach(item => item.style.display = 'block');
         logOutItems.forEach(item => item.style.display = 'none');
+        
         userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${user.displayName}</a>`);
         //user login style content
         userLogin.style.content = 'none';
