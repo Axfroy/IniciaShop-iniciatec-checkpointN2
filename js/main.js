@@ -37,11 +37,10 @@ import { auth, app } from './firebase.js';
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 
 onAuthStateChanged(auth, async (user) => {
-    console.log(user);
     let logInItems = document.querySelectorAll('.logIn');
     let logOutItems = document.querySelectorAll('.logOut');
     let userLogin = document.querySelector('.userLogin');
-    userLogin.removeAttribute('href');
+
     //traigo el nombre de usuario de localstorage o vacio
     let userName = localStorage.getItem('userName') || '';
     //obtengo el contenedor padre de userLogin
@@ -52,7 +51,8 @@ onAuthStateChanged(auth, async (user) => {
     if (user) {
         logInItems.forEach(item => item.style.display = 'block');
         logOutItems.forEach(item => item.style.display = 'none');
-
+        
+        userLogin.removeAttribute('href');
         if (userName) {
             userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${userName}</a>`);
 
@@ -66,7 +66,7 @@ onAuthStateChanged(auth, async (user) => {
         userLogin.style.content = 'none';
 
 
-        logout()
+        logout(userLogin)
     } else {
 
         logInItems.forEach(item => item.style.display = 'none');
@@ -251,10 +251,12 @@ const renderSignUp = () => {
     });
 }
 
-const logout = () => {
+const logout = (userLogin) => {
     let logout = document.getElementById('logout');
+    //le asigno el href para que me redireccione a la pagina de login
     logout.addEventListener('click', (e) => {
         e.preventDefault();
+        userLogin.href = "./pages/account.html";
         localStorage.removeItem('carritoData');
         //elimino favoritos
         localStorage.removeItem('fav');
