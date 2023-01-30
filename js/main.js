@@ -41,6 +41,7 @@ onAuthStateChanged(auth, async (user) => {
     let logInItems = document.querySelectorAll('.logIn');
     let logOutItems = document.querySelectorAll('.logOut');
     let userLogin = document.querySelector('.userLogin');
+    userLogin.removeAttribute('href');
     //traigo el nombre de usuario de localstorage o vacio
     let userName = localStorage.getItem('userName') || '';
     //obtengo el contenedor padre de userLogin
@@ -219,6 +220,8 @@ const renderSignUp = () => {
                     console.log(user);
                     // ...
                     showMessage('User created :D', 'success');
+                    //quito el href para que no me redireccione a la pagina de login
+                    
                 })
                 .catch((error) => {
                     const errorCode = error.code;
