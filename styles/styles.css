@@ -601,6 +601,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .bi-youtube:hover {
     color: #b3679b;
 }
+.bi-google:hover {
+    color: #b3679b;
+}
 .hidden{
     display: none;
 }

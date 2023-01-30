@@ -21,8 +21,240 @@
                         
 */
 
+/*
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+*/
+import { showMessage } from './showMessage.js'
+import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
+import { GoogleAuthProvider,FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 
-let elms = JSON.parse(localStorage.getItem("carritoData"));
+import { signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
+
+import { auth, app } from './firebase.js';
+
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
+
+onAuthStateChanged(auth, async (user) => {
+    console.log(user);
+    let logInItems = document.querySelectorAll('.logIn');
+    let logOutItems = document.querySelectorAll('.logOut');
+    let userLogin = document.querySelector('.userLogin');
+    //obtengo el contenedor padre de userLogin
+    let parent = userLogin.parentNode;
+    if (user) {
+        logInItems.forEach(item => item.style.display = 'block');
+        logOutItems.forEach(item => item.style.display = 'none');
+        userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${user.displayName}</a>`);
+        //user login style content
+        userLogin.style.content = 'none';
+
+
+        logout()
+    } else {
+
+        logInItems.forEach(item => item.style.display = 'none');
+        logOutItems.forEach(item => item.style.display = 'block');
+    }
+});
+
+const renderLoginEmail = () => {
+    let signIn = document.getElementById('signIn');
+    console.log(signIn);
+
+    signIn.addEventListener('submit', (e) => {
+        e.preventDefault();
+        //obtengo los datos del formulario email y password
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let obj = {
+            email: email,
+            password: password
+        }
+        console.log(obj);
+        //sign in
+        signInWithEmailAndPassword(auth, obj.email, obj.password)
+            .then((userCredential) => {
+                // Signed in   
+                const user = userCredential.user;
+                showMessage('User Login ;) ', 'success');
+                 window.location.href = "../index.html";
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                if (errorCode === 'auth/wrong-password') {
+                    showMessage('Wrong password', 'error');
+                } else if (errorCode === 'auth/user-not-found') {
+                    showMessage('User not found', 'error');
+                } else if (errorCode === 'auth/invalid-email') {
+                    showMessage('The email is invalid.', 'error');
+                } else {
+                    showMessage(errorMessage, 'error');
+                }
+
+            });
+
+
+        console.log(obj);
+    });
+
+}
+
+const renderSignUpGoogle =  () => {
+    let signInGoogle = document.getElementById('signInGoogle');
+    console.log(signInGoogle);
+
+    signInGoogle.addEventListener('click', async() => {
+
+        let provider = new GoogleAuthProvider();
+        try {
+            let credential = await signInWithPopup(auth, provider);
+            showMessage('User Login ;) '+ credential.user.displayName , 'success');
+            window.location.href = "../index.html";
+
+        } catch (error) {
+            if (error.code === 'auth/account-exists-with-different-credential') {
+                showMessage('The email address is already in use by another account.', 'error');
+            }
+            if (error.code === 'auth/invalid-credential') {
+                showMessage('The supplied auth credential is malformed or has expired.', 'error');
+            }
+            if (error.code === 'auth/operation-not-allowed') {
+                //message for user
+                showMessage('This operation is not allowed. You must enable this service in the console.', 'error');
+            }
+            if (error.code === 'auth/user-disabled') {
+                showMessage('The user account has been disabled by an administrator.', 'error');
+            }
+        }
+
+    
+    });
+
+    
+}
+
+const renderSignUpFacebook = () => {
+    let signInFacebook = document.getElementById('signInFacebook');
+    console.log(signInFacebook);
+
+    signInFacebook.addEventListener('click', async() => {
+
+        let provider = new FacebookAuthProvider();
+        try {
+            let credential = await signInWithPopup(auth, provider);
+            showMessage('User Login ;) '+ credential.user.displayName , 'success');
+            window.location.href = "../index.html";
+
+        } catch (error) {
+            if (error.code === 'auth/account-exists-with-different-credential') {
+                showMessage('The email address is already in use by another account.', 'error');
+            }
+            if (error.code === 'auth/invalid-credential') {
+                showMessage('The supplied auth credential is malformed or has expired.', 'error');
+            }
+            if (error.code === 'auth/operation-not-allowed') {
+                //message for user
+                showMessage('This operation is not allowed. You must enable this service in the console.', 'error');
+            }
+            if (error.code === 'auth/user-disabled') {
+                showMessage('The user account has been disabled by an administrator.', 'error');
+            }
+
+        }
+
+    
+    });
+
+}
+
+const renderSignUp = () => {
+    //obtengo los datos del formulario
+    //username
+    let signUp = document.getElementById('signUp');
+    signUp.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let username = document.getElementById('username').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let password2 = document.getElementById('password2').value;
+        let terms = document.getElementById('terms').checked;
+        let obj = {
+            username: username,
+            email: email,
+            password: password,
+            password2: password2
+        }
+        //verifico que el password sea igual al password2 y que este marcada la casiilla de terminos y condiciones
+
+        if (obj.password === obj.password2 && terms) {
+
+
+            createUserWithEmailAndPassword(auth, obj.email, obj.password)
+                .then((userCredential) => {
+                    // Signed in 
+
+
+                    const user = userCredential.user;
+                    console.log(user);
+                    // ...
+                    showMessage('User created :D', 'success');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                    if (errorCode === 'auth/weak-password') {
+                        showMessage('The password is too weak.', 'error');
+                    }
+                    if (errorCode === 'auth/email-already-in-use') {
+                        showMessage('The email is already in use.', 'error');
+                    }
+                    if (errorCode === 'auth/invalid-email') {
+                        showMessage('The email is invalid.', 'error');
+                    }
+
+                    // ..
+                });
+            console.log(obj);
+        } else {
+            if (!terms) {
+                showMessage('You must accept the terms and conditions', 'error');
+            }else{
+                showMessage('Passwords do not match', 'error');
+
+            }
+        }
+    });
+}
+
+const logout = () => {
+    let logout = document.getElementById('logout');
+    logout.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('carritoData');
+        //elimino favoritos
+        localStorage.removeItem('fav');
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('User Logout');
+            showMessage('User Logout', 'success');
+            //elimino todo el localstorage carritodata
+            renderBtnCarrito();
+            
+            nav();
+        }).catch((error) => {
+            // An error happened.
+            showMessage('Error', 'error');
+        });
+    });
+}
+
+
 const getAllArticles = async () => {
     try {
         const res = await fetch('../js/data.json');
@@ -31,10 +263,10 @@ const getAllArticles = async () => {
     } catch (error) {
     }
 }
-const getPr = async(ini,fn) => {
-    const respose = await fetch("../js/data.json") 
+const getPr = async (ini, fn) => {
+    const respose = await fetch("../js/data.json")
     const dt = await respose.json()
-    return dt.slice(ini,fn);
+    return dt.slice(ini, fn);
 }
 
 const renderCard = (clothes) => {
@@ -45,7 +277,7 @@ const renderCard = (clothes) => {
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
         <div class="d-flex justify-content-end m-2">
             <div class="d-flex justify-content-center icon-dimentions">
-                <i class="bi bi-heart-fill fs-4 agregarFav" id="${clothes.id}"></i>
+                <i class="bi bi-heart-fill fs-4 agregarFav " id="${clothes.id}"></i>
             </div>
         </div>
         <div class="container-detail rounded-4 px-2 py-3 d-flex flex-column justify-content-between">
@@ -167,14 +399,14 @@ const getCoupon = () => {
         let inputMail = document.querySelector("#newsletter1");
         if (inputMail != `` && inputMail.value.includes('@')) {
             if (localStorage.getItem('emailCoupon') != inputMail.value) {
-            swalFunction();
-            localStorage.setItem('emailCoupon', inputMail.value)
+                swalFunction();
+                localStorage.setItem('emailCoupon', inputMail.value)
             } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: "You've already got a coupon!",
-                  })
+                })
             }
         }
         else {
@@ -182,38 +414,38 @@ const getCoupon = () => {
                 icon: 'error',
                 title: 'Oops...',
                 text: "You need to enter a valid email to get a coupon!",
-              })
+            })
         }
     })
 }
 
 
-const renderCards = async() => {
+const renderCards = async () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
-    let shop1 = await getPr(4,10)
-    let shop2 = await getPr(11,17)
+    let shop1 = await getPr(4, 10)
+    let shop2 = await getPr(11, 17)
     let containerCards = document.querySelector('#container-cards-trend')
     let containerCards1 = document.querySelector('#container-cards-unisex')
     let allElems = shop1.concat(shop2);
     renderCarrito(carritoDataLS)
-    
+
     containerCards.innerHTML = ""
     containerCards1.innerHTML = ""
-    
-    
+
+
     shop1.forEach(clothes => {
         containerCards.innerHTML += renderCard(clothes)
     })
     shop2.map(clothes => {
-        
+
         containerCards1.innerHTML += renderCard(clothes)
     })
 
 
     addOpcColorTalle()
-    addCarrito(carritoDataLS,allElems)
-    addFav(containerCards,containerCards1)
+    addCarrito(carritoDataLS, allElems)
+    addFav(containerCards, containerCards1)
     renderBtnFav(favDataLS, containerCards)
     renderBtnFav(favDataLS, containerCards1)
     getCoupon();
@@ -229,13 +461,13 @@ const renderProducts = async () => {
     let data = await getAllArticles();
     renderCarrito(carritoDataLS)
     let cantElem = container.childElementCount;
-    
-    if(cantElem != 0 && container != null){
+
+    if (cantElem != 0 && container != null) {
         container.innerHTML = "";
     }
     data.forEach(element => {
-                container.innerHTML += renderCard(element)
-            
+        container.innerHTML += renderCard(element)
+
     });
     addOpcColorTalle()
     addCarrito(carritoDataLS, data)
@@ -243,7 +475,7 @@ const renderProducts = async () => {
     addFav(container)
     renderBtnFav(favDataLS, container);
 }
-const renderFavorites =  async() => {
+const renderFavorites = async () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
     let data = await getAllArticles();
@@ -251,14 +483,14 @@ const renderFavorites =  async() => {
     container.innerHTML = "";
     favDataLS.forEach(element => {
         if (element != null) {
-                container.innerHTML += renderCard(element)
+            container.innerHTML += renderCard(element)
         }
-    });  
+    });
     addOpcColorTalle()
     addCarrito(carritoDataLS, data)
     //renderBtnCarrito()
-    renderBtnFav(favDataLS, container); 
-    addFav(container)   
+    renderBtnFav(favDataLS, container);
+    addFav(container)
 }
 const renderRecomendItems = async () => {
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
@@ -270,18 +502,18 @@ const renderRecomendItems = async () => {
     let cantElem = favDataLS.length;
     for (let i = 0; i < 4; i++) {
         let randomCategory = categories[Math.floor(Math.random() * categories.length)];
-        let randomItem = data.filter(elem => elem.category == randomCategory)[Math.floor(Math.random() * data.filter(elem => elem.category == randomCategory).length)];    
+        let randomItem = data.filter(elem => elem.category == randomCategory)[Math.floor(Math.random() * data.filter(elem => elem.category == randomCategory).length)];
         if (!favDataLS.some(item => item.id === randomItem.id)) {
-            if (!recomendItem.includes(randomItem) && recomendItem.length < 4 ) {
-              recomendItem.push(randomItem)
-              //cantElem--;
+            if (!recomendItem.includes(randomItem) && recomendItem.length < 4) {
+                recomendItem.push(randomItem)
+                //cantElem--;
 
             }
-          }
-          if(recomendItem.length < 4 && cantElem < (data.length-4) )  {
-              i--;
-          }
-          
+        }
+        if (recomendItem.length < 4 && cantElem < (data.length - 4)) {
+            i--;
+        }
+
     }
     let container = document.querySelector("#recomend-items");
     container.innerHTML = "";
@@ -300,7 +532,7 @@ const addOpcColorTalle = () => {
 
 }
 
-const  eventOpc = () => {
+const eventOpc = () => {
     let opcColor = document.querySelectorAll(".box-color");
     let opcSize = document.querySelectorAll(".box-talle");
     opcColor.forEach(elem => {
@@ -320,8 +552,8 @@ const  eventOpc = () => {
             elem.classList.add("checked")
         })
     })
-}	
-const addCarrito = (carritoDataLS,data) => {
+}
+const addCarrito = (carritoDataLS, data) => {
     let btn = document.querySelectorAll(".agregarElem")
     btn.forEach(elem => {
         elem.addEventListener("click", () => {
@@ -336,37 +568,37 @@ const addFav = (cont, cont2 = '') => {
     btn.forEach(elem => {
         elem.addEventListener("click", () => {
             insertarPrFav(elem.id, cont)
-            
+
         })
     })
 }
-const insertarPrFav = async(id,cont, cont2 = '') => {
+const insertarPrFav = async (id, cont, cont2 = '') => {
     let data = await getAllArticles();
     let favData = JSON.parse(localStorage.getItem("fav")) || [];
-    if(cont2 != ''){
-        let cn2 = cont2; 
+    if (cont2 != '') {
+        let cn2 = cont2;
     }
     let prod = data.find(elem => elem.id == id)
     let prodFav = favData.find(elem => elem.id == id);
     if (!prodFav) {
         favData.push(prod);
         if (cont2 !== '') {
-            renderBtnFav(favData, cont2);         
-        }else{   
-          renderBtnFav(favData, cont);
+            renderBtnFav(favData, cont2);
+        } else {
+            renderBtnFav(favData, cont);
         }
-    }else {
+    } else {
         favData = favData.filter(elem => elem.id != id);
         if (cont2 !== '') {
-            renderBtnFav(favData, cont2);            
-        }else{
+            renderBtnFav(favData, cont2);
+        } else {
             renderBtnFav(favData, cont);
         }
     }
     localStorage.setItem("fav", JSON.stringify(favData));
     if (cont2 !== '') {
-        renderBtnFav(favData, cont2);            
-    }else{
+        renderBtnFav(favData, cont2);
+    } else {
         renderBtnFav(favData, cont);
     }
     //renderBtnCarrito();
@@ -378,11 +610,11 @@ const renderBtnFav = (fav, container) => {
     let btnFav = container.querySelectorAll(".agregarFav")
     btnFav.forEach(element => {
         if (fav.find(elem => elem.id == element.id)) {
-                element.classList.add("text-danger")              
-            }else{
-                element.classList.remove("text-danger")
-                element.classList.add("bi-heart-fill")
-            }
+            element.classList.add("text-danger")
+        } else {
+            element.classList.remove("text-danger")
+            element.classList.add("bi-heart-fill")
+        }
     })
 }
 
@@ -395,7 +627,7 @@ const renderBtnCarrito = () => {
 
         })
     }
-    
+
 }
 
 const renderCarrito = (car = []) => {
@@ -409,7 +641,7 @@ const renderCarrito = (car = []) => {
             carritoData.innerHTML += listCarrito(elem)
         })
         let elemsInfPrinc = document.getElementsByClassName("info-principal");
-    }else{
+    } else {
         carritoData.innerHTML = `<p><img src="./assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3 w-empty"</img></p>`;
         carritoData.innerHTML = `<p><img src="../assets/cart_empty.png" alt="Cart empty" class="mb-2 rounded-3 w-empty"></img></p>`
     }
@@ -417,21 +649,22 @@ const renderCarrito = (car = []) => {
     quitarPrCarrito(car)
     agregarUnPrCarrito(car)
     obtPriceTotal(car)
+
 }
 
 
 const cantElementos = (cantElem) => {
     let numElem = document.querySelector("#cantProd")
     //verifico que exista
-    if ( numElem != null ) {
+    if (numElem != null) {
         numElem.innerHTML = '';
         numElem.innerHTML = cantElem;
-    }else{
+    } else {
     }
 }
 const agregarUnPrCarrito = (car) => {
     let btnAgregar = document.querySelectorAll(".agregarUno")
- 
+
     btnAgregar.forEach(elem => {
         elem.addEventListener("click", () => {
             let spanCant = elem.parentElement.querySelector("#cant")
@@ -453,32 +686,40 @@ const agregarUnPrCarrito = (car) => {
 const quitarPrCarrito = (car) => {
     let btnQuitar = document.querySelectorAll(".elimProd")
     let btnVaciar = document.querySelector(".vaciarCarrito")
+    //obtengo carritoData del localStorage
+
 
     btnQuitar.forEach(elem => {
         elem.addEventListener("click", () => {
             let id = elem.parentElement.id;
             let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
             let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
-            
+
             let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
             if (carritoData && carritoData.cant > 0) {
                 carritoData.cant -= 1;
                 if (carritoData.cant == 0) {
-                    car.forEach((elem ) => {
-                           if (elem.id == id && elem.color == opcColor && elem.size == opcSize) {
-                                car.splice(car.indexOf(elem), 1)
-                            }        
-                    })  
+                    car.forEach((elem) => {
+                        if (elem.id == id && elem.color == opcColor && elem.size == opcSize) {
+                            car.splice(car.indexOf(elem), 1)
+                        }
+                    })
                 }
             }
             localStorage.setItem("carritoData", JSON.stringify(car))
             nav();
         })
     })
+
     btnVaciar.addEventListener("click", () => {
-        localStorage.removeItem("carritoData");
-        nav();
+        if (car.length > 0) {
+            localStorage.removeItem("carritoData");
+            nav();
+
+        }
     })
+
+
 }
 
 const insertarPrCarrito = (car, data, id) => {
@@ -500,54 +741,54 @@ const obtProducto = (car, data, id) => {
     let prod = data.find(elem => elem.id == id)
     let opcColor = document.querySelector('.opt-colors .checked').getAttribute("value");
     let opcSize = document.querySelector('.opt-talles .checked').innerHTML;
-        let prodCarrito = carritoData.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
-        if (prodCarrito) {
-            prodCarrito.cant += 1;
-        }else{
-            prodCarrito = {
-                id: prod.id,
-                title: prod.title,
-                price: prod.price,
-                image: prod.image,
-                cant: 1,
-                color: opcColor,
-                size: opcSize
-            }
-            carritoData.push(prodCarrito)
+    let prodCarrito = carritoData.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
+    if (prodCarrito) {
+        prodCarrito.cant += 1;
+    } else {
+        prodCarrito = {
+            id: prod.id,
+            title: prod.title,
+            price: prod.price,
+            image: prod.image,
+            cant: 1,
+            color: opcColor,
+            size: opcSize
         }
+        carritoData.push(prodCarrito)
+    }
     localStorage.setItem("carritoData", JSON.stringify(carritoData))
     renderCarrito(car);
 }
 
-const   renderResume = () => {
+const renderResume = () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let arrImg = [];
-   renderCarrito(carritoDataLS)
+    renderCarrito(carritoDataLS)
     let elemsCarritoSec = document.querySelectorAll(".li-elements");
     elemsCarritoSec.forEach(elem => {
         let infoPrinc = elem.querySelector(".info-principal");
         let infoSec = elem.querySelector(".info-secundaria");
         let allStyleClasOfElem = elem.querySelectorAll(' [class^="col-lg-"]')
-        allStyleClasOfElem.forEach(elem => { 
+        allStyleClasOfElem.forEach(elem => {
             elem.classList.remove(elem.classList[0])
             elem.classList.remove("d-none")
             if (elem.classList.contains("info-principal")) {
                 elem.classList.add("col-lg-1")
-            }else if(elem.classList.contains("container-title")){
+            } else if (elem.classList.contains("container-title")) {
                 elem.classList.add("col-lg-3")
-            }else{
+            } else {
                 elem.classList.add("col-lg-2")
-            }    
+            }
         })
         let infoTitle = elem.querySelector(".container-title");
-        infoSec.insertAdjacentHTML("afterbegin", 
+        infoSec.insertAdjacentHTML("afterbegin",
             `
             <button class=" btn-prod-carrito elimProd bg-danger">
                 <i class="bi bi-dash"></i>
             </button>
             `
         );
-        infoSec.insertAdjacentHTML("beforeend", 
+        infoSec.insertAdjacentHTML("beforeend",
             `
             <button class=" btn-prod-carrito agregarUno bg-success">
                 <i class="bi bi-plus "></i>
@@ -562,13 +803,13 @@ const   renderResume = () => {
 }
 
 
-const renderFilter = async() =>{
+const renderFilter = async () => {
     let products = await getAllArticles();
     let productCategories = new Set();
-    products.forEach(element =>{
+    products.forEach(element => {
         if (!productCategories.has(element.category)) {
             productCategories.add(element.category);
-          };
+        };
     });
     insertCheckbox(productCategories);
     renderVisibleCards();
@@ -582,30 +823,30 @@ const renderFilter = async() =>{
 // SHOP SECTION 
 // Filters
 // CheckBox Filters
-const insertCheckbox = (categories) =>{ 
-    let checksCtn = document.querySelector('.check-opt'); 
+const insertCheckbox = (categories) => {
+    let checksCtn = document.querySelector('.check-opt');
     let selectForm = document.querySelector('.form-select')
-    categories.forEach((category) =>{
-        if (checksCtn.childNodes.length < 15) {   
+    categories.forEach((category) => {
+        if (checksCtn.childNodes.length < 15) {
             checksCtn.insertAdjacentHTML("beforeend", elemCheck(category));
             selectForm.insertAdjacentHTML("beforeend", elemOption(category));
         }
-        
-    }) 
+
+    })
 }
 
 var categoriesChecked = [];
-const optionFilter = () =>{
+const optionFilter = () => {
     let formSelect = document.querySelector('.form-select');
-    
+
     formSelect.addEventListener("change", () => {
         let allCards = [...document.querySelectorAll(".card-ctn")];
 
         const inputOption = document.querySelectorAll(".option-input");
-        inputOption.forEach((option) =>{
+        inputOption.forEach((option) => {
             option.selected
-            ? categoriesChecked.push(option.value)
-            : null
+                ? categoriesChecked.push(option.value)
+                : null
         });
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
@@ -618,20 +859,20 @@ const optionFilter = () =>{
 var visibleCards = new Set();
 var categoriesChecked = [];
 
-const checkFilter = () =>{
+const checkFilter = () => {
     const containerChecks = document.querySelector('.check-opt');
 
     containerChecks.addEventListener("change", () => {
-        
+
         const inputsCheckbox = document.querySelectorAll(".form-check-input");
         categoriesChecked = [];
 
-        inputsCheckbox.forEach((inputBox) =>{
+        inputsCheckbox.forEach((inputBox) => {
             inputBox.checked
                 ? categoriesChecked.push(inputBox.value)
                 : null
-            });
-            //categoriesChecked = categoriesChecked.filter(check => check !== inputBox.value)
+        });
+        //categoriesChecked = categoriesChecked.filter(check => check !== inputBox.value)
         console.log("categoriesChecked", categoriesChecked)
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
@@ -642,9 +883,9 @@ const cardsFilter = (arrChecked) => {
     const allCards = [...document.querySelectorAll(".card-ctn")];
 
     allCards.forEach((card) => {
-        if ( arrChecked.includes( card.getAttribute("data-category" )) ){
+        if (arrChecked.includes(card.getAttribute("data-category"))) {
             card.classList.remove("hidden");
-        } else{
+        } else {
             card.classList.add("hidden");
         }
     });
@@ -653,7 +894,7 @@ const cardsFilter = (arrChecked) => {
 
 const noSelect = (arrChecked) => {
     const allCards = document.querySelectorAll(".card-ctn");
-    arrChecked.length === 0 
+    arrChecked.length === 0
         ? allCards.forEach((card) => {
             card.classList.remove("hidden")
         })
@@ -674,20 +915,20 @@ const elemCheck = (event) => {
              `
 };
 
-const elemOption = (event) =>{
+const elemOption = (event) => {
     return `
     <option class="option-input text-capitalize" value="${event}">${event}</option>
      `
 };
 
-const renderVisibleCards = () =>{
+const renderVisibleCards = () => {
     let allCards = [...document.querySelectorAll(".card-ctn")];
-    if (categoriesChecked.length === 0){
+    if (categoriesChecked.length === 0) {
 
-        allCards.forEach((card) =>{
-            if ( !card.classList.contains('hidden')){
+        allCards.forEach((card) => {
+            if (!card.classList.contains('hidden')) {
                 visibleCards.add(card);
-            } else {visibleCards.delete(card)}
+            } else { visibleCards.delete(card) }
         });
 
     }
@@ -708,32 +949,32 @@ const renderVisibleCards = () =>{
     })
 } */
 
-const searchFilter = () =>{
+const searchFilter = () => {
     const inputSearchEvents = document.getElementById("input-search-events");
 
-    inputSearchEvents.addEventListener("input", (event) =>{
+    inputSearchEvents.addEventListener("input", (event) => {
         inputEvent = event.target.value.toLowerCase()
-        console.log("inputEvent", inputEvent.length === 0 )
-        
+        console.log("inputEvent", inputEvent.length === 0)
+
         visibleCards.forEach(card => {
             let title = card.querySelector(".card-title").textContent.toLowerCase();
-            if ( title.includes(event.target.value.toLowerCase()) ){
+            if (title.includes(event.target.value.toLowerCase())) {
                 card.classList.remove("hidden");
             } else {
                 card.classList.add("hidden");
             }
-        }); 
+        });
         noResultFilter()
-    });  
+    });
 };
 
-const noResultFilter = () =>{
+const noResultFilter = () => {
     let allCards = document.querySelectorAll(".card-ctn");
     const emptyCardContainer = document.getElementById("emptyContainer");
     let noResultsCard = ``;
 
     let hiddenCards = document.querySelectorAll(".hidden");
-    if (hiddenCards.length === allCards.length){
+    if (hiddenCards.length === allCards.length) {
         noResultsCard += `
             <div class="container text-center">
                 <div style="width: 250px; margin: 0 auto">
@@ -742,7 +983,7 @@ const noResultFilter = () =>{
                 <p>Please try another search!</p>
             </div>
             `
-        }
+    }
 
     emptyCardContainer.innerHTML = noResultsCard;
 };
@@ -754,7 +995,7 @@ const noResultFilter = () =>{
         e.preventDefault();
     }); 
 } */
-    
+
 //CONTACT
 
 const contactBtnAlert = () =>{
@@ -774,7 +1015,7 @@ function contactAlert() {
         title: 'Your message has been sent',
         showConfirmButton: false,
         timer: 2000
-      })
+    })
 }
 
 //RESUME
@@ -784,18 +1025,18 @@ function finishShoppingAlert() {
         title: 'Submit your email',
         input: 'text',
         inputAttributes: {
-          autocapitalize: 'off'
+            autocapitalize: 'off'
         },
         showCancelButton: true,
         confirmButtonText: 'Enter',
         showLoaderOnConfirm: true,
         preConfirm: (email) => {
             if (email.includes('@')) {
-            Swal.fire({
-                title: 'Thank you for shopping with us!',
-                text: "We'll send you an email with a payment form right away!",
-                imageUrl: '../assets/',
-            })
+                Swal.fire({
+                    title: 'Thank you for shopping with us!',
+                    text: "We'll send you an email with a payment form right away!",
+                    imageUrl: '../assets/',
+                })
             }
             else {
                 Swal.showValidationMessage(
@@ -812,7 +1053,7 @@ function randomCode(length) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
+    for (var i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
@@ -829,7 +1070,7 @@ function swalFunction() {
         width: 600,
         padding: '3em',
         color: 'black',
-        background: 'url(../assets/bg-cupon.gif)',  
+        background: 'url(../assets/bg-cupon.gif)',
     })
 }
 
@@ -846,34 +1087,34 @@ function btnCoupon() {
 
 function applyDiscount(coupon) {
     let discountApplied = false;
-    if ( !discountApplied && coupon.trim() == localStorage.getItem('code10').trim()) {
+    if (!discountApplied && coupon.trim() == localStorage.getItem('code10').trim()) {
         let priceTotal = document.querySelector(".priceTotal")
-        let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1))*0.1;
+        let total = Number(priceTotal.innerHTML.slice(1)) - Number(priceTotal.innerHTML.slice(1)) * 0.1;
         priceTotal.innerHTML = ``;
-        priceTotal.innerHTML =  `$${total}`;
-        localStorage.clear('code10'); 
+        priceTotal.innerHTML = `$${total}`;
+        localStorage.clear('code10');
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Your discount has been applied!',
             showConfirmButton: false,
             timer: 1500
-          })
+        })
         discountApplied = true;
-    }  
-    else { 
+    }
+    else {
         if (discountApplied) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: "You've already used a coupon!",
-              })
+            })
         } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: "This's not a valid code, try again.",
-          })
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "This's not a valid code, try again.",
+            })
         }
     }
 }
@@ -882,7 +1123,7 @@ function applyDiscount(coupon) {
 
 //Get input info-----------
 //Card Number, input 1
-const getNumbI1= () => {
+const getNumbI1 = () => {
     let inputCard1 = document.getElementById("card-numb-1")
     inputCard1.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-1")
@@ -891,7 +1132,7 @@ const getNumbI1= () => {
 }
 
 //Card Number, input 2
-const getNumbI2= () => {
+const getNumbI2 = () => {
     let inputCard2 = document.getElementById("card-numb-2")
     inputCard2.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-2")
@@ -900,7 +1141,7 @@ const getNumbI2= () => {
 }
 
 //Card Number, input 3
-const getNumbI3= () => {
+const getNumbI3 = () => {
     let inputCard3 = document.getElementById("card-numb-3")
     inputCard3.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-3")
@@ -909,7 +1150,7 @@ const getNumbI3= () => {
 }
 
 //Card Number, input 4
-const getNumbI4= () => {
+const getNumbI4 = () => {
     let inputCard4 = document.getElementById("card-numb-4")
     inputCard4.addEventListener("keyup", () => {
         let cardNumber = document.querySelector("#card-numb-4")
@@ -918,7 +1159,7 @@ const getNumbI4= () => {
 }
 
 //Card Holder
-const getCardHolder= () => {
+const getCardHolder = () => {
     let cardHolder = document.getElementById("card-holder-input")
     cardHolder.addEventListener("keyup", () => {
         let cardName = document.querySelector("#card-holder-input")
@@ -928,7 +1169,7 @@ const getCardHolder= () => {
 }
 
 //Expiration Date
-const getExpirationMonth= () => {
+const getExpirationMonth = () => {
     let expDateMonth = document.getElementById("exp-date-m")
     expDateMonth.addEventListener("keyup", () => {
         let month = document.querySelector("#exp-date-m")
@@ -936,7 +1177,7 @@ const getExpirationMonth= () => {
     })
 }
 
-const getExpirationYear= () => {
+const getExpirationYear = () => {
     let expDateYear = document.getElementById("exp-date-y")
     expDateYear.addEventListener("keyup", () => {
         let year = document.querySelector("#exp-date-y")
@@ -945,7 +1186,7 @@ const getExpirationYear= () => {
 }
 
 //CVV
-const getCVV= () => {
+const getCVV = () => {
     const inputCVV = document.getElementById("input-CVV")
     inputCVV.addEventListener("keyup", () => {
         let cvv = document.querySelector("#input-CVV")
@@ -956,31 +1197,31 @@ const getCVV= () => {
 
 //Render input info--------
 //Card Number, input 1
-const renderCardNumb1= (value) => {
+const renderCardNumb1 = (value) => {
     let divNumbers = document.getElementById("numbers-1")
     divNumbers.innerHTML = `${value}`
 }
 
 //Card Number, input 2
-const renderCardNumb2= (value) => {
+const renderCardNumb2 = (value) => {
     let divNumbers = document.getElementById("numbers-2")
     divNumbers.innerHTML = `${value}`
 }
 
 //Card Number, input 3
-const renderCardNumb3= (value) => {
+const renderCardNumb3 = (value) => {
     let divNumbers = document.getElementById("numbers-3")
     divNumbers.innerHTML = `${value}`
 }
 
 //Card Number, input 4
-const renderCardNumb4= (value) => {
+const renderCardNumb4 = (value) => {
     let divNumbers = document.getElementById("numbers-4")
     divNumbers.innerHTML = `${value}`
 }
 
 //Card Holder
-const renderCardHolder= (value) => {
+const renderCardHolder = (value) => {
     let cardHolder = document.getElementById("card-holder")
     cardHolder.innerHTML = `${value.toUpperCase()}`
 }
@@ -1005,6 +1246,7 @@ const renderCVV = (value) => {
 //Payment confirmation-------
 const payBtn = () => {
     const payBtn = document.getElementById("pay-btn");
+    
     payBtn.addEventListener("click", () => {
         Swal.fire({
             position: 'center',
@@ -1012,7 +1254,10 @@ const payBtn = () => {
             title: 'Your purchase has been made successfully!',
             showConfirmButton: false,
             timer: 3000
-          })
+        })
+        //limpio el carrito 
+        localStorage.removeItem("carritoData")
+        nav()
     })
 }
 
@@ -1040,12 +1285,12 @@ const nav = () => {
         case 'resume.html':
             renderCarrito()
             renderResume()
-        break;
+            break;
         case 'shop.html':
             renderProducts()
             renderFilter()
             renderCarrito(carritoDataLS)
-        break;
+            break;
         case 'contact.html':
             renderProducts()
             contactBtnAlert()
@@ -1054,15 +1299,28 @@ const nav = () => {
             renderRecomendItems()
             renderFavorites()
             renderCarrito(carritoDataLS)
-        break;
-       case 'finishop.html':
+            break;
+        case 'finishop.html':
             renderFinishop()
             renderCarrito(carritoDataLS)
-        break;
+            break;
+
+        case 'login.html':
+            renderLoginEmail();
+            renderSignUpGoogle();
+            renderSignUpFacebook();
+
+            break;
+        case 'sign_up.html':
+            renderSignUp();
+            renderSignUpGoogle();
+            renderSignUpFacebook();
+
+            break;
         default:
             renderProducts()
             renderCards()
-        break;
+            break;
     }
 }
 nav();
