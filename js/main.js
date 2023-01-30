@@ -41,13 +41,26 @@ onAuthStateChanged(auth, async (user) => {
     let logInItems = document.querySelectorAll('.logIn');
     let logOutItems = document.querySelectorAll('.logOut');
     let userLogin = document.querySelector('.userLogin');
+    //traigo el nombre de usuario de localstorage o vacio
+    let userName = localStorage.getItem('userName') || '';
     //obtengo el contenedor padre de userLogin
-    let parent = userLogin.parentNode;
+    if (userLogin) {
+        let parent = userLogin.parentNode;
+        
+    }
     if (user) {
         logInItems.forEach(item => item.style.display = 'block');
         logOutItems.forEach(item => item.style.display = 'none');
-        
-        userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${user.displayName}</a>`);
+
+        if (userName) {
+            userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${userName}</a>`);
+
+        }
+
+        if (!userName && user.displayName) {
+            
+            userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${user.displayName}</a>`);
+        }
         //user login style content
         userLogin.style.content = 'none';
 
@@ -74,6 +87,7 @@ const renderLoginEmail = () => {
             password: password
         }
         console.log(obj);
+        //agrego nombre de usuario a localstorage
         //sign in
         signInWithEmailAndPassword(auth, obj.email, obj.password)
             .then((userCredential) => {
@@ -114,6 +128,7 @@ const renderSignUpGoogle =  () => {
         let provider = new GoogleAuthProvider();
         try {
             let credential = await signInWithPopup(auth, provider);
+            
             showMessage('User Login ;) '+ credential.user.displayName , 'success');
             window.location.href = "../index.html";
 
@@ -179,13 +194,13 @@ const renderSignUp = () => {
     let signUp = document.getElementById('signUp');
     signUp.addEventListener('submit', (e) => {
         e.preventDefault();
-        let username = document.getElementById('username').value;
+        let userName = document.getElementById('userName').value;
+        localStorage.setItem('userName', userName);
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
         let password2 = document.getElementById('password2').value;
         let terms = document.getElementById('terms').checked;
         let obj = {
-            username: username,
             email: email,
             password: password,
             password2: password2
@@ -240,6 +255,8 @@ const logout = () => {
         localStorage.removeItem('carritoData');
         //elimino favoritos
         localStorage.removeItem('fav');
+        //elimino el usuario
+        localStorage.removeItem('userName');
         signOut(auth).then(() => {
             // Sign-out successful.
             alert('User Logout');
