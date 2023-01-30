@@ -509,6 +509,9 @@
     margin-left: 35px;
 }
 
+.fs-card {
+    font-size: 15px;
+}
 .debit-card .trans-card {
     backface-visibility: hidden;
     transition: 1s;
@@ -759,10 +762,17 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         cursor: pointer;
     }
     .debit-card .trans-card {
-        height: 20vh;
+        height: 25vh;
+        margin-left: -13px;
+    }
+    .debit-card .trans-card {
+        width: 70vw;
     }
     .card-info {
-        height: 51vh;
+        height: 59vh;
+    }
+    .fs-card {
+        font-size: 17px;
     }
     .container-vista-carrito{
         width: 300px;
@@ -771,8 +781,34 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         width: 250px;
     }
 }
-@media only screen and (max-width: 500px) {
-    /* .card-shop{
-        
-    } */
+/* @media only screen and (max-width: 896px) {
+    .debit-card {
+        height: 100vh;
+        margin-left: 180px;
+    }
+    .debit-card .trans-card {
+        height: 50vh;
+    }
+    .debit-card .trans-card {
+        width: 50vw;
+    }
+    .card-info {
+        height: 225px;
+    }
+} */
+@media only screen and (max-width: 376px){
+    
+    .debit-card .trans-card {
+        height: 25vh;
+        margin-left: -18px;
+    }
+    .debit-card .trans-card {
+        width: 70vw;
+    }
+    .card-info {
+        height: 73vh;
+    }
+    .fs-card {
+        font-size: 15px;
+    }
 }

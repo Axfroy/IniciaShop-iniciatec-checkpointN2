@@ -112,7 +112,7 @@ const renderCard = (clothes) => {
                                                     <span class="fw-bold">${clothes.price}</span>
                                                 </div>
                                                 <div class="btn-buy">
-                                                    <a href="#" class="btn btn-dark fs-5 agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
+                                                    <a href="#" class="btn btn-dark fs-card agregarElem" id="${clothes.id}"><i class="bi bi-bag-check me-1"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
