@@ -130,28 +130,9 @@ After that the web should start running in a Local Server in your default browse
 
 ***
 
-### Mobile
+## Mobile
 
-<div style="display: flex; gap: 10px;">
-    <div>
-    <p>User Screen</p>
-        <picture>
-            <img src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FuserScreen.png?alt=media&token=56542a47-c441-4161-816b-2386691fce72" width=250 alt="User Screen" width="500px">
-        </picture>
-    </div>
-    <div>
-    <p>Sign Up</p>
-        <picture>
-            <img src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FsignUpScreen.png?alt=media&token=c6059574-cc3f-49d1-9015-af053c2e2593" width=250 alt="SignUp" width="500px">
-        </picture>
-    </div>
-    <div>
-    <p>Login</p>
-        <picture>
-            <img src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FloginScreen.png?alt=media&token=751817b9-406e-4364-b0d0-6a2748b40774" width=250 alt="Login" width="500px">
-        </picture>
-    </div>
-</div>
+<p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FmobileMockup.png?alt=media&token=8cb1109c-581e-463c-a6fc-1b0bc7d33701" alt="MobileMockup" height="600px"></p>
 
 
 ***
