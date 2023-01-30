@@ -7,6 +7,7 @@
 
 ***
 
+
 ![Icon status project](http://img.shields.io/static/v1?label=STATUS&message=In%20development&color=RED&style=for-the-badge)
 
 ### Contents 
@@ -74,11 +75,11 @@ After that the web should start running in a Local Server in your default browse
 
 # Technologies used
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 
 ### Also complemented with 
 
-![FIGMA](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)  ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)  ![Canvas](https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white)
+![FIGMA](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)  ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)  ![Canvas](https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white) 
 
 ## Mockup
 ***
@@ -126,6 +127,32 @@ After that the web should start running in a Local Server in your default browse
         <img src="./assets/sneakPeaks/finishShopping.png" alt="finishShopping" width="500px">
     </picture>
 </div>
+
+***
+
+### Mobile
+
+<div style="display: flex; gap: 10px;">
+    <div>
+    <p>User Screen</p>
+        <picture>
+            <img src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FuserScreen.png?alt=media&token=56542a47-c441-4161-816b-2386691fce72" width=250 alt="User Screen" width="500px">
+        </picture>
+    </div>
+    <div>
+    <p>Sign Up</p>
+        <picture>
+            <img src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FsignUpScreen.png?alt=media&token=c6059574-cc3f-49d1-9015-af053c2e2593" width=250 alt="SignUp" width="500px">
+        </picture>
+    </div>
+    <div>
+    <p>Login</p>
+        <picture>
+            <img src="https://firebasestorage.googleapis.com/v0/b/iniciatec-1e464.appspot.com/o/sneakPeaks%2FloginScreen.png?alt=media&token=751817b9-406e-4364-b0d0-6a2748b40774" width=250 alt="Login" width="500px">
+        </picture>
+    </div>
+</div>
+
 
 ***
 
