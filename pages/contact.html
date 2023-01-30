@@ -88,10 +88,7 @@
           <img src="../assets/12.gif" alt="iniciaShop_logo" class="img-fluid">
         </div>
         <div class="col-lg-6 col-12">
-          <form
-          name="contactUs" class="d-flex flex-column" data-netlify-honeypot="bot-field"
-          >
-            <input class="d-none" name="bot-field">
+          <form id="contactForm" name="contactUs" class="d-flex flex-column">
             <div class="mb-3">
               <label for="exampleInputFullName" class="form-label">Full Name</label>
               <input type="text" placeholder="Fulanito Menganito" class="form-control" id="exampleInputFullName" name="name"
@@ -121,8 +118,8 @@
                 Please enter your menssage here!
               </div>
             </div>
-            <button type="submit" class="btn text-white fw-bold col-lg-3 col-12 align-self-end"
-              style="background-color: #B3679B" onclick="contactAlert()">Submit</button>
+            <button type="submit" class="contactBtn btn text-white fw-bold col-lg-3 col-12 align-self-end"
+              style="background-color: #B3679B">Submit</button>
           </form>
         </div>
       </div>

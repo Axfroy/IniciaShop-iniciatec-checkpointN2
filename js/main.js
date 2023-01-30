@@ -187,12 +187,6 @@ const getCoupon = () => {
     })
 }
 
-const contactBtnAlert = () =>{
-    const contactBtn = document.querySelector(".contactBtn")
-    contactBtn.addEventListener("click", ()=>{
-
-    })
-}
 
 const renderCards = async() => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
@@ -762,6 +756,17 @@ const noResultFilter = () =>{
 } */
     
 //CONTACT
+
+const contactBtnAlert = () =>{
+    var contactForm = document.getElementById("contactForm");
+    const contactBtn = document.querySelector(".contactBtn");
+    contactBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        contactAlert();
+        contactForm.reset();
+    })
+}
+
 function contactAlert() {
     Swal.fire({
         position: 'center',
@@ -1043,6 +1048,7 @@ const nav = () => {
         break;
         case 'contact.html':
             renderProducts()
+            contactBtnAlert()
         break;
         case 'favorites.html':
             renderRecomendItems()
