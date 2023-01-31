@@ -28,7 +28,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { showMessage } from './showMessage.js'
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
-import { GoogleAuthProvider,FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
+import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 
 import { signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 
@@ -46,12 +46,12 @@ onAuthStateChanged(auth, async (user) => {
     //obtengo el contenedor padre de userLogin
     if (userLogin) {
         let parent = userLogin.parentNode;
-        
+
     }
     if (user) {
         logInItems.forEach(item => item.style.display = 'block');
         logOutItems.forEach(item => item.style.display = 'none');
-        
+
         userLogin.removeAttribute('href');
         if (userName) {
             userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${userName}</a>`);
@@ -59,7 +59,7 @@ onAuthStateChanged(auth, async (user) => {
         }
 
         if (!userName && user.displayName) {
-            
+
             userLogin.insertAdjacentHTML('afterend', `<a class=" logIn text-dark" href="">${user.displayName}</a>`);
         }
         //user login style content
@@ -76,7 +76,6 @@ onAuthStateChanged(auth, async (user) => {
 
 const renderLoginEmail = () => {
     let signIn = document.getElementById('signIn');
-    console.log(signIn);
 
     signIn.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -87,7 +86,6 @@ const renderLoginEmail = () => {
             email: email,
             password: password
         }
-        console.log(obj);
         //agrego nombre de usuario a localstorage
         //sign in
         signInWithEmailAndPassword(auth, obj.email, obj.password)
@@ -95,7 +93,7 @@ const renderLoginEmail = () => {
                 // Signed in   
                 const user = userCredential.user;
                 showMessage('User Login ;) ', 'success');
-                 window.location.href = "../index.html";
+                window.location.href = "../index.html";
 
             })
             .catch((error) => {
@@ -115,22 +113,20 @@ const renderLoginEmail = () => {
             });
 
 
-        console.log(obj);
     });
 
 }
 
-const renderSignUpGoogle =  () => {
+const renderSignUpGoogle = () => {
     let signInGoogle = document.getElementById('signInGoogle');
-    console.log(signInGoogle);
 
-    signInGoogle.addEventListener('click', async() => {
+    signInGoogle.addEventListener('click', async () => {
 
         let provider = new GoogleAuthProvider();
         try {
             let credential = await signInWithPopup(auth, provider);
-            
-            showMessage('User Login ;) '+ credential.user.displayName , 'success');
+
+            showMessage('User Login ;) ' + credential.user.displayName, 'success');
             window.location.href = "../index.html";
 
         } catch (error) {
@@ -149,22 +145,21 @@ const renderSignUpGoogle =  () => {
             }
         }
 
-    
+
     });
 
-    
+
 }
 
 const renderSignUpFacebook = () => {
     let signInFacebook = document.getElementById('signInFacebook');
-    console.log(signInFacebook);
 
-    signInFacebook.addEventListener('click', async() => {
+    signInFacebook.addEventListener('click', async () => {
 
         let provider = new FacebookAuthProvider();
         try {
             let credential = await signInWithPopup(auth, provider);
-            showMessage('User Login ;) '+ credential.user.displayName , 'success');
+            showMessage('User Login ;) ' + credential.user.displayName, 'success');
             window.location.href = "../index.html";
 
         } catch (error) {
@@ -184,7 +179,7 @@ const renderSignUpFacebook = () => {
 
         }
 
-    
+
     });
 
 }
@@ -202,10 +197,14 @@ const renderSignUp = () => {
         let password2 = document.getElementById('password2').value;
         let terms = document.getElementById('terms').checked;
         let obj = {
+            displayName: userName,
             email: email,
             password: password,
             password2: password2
         }
+        /*
+            hacer el guardado de base de datos 
+        */
         //verifico que el password sea igual al password2 y que este marcada la casiilla de terminos y condiciones
 
         if (obj.password === obj.password2 && terms) {
@@ -217,16 +216,14 @@ const renderSignUp = () => {
 
 
                     const user = userCredential.user;
-                    console.log(user);
                     // ...
                     showMessage('User created :D', 'success');
                     //quito el href para que no me redireccione a la pagina de login
-                    
+
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log(errorCode, errorMessage);
                     if (errorCode === 'auth/weak-password') {
                         showMessage('The password is too weak.', 'error');
                     }
@@ -239,11 +236,10 @@ const renderSignUp = () => {
 
                     // ..
                 });
-            console.log(obj);
         } else {
             if (!terms) {
                 showMessage('You must accept the terms and conditions', 'error');
-            }else{
+            } else {
                 showMessage('Passwords do not match', 'error');
 
             }
@@ -268,7 +264,7 @@ const logout = (userLogin) => {
             showMessage('User Logout', 'success');
             //elimino todo el localstorage carritodata
             renderBtnCarrito();
-            
+
             nav();
         }).catch((error) => {
             // An error happened.
@@ -294,7 +290,7 @@ const getPr = async (ini, fn) => {
 
 const renderCard = (clothes) => {
     return `
-<div class="col-6 col-sm-4 card-ctn" id="${clothes.id}" data-category="${clothes.category}">
+<div class="col-6 col-sm-4 card-ctn cardPr" id="card-${clothes.id}" data-category="${clothes.category}">
     <div class="card p-0 bg-inicia effect border border-dark rounded-4">
     <img src="${clothes.image}" class="card-img-top card_sm rounded-4 img-prod" alt="${clothes.title}">
     <div class="card-img-overlay d-flex flex-column justify-content-between p-0">
@@ -473,31 +469,176 @@ const renderCards = async () => {
     renderBtnFav(favDataLS, containerCards1)
     getCoupon();
 }
+/*
+
+
+
+
+
+
+
+const   handleScroll = () => {
+    let cardEnPantalla = document.querySelectorAll('.card')
+    let ultCard = cardEnPantalla[cardEnPantalla.length-1];
+   
+    //obtengo el ultimo nro de item
+        let ult = nrosItm + index;
+       // console.log(ultCard.id);
+
+    //comparo si se vio el ultimo
+        if (ultCard.id == ult) {
+            //observo el ultimo item de la pantalla
+            observer.observe(ultCard);
+        }
+    
+
+}
+
+*/
+
+const observer = new IntersectionObserver(async(cardObs, observer) => {
+    let data = await getAllArticles();
+    let container = document.querySelector("#container-cards");
+    let pageSize = JSON.parse(localStorage.getItem("pageSize")) || 7;
+    let pageNumber = JSON.parse(localStorage.getItem("pageNumber")) || 1;
+    //verifico que no tenga valor ningun checkbox , select o input
+    //obtengo los checkbox seleccionados
+  
+
+
+    cardObs.forEach((card) => {
+        if (card.isIntersecting) {
+            observer.unobserve(card.target);
+            
+            // Actualizar la cantidad de productos a renderizar
+            pageNumber += 1;
+            localStorage.setItem('pageNumber', pageNumber);
+            
+            let startIndex = (pageNumber - 1) * pageSize;
+            let endIndex = startIndex + pageSize;
+            let productsToRender = data.slice(startIndex, endIndex);
+            // Renderizar los productos
+            renderProducts(productsToRender, pageNumber);
+            
+            // Si aún quedan productos por renderizar, establecer el observer en la última card
+            if (endIndex < data.length) {
+                let cardEnPantalla = document.querySelectorAll('.cardPr');
+                let ultCard =  cardEnPantalla[cardEnPantalla.length - 1];
+                console.log(ultCard);
+                observer.observe(ultCard);
+            }
+        }
+    });
+},{
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 1.0 
+});
+const handleScroll = async (prFilter = [], page = 1) => {
+    let data = prFilter.length === 0 ? await getAllArticles() : prFilter;
+    let pageSize = JSON.parse(localStorage.getItem("pageSize")) || 7;
+    let pageNumber = page;
+  
+
+    
+    /*
+    if (check.length > 0 || select.length > 0 || input.length > 0) {
+        console.log(check, select, input);
+    }*/
+
+    localStorage.setItem('pageNumber', pageNumber);
+    
+    // Obtener la cantidad de productos a renderizar
+    let startIndex = (pageNumber - 1) * pageSize;
+    let endIndex = startIndex + pageSize;
+    let productsToRender = data.slice(startIndex, endIndex);
+    
+    // Renderizar los productos
+    renderProducts(productsToRender, pageNumber);
+    
+    // Si aún quedan productos por renderizar, establecer el observer en la última card
+    if (endIndex < data.length) {
+        let cardEnPantalla = document.querySelectorAll('.cardPr');
+        let ultCard =  cardEnPantalla[cardEnPantalla.length - 1];
+        console.log(ultCard);
+        observer.observe(ultCard);
+    }
+};
+
 
 //renderizo todos los productos
-const renderProducts = async () => {
-    //renderBtnCarrito()
-
+const renderProducts = async (prFilter = [], page = 1) => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
-    let container = document.querySelector("#container-cards")
-    let data = await getAllArticles();
-    renderCarrito(carritoDataLS)
-    let cantElem = container.childElementCount;
+    let container = document.querySelector("#container-cards");
+    let productsToRender = [];
 
-    if (cantElem != 0 && container != null) {
+    let inptTxt = document.querySelector('.input-search');
+    let select = document.querySelector('.form-select');
+    //obtengo los checkbox seleccionados
+
+    let checkbox = document.querySelectorAll('.form-check-input:checked');
+    //si alguno de los filtros tiene valor, filtro los productos
+ 
+    
+
+    if (prFilter.length !== 0) {
+    
+        productsToRender = prFilter;
+    } else {
+        let data = await getAllArticles();
         container.innerHTML = "";
+        let pageSize = JSON.parse(localStorage.getItem("pageSize")) || 5;
+        let pageNumber = page;
+        let startIndex = (pageNumber - 1) * pageSize;
+        let endIndex = startIndex + pageSize;
+        localStorage.setItem("flag", false);
+        console.log("flag", localStorage.getItem("flag"));
+        //creo en localstorage el flag
+        
+        productsToRender = data.slice(startIndex, endIndex);
     }
-    data.forEach(element => {
-        container.innerHTML += renderCard(element)
+    //si existe el container, lo vacio
+    if (container) {    
+        productsToRender.forEach(element => {
+            container.insertAdjacentHTML("beforeend", renderCard(element));
+        });
+        if (checkbox.length > 0 || select.value !== "all" || inptTxt.value !== "") {
 
-    });
-    addOpcColorTalle()
-    addCarrito(carritoDataLS, data)
+            //modifico el flag a true
+            localStorage.setItem("flag", true);
+            observer.disconnect();
+        }
+        //en caso de tener valor alguno de los filtros, y luego se borre, vuelvo a renderizar todos los productos
+        if (checkbox.length === 0 && select.value === "all" && inptTxt.value === "" && localStorage.getItem("flag") === "false") {
+
+            //activo el observer con la ultima card
+            let cardEnPantalla = document.querySelectorAll('.cardPr');
+            let ultCard =  cardEnPantalla[cardEnPantalla.length - 1];
+            console.log(ultCard);
+            //si existe la ultima card, la observo ,
+        /*    if (ultCard){
+                observer.observe(ultCard);
+
+            }else{
+                //si no existe la ultima card, renderizo todos los productos
+                observer.disconnect();
+            }
+            */
+
+
+        }
+        renderFilter(productsToRender)
+    }
+
+      //  
+    
+    renderCarrito(carritoDataLS);
+    addCarrito(carritoDataLS, productsToRender);
+    addOpcColorTalle();
     obtPriceTotal(carritoDataLS);
-    addFav(container)
+    addFav(container);
     renderBtnFav(favDataLS, container);
-}
+};
 const renderFavorites = async () => {
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || [];
     let favDataLS = JSON.parse(localStorage.getItem("fav")) || [];
@@ -695,7 +836,6 @@ const agregarUnPrCarrito = (car) => {
             let opcColor = elem.parentElement.parentElement.querySelector("#color").classList[2];
 
             let opcSize = elem.parentElement.parentElement.querySelector('#talle').classList[1];
-            console.log(opcSize);
             let carritoData = car.find(elem => (elem.id == id) && (elem.color == opcColor) && (elem.size == opcSize))
             if (carritoData) {
                 carritoData.cant += 1;
@@ -827,25 +967,89 @@ const renderResume = () => {
 
 
 const renderFilter = async () => {
-    let products = await getAllArticles();
-    let productCategories = new Set();
-    products.forEach(element => {
-        if (!productCategories.has(element.category)) {
-            productCategories.add(element.category);
-        };
-    });
-    insertCheckbox(productCategories);
-    renderVisibleCards();
-    searchFilter();
-    checkFilter();
-    optionFilter();
-    //filterButton();
-    //searchFilter();
-};
 
-// SHOP SECTION 
-// Filters
-// CheckBox Filters
+    let products = await getAllArticles();
+    let container = document.querySelector("#container-cards");
+
+    //obtengo todas las categorias de los productos en un array sin repetir
+    let categories = products.map(elem => elem.category);
+    categories = [...new Set(categories)];
+    insertCheckbox(categories);
+
+    //capturo el select y el checkbox	
+    let inptTxt = document.querySelector('.input-search');
+    let select = document.querySelector('.form-select');
+    let checkbox = document.querySelectorAll('.check-opt input');
+    let prodFilter = []
+
+    console.log("entra");
+
+    inptTxt.addEventListener('keyup', () => {
+        //lo guardo en prodFilter sin repetir
+        prodFilter = updateFilteredProducts(products, select.value, checkbox, inptTxt);
+        container.innerHTML = "";
+        renderProducts(prodFilter);
+    });
+
+    select.addEventListener('change', () => {
+
+        prodFilter = updateFilteredProducts(products, select.value, checkbox, inptTxt);
+        container.innerHTML = "";
+        renderProducts(prodFilter);
+    });
+
+    checkbox.forEach(elem => {
+        elem.addEventListener('change', () => {
+            prodFilter = updateFilteredProducts(products, select.value, checkbox, inptTxt);
+            container.innerHTML = "";
+            renderProducts(prodFilter);
+        });
+    });
+
+
+    //    
+
+
+};
+const updateFilteredProducts = (products, selectValue, checkbox, impText) => {
+    let filteredProducts = products.filter(product => {
+        let checkboxChecked = false;
+        if (selectValue === 'all') {
+            checkbox.forEach(elem => {
+                if (elem.checked && elem.value === product.category) {
+                    checkboxChecked = true;
+                }
+            });
+            return (
+                (checkboxChecked || !checkbox.length) &&
+                (impText.value === "" || product.title.toLowerCase().includes(impText.value.toLowerCase()))
+            );
+        } else {
+            return (
+                (product.category === selectValue) &&
+                (impText.value === "" || product.title.toLowerCase().includes(impText.value.toLowerCase()))
+            );
+        }
+    });
+    return filteredProducts;
+};
+/*
+const updateFilteredProducts = (products, select, checkbox) => {
+  let filteredProducts = products.filter(product => {
+      let checkboxChecked = false;
+      checkbox.forEach(elem => {
+          if (elem.checked && elem.value === product.category) {
+              checkboxChecked = true;
+          }
+      });
+      return product.category === select.value || checkboxChecked || product.title.toLowerCase().includes(select.value.toLowerCase());
+  });
+  console.log(filteredProducts);
+  return filteredProducts;
+};
+ 
+ 
+*/
 const insertCheckbox = (categories) => {
     let checksCtn = document.querySelector('.check-opt');
     let selectForm = document.querySelector('.form-select')
@@ -896,7 +1100,6 @@ const checkFilter = () => {
                 : null
         });
         //categoriesChecked = categoriesChecked.filter(check => check !== inputBox.value)
-        console.log("categoriesChecked", categoriesChecked)
         cardsFilter(categoriesChecked);
         noSelect(categoriesChecked);
 
@@ -977,7 +1180,6 @@ const searchFilter = () => {
 
     inputSearchEvents.addEventListener("input", (event) => {
         inputEvent = event.target.value.toLowerCase()
-        console.log("inputEvent", inputEvent.length === 0)
 
         visibleCards.forEach(card => {
             let title = card.querySelector(".card-title").textContent.toLowerCase();
@@ -1021,10 +1223,10 @@ const noResultFilter = () => {
 
 //CONTACT
 
-const contactBtnAlert = () =>{
+const contactBtnAlert = () => {
     var contactForm = document.getElementById("contactForm");
     const contactBtn = document.querySelector(".contactBtn");
-    contactBtn.addEventListener("click", (e)=>{
+    contactBtn.addEventListener("click", (e) => {
         e.preventDefault();
         contactAlert();
         contactForm.reset();
@@ -1186,7 +1388,6 @@ const getCardHolder = () => {
     let cardHolder = document.getElementById("card-holder-input")
     cardHolder.addEventListener("keyup", () => {
         let cardName = document.querySelector("#card-holder-input")
-        //console.log("cardName", cardName.value)
         renderCardHolder(cardName.value)
     })
 }
@@ -1269,7 +1470,7 @@ const renderCVV = (value) => {
 //Payment confirmation-------
 const payBtn = () => {
     const payBtn = document.getElementById("pay-btn");
-    
+
     payBtn.addEventListener("click", () => {
         Swal.fire({
             position: 'center',
@@ -1296,10 +1497,12 @@ const renderFinishop = () => {
     getCVV()
     payBtn()
 }
+const products = getAllArticles();
 const nav = () => {
     let URLactual = window.location.pathname.split('/').pop();
     let carritoDataLS = JSON.parse(localStorage.getItem("carritoData")) || []
     renderBtnCarrito();
+
     switch (URLactual) {
         case 'index.html':
             renderCards()
@@ -1310,14 +1513,15 @@ const nav = () => {
             renderResume()
             break;
         case 'shop.html':
-            renderProducts()
-            renderFilter()
+            handleScroll()
+            
             renderCarrito(carritoDataLS)
             break;
         case 'contact.html':
-            renderProducts()
+            renderCarrito(carritoDataLS);
+            obtPriceTotal(carritoDataLS);
             contactBtnAlert()
-        break;
+            break;
         case 'favorites.html':
             renderRecomendItems()
             renderFavorites()

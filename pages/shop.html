@@ -93,14 +93,9 @@
       </div>
     </section>
     <section class="container-shop my-lg-5 my-4">
-      <form class="d-flex" role="search">
-        <div class="input-group flex-nowrap me-2">
-          <input type="text" id="input-search-events" class="form-control" placeholder="Search Clothes" aria-label="Username" aria-describedby="addon-wrapping">
-          <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg></span>
+        <div class="input-group flex-nowrap me-2 filter">
+          <input type="text" id="input-search-events" class="form-control input-search" placeholder="Search Clothes" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-      </form>
     </section>
     <section class="container-shop">
       <div class="row">
@@ -110,8 +105,8 @@
           <h5 class="filter-subtitle fs-5 ps-4 mt-2" style="margin-bottom: 0;">Categories:</h5>
           <div class="row check-opt ms-3 mb-4" id="formCheck-ctn"></div>
           <div class="col-xs-12" style="margin-right: 10px;">
-          <select class="form-select form-resp" id="form-select">
-              <option selected>All Categories</option>
+          <select class="form-select form-resp container" id="form-select">
+              <option value="all">All Categories</option>
           </select>
         </div>
           <!-- Banners -->
@@ -200,7 +195,7 @@
 <script>
   AOS.init();
 </script>
-<script src="../js/main.js" type="module"></script>
+<script src="../js/main.js" type="module" defer></script>
 <script src="../js/profiles.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
