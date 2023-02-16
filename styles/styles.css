@@ -2,6 +2,77 @@
 *{
     font-family: 'Comfortaa', cursive;
 }
+/*NAV*/
+.w-logo {
+    width: 120px;
+}
+.navbar > div > div > ul > li > a{
+    position: relative;
+}
+.navbar > div > div > ul > li > a::before, 
+.navbar > div > div > ul > li > a::after{
+    content: '';
+    border-bottom: 4px solid #8db212;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navbar > div > div > ul > li > a::before {
+    bottom: 0;
+    width: 90%;
+    right: 0;
+}
+
+.navbar > div > div > ul > li > a::after{
+    bottom: -10px;
+    width: 10%;
+    left: 5px;
+}
+.navbar > div > div > ul > li > a.active::before,
+.navbar > div > div > ul > li > a:hover::before{
+    opacity: 1;
+    width: 70%;
+}
+.navbar > div > div > ul > li > a.active::after,
+.navbar > div > div > ul > li > a:hover::after{
+    opacity: 1;
+    width: 40%;
+}
+/*SECTION*/
+.navbar > div > div > div > ul > li > a{
+    position: relative;
+}
+.navbar > div > div > div > ul > li > a::after,
+.navbar > div > div > div > ul > li > a::before
+{
+    content: '';
+    border-bottom: 4px solid #b3679b;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navbar > div > div > div > ul > li > a::before {
+    bottom: 0;
+    width: 90%;
+    right: 0;
+}
+
+.navbar > div > div > div > ul > li > a::after{
+    bottom: -10px;
+    width: 10%;
+    left: 5px;
+}
+
+.navbar > div > div > div > ul > li > a:hover::before{
+    opacity: 1;
+    width: 70%;
+}
+
+.navbar > div > div > div > ul > li > a:hover::after{
+    opacity: 1;
+    width: 40%;
+}
+
 .card_sm {
     height: 390px;
 }
@@ -114,6 +185,7 @@
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
+    border: solid 0.1px #afacac;
 }
 
 /*inicio del tipo input radio*/
@@ -145,6 +217,9 @@
 }
 .publicity-home {
     height: 800px;
+}
+.fs-home {
+    font-size: 25px;
 }
 .bi-plus-lg{
     font-size: 25px;
@@ -286,7 +361,7 @@
 /**/
 .container-vista-carrito{
     position: absolute;
-    width: 360px;
+    width: 390px;
     z-index: 2;
     right: 0px;
     top: 8px;
@@ -434,6 +509,9 @@
     margin-left: 35px;
 }
 
+.fs-card {
+    font-size: 15px;
+}
 .debit-card .trans-card {
     backface-visibility: hidden;
     transition: 1s;
@@ -464,8 +542,6 @@
     border-radius: 20px;
     height: 25vh;
     width: 400px;
-    /* margin: auto;
-    position: absolute; */
 }
 
 .back {
@@ -515,77 +591,94 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
 .form-resp{
     display: none;
 }
-/*NAV*/
-.navbar > div > div > ul > li > a{
-    position: relative;
+
+.bi-facebook:hover {
+    color: #b3679b;
 }
-.navbar > div > div > ul > li > a::before, 
-.navbar > div > div > ul > li > a::after{
-    content: '';
-    border-bottom: 4px solid #8db212;
-    position:absolute;
-    opacity: 0;
-    transition: 0.3s;
+.bi-instagram:hover {
+    color: #b3679b;
 }
-.navbar > div > div > ul > li > a::before {
-    bottom: 0;
-    width: 90%;
-    right: 0;
+.bi-youtube:hover {
+    color: #b3679b;
+}
+.bi-google:hover {
+    color: #b3679b;
+}
+.hidden{
+    display: none;
 }
 
-.navbar > div > div > ul > li > a::after{
-    bottom: -10px;
-    width: 10%;
-    left: 5px;
+/* SWAL Style */
+.swal-text {
+    font-size: 40px;
+  }
+/* Account */
+.w-account {
+    width: 300px;
 }
-.navbar > div > div > ul > li > a.active::before,
-.navbar > div > div > ul > li > a:hover::before{
-    opacity: 1;
-    width: 70%;
+.bg-account {
+    background-image: url(../assets/Bg-blanco.png);
 }
-.navbar > div > div > ul > li > a.active::after,
-.navbar > div > div > ul > li > a:hover::after{
-    opacity: 1;
-    width: 40%;
+.h-account {
+    height: 100vh;
 }
-/*SECTION*/
-.navbar > div > div > div > ul > li > a{
-    position: relative;
+.box-account {
+    width: 300px;
+    background-color: #ffff;
+    padding: 30px 50px;
 }
-.navbar > div > div > div > ul > li > a::after,
-.navbar > div > div > div > ul > li > a::before
-{
-    content: '';
-    border-bottom: 4px solid #b3679b;
-    position:absolute;
-    opacity: 0;
-    transition: 0.3s;
+.btn-log-in {
+    background-color: #c5f81e;
 }
-.navbar > div > div > div > ul > li > a::before {
-    bottom: 0;
-    width: 90%;
-    right: 0;
+.btn-sing-up {
+    background-color: #b3679b;
 }
 
-.navbar > div > div > div > ul > li > a::after{
-    bottom: -10px;
-    width: 10%;
-    left: 5px;
+.btn-log-in:hover, .btn-sing-up:hover {
+    background-color: #202124;
+    color: #ffffff;
 }
 
-.navbar > div > div > div > ul > li > a:hover::before{
-    opacity: 1;
-    width: 70%;
+/* Sign Up */
+.bg-pink {
+    background-color: #b3679b;
 }
-
-.navbar > div > div > div > ul > li > a:hover::after{
-    opacity: 1;
-    width: 40%;
+.w-sing-up {
+    width: 600px;
 }
-
+.form-floating > .form-control, .form-floating >.form-control-plaintext {
+    height: 55px;
+}
+.btn-black {
+    background-color: #000;
+    color: #fff;
+}
+.btn-black:hover {
+    background-color: #cacaca;
+    color: #000;
+}
+/* Login */
+.bg-login {
+    background-color: #c5f81e;
+}
+.fs-7 {
+    font-size: 12px;
+}
+.w-login {
+    width: 350px;
+}
+.w-empty {
+    width: 300px;
+}
+.text-mute {
+    color: #cacaca;
+}
 @media only screen and (max-width: 991px) {
     .publicity-home {
-        height: 450px;
+        height: 400px;
+    }
+    .fs-home {
+        font-size: 19px;
     }
     .content {
         background-position-y: center;
@@ -598,7 +691,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
         display: none;
     }
     .card_sm {
-        height: 300px;
+        height: 250px;
     }
     .form-resp{
         display: inline-block;
@@ -609,12 +702,13 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .form-check{
         display: none;
     }
-
     .publicity-1 {
         height: 200px;
+        margin: 50px 0px;
     }
     .publicity-2{
         height: 200px;
+        margin: 50px 0px;
     }
     .text-sm {
         color: black;
@@ -628,9 +722,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .arrow {
         display: none !important;
     }
-    .card-shop {
+    /* .card-shop {
         height: 270px;
-    }
+    } */
     .container-shop {
         padding: 0px 20px;
     }
@@ -646,17 +740,88 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%, rgba(
     .container-detail {
         height: 50%;
     }
-}
-@media only screen and (max-width: 500px) {
-    .card-shop{
-        height: 190px;
+    .w-account {
+        width: 250px;
+    }
+    .box-account {
+        width: 270px;
+        background-color: #ffff;
+        padding: 30px 45px;
+        margin-top: 10px;
+    }
+    .w-sing-up {
+        width: 290px;
+    }
+    .w-login {
+        width: 250px;
+    }
+    .w-logo {
+        width: 100px;
+    }
+    .box-color {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .debit-card .trans-card {
+        height: 25vh;
+        margin-left: -13px;
+    }
+    .debit-card .trans-card {
+        width: 70vw;
+    }
+    .card-info {
+        height: 59vh;
+    }
+    .fs-card {
+        font-size: 17px;
+    }
+    .container-vista-carrito{
+        width: 300px;
+        right: 0px;
+    }
+    .container-vista-carrito::after{
+        top: -20px;
+        right: 170px;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid #e3e4e7;
+    }
+    .w-empty {
+        width: 250px;
     }
 }
-.hidden{
-    display: none;
+/* @media only screen and (max-width: 896px) {
+    .debit-card {
+        height: 100vh;
+        margin-left: 180px;
+    }
+    .debit-card .trans-card {
+        height: 50vh;
+    }
+    .debit-card .trans-card {
+        width: 50vw;
+    }
+    .card-info {
+        height: 225px;
+    }
+} */
+@media only screen and (max-width: 376px){
+    
+    .debit-card .trans-card {
+        height: 25vh;
+        margin-left: -18px;
+    }
+    .debit-card .trans-card {
+        width: 70vw;
+    }
+    .card-info {
+        height: 73vh;
+    }
+    .fs-card {
+        font-size: 15px;
+    }
 }
-
-/* SWAL Style */
-.swal-text {
-    font-size: 40px;
-  }

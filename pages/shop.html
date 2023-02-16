@@ -11,6 +11,8 @@
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/styles.css">
+          <!--Toastify-->
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <title>Shop</title>
 </head>
 
@@ -18,8 +20,8 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
       <div class="container-fluid mx-lg-4">
-        <a class="navbar-brand" href="../index.html">
-          <img src="../assets/logo.png" alt="Logo" width="100" class="d-inline-block align-text-top">
+        <a class="navbar-brand py-0" href="../index.html">
+          <img src="../assets/logo.png" alt="Logo" class="w-logo d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -39,9 +41,14 @@
             </li>
           </ul>
           <div class="col-lg-6 d-lg-flex justify-content-end text-center">
-            <ul class="navbar-nav gap-lg-3 text-center">
+            <ul class="navbar-nav gap-lg-4 text-center">
               <li class="nav-item">
                 <a class="nav-link fs-3 pb-0 mb-1" href="../pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+              </li>
+              <li class="nav-item">
+                <div>
+                  <a class="nav-link fs-3 pb-0" href="../pages/account.html"><i class="bi bi-person-circle text-black"></i></a>
+                </div>
               </li>
               <li class="nav-item">
                 <!--Carrito de compra-->
@@ -49,7 +56,7 @@
                   <div class="iconCarrito">
                     <button type="button" class="btn btn-carrito  position-relative">
                       <i class="bi bi-bag fs-3 pb-0 mb-1"></i>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
+                      <span class="position-absolute top-0 mt-1 pt-2 start-100 translate-middle badge rounded-pill bg-danger "
                         id="cantProd">
                       </span>
                     </button>
@@ -75,36 +82,31 @@
       </div>
     </nav>
     <div class="card text-bg-dark">
-      <img src="../assets/shop_2.png" class="card-img card-shop" alt="Shop">
+      <img src="../assets/shop_2.png" class="card-img w-100" alt="Shop">
     </div>
   </header>
 
   <main>
     <section data-aos="fade-down" class="fixed-bottom text-end">
       <div class="btn-fixed">
-        <a href="#" class="link-dark me-lg-3 mb-lg-2"><i class="bi bi-arrow-up-circle-fill fs-fix"></i></a>
+        <a href="#" class="link-dark me-lg-3 me-2 mb-lg-2"><i class="bi bi-arrow-up-circle-fill fs-fix"></i></a>
       </div>
     </section>
-    <section class="container my-5">
-      <form class="d-flex" role="search">
-        <div class="input-group flex-nowrap me-2">
-          <input type="text" id="input-search-events" class="form-control" placeholder="Search Clothes" aria-label="Username" aria-describedby="addon-wrapping">
-          <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg></span>
+    <section class="container-shop my-lg-5 my-4">
+        <div class="input-group flex-nowrap me-2 filter">
+          <input type="text" id="input-search-events" class="form-control input-search" placeholder="Search Clothes" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-      </form>
     </section>
     <section class="container-shop">
       <div class="row">
         <!-- Checkbox Filters -->
         <div class="col-lg-3">
-          <h3 class="fs-3">Filter by:</h3>
-          <h5 class="filter-subtitle fs5 ps-4 mt-2" style="margin-bottom: 0;">Categories:</h5>
+          <h3 class="fs-home mb-0">Filter by:</h3>
+          <h5 class="filter-subtitle fs-5 ps-4 mt-2" style="margin-bottom: 0;">Categories:</h5>
           <div class="row check-opt ms-3 mb-4" id="formCheck-ctn"></div>
           <div class="col-xs-12" style="margin-right: 10px;">
-          <select class="form-select form-resp" id="form-select">
-              <option selected>All Categories</option>
+          <select class="form-select form-resp container" id="form-select">
+              <option value="all">All Categories</option>
           </select>
         </div>
           <!-- Banners -->
@@ -137,9 +139,9 @@
   <footer class="mt-4 text-white">
     <!-- Users -->
     <div class="mb-3">
-      <section class="py-4 border-bottom" style="background-color: #B3679B">
+      <section class="py-2 border-bottom" style="background-color: #B3679B">
         <!-- The users paints here -->
-        <div id="footerProfileCtn" class="d-flex"></div>
+        <div id="footerProfileCtn" class="d-flex flex-wrap align-items-end"></div>
       </section>
     </div>
     <!-- Links -->
@@ -166,7 +168,7 @@
           <span class="fs-5 text-center">Follow us in our social media, so that you don't miss a thing.</span>
           <div class="mt-1">
             <a href="https://www.facebook.com/profile.php?id=100089541871469" style="text-decoration: none; color:black ;" target="_blank">
-              <i class="bi bi-facebook fs-3 mx-3"></i>
+              <i class="bi bi-facebook facebook fs-3 mx-3"></i>
           </a>
           <a href="https://www.instagram.com/inicia.shop/" style="text-decoration: none; color:black ;" target="_blank">
               <i class="bi bi-instagram fs-3 mx-3"></i>
@@ -193,7 +195,8 @@
 <script>
   AOS.init();
 </script>
-<script src="../js/main.js"></script>
+<script src="../js/main.js" type="module" defer></script>
 <script src="../js/profiles.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </html>

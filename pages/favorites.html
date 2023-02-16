@@ -18,8 +18,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" style="background-color: #eeeeee;">
           <div class="container-fluid mx-lg-4">
-            <a class="navbar-brand" href="../index.html">
-              <img src="../assets/logo.png" alt="Logo" width="100" class="d-inline-block align-text-top">
+            <a class="navbar-brand py-0" href="../index.html">
+              <img src="../assets/logo.png" alt="Logo" class="w-logo d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler bg-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -39,9 +39,14 @@
                 </li>
               </ul>
               <div class="col-lg-6 d-lg-flex justify-content-end text-center">
-                <ul class="navbar-nav gap-lg-3 text-center">
+                <ul class="navbar-nav gap-lg-4 text-center">
                   <li class="nav-item">
                     <a class="nav-link active fs-3 pb-0 mb-1" href="../pages/favorites.html"><i class="bi bi-heart-fill text-black"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <div>
+                      <a class="nav-link fs-3 pb-0" href="../pages/account.html"><i class="bi bi-person-circle text-black"></i></a>
+                    </div>
                   </li>
                   <li class="nav-item">
                     <!--Carrito de compra-->
@@ -49,7 +54,7 @@
                       <div class="iconCarrito">
                         <button type="button" class="btn btn-carrito  position-relative">
                           <i class="bi bi-bag fs-3"></i>
-                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
+                          <span class="position-absolute top-0 mt-1 pt-2 start-100 translate-middle badge rounded-pill bg-danger "
                             id="cantProd">
                           </span>
                         </button>
@@ -75,17 +80,17 @@
           </div>
         </nav>
         <div class="card text-bg-dark">
-          <img src="../assets/favorites_2.png" class="card-img card-shop" alt="Shop">
+          <img src="../assets/favorites_2.png" class="card-img w-100" alt="Shop">
         </div>
     </header>
 
     <main>
-      <section class="container-shop my-5">
+      <section class="container-shop my-lg-5 mt-4">
         <div class="row row-cols-1 row-cols-lg-4 g-4" id="container-cards">
         </div>
       </section>
     
-      <section>
+      <section class="mt-4">
         <h2 class="cart-title fs-1 col-lg-4 border-green text-lg-start text-center mb-lg-3 mb-4 container-shop">Recommended</h2>
         <div class="row row-cols-1 row-cols-lg-4 g-4 mx-0 text-bg-dark mt-2 container-shop pb-4 rounded-3" id="recomend-items">
         </div>
@@ -96,9 +101,9 @@
     <footer class="mt-4 text-white">
       <!-- Users -->
       <div class="mb-3">
-        <section class="py-4 border-bottom" style="background-color: #B3679B">
+        <section class="py-2 border-bottom" style="background-color: #B3679B">
           <!-- The users paints here -->
-          <div id="footerProfileCtn" class="d-flex"></div>
+          <div id="footerProfileCtn" class="d-flex flex-wrap align-items-end"></div>
         </section>
       </div>
       <!-- Links -->
@@ -125,7 +130,7 @@
             <span class="fs-5 text-center">Follow us in our social media, so that you don't miss a thing.</span>
             <div class="mt-1">
               <a href="https://www.facebook.com/profile.php?id=100089541871469" style="text-decoration: none; color:black ;" target="_blank">
-                  <i class="bi bi-facebook fs-3 mx-3"></i>
+                  <i class="bi bi-facebook facebook fs-3 mx-3"></i>
               </a>
               <a href="https://www.instagram.com/inicia.shop/" style="text-decoration: none; color:black ;" target="_blank">
                   <i class="bi bi-instagram fs-3 mx-3"></i>
@@ -152,6 +157,7 @@
   <script>
     AOS.init();
   </script>
- <script src="../js/main.js"></script>
+ <script src="../js/main.js" type="module"></script>
   <script src="../js/profiles.js"></script>
+  
 </html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/emogi.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/styles.css">
+        <!--Toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Sign Up</title>
+</head>
+
+<body class="bg-pink">
+    <main class="h-account d-flex flex-column align-items-center justify-content-between">
+        <section class="fixed-top mt-md-1 mt-2">
+            <a class="link-light" href="./account.html"><i class="bi bi-arrow-left fs-1 ms-3"></i></a>
+        </section>
+        <section class="border-bottom border-white w-100">
+            <h4 class="text-white my-3 text-center">Create Account</h4>
+        </section>
+        <form class="w-sing-up mt-4 mb-3" id="signUp">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control h-input" id="userName" autocomplete="username" placeholder="username">
+                <label for="floatingInput1">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control h-input" id="email" autocomplete="email" placeholder="email">
+                <label for="floatingInput2">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control h-input" id="password" autocomplete="password" placeholder="Password">
+                <label for="floatingPassword3">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control h-input" id="password2" autocomplete="new-password" placeholder="ConfirmPassword">
+                <label for="floatingPassword4">Confirm Password</label>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <input class="form-check-input" type="checkbox" value="" id="terms">
+                <label class="form-check-label" for="flexCheckDefault">
+                    <a class="link-light ms-lg-3 ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        I accept terms and conditions
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Terms and conditions</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>This website is owned and operated by Iniciatec. These Terms set out the terms
+                                        and conditions under which you may
+                                        use our website and services offered by us. This web page offers visitors an
+                                        urban sports clothing store. By
+                                        accessing or using the web page of our service, you agree that you have read,
+                                        understood and agree to be bound
+                                        by these
+                                    </p>
+                                    <h6 class="text-center">Terms</h6>
+                                    <p>In order to use our website and/or receive our services, you must be at least 18
+                                        years of age, or the legal age
+                                        of majority in your jurisdiction, and possess the legal authority, right and
+                                        freedom to enter into these Terms
+                                        as an agreement binding. You are not permitted to use this website and/or
+                                        receive services if doing so is
+                                        prohibited in your country or under any law or regulation applicable to you.
+                                    </p>
+                                    <p>By purchasing an item, you agree that: (i) you are responsible for reading the
+                                        item's entire listing before
+                                        committing to purchase it; (ii) you are entering into a legally binding contract
+                                        to purchase an item when you
+                                        commit to purchase an item and complete the listing process. check out.</p>
+                                    <p>
+                                        The prices we charge for using our services / for our products are listed on the
+                                        website. We reserve the right
+                                        to change our prices for displayed products at any time and to correct pricing
+                                        errors that may inadvertently
+                                        occur. Additional pricing and sales tax information is available on the checkout
+                                        page.
+                                    </p>
+                                    <p>
+                                        The fee for the services and any other charges that may be incurred in
+                                        connection with your use of the service,
+                                        such as taxes and possible transaction fees, will be charged to your payment
+                                        method on a monthly basis.
+                                        For any undamaged product, simply return it with the included accessories and
+                                        packaging along with the original
+                                        receipt (or gift receipt) within 14 days from the date you received the product,
+                                        and we'll exchange it or offer
+                                        you a refund based on the original payment method. Also, please note the
+                                        following: Products can only be
+                                        returned to the country in which they were originally purchased.
+                                        We may, without prior notice, change the services; stop providing the services
+                                        or any features of the services
+                                        we offer; or create limits for services. We may permanently or temporarily
+                                        suspend access to the Services
+                                        without notice or liability for any or no reason.
+                                        When we receive a valid warranty claim for a product we sell, we will either
+                                        repair the relevant defect or
+                                        replace the product. If we are unable to repair or replace the product within a
+                                        reasonable time, the customer
+                                        will be entitled to a full refund when the product is returned to us. We will
+                                        pay for shipping the repaired or
+                                        replaced products to the customer and the customer will be responsible for
+                                        returning the product to us.
+                                        The Service and all materials included in or transferred, including, without
+                                        limitation, software, images, text,
+                                        graphics, logos, patents, trademarks, service marks, copyrights, photographs,
+                                        audio, video, music, and all
+                                        Rights of Intellectual Property related to them, are the exclusive property of
+                                        Iniciatec. Except as expressly
+                                        stated herein, nothing in these Terms shall be deemed to create a license in or
+                                        under any such Intellectual
+                                        Property Rights, and you agree not to sell, license, rent, modify, distribute,
+                                        copy, reproduce, transmit ,
+                                        publicly display, publicly perform, publish, adapt, edit, or create derivative
+                                        works thereof.
+                                    </p>
+                                    <p>
+                                        We may permanently or temporarily terminate or suspend your access to the
+                                        Service without notice and liability
+                                        for any reason, including if in our sole determination you violate any provision
+                                        of these Terms or any
+                                        applicable law or regulation. You may discontinue use and request to cancel your
+                                        account and/or any service at
+                                        any time. Notwithstanding anything to the contrary in the foregoing, with
+                                        respect to automatically renewed
+                                        subscriptions to paid services, such subscriptions will be suspended only upon
+                                        the expiration of the applicable
+                                        period for which you have already made payment.
+                                        You agree to indemnify and hold Iniciatec harmless from and against any claim,
+                                        loss, liability, claim, or
+                                        expense (including attorneys' fees) that third parties bring against you as a
+                                        result of, arising out of, or in
+                                        connection with your use of the Site. website or any of the services offered on
+                                        the website.
+                                        To the fullest extent permitted by applicable law, in no event shall Iniciatec
+                                        be liable for any indirect,
+                                        punitive, incidental, special, consequential, or exemplary damages, including,
+                                        but not limited to, damages for
+                                        loss of profits, goodwill, use, data. or other intangible losses, arising out of
+                                        or related to the use of, or
+                                        inability to use, the Service.
+                                        To the fullest extent permitted by applicable law, Iniciatec assumes no
+                                        responsibility for (i) errors, errors,
+                                        or inaccuracies in content; (ii) personal injury or property damage, of whatever
+                                        nature, as a result of your
+                                        access to or use of our service; and (iii) any unauthorized access to or use of
+                                        our secure servers and/or any
+                                        personal information stored therein.
+                                        We reserve the right to modify these terms from time to time at our sole
+                                        discretion. Therefore, you should
+                                        review these pages periodically. When we change the Terms in a material way, we
+                                        will notify you that material
+                                        changes have been made to the Terms. Your continued use of the Website or our
+                                        Service after such change
+                                        constitutes your acceptance of the new Terms. If you do not agree to any of
+                                        these Terms or any future version of
+                                        the Terms, do not use or access (or continue to access) the Website or the
+                                        Service.
+                                        You agree to receive our messages and promotional materials from time to time,
+                                        by post, email or any other
+                                        contact form you provide us (including your phone number for calls or text
+                                        messages). If you do not wish to
+                                        receive such promotional materials or notices, simply let us know at any time.
+                                    </p>
+                                    <p>
+                                        These Terms, the rights and remedies provided herein, and any and all claims and
+                                        disputes related to this and/or
+                                        the Services, shall be governed by, construed and enforced in all respects
+                                        solely and exclusively in accordance
+                                        with the internal substantive laws of Argentina, without respecting its
+                                        principles of conflict of laws. All
+                                        claims and disputes will be presented and you agree that they will be decided
+                                        exclusively by a court of
+                                        competent jurisdiction located in the Autonomous City of Buenos Aires. The
+                                        application of the United Nations
+                                        Convention of Contracts for the International Sale of Goods is expressly
+                                        excluded.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-black col-9" value="sign-up" id="submit-btn" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <section class="w-100 d-flex flex-column align-items-center mb-5">
+            <div class="w-100">
+                <div class="d-flex w-100 align-items-center">
+                    <div class="col-lg-5 col-4  border-bottom"></div>
+                    <h6 class="col-lg-2 col-4  text-center text-white mt-2">Or sign up with</h6>
+                    <div class="col-lg-5 col-4  border-bottom"></div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between w-login mt-4">
+                <button class="border px-3 py-2 rounded" id="signInFacebook">
+                    <i class="bi bi-facebook fs-1 "></i>
+                </button>
+                <button class="border px-3 py-2 rounded" id="signInGoogle" >
+                        <i class="bi bi-google fs-1"></i>
+
+                </button>
+                <div class="border px-3 py-2 rounded">
+                    <i class="bi bi-apple fs-1 text-mute"></i>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+
+
+<script src="../js/firebase.js" type="module"></script>
+<script src="../js/main.js" type="module"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+</html>
